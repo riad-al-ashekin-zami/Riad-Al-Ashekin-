@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%" shape-rendering="geometricPrecision">
+  <!-- Brand Color Canvas (#5F4AFB) -->
+  <rect width="512" height="512" rx="112" fill="#5F4AFB" />
+  
+  <g fill="#FFFFFF">
+    <!-- Shape 1: Top-Left Geometric L-Block -->
+    <path d="M 90 70 H 318 V 184 H 204 V 298 H 90 Z" />
+    
+    <!-- Shape 2: Right Bowl & Dynamic Geometric Leg -->
+    <path d="
+      M 318 184
+      H 432
+      V 298
+      C 432 360 388 388 338 350
+      L 412 442
+      H 278
+      L 204 368
+      V 298
+      A 114 114 0 0 0 318 184
+      Z
+    " />
+  </g>
+</svg>

@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Soft gray/purple backgrounds for light theme */
+  --color-brand-50: #f8f7fb;
+  --color-brand-100: #f3f0f8;
+  --color-brand-200: #e6def3;
+  --color-brand-300: #d5c8eb;
+  --color-brand-400: #beaee0;
+  --color-brand-500: #a38dd2;
+  --color-brand-600: #8469c0;
+  --color-brand-700: #684da7;
+  --color-brand-800: #49337e;
+  --color-brand-900: #291a4b;
+  --color-brand-950: #150d28;
+
+  /* Vivid Purple Accents (like Image 1 & 2 buttons) */
+  --color-accent-50: #f4f0ff;
+  --color-accent-100: #ece4ff;
+  --color-accent-200: #dcd0ff;
+  --color-accent-300: #c6b2ff;
+  --color-accent-400: #ac8bff;
+  --color-accent-500: #8f5aff;
+  --color-accent-600: #7839ee; 
+  --color-accent-700: #6627d3;
+  --color-accent-800: #5521b2;
+  --color-accent-900: #471d93;
+
+  --color-growth-50: #f0fdf4;
+  --color-growth-100: #dcfce7;
+  --color-growth-200: #bbf7d0;
+  --color-growth-500: #22c55e;
+  --color-growth-600: #16a34a;
+  --color-growth-900: #14532d;
+
+  --color-strategy-50: #f5f3ff;
+  --color-strategy-100: #ede9fe;
+  --color-strategy-200: #ddd6fe;
+  --color-strategy-500: #8b5cf6;
+  --color-strategy-600: #7c3aed;
+  --color-strategy-900: #4c1d95;
+}
+
+@layer base {
+  body {
+    @apply bg-[#f9f8fc] text-brand-900 font-sans antialiased selection:bg-accent-600 selection:text-white;
+  }
+}
+
+@layer utilities {
+  .shadow-soft-purple {
+    box-shadow: 0 20px 50px -10px rgba(120, 57, 238, 0.08), 0 10px 30px -15px rgba(120, 57, 238, 0.05);
+  }
+  .shadow-glow {
+    box-shadow: 0 0 40px rgba(120, 57, 238, 0.3);
+  }
+  .bg-glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  .bg-glass-dark {
+    background: rgba(21, 13, 40, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .bg-radial-purple {
+    background: radial-gradient(circle at center, rgba(143, 90, 255, 0.15) 0%, rgba(255,255,255,0) 70%);
+  }
+  .bg-radial-purple-strong {
+    background: radial-gradient(circle at center, rgba(120, 57, 238, 0.8) 0%, rgba(71, 29, 147, 0) 70%);
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+

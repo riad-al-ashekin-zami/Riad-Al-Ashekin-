@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" fill="none">
+  <defs>
+    <linearGradient id="sylhet-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0617" />
+      <stop offset="45%" stop-color="#150d28" />
+      <stop offset="100%" stop-color="#0e171b" />
+    </linearGradient>
+    <linearGradient id="purple-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7c3aed" />
+      <stop offset="50%" stop-color="#9333ea" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+    <linearGradient id="emerald-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#059669" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+    <linearGradient id="card-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1f143a" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#130b26" stop-opacity="0.95" />
+    </linearGradient>
+    <pattern id="sylhet-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#442a78" stroke-width="0.8" stroke-opacity="0.35" />
+    </pattern>
+    <filter id="glow-blur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="35" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1200" height="630" fill="url(#sylhet-bg)" />
+  <rect width="1200" height="630" fill="url(#sylhet-grid)" />
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="180" cy="160" r="160" fill="#7c3aed" opacity="0.28" filter="url(#glow-blur)" />
+  <circle cx="1020" cy="380" r="190" fill="#10b981" opacity="0.22" filter="url(#glow-blur)" />
+  <circle cx="650" cy="280" r="220" fill="#8b5cf6" opacity="0.12" filter="url(#glow-blur)" />
+
+  <!-- Top Badge -->
+  <g transform="translate(80, 65)">
+    <rect x="0" y="0" width="280" height="34" rx="17" fill="#241445" stroke="#7c3aed" stroke-width="1.2" />
+    <circle cx="18" cy="17" r="4.5" fill="#10b981" />
+    <text x="32" y="22" fill="#d8b4fe" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="800" letter-spacing="1.5">INDUSTRY RANKINGS • SYLHET</text>
+  </g>
+
+  <!-- Main Headline Block -->
+  <g transform="translate(80, 142)">
+    <text x="0" y="0" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="44" font-weight="900" letter-spacing="-0.8">Best 8 SEO Experts in Sylhet</text>
+    <text x="0" y="44" fill="#c084fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="600">Local Search Intelligence, GBP Dominance &amp; Technical Authority</text>
+  </g>
+
+  <!-- Left: Visual Radar / Local Pack Card -->
+  <g transform="translate(80, 235)">
+    <rect width="480" height="290" rx="20" fill="url(#card-grad)" stroke="#4a2e82" stroke-width="1.2" />
+    
+    <!-- Card Header -->
+    <rect x="24" y="20" width="130" height="26" rx="13" fill="#311a5e" />
+    <text x="36" y="37" fill="#a78bfa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="700" letter-spacing="1">LOCAL MAP RADAR</text>
+    
+    <!-- Radar concentric rings -->
+    <g transform="translate(130, 160)">
+      <circle r="75" fill="none" stroke="#4c2c8f" stroke-width="1" stroke-dasharray="3,3" opacity="0.6" />
+      <circle r="50" fill="none" stroke="#6d3dc5" stroke-width="1.2" opacity="0.7" />
+      <circle r="25" fill="#1e113b" stroke="#8b5cf6" stroke-width="1.5" />
+      
+      <!-- Sweep line -->
+      <line x1="0" y1="0" x2="55" y2="-50" stroke="#10b981" stroke-width="2" stroke-linecap="round" opacity="0.8" />
+      
+      <!-- Radar Target Blips -->
+      <circle cx="0" cy="0" r="5" fill="#c084fc" />
+      <circle cx="35" cy="-30" r="4" fill="#10b981" />
+      <circle cx="-38" cy="22" r="3.5" fill="#38bdf8" />
+      <circle cx="48" cy="35" r="3" fill="#f59e0b" />
+    </g>
+
+    <!-- Location Tags -->
+    <g transform="translate(245, 80)">
+      <rect x="0" y="0" width="205" height="52" rx="12" fill="#1a1130" stroke="#3b2368" stroke-width="1" />
+      <text x="14" y="23" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600">PRIMARY HUB</text>
+      <text x="14" y="42" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700">Sylhet Division, BD</text>
+    </g>
+
+    <g transform="translate(245, 145)">
+      <rect x="0" y="0" width="205" height="52" rx="12" fill="#1a1130" stroke="#3b2368" stroke-width="1" />
+      <text x="14" y="23" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600">LOCAL PACK RANK #1</text>
+      <text x="14" y="42" fill="#34d399" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700">Riad Al Ashekin</text>
+    </g>
+
+    <g transform="translate(245, 210)">
+      <rect x="0" y="0" width="205" height="52" rx="12" fill="#1a1130" stroke="#3b2368" stroke-width="1" />
+      <text x="14" y="23" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600">AUDITED PRACTITIONERS</text>
+      <text x="14" y="42" fill="#d8b4fe" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700">8 Vetted Specialists</text>
+    </g>
+  </g>
+
+  <!-- Right: Technical Criteria & Ranking Matrix Card -->
+  <g transform="translate(600, 235)">
+    <rect width="520" height="290" rx="20" fill="url(#card-grad)" stroke="#4a2e82" stroke-width="1.2" />
+
+    <g transform="translate(26, 26)">
+      <text x="0" y="0" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="17" font-weight="800">Practitioner Evaluation Criteria</text>
+      <text x="0" y="22" fill="#a78bfa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="500">Multivariate analysis of search velocity, technical depth &amp; track record</text>
+    </g>
+
+    <!-- Score 1: Local Search Dominance -->
+    <g transform="translate(26, 85)">
+      <text x="0" y="14" fill="#e2e8f0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700">Google Maps 3-Pack &amp; Local Entity SEO</text>
+      <text x="415" y="14" fill="#34d399" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="800">98.6%</text>
+      <rect x="0" y="24" width="468" height="7" rx="3.5" fill="#20133b" />
+      <rect x="0" y="24" width="460" height="7" rx="3.5" fill="url(#emerald-grad)" />
+    </g>
+
+    <!-- Score 2: Technical Architecture -->
+    <g transform="translate(26, 140)">
+      <text x="0" y="14" fill="#e2e8f0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700">Core Web Vitals &amp; Semantic Crawl Budget</text>
+      <text x="415" y="14" fill="#a78bfa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="800">96.2%</text>
+      <rect x="0" y="24" width="468" height="7" rx="3.5" fill="#20133b" />
+      <rect x="0" y="24" width="445" height="7" rx="3.5" fill="url(#purple-grad)" />
+    </g>
+
+    <!-- Score 3: Conversion & Commercial ROI -->
+    <g transform="translate(26, 195)">
+      <text x="0" y="14" fill="#e2e8f0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700">Client Revenue Multiplier &amp; Lead Quality</text>
+      <text x="415" y="14" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="800">94.8%</text>
+      <rect x="0" y="24" width="468" height="7" rx="3.5" fill="#20133b" />
+      <rect x="0" y="24" width="438" height="7" rx="3.5" fill="#38bdf8" />
+    </g>
+
+    <!-- Footer Attribution inside card -->
+    <g transform="translate(26, 248)">
+      <circle cx="8" cy="8" r="4" fill="#10b981" />
+      <text x="22" y="12" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="500">Authored by <tspan fill="#ffffff" font-weight="700">Riad Al Ashekin</tspan> • Computer Science Engineer</text>
+    </g>
+  </g>
+
+  <!-- Bottom Brand Watermark -->
+  <g transform="translate(80, 580)">
+    <text x="0" y="0" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" letter-spacing="0.5">RIADALASHEKIN.COM • OFFICIAL EDITORIAL DIRECTORY</text>
+    <text x="1040" y="0" fill="#7c3aed" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700">2026 EDITION</text>
+  </g>
+</svg>

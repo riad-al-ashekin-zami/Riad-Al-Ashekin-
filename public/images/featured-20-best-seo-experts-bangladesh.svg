@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" fill="none">
+  <defs>
+    <linearGradient id="exp-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0616" />
+      <stop offset="50%" stop-color="#150d28" />
+      <stop offset="100%" stop-color="#180e1b" />
+    </linearGradient>
+    <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="50%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#fde047" />
+    </linearGradient>
+    <linearGradient id="violet-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+    <linearGradient id="exp-card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1f143a" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#110a22" stop-opacity="0.96" />
+    </linearGradient>
+    <pattern id="exp-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#482d7c" stroke-width="0.8" stroke-opacity="0.32" />
+    </pattern>
+    <filter id="exp-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="35" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1200" height="630" fill="url(#exp-bg)" />
+  <rect width="1200" height="630" fill="url(#exp-grid)" />
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="200" cy="180" r="180" fill="#f59e0b" opacity="0.20" filter="url(#exp-glow)" />
+  <circle cx="1020" cy="360" r="190" fill="#8b5cf6" opacity="0.26" filter="url(#exp-glow)" />
+  <circle cx="620" cy="280" r="220" fill="#a855f7" opacity="0.14" filter="url(#exp-glow)" />
+
+  <!-- Top Badge -->
+  <g transform="translate(80, 65)">
+    <rect x="0" y="0" width="310" height="34" rx="17" fill="#251744" stroke="#f59e0b" stroke-width="1.2" />
+    <circle cx="18" cy="17" r="4.5" fill="#f59e0b" />
+    <text x="32" y="22" fill="#fef3c7" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="800" letter-spacing="1.5">NATIONAL RANKINGS • 2026 EDITION</text>
+  </g>
+
+  <!-- Main Headline Block -->
+  <g transform="translate(80, 142)">
+    <text x="0" y="0" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="44" font-weight="900" letter-spacing="-0.8">20 Best SEO Experts in Bangladesh</text>
+    <text x="0" y="44" fill="#fbbf24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="600">Vetted Practitioner Profiles, Search Intelligence &amp; Organic Growth</text>
+  </g>
+
+  <!-- Left: Featured Rank #1 Card for Riad Al Ashekin -->
+  <g transform="translate(80, 235)">
+    <rect width="500" height="290" rx="20" fill="url(#exp-card)" stroke="#55388c" stroke-width="1.2" />
+
+    <!-- Card Header Tag -->
+    <g transform="translate(26, 24)">
+      <rect width="180" height="26" rx="13" fill="#2d1754" stroke="#f59e0b" stroke-width="1" />
+      <circle cx="14" cy="13" r="4" fill="#f59e0b" />
+      <text x="26" y="17" fill="#fde68a" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="800" letter-spacing="1">RANK #1 PRACTITIONER</text>
+    </g>
+
+    <!-- Profile Identity -->
+    <g transform="translate(26, 75)">
+      <text x="0" y="24" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="26" font-weight="800">Riad Al Ashekin</text>
+      <text x="0" y="48" fill="#d8b4fe" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13.5" font-weight="600">Principal SEO Consultant • CS Engineer</text>
+    </g>
+
+    <!-- Track Record Highlights -->
+    <g transform="translate(26, 150)">
+      <rect width="448" height="52" rx="12" fill="#180e2f" stroke="#3b2368" stroke-width="1" />
+      <text x="16" y="22" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700">CORE SPECIALIZATION</text>
+      <text x="16" y="41" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700">Enterprise Technical SEO, Entity Authority &amp; SaaS Scale</text>
+    </g>
+
+    <g transform="translate(26, 215)">
+      <rect width="448" height="52" rx="12" fill="#180e2f" stroke="#3b2368" stroke-width="1" />
+      <text x="16" y="22" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700">TRACK RECORD &amp; EXPERIENCE</text>
+      <text x="16" y="41" fill="#34d399" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700">6+ Years • International SaaS, US, UK &amp; BD Markets</text>
+    </g>
+  </g>
+
+  <!-- Right: 20 Practitioners Ecosystem Matrix -->
+  <g transform="translate(615, 235)">
+    <rect width="505" height="290" rx="20" fill="url(#exp-card)" stroke="#55388c" stroke-width="1.2" />
+
+    <g transform="translate(26, 26)">
+      <text x="0" y="0" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="800">Scoring &amp; Audit Methodology</text>
+      <text x="0" y="22" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="500">Unbiased evaluation across 20 high-performing specialists</text>
+    </g>
+
+    <!-- Grid of 4 Quadrants -->
+    <g transform="translate(26, 75)">
+      <!-- Quadrant 1 -->
+      <g transform="translate(0, 0)">
+        <rect width="215" height="85" rx="14" fill="#140c26" stroke="#382161" stroke-width="1" />
+        <text x="16" y="26" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700">TECHNICAL AUDIT DEPTH</text>
+        <text x="16" y="54" fill="#fbbf24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="900">45-Point</text>
+        <text x="16" y="72" fill="#fde68a" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="600">Architectural Vetting</text>
+      </g>
+
+      <!-- Quadrant 2 -->
+      <g transform="translate(235, 0)">
+        <rect width="215" height="85" rx="14" fill="#140c26" stroke="#382161" stroke-width="1" />
+        <text x="16" y="26" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700">PRACTITIONERS AUDITED</text>
+        <text x="16" y="54" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="900">20 Experts</text>
+        <text x="16" y="72" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="600">Nationwide Selection</text>
+      </g>
+
+      <!-- Quadrant 3 -->
+      <g transform="translate(0, 105)">
+        <rect width="215" height="85" rx="14" fill="#140c26" stroke="#382161" stroke-width="1" />
+        <text x="16" y="26" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700">WHITE-HAT COMPLIANCE</text>
+        <text x="16" y="54" fill="#34d399" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="900">100%</text>
+        <text x="16" y="72" fill="#a7f3d0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="600">Google Policy Aligned</text>
+      </g>
+
+      <!-- Quadrant 4 -->
+      <g transform="translate(235, 105)">
+        <rect width="215" height="85" rx="14" fill="#140c26" stroke="#382161" stroke-width="1" />
+        <text x="16" y="26" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700">ENTERPRISE CONVERSIONS</text>
+        <text x="16" y="54" fill="#c084fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="900">4.8x</text>
+        <text x="16" y="72" fill="#e9d5ff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="600">Median ROI Multiplier</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Watermark Footer -->
+  <g transform="translate(80, 580)">
+    <text x="0" y="0" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" letter-spacing="0.5">RIADALASHEKIN.COM • NATIONAL SEARCH LEADERSHIP DIRECTORY</text>
+    <text x="1040" y="0" fill="#f59e0b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700">2026 EDITION</text>
+  </g>
+</svg>

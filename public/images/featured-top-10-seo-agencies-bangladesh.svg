@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" fill="none">
+  <defs>
+    <linearGradient id="agency-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090514" />
+      <stop offset="50%" stop-color="#120c24" />
+      <stop offset="100%" stop-color="#0a1224" />
+    </linearGradient>
+    <linearGradient id="cyan-blue" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+    <linearGradient id="agency-purple" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#d946ef" />
+    </linearGradient>
+    <linearGradient id="agency-card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#18132e" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#0d091d" stop-opacity="0.95" />
+    </linearGradient>
+    <pattern id="agency-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#2e2154" stroke-width="0.8" stroke-opacity="0.35" />
+    </pattern>
+    <filter id="agency-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="35" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1200" height="630" fill="url(#agency-bg)" />
+  <rect width="1200" height="630" fill="url(#agency-grid)" />
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="240" cy="180" r="180" fill="#06b6d4" opacity="0.22" filter="url(#agency-glow)" />
+  <circle cx="980" cy="360" r="190" fill="#8b5cf6" opacity="0.25" filter="url(#agency-glow)" />
+  <circle cx="620" cy="260" r="210" fill="#3b82f6" opacity="0.14" filter="url(#agency-glow)" />
+
+  <!-- Top Badge -->
+  <g transform="translate(80, 65)">
+    <rect x="0" y="0" width="310" height="34" rx="17" fill="#1b1738" stroke="#06b6d4" stroke-width="1.2" />
+    <circle cx="18" cy="17" r="4.5" fill="#06b6d4" />
+    <text x="32" y="22" fill="#bae6fd" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="800" letter-spacing="1.5">MARKET RESEARCH • ENTERPRISE</text>
+  </g>
+
+  <!-- Main Headline -->
+  <g transform="translate(80, 142)">
+    <text x="0" y="0" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="44" font-weight="900" letter-spacing="-0.8">Top 10 SEO Agencies in Bangladesh</text>
+    <text x="0" y="44" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="600">Enterprise Organic Growth, Link Architecture &amp; Scale Benchmarks</text>
+  </g>
+
+  <!-- Left: Agency Comparison Chart & Growth Vectors -->
+  <g transform="translate(80, 235)">
+    <rect width="520" height="290" rx="20" fill="url(#agency-card)" stroke="#2b2152" stroke-width="1.2" />
+
+    <g transform="translate(26, 26)">
+      <text x="0" y="0" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="800">Organic Growth &amp; Traffic Velocity</text>
+      <text x="0" y="22" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="500">Aggregated performance across 10 vetted agency rosters</text>
+    </g>
+
+    <!-- Visual Chart Bars -->
+    <g transform="translate(26, 75)">
+      <!-- Grid line helpers -->
+      <line x1="0" y1="35" x2="465" y2="35" stroke="#251a44" stroke-width="1" stroke-dasharray="2,2" />
+      <line x1="0" y1="80" x2="465" y2="80" stroke="#251a44" stroke-width="1" stroke-dasharray="2,2" />
+      <line x1="0" y1="125" x2="465" y2="125" stroke="#251a44" stroke-width="1" stroke-dasharray="2,2" />
+
+      <!-- Bar 1: Technical SEO Audit Capability -->
+      <g transform="translate(0, 10)">
+        <text x="0" y="12" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="600">Technical SEO &amp; Enterprise Architecture</text>
+        <text x="430" y="12" fill="#06b6d4" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="800">97%</text>
+        <rect x="0" y="18" width="465" height="7" rx="3.5" fill="#1b1238" />
+        <rect x="0" y="18" width="450" height="7" rx="3.5" fill="url(#cyan-blue)" />
+      </g>
+
+      <!-- Bar 2: High-Authority Link Building -->
+      <g transform="translate(0, 55)">
+        <text x="0" y="12" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="600">Off-Page Authority &amp; Digital PR Distribution</text>
+        <text x="430" y="12" fill="#a78bfa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="800">94%</text>
+        <rect x="0" y="18" width="465" height="7" rx="3.5" fill="#1b1238" />
+        <rect x="0" y="18" width="437" height="7" rx="3.5" fill="url(#agency-purple)" />
+      </g>
+
+      <!-- Bar 3: Content Velocity & Cluster Depth -->
+      <g transform="translate(0, 100)">
+        <text x="0" y="12" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="600">Semantic Topical Maps &amp; Entity Coverage</text>
+        <text x="430" y="12" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="800">91%</text>
+        <rect x="0" y="18" width="465" height="7" rx="3.5" fill="#1b1238" />
+        <rect x="0" y="18" width="423" height="7" rx="3.5" fill="url(#cyan-blue)" />
+      </g>
+
+      <!-- Bar 4: Commercial Lead Conversion -->
+      <g transform="translate(0, 145)">
+        <text x="0" y="12" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="600">Client Revenue Multiplier &amp; Retention Rate</text>
+        <text x="430" y="12" fill="#f43f5e" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="800">89%</text>
+        <rect x="0" y="18" width="465" height="7" rx="3.5" fill="#1b1238" />
+        <rect x="0" y="18" width="414" height="7" rx="3.5" fill="#f43f5e" />
+      </g>
+    </g>
+  </g>
+
+  <!-- Right: Vetted Agency KPI Badges Card -->
+  <g transform="translate(635, 235)">
+    <rect width="485" height="290" rx="20" fill="url(#agency-card)" stroke="#2b2152" stroke-width="1.2" />
+
+    <g transform="translate(26, 26)">
+      <text x="0" y="0" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="800">Benchmark Key Indicators</text>
+      <text x="0" y="22" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="500">Market intelligence parameters scrutinized in the report</text>
+    </g>
+
+    <g transform="translate(26, 75)">
+      <!-- Metric 1 -->
+      <g transform="translate(0, 0)">
+        <rect width="205" height="85" rx="14" fill="#130e26" stroke="#372659" stroke-width="1" />
+        <text x="16" y="28" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="700">AGENCIES AUDITED</text>
+        <text x="16" y="58" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="900">Top 10</text>
+        <text x="16" y="74" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600">Nationwide Leadership</text>
+      </g>
+
+      <!-- Metric 2 -->
+      <g transform="translate(225, 0)">
+        <rect width="205" height="85" rx="14" fill="#130e26" stroke="#372659" stroke-width="1" />
+        <text x="16" y="28" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="700">TRAFFIC SURGE</text>
+        <text x="16" y="58" fill="#34d399" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="900">+312%</text>
+        <text x="16" y="74" fill="#a7f3d0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600">Avg. 12-Mo Client Gain</text>
+      </g>
+
+      <!-- Metric 3 -->
+      <g transform="translate(0, 105)">
+        <rect width="205" height="85" rx="14" fill="#130e26" stroke="#372659" stroke-width="1" />
+        <text x="16" y="28" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="700">CORE UPDATE SAFETY</text>
+        <text x="16" y="58" fill="#d8b4fe" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="900">99.1%</text>
+        <text x="16" y="74" fill="#c084fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600">White-Hat Adherence</text>
+      </g>
+
+      <!-- Metric 4 -->
+      <g transform="translate(225, 105)">
+        <rect width="205" height="85" rx="14" fill="#130e26" stroke="#372659" stroke-width="1" />
+        <text x="16" y="28" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="700">REGIONAL SCOPE</text>
+        <text x="16" y="58" fill="#facc15" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="900">Dhaka &amp; BD</text>
+        <text x="16" y="74" fill="#fde68a" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600">Global SaaS &amp; E-Com</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Watermark Footer -->
+  <g transform="translate(80, 580)">
+    <text x="0" y="0" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" letter-spacing="0.5">RIADALASHEKIN.COM • ENTERPRISE SEO DIRECTORY</text>
+    <text x="1040" y="0" fill="#06b6d4" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700">2026 EDITION</text>
+  </g>
+</svg>
