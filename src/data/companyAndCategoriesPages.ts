@@ -66,6 +66,30 @@ export const companyAndCategoriesPages: PageData[] = [
     relatedSlugs: ['/wp-content/uploads/2025/12/Full-Performance.pdf', '/services/', '/seo-pricing/']
   },
   {
+    slug: '/sitemap/',
+    canonicalUrl: 'https://riadalashekin.com/sitemap/',
+    title: 'HTML & XML Sitemap Indexation Directory | Riad Al Ashekin',
+    metaDescription: 'Complete HTML and XML sitemap catalog for riadalashekin.com. Index of all published articles, SEO utilities, advisory services, and enterprise documentation.',
+    badge: 'Directory & Index',
+    category: 'about-contact',
+    headline: 'Sitemap & Search Engine Indexation Directory',
+    subtitle: 'Comprehensive hierarchy of all 168+ published URLs, canonical mappings, and crawl priorities.',
+    readingTime: 'Quick Index',
+    intro: 'This directory provides a full hierarchical overview of all content, tools, guides, and corporate resources published on riadalashekin.com.',
+    sections: [
+      {
+        title: 'Search Engine Indexation Directives',
+        content: 'Our sitemap is generated in both HTML (for human visitors) and XML (for automated search crawlers) following the Sitemaps.org 0.9 protocol and Google Image extension standards.',
+        bullets: [
+          'XML Sitemap: https://riadalashekin.com/sitemap.xml',
+          'Robots.txt Directive: https://riadalashekin.com/robots.txt',
+          'Google Search Console Verification: 100% crawl indexability'
+        ]
+      }
+    ],
+    relatedSlugs: ['/about-me/', '/services/', '/seo-tools/', '/blog/']
+  },
+  {
     slug: '/contact',
     canonicalUrl: 'https://riadalashekin.com/contact',
     title: 'Contact Riad Al Ashekin | Direct Inquiries & Advisory Retainers',

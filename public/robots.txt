@@ -1,0 +1,11 @@
+# robots.txt for https://riadalashekin.com
+# Verified for Googlebot, Bingbot, and AI Search Crawlers
+
+User-agent: *
+Allow: /
+
+# Internal API endpoints exclusion
+Disallow: /api/
+
+# Sitemap directive pointing to the canonical XML sitemap
+Sitemap: https://riadalashekin.com/sitemap.xml

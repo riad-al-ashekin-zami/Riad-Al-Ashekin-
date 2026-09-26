@@ -236,6 +236,22 @@ export function Footer({ onNavigate }: Props) {
                   Refund Policy
                 </button>
               </li>
+              <li className="pt-2 border-t border-brand-900">
+                <button onClick={() => onNavigate('/sitemap/')} className="text-accent-400 hover:text-accent-300 font-semibold transition-colors text-left flex items-center gap-1">
+                  <span>HTML Sitemap Directory</span>
+                  <span>→</span>
+                </button>
+              </li>
+              <li>
+                <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors text-left block text-brand-400">
+                  XML Sitemap (Index)
+                </a>
+              </li>
+              <li>
+                <a href="/robots.txt" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors text-left block text-brand-400">
+                  Robots.txt Directive
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -243,9 +259,21 @@ export function Footer({ onNavigate }: Props) {
         {/* Bottom bar */}
         <div className="pt-8 border-t border-brand-900/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-brand-500">
           <p>© {new Date().getFullYear()} Riad Al Ashekin (riadalashekin.com). All rights reserved.</p>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 flex-wrap">
+            <button onClick={() => onNavigate('/sitemap/')} className="hover:text-brand-300 font-medium text-brand-400">
+              Sitemap
+            </button>
+            <span>•</span>
+            <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" className="hover:text-brand-300 font-medium text-brand-400">
+              XML
+            </a>
+            <span>•</span>
+            <a href="/robots.txt" target="_blank" rel="noopener noreferrer" className="hover:text-brand-300 font-medium text-brand-400">
+              Robots.txt
+            </a>
+            <span>•</span>
             <button onClick={() => onNavigate('/wp-content/uploads/2025/12/Full-Performance.pdf')} className="hover:text-brand-300">
-              Performance Audit PDF
+              Audit PDF
             </button>
             <span>•</span>
             <button onClick={() => onNavigate('/seo-faqs/')} className="hover:text-brand-300">

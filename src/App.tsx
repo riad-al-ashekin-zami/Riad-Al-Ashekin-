@@ -11,6 +11,7 @@ import { ThingsIveBuilt } from './components/ThingsIveBuilt';
 import { CoFoundedVentures } from './components/CoFoundedVentures';
 import { ConsultingHomepage } from './components/consulting/ConsultingHomepage';
 import { PageRenderer } from './components/PageRenderer';
+import { SitemapPage } from './components/pages/SitemapPage';
 import { Footer } from './components/Footer';
 import { UrlSlugDirectoryModal } from './components/UrlSlugDirectoryModal';
 import { getPageBySlug, normalizePath } from './data/pagesRegistry';
@@ -40,6 +41,12 @@ export default function App() {
     const norm = normalizePath(currentPath);
     if (norm === '/' || norm === '/consulting-preview') {
       document.title = 'Riad Al Ashekin | Business & Technology Consultant & Strategist';
+    } else if (norm === '/sitemap' || norm === '/sitemap/') {
+      document.title = 'HTML & XML Sitemap Indexation Directory | Riad Al Ashekin';
+      const metaDescEl = document.querySelector('meta[name="description"]');
+      if (metaDescEl) {
+        metaDescEl.setAttribute('content', 'Explore the complete sitemap and indexation catalog of 168+ published URLs, tactical guides, SEO utilities, and advisory services for riadalashekin.com.');
+      }
     } else if (norm === '/seo-legacy-homepage' || norm === '/seo-home') {
       document.title = 'Riad Al Ashekin | SEO Consultant & Strategist (Archive)';
     } else {
@@ -84,6 +91,8 @@ export default function App() {
           <ConsultingHomepage onNavigate={handleNavigate} />
         ) : normalizedCurrent === '/consulting-preview' ? (
           <ConsultingHomepage onNavigate={handleNavigate} isPreview />
+        ) : normalizedCurrent === '/sitemap' || normalizedCurrent === '/sitemap/' ? (
+          <SitemapPage onNavigate={handleNavigate} />
         ) : normalizedCurrent === '/seo-legacy-homepage' || normalizedCurrent === '/seo-home' ? (
           <>
             <Hero onNavigate={handleNavigate} />
