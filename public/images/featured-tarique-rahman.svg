@@ -1,0 +1,172 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" fill="none">
+  <defs>
+    <linearGradient id="tr-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#051210" />
+      <stop offset="45%" stop-color="#091c18" />
+      <stop offset="100%" stop-color="#071224" />
+    </linearGradient>
+    <linearGradient id="tr-card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f2923" stop-opacity="0.94" />
+      <stop offset="100%" stop-color="#091b17" stop-opacity="0.98" />
+    </linearGradient>
+    <linearGradient id="tr-accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="50%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#fbbf24" />
+    </linearGradient>
+    <linearGradient id="gold-subtle" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#fbbf24" />
+    </linearGradient>
+    <pattern id="tr-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#134e42" stroke-width="0.8" stroke-opacity="0.32" />
+    </pattern>
+    <filter id="tr-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="35" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1200" height="630" fill="url(#tr-bg)" />
+  <rect width="1200" height="630" fill="url(#tr-grid)" />
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="180" cy="180" r="180" fill="#059669" opacity="0.22" filter="url(#tr-glow)" />
+  <circle cx="1020" cy="380" r="210" fill="#0284c7" opacity="0.20" filter="url(#tr-glow)" />
+  <circle cx="600" cy="240" r="230" fill="#d97706" opacity="0.14" filter="url(#tr-glow)" />
+
+  <!-- Top Badge -->
+  <g transform="translate(80, 56)">
+    <rect x="0" y="0" width="370" height="34" rx="17" fill="#092620" stroke="#10b981" stroke-width="1.2" />
+    <circle cx="18" cy="17" r="4.5" fill="#34d399" />
+    <text x="32" y="22" fill="#a7f3d0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="800" letter-spacing="1.5">BIOGRAPHICAL PROFILE • FACTUAL RECORD</text>
+  </g>
+
+  <!-- Main Headline -->
+  <g transform="translate(80, 132)">
+    <text x="0" y="0" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="46" font-weight="900" letter-spacing="-0.8">Tarique Rahman</text>
+    <text x="0" y="44" fill="#a7f3d0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="600">Prime Minister of Bangladesh &amp; Chairman, Bangladesh Nationalist Party (BNP)</text>
+  </g>
+
+  <!-- Left: Official Profile & Statesman Credentials Card -->
+  <g transform="translate(80, 222)">
+    <rect width="490" height="320" rx="20" fill="url(#tr-card)" stroke="#165b4c" stroke-width="1.2" />
+
+    <!-- Card Header Tag -->
+    <g transform="translate(24, 22)">
+      <rect width="210" height="26" rx="13" fill="#0b382d" stroke="#34d399" stroke-width="1" />
+      <circle cx="14" cy="13" r="4" fill="#34d399" />
+      <text x="26" y="17" fill="#6ee7b7" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10.5" font-weight="800" letter-spacing="1">OFFICIAL LEADERSHIP</text>
+    </g>
+
+    <!-- Statesman Silhouette & Title Block -->
+    <g transform="translate(24, 66)">
+      <rect width="72" height="72" rx="36" fill="#082b22" stroke="#10b981" stroke-width="1.5" />
+      <!-- Stylized Statesman / Diplomat Icon -->
+      <circle cx="36" cy="27" r="13" fill="#34d399" />
+      <path d="M 18 58 C 18 46 26 43 36 43 C 46 43 54 46 54 58 Z" fill="#34d399" />
+      <circle cx="56" cy="18" r="8" fill="#f59e0b" />
+      <path d="M 56 13 L 57.5 16.5 L 61 17 L 58.5 19.5 L 59 23 L 56 21 L 53 23 L 53.5 19.5 L 51 17 L 54.5 16.5 Z" fill="#ffffff" />
+
+      <g transform="translate(88, 14)">
+        <text x="0" y="0" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="18" font-weight="800">Prime Minister of Bangladesh</text>
+        <text x="0" y="20" fill="#fbbf24" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700">Assumed Office: February 17, 2026</text>
+        <text x="0" y="38" fill="#94a3b8" font-family="monospace" font-size="11">13th Parliamentary Election Victory</text>
+      </g>
+    </g>
+
+    <!-- Divider Line -->
+    <line x1="24" y1="156" x2="466" y2="156" stroke="#134e42" stroke-width="1" />
+
+    <!-- Role Summary Points -->
+    <g transform="translate(24, 174)">
+      <!-- Item 1 -->
+      <g transform="translate(0, 0)">
+        <rect width="20" height="20" rx="6" fill="#10b981" fill-opacity="0.2" />
+        <circle cx="10" cy="10" r="3.5" fill="#34d399" />
+        <text x="30" y="15" fill="#e2e8f0" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="600">Chairman, Bangladesh Nationalist Party (BNP)</text>
+      </g>
+
+      <!-- Item 2 -->
+      <g transform="translate(0, 34)">
+        <rect width="20" height="20" rx="6" fill="#10b981" fill-opacity="0.2" />
+        <circle cx="10" cy="10" r="3.5" fill="#34d399" />
+        <text x="30" y="15" fill="#e2e8f0" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="600">Eldest Son of Ziaur Rahman &amp; Khaleda Zia</text>
+      </g>
+
+      <!-- Item 3 -->
+      <g transform="translate(0, 68)">
+        <rect width="20" height="20" rx="6" fill="#10b981" fill-opacity="0.2" />
+        <circle cx="10" cy="10" r="3.5" fill="#34d399" />
+        <text x="30" y="15" fill="#e2e8f0" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="600">Official Election Affidavit &amp; Party Records</text>
+      </g>
+
+      <!-- Item 4 -->
+      <g transform="translate(0, 102)">
+        <rect width="20" height="20" rx="6" fill="#f59e0b" fill-opacity="0.2" />
+        <circle cx="10" cy="10" r="3.5" fill="#fbbf24" />
+        <text x="30" y="15" fill="#fef3c7" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="600">Documented Age: 57 Years (as of Oct 2026)</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Right: Biographical Fact Matrix Card -->
+  <g transform="translate(595, 222)">
+    <rect width="525" height="320" rx="20" fill="url(#tr-card)" stroke="#165b4c" stroke-width="1.2" />
+
+    <!-- Matrix Header -->
+    <g transform="translate(24, 20)">
+      <text x="0" y="12" fill="#a7f3d0" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="800" letter-spacing="0.5">BIOGRAPHICAL AT-A-GLANCE MATRIX</text>
+      <text x="0" y="28" fill="#fbbf24" font-family="monospace" font-size="10">SOURCE: BNP &amp; PARLIAMENTARY ELECTION AFFIDAVIT</text>
+    </g>
+
+    <!-- Table Rows -->
+    <g transform="translate(24, 52)">
+      <!-- Row 1: Date of Birth & Age -->
+      <g transform="translate(0, 0)">
+        <rect width="477" height="42" rx="8" fill="#09231c" stroke="#13473b" stroke-width="1" />
+        <text x="14" y="26" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="600">Date of Birth / Age</text>
+        <text x="210" y="26" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700">November 20, 1968 (Age 57)</text>
+      </g>
+
+      <!-- Row 2: Parents -->
+      <g transform="translate(0, 48)">
+        <rect width="477" height="42" rx="8" fill="#09231c" stroke="#13473b" stroke-width="1" />
+        <text x="14" y="26" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="600">Parents</text>
+        <text x="210" y="26" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700">Ziaur Rahman &amp; Khaleda Zia</text>
+      </g>
+
+      <!-- Row 3: Wife / Spouse -->
+      <g transform="translate(0, 96)">
+        <rect width="477" height="42" rx="8" fill="#09231c" stroke="#13473b" stroke-width="1" />
+        <text x="14" y="26" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="600">Spouse</text>
+        <text x="210" y="26" fill="#34d399" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700">Dr. Zubaida Rahman (Physician / Cardiologist)</text>
+      </g>
+
+      <!-- Row 4: Daughter -->
+      <g transform="translate(0, 144)">
+        <rect width="477" height="42" rx="8" fill="#09231c" stroke="#13473b" stroke-width="1" />
+        <text x="14" y="26" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="600">Daughter</text>
+        <text x="210" y="26" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700">Zaima Zarnaz Rahman (Barrister-at-law)</text>
+      </g>
+
+      <!-- Row 5: Education & Profession -->
+      <g transform="translate(0, 192)">
+        <rect width="477" height="52" rx="8" fill="#072b22" stroke="#10b981" stroke-width="1" />
+        <text x="14" y="22" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="600">Official Profession</text>
+        <text x="14" y="38" fill="#fbbf24" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700">Politician &amp; BNP Chairman</text>
+        <text x="240" y="22" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="600">Documented Education</text>
+        <text x="240" y="38" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700">Higher Secondary (Dhaka)</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom Specs / Authority Bar -->
+  <g transform="translate(80, 564)">
+    <rect width="1040" height="38" rx="10" fill="#061c16" stroke="#0e4337" stroke-width="1" />
+    <text x="24" y="24" fill="#34d399" font-family="monospace" font-size="11" font-weight="bold">PUBLIC RECORD:</text>
+    <text x="130" y="24" fill="#a7f3d0" font-family="monospace" font-size="11">BNP Constitution • Parliamentary Affidavit • Election Commission • Family Lineage • Verified 2026</text>
+    <text x="910" y="24" fill="#fbbf24" font-family="monospace" font-size="11" font-weight="bold">1200 × 630 HD</text>
+  </g>
+</svg>

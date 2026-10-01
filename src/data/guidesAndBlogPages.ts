@@ -2,8 +2,35 @@ import { PageData } from '../types';
 import { singlePageApplicationMarkdown } from './posts/singlePageApplicationPost';
 import { spaSeoMarkdown } from './posts/spaSeoPost';
 import { staticWebsiteSeoMarkdown } from './posts/staticWebsiteSeoPost';
+import { tariqueRahmanMarkdown } from './posts/tariqueRahmanPost';
 
 export const guidesAndBlogPages: PageData[] = [
+  {
+    slug: '/tarique-rahman/',
+    canonicalUrl: 'https://riadalashekin.com/tarique-rahman/',
+    title: 'Tarique Rahman: Age, Wife, Daughter, Family, Education and Political Career',
+    metaDescription: 'Detailed biographical overview of Tarique Rahman, Prime Minister of Bangladesh and BNP Chairman, covering his age, wife, daughter, family, education, and career.',
+    badge: 'Biographical Profile',
+    category: 'guides',
+    headline: 'Tarique Rahman: Age, Wife, Daughter, Family, Education and Political Career',
+    subtitle: 'A factual biographical analysis of Tarique Rahman, Prime Minister of Bangladesh, Chairman of BNP, family lineage, declared assets, and public record.',
+    featuredImage: '/images/featured-tarique-rahman.svg',
+    featuredImageAlt: 'Tarique Rahman Prime Minister of Bangladesh and BNP Chairman Biographical Profile',
+    featuredImageCaption: 'Figure 1.0: Biographical Profile & Documented Public Record: Tarique Rahman, Prime Minister of Bangladesh & BNP Chairman.',
+    readingTime: '10 min read',
+    lastUpdated: 'October 2026',
+    intro: 'Tarique Rahman is a Bangladeshi politician serving as Prime Minister of Bangladesh and Chairman of the Bangladesh Nationalist Party (BNP). This comprehensive profile examines his documented age, family, education, declared assets, and political milestones.',
+    markdownContent: tariqueRahmanMarkdown,
+    sections: [],
+    keyTakeaways: [
+      'Tarique Rahman took office as Prime Minister of Bangladesh on February 17, 2026, following the 13th parliamentary election victory by the BNP.',
+      'He is the eldest son of former president Ziaur Rahman and former prime minister Khaleda Zia.',
+      'Documented date of birth in current BNP records and parliamentary election affidavits is November 20, 1968 (Age 57 as of October 2026).',
+      'Married to Dr Zubaida Rahman, a physician and cardiologist, with one daughter, Zaima Zarnaz Rahman.',
+      'Educational qualifications list study at the University of Dhaka with Higher Secondary noted in official election filings.'
+    ],
+    relatedSlugs: ['/seo-for-static-websites/', '/seo-for-single-page-applications/', '/top-10-saas-development-companies-usa/']
+  },
   {
     slug: '/seo-for-static-websites/',
     canonicalUrl: 'https://riadalashekin.com/seo-for-static-websites/',
@@ -38,8 +65,9 @@ export const guidesAndBlogPages: PageData[] = [
     category: 'guides',
     headline: 'SEO for Single Page Applications: How to Optimize SPAs for Google',
     subtitle: 'An in-depth architectural guide to making JavaScript-driven SPAs easy for Google and modern search engines to discover, render, index, and rank.',
-    featuredImage: '/images/featured-spa-guide.svg',
+    featuredImage: '/images/featured-spa-seo-guide.svg',
     featuredImageAlt: 'SEO for Single Page Applications Architecture and Googlebot Crawling Pipeline',
+    featuredImageCaption: 'Figure 1.0: Googlebot Single Page Application Rendering Pipeline, Render Queue Architecture & Hybrid Rendering Decision Matrix (Source: Riad Al Ashekin Advisory).',
     readingTime: '15 min read',
     lastUpdated: 'October 2026',
     intro: 'SEO for single page applications is the process of making a JavaScript-driven SPA easy for search engines to discover, render, understand, and index. This comprehensive guide covers client-side routing, hybrid rendering, dynamic metadata, History API, canonicalization, and Google indexation strategies.',

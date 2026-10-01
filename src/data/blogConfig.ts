@@ -7,8 +7,9 @@ import { normalizePath } from './pagesRegistry';
  * Featured custom cover images mapped to specific canonical slugs
  */
 export const BLOG_FEATURED_IMAGES: Record<string, string> = {
+  '/tarique-rahman/': '/images/featured-tarique-rahman.svg',
   '/seo-for-static-websites/': '/images/featured-spa-guide.svg',
-  '/seo-for-single-page-applications/': '/images/featured-spa-guide.svg',
+  '/seo-for-single-page-applications/': '/images/featured-spa-seo-guide.svg',
   '/what-is-a-single-page-application/': '/images/featured-spa-guide.svg',
   '/what-is-a-single-page-application-spa/': '/images/featured-spa-guide.svg',
   '/single-page-application/': '/images/featured-spa-guide.svg',
@@ -23,6 +24,7 @@ export const BLOG_FEATURED_IMAGES: Record<string, string> = {
  * Initial core flagship slugs
  */
 export const OFFICIAL_BLOG_SLUGS = [
+  '/tarique-rahman/',
   '/seo-for-static-websites/',
   '/seo-for-single-page-applications/',
   '/what-is-a-single-page-application/',

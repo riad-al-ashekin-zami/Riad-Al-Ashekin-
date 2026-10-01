@@ -329,7 +329,7 @@ export function BlogIndexHub({ onNavigate }: Props) {
                     {/* Metadata Header */}
                     <div className="flex items-center justify-between gap-2 text-[11px] font-mono text-brand-500 pt-1">
                       <span className="font-bold text-accent-700 bg-accent-50 px-2.5 py-0.5 rounded-md border border-accent-200/60 uppercase tracking-wider text-[10px]">
-                        {cat === 'rankings' ? 'Industry Rankings' : 'Technical SEO Guide'}
+                        {article.badge || (cat === 'rankings' ? 'Industry Rankings' : 'Technical SEO Guide')}
                       </span>
                       {article.readingTime && (
                         <span className="flex items-center gap-1">

@@ -56,12 +56,16 @@ export function normalizePath(path: string): string {
 
 // Dedicated featured image lookup for the 4 official blog posts
 const BLOG_FEATURED_IMAGE_MAP: Record<string, { image: string; alt: string }> = {
+  '/tarique-rahman/': {
+    image: '/images/featured-tarique-rahman.svg',
+    alt: 'Tarique Rahman Prime Minister of Bangladesh and BNP Chairman'
+  },
   '/seo-for-static-websites/': {
     image: '/images/featured-spa-guide.svg',
     alt: 'SEO for Static Websites: How to Optimize a Static Site for Search'
   },
   '/seo-for-single-page-applications/': {
-    image: '/images/featured-spa-guide.svg',
+    image: '/images/featured-spa-seo-guide.svg',
     alt: 'SEO for Single Page Applications: How to Optimize SPAs for Google'
   },
   '/what-is-a-single-page-application/': {
