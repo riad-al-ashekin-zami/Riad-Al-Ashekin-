@@ -276,11 +276,11 @@ export function BlogPostLayout({ page, onNavigate }: Props) {
               )}
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-sans font-extrabold text-white tracking-tight leading-[1.15] max-w-5xl">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-sans font-extrabold text-white tracking-tight leading-[1.2] max-w-5xl">
               {page.headline}
             </h1>
 
-            <p className="text-base sm:text-lg lg:text-xl text-brand-200 font-normal leading-relaxed max-w-4xl">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-brand-200 font-normal leading-relaxed max-w-4xl">
               {page.subtitle}
             </p>
 
@@ -289,7 +289,7 @@ export function BlogPostLayout({ page, onNavigate }: Props) {
               {/* Author details */}
               <div className="flex items-center gap-3.5">
                 <div 
-                  className="relative group cursor-pointer w-11 h-11 rounded-full overflow-hidden border-2 border-accent-400/90 shadow-sm shrink-0" 
+                  className="relative group cursor-pointer w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden border-2 border-accent-400/90 shadow-sm shrink-0" 
                   onClick={() => fileInputRef.current?.click()} 
                   title="Click to update author photo"
                 >
@@ -307,14 +307,14 @@ export function BlogPostLayout({ page, onNavigate }: Props) {
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="text-sm font-bold text-white">
+                    <span className="text-xs sm:text-sm font-bold text-white">
                       {SITE_AUTHOR.name}
                     </span>
                     <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-brand-800 text-brand-200 border border-brand-700">
                       {SITE_AUTHOR.badge}
                     </span>
                   </div>
-                  <p className="text-xs text-brand-300">
+                  <p className="text-[11px] sm:text-xs text-brand-300">
                     {SITE_AUTHOR.role}
                   </p>
                 </div>
@@ -324,7 +324,7 @@ export function BlogPostLayout({ page, onNavigate }: Props) {
               <div className="flex items-center gap-2">
                 <button
                   onClick={handleCopyUrl}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-brand-900/80 hover:bg-brand-800 border border-brand-700/80 text-xs font-semibold text-brand-200 transition-colors shadow-2xs cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-brand-900/80 hover:bg-brand-800 border border-brand-700/80 text-xs font-semibold text-brand-200 transition-colors shadow-2xs cursor-pointer min-h-[36px]"
                   title="Copy canonical link"
                 >
                   {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5 text-brand-400" />}
@@ -333,7 +333,7 @@ export function BlogPostLayout({ page, onNavigate }: Props) {
 
                 <button
                   onClick={handleShareLinkedIn}
-                  className="p-1.5 rounded-lg bg-brand-900/80 hover:bg-brand-800 border border-brand-700/80 text-brand-200 transition-colors shadow-2xs cursor-pointer"
+                  className="p-2 rounded-lg bg-brand-900/80 hover:bg-brand-800 border border-brand-700/80 text-brand-200 transition-colors shadow-2xs cursor-pointer min-h-[36px] min-w-[36px] flex items-center justify-center"
                   title="Share on LinkedIn"
                 >
                   <Share2 className="w-4 h-4 text-blue-400" />
@@ -341,7 +341,7 @@ export function BlogPostLayout({ page, onNavigate }: Props) {
 
                 <button
                   onClick={handleShareTwitter}
-                  className="p-1.5 rounded-lg bg-brand-900/80 hover:bg-brand-800 border border-brand-700/80 text-brand-200 transition-colors shadow-2xs cursor-pointer"
+                  className="p-2 rounded-lg bg-brand-900/80 hover:bg-brand-800 border border-brand-700/80 text-brand-200 transition-colors shadow-2xs cursor-pointer min-h-[36px] min-w-[36px] flex items-center justify-center"
                   title="Share on X (Twitter)"
                 >
                   <span className="font-bold text-xs px-1 text-white">𝕏</span>
@@ -354,7 +354,7 @@ export function BlogPostLayout({ page, onNavigate }: Props) {
       </section>
 
       {/* Main Container */}
-      <div className="py-10 sm:py-12 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div className="py-6 sm:py-10 lg:py-12 pb-16 sm:pb-20 px-3.5 sm:px-6 lg:px-8 max-w-7xl mx-auto">
 
         {/* Featured Image - Dedicated High-Fidelity Artwork */}
         <FeaturedImage
@@ -367,15 +367,15 @@ export function BlogPostLayout({ page, onNavigate }: Props) {
         />
 
         {/* Mobile Sticky TOC Drawer Button (Visible on screens < lg) */}
-        <div className="lg:hidden sticky top-[56px] sm:top-[64px] z-30 mb-8 bg-white/95 backdrop-blur-md border border-brand-200 rounded-xl p-2.5 shadow-sm">
+        <div className="lg:hidden sticky top-[56px] sm:top-[64px] z-30 mb-6 sm:mb-8 bg-white/95 backdrop-blur-md border border-brand-200 rounded-xl p-2 sm:p-2.5 shadow-sm">
           <button
             onClick={() => setIsMobileTocOpen(!isMobileTocOpen)}
-            className="w-full flex items-center justify-between text-xs font-semibold text-brand-900 px-2 cursor-pointer"
+            className="w-full flex items-center justify-between text-xs sm:text-sm font-semibold text-brand-900 px-2 py-1 cursor-pointer min-h-[40px]"
           >
             <div className="flex items-center gap-2 truncate">
               <List className="w-4 h-4 text-accent-600 shrink-0" />
-              <span className="text-brand-500">On this page:</span>
-              <span className="font-bold text-brand-950 truncate max-w-[200px]">{currentActiveTitle}</span>
+              <span className="text-brand-500 font-normal">Section:</span>
+              <span className="font-bold text-brand-950 truncate max-w-[190px] sm:max-w-[280px]">{currentActiveTitle}</span>
             </div>
             <div className="flex items-center gap-1.5 shrink-0">
               <span className="text-[11px] font-mono text-accent-700 bg-accent-50 px-2 py-0.5 rounded-full border border-accent-200">
@@ -387,23 +387,23 @@ export function BlogPostLayout({ page, onNavigate }: Props) {
 
           {/* Mobile TOC Dropdown */}
           {isMobileTocOpen && (
-            <div className="mt-3 pt-3 border-t border-brand-100 max-h-80 overflow-y-auto space-y-1">
+            <div className="mt-2.5 pt-2.5 border-t border-brand-100 max-h-72 overflow-y-auto space-y-1">
               {tocItems.map((item, index) => {
                 const isActive = activeSectionId === item.id;
                 return (
                   <button
                     key={`mobile-toc-${item.id}-${index}`}
                     onClick={() => scrollToSection(item.id)}
-                    className={`w-full text-left px-3 py-2 rounded-lg text-xs font-medium transition-colors flex items-center gap-2 cursor-pointer ${
+                    className={`w-full text-left px-3 py-2.5 rounded-lg text-xs sm:text-sm font-medium transition-colors flex items-center gap-2.5 cursor-pointer min-h-[42px] ${
                       isActive 
-                        ? 'bg-accent-100/80 text-accent-900 font-bold border-l-2 border-accent-600' 
+                        ? 'bg-accent-100/90 text-accent-950 font-bold border-l-3 border-accent-600 shadow-2xs' 
                         : 'text-brand-700 hover:bg-brand-50'
                     }`}
                   >
-                    <span className="font-mono text-[10px] text-brand-400 w-5">
+                    <span className="font-mono text-[10px] text-accent-600 font-bold w-5 shrink-0">
                       {String(index + 1).padStart(2, '0')}
                     </span>
-                    <span className="truncate">{item.title}</span>
+                    <span className="truncate leading-snug">{item.title}</span>
                   </button>
                 );
               })}
@@ -599,9 +599,9 @@ export function BlogPostLayout({ page, onNavigate }: Props) {
             {/* Executive Overview / Intro Box (Section Anchor: intro-section) */}
             {page.intro && (
               <section id="intro-section" className="scroll-mt-28 space-y-4">
-                <div className="p-6 sm:p-8 bg-gradient-to-br from-white via-accent-50/20 to-brand-50/40 border border-brand-200/90 rounded-3xl shadow-soft-purple text-brand-900 text-base sm:text-lg leading-relaxed relative overflow-hidden">
-                  <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-accent-600 via-accent-500 to-strategy-600" />
-                  <div className="flex items-center gap-2 text-xs font-bold text-accent-800 uppercase tracking-wider mb-2.5">
+                <div className="p-4 sm:p-6 lg:p-8 bg-gradient-to-br from-white via-accent-50/20 to-brand-50/40 border border-brand-200/90 rounded-2xl sm:rounded-3xl shadow-soft-purple text-brand-900 text-sm sm:text-base md:text-lg leading-relaxed relative overflow-hidden">
+                  <div className="absolute top-0 left-0 w-1.5 sm:w-2 h-full bg-gradient-to-b from-accent-600 via-accent-500 to-strategy-600" />
+                  <div className="flex items-center gap-2 text-xs font-bold text-accent-800 uppercase tracking-wider mb-2 sm:mb-2.5">
                     <Award className="w-4 h-4 text-accent-600" />
                     <span>Executive Overview &amp; Architectural Synthesis</span>
                   </div>
@@ -614,7 +614,7 @@ export function BlogPostLayout({ page, onNavigate }: Props) {
 
             {/* If full Markdown Content is provided, render with MarkdownArticleRenderer */}
             {page.markdownContent && (
-              <article className="scroll-mt-28 space-y-6 bg-white border border-brand-200/90 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-soft-purple">
+              <article className="scroll-mt-28 space-y-6 bg-white border border-brand-200/90 rounded-2xl sm:rounded-3xl p-4 sm:p-8 lg:p-12 shadow-soft-purple">
                 <MarkdownArticleRenderer content={page.markdownContent} onNavigate={onNavigate} />
               </article>
             )}
