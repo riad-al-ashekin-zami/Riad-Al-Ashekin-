@@ -363,7 +363,7 @@ export function SitemapPage({ onNavigate }: Props) {
             </thead>
             <tbody className="divide-y divide-brand-100">
               {filteredItems.map((item, idx) => (
-                <tr key={item.slug} className="hover:bg-brand-50/70 transition-colors">
+                <tr key={`sitemap-row-${item.slug}-${idx}`} className="hover:bg-brand-50/70 transition-colors">
                   <td className="py-3 px-4 text-center font-mono text-brand-400 text-[11px]">
                     {idx + 1}
                   </td>

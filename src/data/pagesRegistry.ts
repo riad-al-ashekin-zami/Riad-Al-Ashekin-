@@ -56,6 +56,16 @@ export function normalizePath(path: string): string {
 
 // Dedicated featured image lookup for the 4 official blog posts
 const BLOG_FEATURED_IMAGE_MAP: Record<string, { image: string; alt: string; caption: string }> = {
+  '/what-is-a-single-page-application/': {
+    image: '/images/featured-spa-guide.svg',
+    alt: 'What Is a Single Page Application (SPA) Architecture and Technical SEO Blueprint',
+    caption: 'Figure 1.0: Single Page Application Architecture, Client-Side Routing, State Synchronization & Search Crawler Pipeline.'
+  },
+  '/what-is-a-single-page-application-spa/': {
+    image: '/images/featured-spa-guide.svg',
+    alt: 'What Is a Single Page Application (SPA) Architecture and Technical SEO Blueprint',
+    caption: 'Figure 1.0: Single Page Application Architecture, Client-Side Routing, State Synchronization & Search Crawler Pipeline.'
+  },
   '/best-8-seo-experts-in-sylhet/': {
     image: '/images/featured-sylhet-seo-experts.svg',
     alt: 'Best 8 SEO Experts in Sylhet, Bangladesh - Local Search & Technical Authority',
@@ -124,6 +134,16 @@ export function getPageBySlug(slug: string): PageData | undefined {
     const withTools = `/tools${norm.startsWith('/') ? norm : '/' + norm}`;
     variants.push(withTools);
     variants.push(withTools.endsWith('/') ? withTools : `${withTools}/`);
+  }
+
+  // Check known aliases
+  if (
+    withoutSlash === '/what-is-a-single-page-application-spa' ||
+    withoutSlash === '/single-page-application' ||
+    withoutSlash === '/spa'
+  ) {
+    variants.push('/what-is-a-single-page-application/');
+    variants.push('/what-is-a-single-page-application');
   }
 
   // 1. Direct match across all registered pages

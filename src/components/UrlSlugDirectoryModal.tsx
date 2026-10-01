@@ -49,7 +49,7 @@ export function UrlSlugDirectoryModal({ isOpen, onClose, onSelectPage, currentSl
             <div>
               <h3 className="text-xl font-bold text-brand-950">Top URL Slugs Directory</h3>
               <p className="text-xs text-brand-600">
-                All 65 exact page routes for <span className="font-mono font-bold text-brand-900">riadalashekin.com</span>
+                All {allPages.length} exact page routes for <span className="font-mono font-bold text-brand-900">riadalashekin.com</span>
               </p>
             </div>
           </div>

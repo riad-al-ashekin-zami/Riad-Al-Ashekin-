@@ -29,24 +29,28 @@ export function BlogIndexHub({ onNavigate }: Props) {
   const [searchQuery, setSearchQuery] = useState('');
   const { avatar: authorAvatar } = useAuthorPhoto();
 
-  // STRICTLY and ONLY the 4 official blog posts
+  // Dynamic list of all blog posts & publications
   const allArticles: PageData[] = useMemo(() => {
     return getOfficialBlogPosts();
   }, []);
 
-  // Helper to categorize the 4 articles accurately
+  // Helper to categorize articles accurately
   const getCategoryForArticle = (article: PageData): string => {
     const slug = article.slug.toLowerCase();
-    if (slug.includes('ranking') || slug.includes('best-') || slug.includes('agencies') || slug.includes('experts')) {
+    if (slug.includes('ranking') || slug.includes('best-') || slug.includes('agencies') || slug.includes('experts') || slug.includes('top-10')) {
       return 'rankings';
+    }
+    if (slug.includes('saas') || slug.includes('roi') || slug.includes('strategy') || slug.includes('consulting')) {
+      return 'guides';
     }
     return 'seo';
   };
 
   const categories = [
-    { id: 'all', label: 'All Posts' },
+    { id: 'all', label: 'All Publications' },
     { id: 'rankings', label: 'Industry Rankings' },
     { id: 'seo', label: 'Technical SEO Guides' },
+    { id: 'guides', label: 'SaaS & Strategic Guides' },
   ];
 
   // Calculate article counts per category (out of the 4)
@@ -156,13 +160,13 @@ export function BlogIndexHub({ onNavigate }: Props) {
               Home
             </button>
             <ChevronRight className="w-3.5 h-3.5 text-brand-500" />
-            <span className="text-white font-semibold">Official Blog (4 Posts)</span>
+            <span className="text-white font-semibold">Official Blog ({allArticles.length} Articles)</span>
           </nav>
 
           <div className="max-w-4xl space-y-4">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-500/20 border border-accent-400/30 text-xs font-bold tracking-wide text-accent-300 uppercase backdrop-blur-xs">
               <BookOpen className="w-3.5 h-3.5 text-accent-300" />
-              <span>Official Blog Posts • Exactly 4 Curated Publications</span>
+              <span>Official Blog • {allArticles.length} Published Articles &amp; Guides</span>
             </div>
 
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.12]">
@@ -196,7 +200,7 @@ export function BlogIndexHub({ onNavigate }: Props) {
 
               <div className="flex items-center gap-3 text-xs text-brand-300 font-mono">
                 <span className="bg-brand-900/80 px-3 py-1 rounded-lg border border-brand-800">
-                  4 Official Blog Posts
+                  {allArticles.length} Published Articles
                 </span>
                 <span className="bg-brand-900/80 px-3 py-1 rounded-lg border border-brand-800">
                   Verified Insights
@@ -298,12 +302,12 @@ export function BlogIndexHub({ onNavigate }: Props) {
         {/* The 4 Blog Posts Grid (3 Posts Per Row on Desktop) */}
         {filteredArticles.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
-            {filteredArticles.map((article) => {
+            {filteredArticles.map((article, aIdx) => {
               const cat = getCategoryForArticle(article);
 
               return (
                 <article
-                  key={article.slug}
+                  key={`blog-card-${article.slug}-${aIdx}`}
                   onClick={() => onNavigate(article.slug)}
                   className="bg-white rounded-3xl border border-brand-200/85 hover:border-accent-400 shadow-2xs hover:shadow-lg transition-all p-5 sm:p-6 flex flex-col justify-between group cursor-pointer"
                 >

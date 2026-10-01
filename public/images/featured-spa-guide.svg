@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" fill="none">
+  <defs>
+    <linearGradient id="spa-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090514" />
+      <stop offset="50%" stop-color="#140d27" />
+      <stop offset="100%" stop-color="#0a1224" />
+    </linearGradient>
+    <linearGradient id="spa-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+    <linearGradient id="spa-card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1b1235" stop-opacity="0.92" />
+      <stop offset="100%" stop-color="#0f0920" stop-opacity="0.97" />
+    </linearGradient>
+    <pattern id="spa-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#3b2568" stroke-width="0.8" stroke-opacity="0.35" />
+    </pattern>
+    <filter id="glow-filter" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="35" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#spa-bg)" />
+  <rect width="1200" height="630" fill="url(#spa-grid)" />
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="220" cy="180" r="180" fill="#818cf8" opacity="0.25" filter="url(#glow-filter)" />
+  <circle cx="980" cy="360" r="190" fill="#06b6d4" opacity="0.22" filter="url(#glow-filter)" />
+  <circle cx="600" cy="280" r="220" fill="#a855f7" opacity="0.15" filter="url(#glow-filter)" />
+
+  <!-- Top Badge -->
+  <g transform="translate(80, 65)">
+    <rect x="0" y="0" width="360" height="34" rx="17" fill="#1e133d" stroke="#818cf8" stroke-width="1.2" />
+    <circle cx="18" cy="17" r="4.5" fill="#38bdf8" />
+    <text x="32" y="22" fill="#c7d2fe" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="800" letter-spacing="1.5">SOFTWARE ARCHITECTURE &amp; SEO GUIDE</text>
+  </g>
+
+  <!-- Headline -->
+  <g transform="translate(80, 142)">
+    <text x="0" y="0" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="42" font-weight="900" letter-spacing="-0.8">What Is a Single Page Application (SPA)?</text>
+    <text x="0" y="44" fill="#a5b4fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="21" font-weight="600">Complete Guide to SPA Architecture, JavaScript, Routing &amp; SEO</text>
+  </g>
+
+  <!-- Left: SPA Runtime Blueprint Box -->
+  <g transform="translate(80, 235)">
+    <rect width="560" height="290" rx="20" fill="url(#spa-card)" stroke="#452d79" stroke-width="1.2" />
+
+    <!-- Terminal Header -->
+    <g transform="translate(24, 20)">
+      <circle cx="8" cy="8" r="5" fill="#ef4444" opacity="0.8" />
+      <circle cx="26" cy="8" r="5" fill="#f59e0b" opacity="0.8" />
+      <circle cx="44" cy="8" r="5" fill="#10b981" opacity="0.8" />
+      <text x="70" y="12" fill="#94a3b8" font-family="monospace" font-size="11">browser-spa-runtime.js</text>
+    </g>
+
+    <!-- Architecture flow lines -->
+    <g transform="translate(24, 60)">
+      <rect x="0" y="0" width="512" height="50" rx="10" fill="#241745" stroke="#6366f1" stroke-width="1" />
+      <text x="20" y="30" fill="#e0e7ff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="700">1. Initial Document Load</text>
+      <text x="230" y="30" fill="#94a3b8" font-family="monospace" font-size="11">Single HTML Shell + JavaScript Bundle</text>
+
+      <rect x="0" y="65" width="512" height="50" rx="10" fill="#241745" stroke="#06b6d4" stroke-width="1" />
+      <text x="20" y="95" fill="#e0e7ff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="700">2. Client Router (History API)</text>
+      <text x="230" y="95" fill="#94a3b8" font-family="monospace" font-size="11">Soft Navigation without Page Reloads</text>
+
+      <rect x="0" y="130" width="512" height="50" rx="10" fill="#241745" stroke="#10b981" stroke-width="1" />
+      <text x="20" y="160" fill="#e0e7ff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="700">3. Dynamic REST / GraphQL API</text>
+      <text x="230" y="160" fill="#94a3b8" font-family="monospace" font-size="11">JSON Data Hydrates Component State</text>
+
+      <rect x="0" y="195" width="512" height="24" rx="6" fill="#130e26" />
+      <text x="12" y="211" fill="#38bdf8" font-family="monospace" font-size="10.5">✓ Crawlable <a> Links • Unique Titles • SSR/Pre-render Ready</text>
+    </g>
+  </g>
+
+  <!-- Right: Architecture Matrix Cards -->
+  <g transform="translate(670, 235)">
+    <!-- Card 1: SPA vs MPA -->
+    <rect x="0" y="0" width="450" height="85" rx="16" fill="url(#spa-card)" stroke="#452d79" stroke-width="1.2" />
+    <g transform="translate(20, 24)">
+      <circle cx="18" cy="18" r="18" fill="#38bdf8" fill-opacity="0.15" />
+      <text x="18" y="24" text-anchor="middle" fill="#38bdf8" font-family="monospace" font-size="14" font-weight="bold">⇄</text>
+      <text x="50" y="16" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="15" font-weight="700">SPA vs MPA Architectural Tradeoffs</text>
+      <text x="50" y="36" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12">Persistent state vs server-rendered document simplicity</text>
+    </g>
+
+    <!-- Card 2: JavaScript SEO -->
+    <rect x="0" y="102" width="450" height="85" rx="16" fill="url(#spa-card)" stroke="#452d79" stroke-width="1.2" />
+    <g transform="translate(20, 126)">
+      <circle cx="18" cy="18" r="18" fill="#10b981" fill-opacity="0.15" />
+      <text x="18" y="24" text-anchor="middle" fill="#10b981" font-family="monospace" font-size="14" font-weight="bold">🔍</text>
+      <text x="50" y="16" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="15" font-weight="700">JavaScript SEO &amp; Indexing Pipeline</text>
+      <text x="50" y="36" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12">Crawl, render, index phases &amp; soft 404 prevention</text>
+    </g>
+
+    <!-- Card 3: Framework Ecosystem -->
+    <rect x="0" y="204" width="450" height="85" rx="16" fill="url(#spa-card)" stroke="#452d79" stroke-width="1.2" />
+    <g transform="translate(20, 228)">
+      <circle cx="18" cy="18" r="18" fill="#c084fc" fill-opacity="0.15" />
+      <text x="18" y="24" text-anchor="middle" fill="#c084fc" font-family="monospace" font-size="14" font-weight="bold">⚡</text>
+      <text x="50" y="16" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="15" font-weight="700">React, Vue, Angular &amp; Hybrid Next.js</text>
+      <text x="50" y="36" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12">Component hierarchy, client state &amp; static hydration</text>
+    </g>
+  </g>
+
+  <!-- Author Signature Footer -->
+  <g transform="translate(80, 565)">
+    <text x="0" y="0" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="600">Riad Al Ashekin Advisory</text>
+    <text x="175" y="0" fill="#475569" font-family="sans-serif" font-size="13">•</text>
+    <text x="190" y="0" fill="#a5b4fc" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="600">riadalashekin.com/what-is-a-single-page-application/</text>
+  </g>
+</svg>

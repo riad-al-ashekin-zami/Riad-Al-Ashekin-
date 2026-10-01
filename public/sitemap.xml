@@ -762,6 +762,16 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://riadalashekin.com/what-is-a-single-page-application/</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://riadalashekin.com/images/featured-spa-guide.svg</image:loc>
+      <image:title>What Is a Single Page Application (SPA) Architecture and Technical SEO Blueprint</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://riadalashekin.com/top-10-saas-development-companies-usa/</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>

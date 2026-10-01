@@ -35,6 +35,8 @@ export interface PageData {
   lastUpdated?: string;
   intro: string;
   sections: PageSection[];
+  markdownContent?: string;
+  rawMarkdown?: string;
   keyTakeaways?: string[];
   faqs?: PageFaq[];
   interactiveToolType?: 

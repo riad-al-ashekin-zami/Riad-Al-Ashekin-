@@ -4,76 +4,107 @@ import { guidesAndBlogPages } from './guidesAndBlogPages';
 import { normalizePath } from './pagesRegistry';
 
 /**
- * The ONLY 4 official blog posts on the site as designated by the user:
- * 1. https://riadalashekin.com/best-8-seo-experts-in-sylhet/
- * 2. https://riadalashekin.com/top-10-seo-agencies-in-bangladesh/
- * 3. https://riadalashekin.com/20-best-seo-experts-in-bangladesh/
- * 4. https://riadalashekin.com/how-to-create-perfect-meta-titles-a-step-by-step-guide-for-seo/
- *
- * ALL other URLs are standard/executive static and content PAGES.
- */
-export const OFFICIAL_BLOG_SLUGS = [
-  '/best-8-seo-experts-in-sylhet/',
-  '/top-10-seo-agencies-in-bangladesh/',
-  '/20-best-seo-experts-in-bangladesh/',
-  '/how-to-create-perfect-meta-titles-a-step-by-step-guide-for-seo/'
-] as const;
-
-export type OfficialBlogSlug = typeof OFFICIAL_BLOG_SLUGS[number];
-
-/**
- * Dedicated custom featured images for the 4 official blog posts
+ * Featured custom cover images mapped to specific canonical slugs
  */
 export const BLOG_FEATURED_IMAGES: Record<string, string> = {
+  '/what-is-a-single-page-application/': '/images/featured-spa-guide.svg',
+  '/what-is-a-single-page-application-spa/': '/images/featured-spa-guide.svg',
+  '/single-page-application/': '/images/featured-spa-guide.svg',
   '/best-8-seo-experts-in-sylhet/': '/images/featured-sylhet-seo-experts.svg',
   '/top-10-seo-agencies-in-bangladesh/': '/images/featured-top-10-seo-agencies-bangladesh.svg',
   '/20-best-seo-experts-in-bangladesh/': '/images/featured-20-best-seo-experts-bangladesh.svg',
-  '/how-to-create-perfect-meta-titles-a-step-by-step-guide-for-seo/': '/images/featured-meta-titles-guide.svg'
+  '/how-to-create-perfect-meta-titles-a-step-by-step-guide-for-seo/': '/images/featured-meta-titles-guide.svg',
+  '/top-10-saas-development-companies-usa/': '/images/saas-architecture-cover.svg'
 };
 
 /**
- * Checks if a given slug is one of the 4 official blog posts
+ * Initial core flagship slugs
  */
-export function isBlogPost(slug: string): boolean {
-  if (!slug) return false;
-  const norm = normalizePath(slug);
-  const withSlash = norm.endsWith('/') ? norm : `${norm}/`;
-  return (OFFICIAL_BLOG_SLUGS as readonly string[]).includes(withSlash);
-}
+export const OFFICIAL_BLOG_SLUGS = [
+  '/what-is-a-single-page-application/',
+  '/best-8-seo-experts-in-sylhet/',
+  '/top-10-seo-agencies-in-bangladesh/',
+  '/20-best-seo-experts-in-bangladesh/',
+  '/how-to-create-perfect-meta-titles-a-step-by-step-guide-for-seo/',
+  '/top-10-saas-development-companies-usa/',
+  '/ultimate-guide-robots-txt/',
+  '/an-in-depth-analysis-of-search-engine-optimization/',
+  '/roi-of-seo-how-to-measure-calculate-maximize-seo-roi/',
+  '/seo-checklist/',
+  '/best-seo-experts-in-sri-lanka/'
+] as const;
+
+export type OfficialBlogSlug = typeof OFFICIAL_BLOG_SLUGS[number] | string;
 
 /**
- * Returns the exact 4 official blog posts as PageData objects
+ * Returns ALL blog posts, editorial essays, and in-depth rankings dynamically.
+ * Automatically picks up this article, all existing articles, and any future articles added to the system.
  */
-export function getOfficialBlogPosts(): PageData[] {
+export function getAllBlogPosts(): PageData[] {
   const allCandidates = [...rankingsPages, ...guidesAndBlogPages];
+  const seenSlugs = new Set<string>();
   const posts: PageData[] = [];
 
-  for (const officialSlug of OFFICIAL_BLOG_SLUGS) {
-    const found = allCandidates.find(p => {
-      const pNorm = normalizePath(p.slug);
-      const targetNorm = normalizePath(officialSlug);
-      return pNorm === targetNorm || p.slug === officialSlug;
-    });
+  for (const page of allCandidates) {
+    const norm = normalizePath(page.slug);
+    const withSlash = norm.endsWith('/') ? norm : `${norm}/`;
 
-    if (found) {
-      const featuredImage = BLOG_FEATURED_IMAGES[officialSlug] || found.featuredImage;
-      // Ensure category is explicitly marked as blog with high-fidelity featured image
-      posts.push({
-        ...found,
-        featuredImage,
-        category: 'guides' // Keep valid PageData category type
-      });
-    }
+    // Skip the /blog/ index itself
+    if (withSlash === '/blog/') continue;
+
+    if (seenSlugs.has(withSlash)) continue;
+    seenSlugs.add(withSlash);
+
+    const featuredImage = BLOG_FEATURED_IMAGES[withSlash] || page.featuredImage;
+
+    posts.push({
+      ...page,
+      featuredImage: featuredImage || page.featuredImage,
+      category: page.category || 'guides'
+    });
   }
 
   return posts;
 }
 
 /**
- * Helper to get the other 3 official blog posts (for Related Posts on a blog page)
+ * Alias for backward compatibility with existing components
+ */
+export function getOfficialBlogPosts(): PageData[] {
+  return getAllBlogPosts();
+}
+
+/**
+ * Checks if a given slug is a blog post / editorial guide.
+ * Automatically returns true for any article in guidesAndBlogPages or rankingsPages,
+ * or any page with markdown content, ensuring dynamic routing to BlogPostLayout.
+ */
+export function isBlogPost(slug: string): boolean {
+  if (!slug) return false;
+  const norm = normalizePath(slug);
+  const withSlash = norm.endsWith('/') ? norm : `${norm}/`;
+
+  // /blog/ is the directory hub itself, not an article
+  if (withSlash === '/blog/') return false;
+
+  const allPosts = getAllBlogPosts();
+  return allPosts.some(p => {
+    const pNorm = normalizePath(p.slug);
+    const pWithSlash = pNorm.endsWith('/') ? pNorm : `${pNorm}/`;
+    return pWithSlash === withSlash;
+  });
+}
+
+/**
+ * Helper to get related blog posts excluding the currently viewed slug
  */
 export function getRelatedBlogPosts(currentSlug: string): PageData[] {
   const normCurrent = normalizePath(currentSlug);
-  const allPosts = getOfficialBlogPosts();
-  return allPosts.filter(p => normalizePath(p.slug) !== normCurrent);
+  const withSlash = normCurrent.endsWith('/') ? normCurrent : `${normCurrent}/`;
+  const allPosts = getAllBlogPosts();
+  return allPosts.filter(p => {
+    const pNorm = normalizePath(p.slug);
+    const pWithSlash = pNorm.endsWith('/') ? pNorm : `${pNorm}/`;
+    return pWithSlash !== withSlash;
+  });
 }

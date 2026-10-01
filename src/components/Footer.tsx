@@ -153,7 +153,7 @@ export function Footer({ onNavigate }: Props) {
               </li>
               <li>
                 <button onClick={() => onNavigate('/blog/')} className="hover:text-white text-accent-300 font-semibold transition-colors text-left flex items-center gap-1">
-                  <span>Browse All 4 Blog Posts</span>
+                  <span>Browse All Articles &amp; Guides</span>
                   <span>→</span>
                 </button>
               </li>

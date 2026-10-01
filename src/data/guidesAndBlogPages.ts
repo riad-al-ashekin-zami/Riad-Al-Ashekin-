@@ -1,6 +1,33 @@
 import { PageData } from '../types';
+import { singlePageApplicationMarkdown } from './posts/singlePageApplicationPost';
 
 export const guidesAndBlogPages: PageData[] = [
+  {
+    slug: '/what-is-a-single-page-application/',
+    canonicalUrl: 'https://riadalashekin.com/what-is-a-single-page-application/',
+    title: 'What Is a Single Page Application (SPA)? Architecture, SEO & Guide',
+    metaDescription: 'Complete technical guide to Single Page Applications (SPA), client-side routing, JavaScript execution, state management, SPA SEO best practices, and MPA comparison.',
+    badge: 'Comprehensive Technical Guide',
+    category: 'guides',
+    headline: 'What Is a Single Page Application (SPA)? Complete Guide to SPA Apps, JavaScript, Architecture, SEO & Examples',
+    subtitle: 'An in-depth architectural breakdown of single-page apps, History API routing, client-side rendering tradeoffs, Google indexation, and enterprise engineering patterns.',
+    featuredImage: '/images/featured-spa-guide.svg',
+    featuredImageAlt: 'What Is a Single Page Application (SPA) Architecture and Technical SEO Blueprint',
+    featuredImageCaption: 'Figure 1.0: Single Page Application Architecture, Client-Side Routing, State Synchronization & Search Crawler Pipeline (Source: Riad Al Ashekin Advisory).',
+    readingTime: '18 min read',
+    lastUpdated: 'October 2026',
+    intro: 'A single page application, commonly called an SPA, is a web application that loads a single web document and dynamically updates its content as users interact with the application. Instead of repeatedly loading complete HTML documents, an SPA uses JavaScript, client-side routing, APIs, and state management to deliver an application-like experience.',
+    markdownContent: singlePageApplicationMarkdown,
+    sections: [],
+    keyTakeaways: [
+      'SPAs load an initial HTML shell and dynamically update views using client-side routing and APIs.',
+      'Navigation feels instant because full-page browser refreshes are replaced by soft client-side transitions.',
+      'SPA SEO requires clean History API URLs, crawlable <a> links, unique page titles, and canonical tags.',
+      'Server-side rendering (SSR) or static pre-rendering bridges the gap between high interactivity and search crawlability.',
+      'Choose between SPA, MPA, or hybrid architectures based on user workflows and search visibility requirements.'
+    ],
+    relatedSlugs: ['/top-10-saas-development-companies-usa/', '/ultimate-guide-robots-txt/', '/seo-checklist/']
+  },
   {
     slug: '/top-10-saas-development-companies-usa/',
     canonicalUrl: 'https://riadalashekin.com/top-10-saas-development-companies-usa/',

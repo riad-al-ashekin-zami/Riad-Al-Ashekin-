@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { motion } from 'motion/react';
 import { PageData, PageSection } from '../../types';
 import { 
@@ -35,6 +35,7 @@ import { getPageBySlug } from '../../data/pagesRegistry';
 import { FeaturedImage } from './FeaturedImage';
 import { SITE_AUTHOR, useAuthorPhoto } from '../../data/authorProfile';
 import { getRelatedBlogPosts, BLOG_FEATURED_IMAGES } from '../../data/blogConfig';
+import { MarkdownArticleRenderer, extractHeadingsFromMarkdown } from './MarkdownArticleRenderer';
 
 interface Props {
   page: PageData;
@@ -74,23 +75,37 @@ export function BlogPostLayout({ page, onNavigate }: Props) {
     }
   };
 
+  const markdownHeadings = useMemo(() => {
+    if (!page.markdownContent) return [];
+    return extractHeadingsFromMarkdown(page.markdownContent);
+  }, [page.markdownContent]);
+
   // Build dynamic TOC items from page data
-  const tocItems: TocItem[] = [
-    { id: 'intro-section', title: 'Executive Overview', level: 1 },
-    ...(page.sections?.map((section, idx) => ({
-      id: `section-${idx}`,
-      title: section.title,
-      level: 1,
-      // If section is a company or ranked item, we can extract sub-titles if present
-      subItems: section.bullets?.slice(0, 2).map((bullet, bIdx) => ({
-        id: `section-${idx}-b${bIdx}`,
-        title: bullet.split(':')[0] || bullet.slice(0, 30) + '...'
-      }))
-    })) || []),
-    ...(page.keyTakeaways && page.keyTakeaways.length > 0 ? [{ id: 'key-takeaways-section', title: 'Key Insights & Takeaways', level: 1 }] : []),
-    ...(page.faqs && page.faqs.length > 0 ? [{ id: 'faqs-section', title: 'Frequently Asked Questions', level: 1 }] : []),
-    { id: 'author-bio-section', title: 'About the Author', level: 1 },
-  ];
+  const tocItems: TocItem[] = useMemo(() => {
+    if (page.markdownContent && markdownHeadings.length > 0) {
+      return [
+        ...markdownHeadings.map(h => ({ id: h.id, title: h.title, level: h.level })),
+        { id: 'author-bio-section', title: 'About the Author', level: 1 },
+      ];
+    }
+
+    return [
+      { id: 'intro-section', title: 'Executive Overview', level: 1 },
+      ...(page.sections?.map((section, idx) => ({
+        id: `section-${idx}`,
+        title: section.title,
+        level: 1,
+        // If section is a company or ranked item, we can extract sub-titles if present
+        subItems: section.bullets?.slice(0, 2).map((bullet, bIdx) => ({
+          id: `section-${idx}-b${bIdx}`,
+          title: bullet.split(':')[0] || bullet.slice(0, 30) + '...'
+        }))
+      })) || []),
+      ...(page.keyTakeaways && page.keyTakeaways.length > 0 ? [{ id: 'key-takeaways-section', title: 'Key Insights & Takeaways', level: 1 }] : []),
+      ...(page.faqs && page.faqs.length > 0 ? [{ id: 'faqs-section', title: 'Frequently Asked Questions', level: 1 }] : []),
+      { id: 'author-bio-section', title: 'About the Author', level: 1 },
+    ];
+  }, [page.markdownContent, markdownHeadings, page.sections, page.keyTakeaways, page.faqs]);
 
   // Track scroll reading progress and active section
   useEffect(() => {
@@ -105,7 +120,7 @@ export function BlogPostLayout({ page, onNavigate }: Props) {
       // Detect active section via offset
       const allIds = [
         'intro-section',
-        ...(page.sections?.map((_, idx) => `section-${idx}`) || []),
+        ...(page.markdownContent ? markdownHeadings.map(h => h.id) : (page.sections?.map((_, idx) => `section-${idx}`) || [])),
         'key-takeaways-section',
         'faqs-section',
         'author-bio-section'
@@ -377,7 +392,7 @@ export function BlogPostLayout({ page, onNavigate }: Props) {
                 const isActive = activeSectionId === item.id;
                 return (
                   <button
-                    key={item.id}
+                    key={`mobile-toc-${item.id}-${index}`}
                     onClick={() => scrollToSection(item.id)}
                     className={`w-full text-left px-3 py-2 rounded-lg text-xs font-medium transition-colors flex items-center gap-2 cursor-pointer ${
                       isActive 
@@ -430,7 +445,7 @@ export function BlogPostLayout({ page, onNavigate }: Props) {
                 {tocItems.map((item, index) => {
                   const isActive = activeSectionId === item.id;
                   return (
-                    <div key={item.id} className="group">
+                    <div key={`desktop-toc-${item.id}-${index}`} className="group">
                       <button
                         onClick={() => scrollToSection(item.id)}
                         className={`w-full text-left py-2 px-2.5 rounded-lg transition-all duration-150 flex items-start gap-2.5 cursor-pointer leading-snug ${
@@ -448,9 +463,9 @@ export function BlogPostLayout({ page, onNavigate }: Props) {
                       {/* Sub-items (if present and section is active) */}
                       {isActive && item.subItems && item.subItems.length > 0 && (
                         <div className="ml-6 pl-2 border-l border-brand-200 space-y-1 my-1">
-                          {item.subItems.map((sub) => (
+                          {item.subItems.map((sub, sIdx) => (
                             <div
-                              key={sub.id}
+                              key={`sub-${sub.id}-${sIdx}`}
                               className="text-[11px] text-brand-500 py-0.5 pl-1 truncate hover:text-brand-900 transition-colors"
                             >
                               • {sub.title}
@@ -581,21 +596,30 @@ export function BlogPostLayout({ page, onNavigate }: Props) {
               </div>
             )}
 
-            {/* Executive Overview / Intro Box (Section Anchor: intro-section) */}
-            <section id="intro-section" className="scroll-mt-28 space-y-4">
-              <div className="p-6 sm:p-8 bg-white border border-brand-200/90 rounded-2xl shadow-soft-purple text-brand-800 text-base sm:text-lg leading-relaxed relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-1.5 h-full bg-accent-600" />
-                <h3 className="text-xs font-bold text-accent-800 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                  <Award className="w-4 h-4 text-accent-600" /> Executive Overview
-                </h3>
-                <p className="font-normal text-brand-800 leading-relaxed">
-                  {page.intro}
-                </p>
-              </div>
-            </section>
+            {/* Executive Overview / Intro Box (Section Anchor: intro-section) for structured pages */}
+            {!page.markdownContent && page.intro && (
+              <section id="intro-section" className="scroll-mt-28 space-y-4">
+                <div className="p-6 sm:p-8 bg-white border border-brand-200/90 rounded-2xl shadow-soft-purple text-brand-800 text-base sm:text-lg leading-relaxed relative overflow-hidden">
+                  <div className="absolute top-0 left-0 w-1.5 h-full bg-accent-600" />
+                  <h3 className="text-xs font-bold text-accent-800 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                    <Award className="w-4 h-4 text-accent-600" /> Executive Overview
+                  </h3>
+                  <p className="font-normal text-brand-800 leading-relaxed">
+                    {page.intro}
+                  </p>
+                </div>
+              </section>
+            )}
+
+            {/* If full Markdown Content is provided, render with MarkdownArticleRenderer */}
+            {page.markdownContent && (
+              <article className="scroll-mt-28 space-y-6 bg-white border border-brand-200/80 rounded-2xl p-6 sm:p-10 shadow-2xs">
+                <MarkdownArticleRenderer content={page.markdownContent} onNavigate={onNavigate} />
+              </article>
+            )}
 
             {/* Dynamic Article Sections (Section Anchors: section-0, section-1, etc.) */}
-            {page.sections && page.sections.length > 0 && (
+            {!page.markdownContent && page.sections && page.sections.length > 0 && (
               <div className="space-y-12">
                 {page.sections.map((section, idx) => {
                   const sectionId = `section-${idx}`;
@@ -872,14 +896,14 @@ export function BlogPostLayout({ page, onNavigate }: Props) {
                       onClick={() => onNavigate('/blog/')}
                       className="text-xs font-bold text-accent-700 hover:text-accent-900 inline-flex items-center gap-1 cursor-pointer"
                     >
-                      <span>View all 4 blog posts</span>
+                      <span>Browse All Articles &amp; Guides</span>
                       <ArrowRight className="w-3 h-3" />
                     </button>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                    {otherPosts.map((relPage) => (
+                    {otherPosts.map((relPage, rIdx) => (
                       <button
-                        key={relPage.slug}
+                        key={`rel-${relPage.slug}-${rIdx}`}
                         onClick={() => onNavigate(relPage.slug)}
                         className="text-left p-3.5 rounded-2xl border border-brand-200 hover:border-accent-400 hover:bg-white transition-all bg-white/70 group shadow-2xs cursor-pointer flex flex-col justify-between"
                       >

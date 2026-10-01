@@ -61,6 +61,7 @@ const FEATURED_SLUG_GROUPS = [
     icon: BookOpen,
     description: 'Actionable documentation, performance verification reports, and growth frameworks.',
     slugs: [
+      '/blog/',
       '/ultimate-guide-robots-txt/',
       '/roi-of-seo-how-to-measure-calculate-maximize-seo-roi/',
       '/seo-checklist/',
