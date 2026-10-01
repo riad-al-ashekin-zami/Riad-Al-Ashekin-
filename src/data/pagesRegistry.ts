@@ -56,6 +56,11 @@ export function normalizePath(path: string): string {
 
 // Dedicated featured image lookup for the 4 official blog posts
 const BLOG_FEATURED_IMAGE_MAP: Record<string, { image: string; alt: string; caption: string }> = {
+  '/seo-for-single-page-applications/': {
+    image: '/images/featured-spa-guide.svg',
+    alt: 'SEO for Single Page Applications: How to Optimize SPAs for Google',
+    caption: 'Figure 1.0: Single Page Application Architecture, Hybrid Rendering & Google Indexation Pipeline.'
+  },
   '/what-is-a-single-page-application/': {
     image: '/images/featured-spa-guide.svg',
     alt: 'What Is a Single Page Application (SPA) Architecture and Technical SEO Blueprint',

@@ -1,7 +1,34 @@
 import { PageData } from '../types';
 import { singlePageApplicationMarkdown } from './posts/singlePageApplicationPost';
+import { spaSeoMarkdown } from './posts/spaSeoPost';
 
 export const guidesAndBlogPages: PageData[] = [
+  {
+    slug: '/seo-for-single-page-applications/',
+    canonicalUrl: 'https://riadalashekin.com/seo-for-single-page-applications/',
+    title: 'SEO for Single Page Applications: How to Optimize SPAs for Google',
+    metaDescription: 'Master SEO for Single Page Applications. Learn how to optimize client-side routing, SSR, hydration, metadata, crawlability, and Core Web Vitals for Google & AI search.',
+    badge: 'Comprehensive Technical Guide',
+    category: 'guides',
+    headline: 'SEO for Single Page Applications: How to Optimize SPAs for Google',
+    subtitle: 'An in-depth architectural guide to making JavaScript-driven SPAs easy for Google and modern search engines to discover, render, index, and rank.',
+    featuredImage: '/images/featured-spa-guide.svg',
+    featuredImageAlt: 'SEO for Single Page Applications Architecture and Googlebot Crawling Pipeline',
+    featuredImageCaption: 'Figure 1.0: Single Page Application Architecture, Hybrid Rendering, Client-Side Routing & Search Engine Indexation Pipeline (Source: Riad Al Ashekin Advisory).',
+    readingTime: '15 min read',
+    lastUpdated: 'October 2026',
+    intro: 'SEO for single page applications is the process of making a JavaScript-driven SPA easy for search engines to discover, render, understand, and index. This comprehensive guide covers client-side routing, hybrid rendering, dynamic metadata, History API, canonicalization, and Google indexation strategies.',
+    markdownContent: spaSeoMarkdown,
+    sections: [],
+    keyTakeaways: [
+      'The real question in SPA SEO is whether each important piece of public content exists in a form search engines can reliably discover and index.',
+      'Every search target requires an independent, stable URL using the HTML5 History API rather than legacy hash routing (/#/).',
+      'Hybrid rendering combining SSR or static generation for public pages with client-side SPA logic for authenticated dashboards is the industry gold standard.',
+      'Internal navigation must use crawlable <a href="..."> semantic anchors so search bots can traverse the site graph.',
+      'Missing or invalid routes must return genuine HTTP 404 or 410 status codes to prevent soft-404 degradation.'
+    ],
+    relatedSlugs: ['/what-is-a-single-page-application/', '/top-10-saas-development-companies-usa/', '/ultimate-guide-robots-txt/']
+  },
   {
     slug: '/what-is-a-single-page-application/',
     canonicalUrl: 'https://riadalashekin.com/what-is-a-single-page-application/',
