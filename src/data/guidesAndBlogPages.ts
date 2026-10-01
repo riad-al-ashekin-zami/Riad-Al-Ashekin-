@@ -1,8 +1,34 @@
 import { PageData } from '../types';
 import { singlePageApplicationMarkdown } from './posts/singlePageApplicationPost';
 import { spaSeoMarkdown } from './posts/spaSeoPost';
+import { staticWebsiteSeoMarkdown } from './posts/staticWebsiteSeoPost';
 
 export const guidesAndBlogPages: PageData[] = [
+  {
+    slug: '/seo-for-static-websites/',
+    canonicalUrl: 'https://riadalashekin.com/seo-for-static-websites/',
+    title: 'SEO for Static Websites: How to Optimize a Static Site for Search',
+    metaDescription: 'Complete guide to static website SEO. Learn how to optimize HTML, URLs, title tags, canonicals, XML sitemaps, robots.txt, performance, CDN delivery, and schema.',
+    badge: 'Technical SEO Guide',
+    category: 'guides',
+    headline: 'SEO for Static Websites: How to Optimize a Static Site for Search',
+    subtitle: 'An in-depth guide to static site architecture, HTML-first crawlability, Core Web Vitals, CDN caching, and search ranking strategies.',
+    featuredImage: '/images/featured-spa-guide.svg',
+    featuredImageAlt: 'SEO for Static Websites Architecture and Search Crawlability',
+    readingTime: '14 min read',
+    lastUpdated: 'October 2026',
+    intro: 'SEO for a static website is usually straightforward because each page already exists as a complete HTML document that search engines can crawl without relying heavily on client-side JavaScript. This guide explains how to do SEO for a static website, what technical elements matter most, and how to optimize static sites for Google.',
+    markdownContent: staticWebsiteSeoMarkdown,
+    sections: [],
+    keyTakeaways: [
+      'Static websites deliver complete HTML instantly, eliminating client-side rendering bottlenecks and delays for search engines.',
+      'A static architecture does not guarantee top rankings by itself—content quality, search intent, internal links, and technical SEO remain essential.',
+      'Maintain clean, descriptive URLs and reinforce them consistently across canonical tags, XML sitemaps, and internal links.',
+      'Leverage CDN edge distribution and image optimization to maximize Core Web Vitals performance without bloated frontend frameworks.',
+      'Ensure proper server configuration so invalid paths return authentic 404 status codes rather than soft-404 200 responses.'
+    ],
+    relatedSlugs: ['/seo-for-single-page-applications/', '/what-is-a-single-page-application/', '/ultimate-guide-robots-txt/']
+  },
   {
     slug: '/seo-for-single-page-applications/',
     canonicalUrl: 'https://riadalashekin.com/seo-for-single-page-applications/',
@@ -14,7 +40,6 @@ export const guidesAndBlogPages: PageData[] = [
     subtitle: 'An in-depth architectural guide to making JavaScript-driven SPAs easy for Google and modern search engines to discover, render, index, and rank.',
     featuredImage: '/images/featured-spa-guide.svg',
     featuredImageAlt: 'SEO for Single Page Applications Architecture and Googlebot Crawling Pipeline',
-    featuredImageCaption: 'Figure 1.0: Single Page Application Architecture, Hybrid Rendering, Client-Side Routing & Search Engine Indexation Pipeline (Source: Riad Al Ashekin Advisory).',
     readingTime: '15 min read',
     lastUpdated: 'October 2026',
     intro: 'SEO for single page applications is the process of making a JavaScript-driven SPA easy for search engines to discover, render, understand, and index. This comprehensive guide covers client-side routing, hybrid rendering, dynamic metadata, History API, canonicalization, and Google indexation strategies.',

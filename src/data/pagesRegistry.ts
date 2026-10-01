@@ -55,41 +55,38 @@ export function normalizePath(path: string): string {
 }
 
 // Dedicated featured image lookup for the 4 official blog posts
-const BLOG_FEATURED_IMAGE_MAP: Record<string, { image: string; alt: string; caption: string }> = {
+const BLOG_FEATURED_IMAGE_MAP: Record<string, { image: string; alt: string }> = {
+  '/seo-for-static-websites/': {
+    image: '/images/featured-spa-guide.svg',
+    alt: 'SEO for Static Websites: How to Optimize a Static Site for Search'
+  },
   '/seo-for-single-page-applications/': {
     image: '/images/featured-spa-guide.svg',
-    alt: 'SEO for Single Page Applications: How to Optimize SPAs for Google',
-    caption: 'Figure 1.0: Single Page Application Architecture, Hybrid Rendering & Google Indexation Pipeline.'
+    alt: 'SEO for Single Page Applications: How to Optimize SPAs for Google'
   },
   '/what-is-a-single-page-application/': {
     image: '/images/featured-spa-guide.svg',
-    alt: 'What Is a Single Page Application (SPA) Architecture and Technical SEO Blueprint',
-    caption: 'Figure 1.0: Single Page Application Architecture, Client-Side Routing, State Synchronization & Search Crawler Pipeline.'
+    alt: 'What Is a Single Page Application (SPA) Architecture and Technical SEO Blueprint'
   },
   '/what-is-a-single-page-application-spa/': {
     image: '/images/featured-spa-guide.svg',
-    alt: 'What Is a Single Page Application (SPA) Architecture and Technical SEO Blueprint',
-    caption: 'Figure 1.0: Single Page Application Architecture, Client-Side Routing, State Synchronization & Search Crawler Pipeline.'
+    alt: 'What Is a Single Page Application (SPA) Architecture and Technical SEO Blueprint'
   },
   '/best-8-seo-experts-in-sylhet/': {
     image: '/images/featured-sylhet-seo-experts.svg',
-    alt: 'Best 8 SEO Experts in Sylhet, Bangladesh - Local Search & Technical Authority',
-    caption: 'Figure 1.0: Sylhet SEO Practitioner Ecosystem & Local Search Engine Dominance Framework.'
+    alt: 'Best 8 SEO Experts in Sylhet, Bangladesh - Local Search & Technical Authority'
   },
   '/top-10-seo-agencies-in-bangladesh/': {
     image: '/images/featured-top-10-seo-agencies-bangladesh.svg',
-    alt: 'Top 10 SEO Agencies in Bangladesh - Enterprise Growth & Technical Scale',
-    caption: 'Figure 1.0: Enterprise SEO Agency Benchmarking & Organic Velocity Analysis.'
+    alt: 'Top 10 SEO Agencies in Bangladesh - Enterprise Growth & Technical Scale'
   },
   '/20-best-seo-experts-in-bangladesh/': {
     image: '/images/featured-20-best-seo-experts-bangladesh.svg',
-    alt: '20 Best SEO Experts in Bangladesh - Practitioner Profiles & Audit Depth',
-    caption: 'Figure 1.0: Top 20 National SEO Leaders, Audit Depth & Algorithm Resilience Ratings.'
+    alt: '20 Best SEO Experts in Bangladesh - Practitioner Profiles & Audit Depth'
   },
   '/how-to-create-perfect-meta-titles-a-step-by-step-guide-for-seo/': {
     image: '/images/featured-meta-titles-guide.svg',
-    alt: 'How to Create Perfect Meta Titles for SEO - SERP Width & CTR Blueprint',
-    caption: 'Figure 1.0: Google SERP Pixel Width Measurement, Title Tag Architecture & Click-Through Optimization.'
+    alt: 'How to Create Perfect Meta Titles for SEO - SERP Width & CTR Blueprint'
   }
 };
 
@@ -103,7 +100,6 @@ function enrichPageData(page: PageData): PageData {
       ...page,
       featuredImage: blogMeta.image,
       featuredImageAlt: blogMeta.alt,
-      featuredImageCaption: blogMeta.caption,
     };
   }
   return page;

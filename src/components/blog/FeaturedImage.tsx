@@ -198,19 +198,6 @@ export function FeaturedImage({
 
       </div>
 
-      {/* Editorial Caption Bar */}
-      <figcaption className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 px-1 text-xs text-brand-500">
-        <div className="flex items-center gap-2">
-          <ImageIcon className="w-3.5 h-3.5 text-accent-600 shrink-0" />
-          <span className="font-medium text-brand-700">
-            {caption || `Figure 1.0: Technical Architecture Blueprint (Source: Riad Al Ashekin Advisory)`}
-          </span>
-        </div>
-        <span className="text-[11px] text-brand-400 font-mono sm:text-right">
-          riadalashekin.com
-        </span>
-      </figcaption>
-
       {/* High-Resolution Lightbox Modal */}
       {isLightboxOpen && hasValidImage && (
         <div 

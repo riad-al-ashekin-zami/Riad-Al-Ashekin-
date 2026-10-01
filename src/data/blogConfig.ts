@@ -7,6 +7,7 @@ import { normalizePath } from './pagesRegistry';
  * Featured custom cover images mapped to specific canonical slugs
  */
 export const BLOG_FEATURED_IMAGES: Record<string, string> = {
+  '/seo-for-static-websites/': '/images/featured-spa-guide.svg',
   '/seo-for-single-page-applications/': '/images/featured-spa-guide.svg',
   '/what-is-a-single-page-application/': '/images/featured-spa-guide.svg',
   '/what-is-a-single-page-application-spa/': '/images/featured-spa-guide.svg',
@@ -22,6 +23,7 @@ export const BLOG_FEATURED_IMAGES: Record<string, string> = {
  * Initial core flagship slugs
  */
 export const OFFICIAL_BLOG_SLUGS = [
+  '/seo-for-static-websites/',
   '/seo-for-single-page-applications/',
   '/what-is-a-single-page-application/',
   '/best-8-seo-experts-in-sylhet/',
