@@ -44,6 +44,7 @@ ALL_TOOL_DETAILS.forEach(tool => {
   // Normalize path
   const cleanPath = tool.path.toLowerCase().replace(/^\/+|\/+$/g, '');
   pathMap.set(cleanPath, tool);
+  pathMap.set(`tools/${cleanPath}`, tool); // Support /tools/<slug>/ alias seamlessly
 
   // Also map legacy paths if any
   if (tool.legacyPaths) {

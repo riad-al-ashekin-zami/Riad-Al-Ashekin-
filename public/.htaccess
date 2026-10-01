@@ -1,0 +1,12 @@
+# Apache / cPanel / LiteSpeed SPA Fallback Routing
+# Ensures direct URLs route to index.html and any 404 redirects to homepage
+ErrorDocument 404 /
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>

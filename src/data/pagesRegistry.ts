@@ -96,26 +96,48 @@ function enrichPageData(page: PageData): PageData {
 
 // Find a page by exact slug or normalized slug
 export function getPageBySlug(slug: string): PageData | undefined {
-  const norm = normalizePath(slug);
+  if (!slug) return undefined;
+  
+  // Clean query params or hash fragments if passed
+  const cleanSlug = slug.split('?')[0].split('#')[0].trim();
+  const norm = normalizePath(cleanSlug);
   const withSlash = norm.endsWith('/') ? norm : `${norm}/`;
   const withoutSlash = norm.endsWith('/') ? norm.slice(0, -1) : norm;
 
-  // 1. Direct exact or normalized match across all registered pages
-  const foundPage = allPages.find(p => 
-    p.slug === slug || 
-    p.slug === norm || 
-    p.slug === withSlash || 
-    p.slug === withoutSlash
-  );
+  // Variants to check
+  const variants = [
+    slug,
+    cleanSlug,
+    norm,
+    withSlash,
+    withoutSlash
+  ];
 
+  // If path starts with /tools/, also check the root-level version
+  if (norm.startsWith('/tools/')) {
+    const stripped = norm.replace(/^\/tools\//, '/');
+    variants.push(stripped);
+    variants.push(stripped.endsWith('/') ? stripped : `${stripped}/`);
+    variants.push(stripped.endsWith('/') ? stripped.slice(0, -1) : stripped);
+  } else {
+    // If path is root-level, also check /tools/ version as alias
+    const withTools = `/tools${norm.startsWith('/') ? norm : '/' + norm}`;
+    variants.push(withTools);
+    variants.push(withTools.endsWith('/') ? withTools : `${withTools}/`);
+  }
+
+  // 1. Direct match across all registered pages
+  const foundPage = allPages.find(p => variants.includes(p.slug));
   if (foundPage) {
     return enrichPageData(foundPage);
   }
 
   // 2. Check dedicated Tool Details registry
-  const tool = getToolByPath(slug) || getToolBySlug(slug) || getToolByPath(norm) || getToolBySlug(norm);
-  if (tool) {
-    return convertToolToPageData(tool);
+  for (const v of variants) {
+    const tool = getToolByPath(v) || getToolBySlug(v);
+    if (tool) {
+      return convertToolToPageData(tool);
+    }
   }
 
   return undefined;

@@ -16,6 +16,40 @@ import { Footer } from './components/Footer';
 import { UrlSlugDirectoryModal } from './components/UrlSlugDirectoryModal';
 import { getPageBySlug, normalizePath } from './data/pagesRegistry';
 
+function updateHeadMetadata(meta: {
+  title: string;
+  description?: string;
+  canonical: string;
+  url: string;
+}) {
+  if (typeof document === 'undefined') return;
+
+  document.title = meta.title;
+
+  const setAttr = (selector: string, attr: string, val: string, createTag?: { name: string; attrName: string; attrVal: string }) => {
+    let el = document.querySelector(selector);
+    if (!el && createTag) {
+      el = document.createElement(createTag.name);
+      el.setAttribute(createTag.attrName, createTag.attrVal);
+      document.head.appendChild(el);
+    }
+    if (el) {
+      el.setAttribute(attr, val);
+    }
+  };
+
+  if (meta.description) {
+    setAttr('meta[name="description"]', 'content', meta.description, { name: 'meta', attrName: 'name', attrVal: 'description' });
+    setAttr('meta[property="og:description"]', 'content', meta.description, { name: 'meta', attrName: 'property', attrVal: 'og:description' });
+    setAttr('meta[name="twitter:description"]', 'content', meta.description, { name: 'meta', attrName: 'name', attrVal: 'twitter:description' });
+  }
+
+  setAttr('meta[property="og:title"]', 'content', meta.title, { name: 'meta', attrName: 'property', attrVal: 'og:title' });
+  setAttr('meta[name="twitter:title"]', 'content', meta.title, { name: 'meta', attrName: 'name', attrVal: 'twitter:title' });
+  setAttr('link[rel="canonical"]', 'href', meta.canonical, { name: 'link', attrName: 'rel', attrVal: 'canonical' });
+  setAttr('meta[property="og:url"]', 'content', meta.url, { name: 'meta', attrName: 'property', attrVal: 'og:url' });
+}
+
 export default function App() {
   const [currentPath, setCurrentPath] = useState<string>(() => {
     if (typeof window !== 'undefined') {
@@ -36,33 +70,64 @@ export default function App() {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  // Update document title and canonical meta on route change
+  const cleanCurrentPath = (currentPath.split('?')[0] || '/').split('#')[0];
+  const normalizedCurrent = normalizePath(cleanCurrentPath);
+  const currentPage = normalizedCurrent === '/' ? null : (getPageBySlug(normalizedCurrent) || getPageBySlug(currentPath));
+
+  // Update document title, canonical meta, and social tags on route change
+  // If unknown route (404), immediately redirect to Homepage
   useEffect(() => {
-    const norm = normalizePath(currentPath);
-    if (norm === '/' || norm === '/consulting-preview') {
-      document.title = 'Riad Al Ashekin | Business & Technology Consultant & Strategist';
-    } else if (norm === '/sitemap' || norm === '/sitemap/') {
-      document.title = 'HTML & XML Sitemap Indexation Directory | Riad Al Ashekin';
-      const metaDescEl = document.querySelector('meta[name="description"]');
-      if (metaDescEl) {
-        metaDescEl.setAttribute('content', 'Explore the complete sitemap and indexation catalog of 168+ published URLs, tactical guides, SEO utilities, and advisory services for riadalashekin.com.');
-      }
-    } else if (norm === '/seo-legacy-homepage' || norm === '/seo-home') {
-      document.title = 'Riad Al Ashekin | SEO Consultant & Strategist (Archive)';
+    if (normalizedCurrent === '/' || normalizedCurrent === '/consulting-preview') {
+      updateHeadMetadata({
+        title: 'Riad Al Ashekin | Business & Technology Consultant & Strategist',
+        description: 'Business & Technology Consultant and Strategist advising founders and executives on software architecture, commercial growth, AI automation, and search.',
+        canonical: 'https://riadalashekin.com/',
+        url: 'https://riadalashekin.com/'
+      });
+      return;
+    }
+
+    if (normalizedCurrent === '/sitemap' || normalizedCurrent === '/sitemap/') {
+      updateHeadMetadata({
+        title: 'HTML & XML Sitemap Indexation Directory | Riad Al Ashekin',
+        description: 'Explore the complete sitemap and indexation catalog of 148+ published URLs, tactical guides, SEO utilities, and advisory services for riadalashekin.com.',
+        canonical: 'https://riadalashekin.com/sitemap/',
+        url: 'https://riadalashekin.com/sitemap/'
+      });
+      return;
+    }
+
+    if (normalizedCurrent === '/seo-legacy-homepage' || normalizedCurrent === '/seo-home') {
+      updateHeadMetadata({
+        title: 'Riad Al Ashekin | SEO Consultant & Strategist (Archive)',
+        description: 'SEO Consultant & Strategist legacy ecosystem and portfolio archive.',
+        canonical: 'https://riadalashekin.com/seo-home/',
+        url: 'https://riadalashekin.com/seo-home/'
+      });
+      return;
+    }
+
+    if (currentPage) {
+      const pageTitle = currentPage.title 
+        ? (currentPage.title.includes('Riad Al Ashekin') ? currentPage.title : `${currentPage.title} | Riad Al Ashekin`)
+        : `${currentPage.headline} | Riad Al Ashekin`;
+      const pageDesc = currentPage.metaDescription || currentPage.subtitle || currentPage.intro || '';
+      const canonical = currentPage.canonicalUrl || `https://riadalashekin.com${normalizedCurrent.endsWith('/') ? normalizedCurrent : normalizedCurrent + '/'}`;
+
+      updateHeadMetadata({
+        title: pageTitle,
+        description: pageDesc,
+        canonical: canonical,
+        url: canonical
+      });
     } else {
-      const page = getPageBySlug(currentPath);
-      if (page) {
-        document.title = page.title ? `${page.title} | Riad Al Ashekin` : `${page.headline} | Riad Al Ashekin`;
-        // Update meta description
-        const metaDescEl = document.querySelector('meta[name="description"]');
-        if (metaDescEl && page.metaDescription) {
-          metaDescEl.setAttribute('content', page.metaDescription);
-        }
-      } else {
-        document.title = 'Page Not Found | Riad Al Ashekin';
+      // Automatic 404 Redirect to Homepage
+      if (typeof window !== 'undefined') {
+        window.history.replaceState({}, '', '/');
+        setCurrentPath('/');
       }
     }
-  }, [currentPath]);
+  }, [currentPath, normalizedCurrent, currentPage]);
 
   const handleNavigate = (slug: string) => {
     const normalized = slug.startsWith('/') ? slug : `/${slug}`;
@@ -72,9 +137,6 @@ export default function App() {
     }
     setCurrentPath(normalized);
   };
-
-  const normalizedCurrent = normalizePath(currentPath);
-  const currentPage = normalizedCurrent === '/' ? null : getPageBySlug(currentPath);
 
   return (
     <div className="min-h-screen bg-brand-50 text-brand-950 selection:bg-brand-900 selection:text-white flex flex-col font-sans">
@@ -108,32 +170,8 @@ export default function App() {
         ) : currentPage ? (
           <PageRenderer page={currentPage} onNavigate={handleNavigate} />
         ) : (
-          /* 404 Not Found Page */
-          <div className="pt-36 pb-24 px-4 max-w-2xl mx-auto text-center space-y-6">
-            <span className="text-xs font-bold uppercase tracking-widest text-accent-700 bg-accent-50 px-3 py-1 rounded-full border border-accent-200">
-              404 • Page Not Found
-            </span>
-            <h1 className="text-3xl sm:text-4xl font-bold text-brand-950">
-              The requested slug could not be located.
-            </h1>
-            <p className="text-sm text-brand-600 font-mono bg-brand-100 p-2.5 rounded-xl">
-              Path: {currentPath}
-            </p>
-            <div className="flex justify-center gap-3 pt-4">
-              <button
-                onClick={() => handleNavigate('/')}
-                className="px-6 py-2.5 bg-brand-950 text-white rounded-xl text-xs font-bold hover:bg-brand-800 transition-colors"
-              >
-                Return to Homepage
-              </button>
-              <button
-                onClick={() => setIsDirectoryOpen(true)}
-                className="px-6 py-2.5 bg-white border border-brand-200 text-brand-900 rounded-xl text-xs font-bold hover:bg-brand-50 transition-colors"
-              >
-                Browse All 65 Slugs
-              </button>
-            </div>
-          </div>
+          /* Auto-fallback to Homepage on any 404 Error */
+          <ConsultingHomepage onNavigate={handleNavigate} />
         )}
       </main>
 

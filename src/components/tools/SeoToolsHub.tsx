@@ -48,7 +48,7 @@ export function SeoToolsHub({ onNavigate }: SeoToolsHubProps) {
 
   const handleToolClick = (tool: SeoToolItem) => {
     const detail = getToolById(tool.id) || getToolBySlug(tool.slug) || getToolBySlug(tool.id);
-    const targetPath = detail ? detail.path : (tool.slug.startsWith('/') ? tool.slug : `/tools/${tool.slug.replace(/^tool:/, '')}/`);
+    const targetPath = detail ? detail.path : (tool.slug.startsWith('/') ? tool.slug : `/${tool.slug.replace(/^tool:/, '')}/`);
     onNavigate(targetPath);
   };
 

@@ -280,7 +280,7 @@ export function SitemapPage({ onNavigate }: Props) {
               Submit to Google Search Console for Fast Indexing
             </h4>
             <p className="text-xs text-accent-800 mt-0.5 max-w-2xl">
-              Go to <strong>Google Search Console &gt; Sitemaps</strong>, paste <code className="bg-accent-100 text-accent-900 px-1.5 py-0.5 rounded font-mono text-[11px]">sitemap.xml</code>, and click <strong>Submit</strong>. Google will automatically crawl all 168+ URLs and prioritize the longform guides.
+              Go to <strong>Google Search Console &gt; Sitemaps</strong>, paste <code className="bg-accent-100 text-accent-900 px-1.5 py-0.5 rounded font-mono text-[11px]">sitemap.xml</code>, and click <strong>Submit</strong>. Google will automatically crawl all {sitemapItems.length} URLs and prioritize the longform guides.
             </p>
           </div>
         </div>
@@ -302,7 +302,7 @@ export function SitemapPage({ onNavigate }: Props) {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search across all 168 URLs by title or slug..."
+              placeholder={`Search across all ${sitemapItems.length} URLs by title or slug...`}
               className="w-full pl-10 pr-4 py-2.5 bg-white border border-brand-200 rounded-xl text-xs font-medium text-brand-900 placeholder:text-brand-400 focus:outline-none focus:border-brand-900 transition-colors shadow-sm"
             />
             {searchQuery && (
