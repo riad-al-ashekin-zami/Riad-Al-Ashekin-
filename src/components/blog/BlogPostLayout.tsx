@@ -596,15 +596,16 @@ export function BlogPostLayout({ page, onNavigate }: Props) {
               </div>
             )}
 
-            {/* Executive Overview / Intro Box (Section Anchor: intro-section) for structured pages */}
-            {!page.markdownContent && page.intro && (
+            {/* Executive Overview / Intro Box (Section Anchor: intro-section) */}
+            {page.intro && (
               <section id="intro-section" className="scroll-mt-28 space-y-4">
-                <div className="p-6 sm:p-8 bg-white border border-brand-200/90 rounded-2xl shadow-soft-purple text-brand-800 text-base sm:text-lg leading-relaxed relative overflow-hidden">
-                  <div className="absolute top-0 left-0 w-1.5 h-full bg-accent-600" />
-                  <h3 className="text-xs font-bold text-accent-800 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                    <Award className="w-4 h-4 text-accent-600" /> Executive Overview
-                  </h3>
-                  <p className="font-normal text-brand-800 leading-relaxed">
+                <div className="p-6 sm:p-8 bg-gradient-to-br from-white via-accent-50/20 to-brand-50/40 border border-brand-200/90 rounded-3xl shadow-soft-purple text-brand-900 text-base sm:text-lg leading-relaxed relative overflow-hidden">
+                  <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-accent-600 via-accent-500 to-strategy-600" />
+                  <div className="flex items-center gap-2 text-xs font-bold text-accent-800 uppercase tracking-wider mb-2.5">
+                    <Award className="w-4 h-4 text-accent-600" />
+                    <span>Executive Overview &amp; Architectural Synthesis</span>
+                  </div>
+                  <p className="font-normal text-brand-900 leading-relaxed">
                     {page.intro}
                   </p>
                 </div>
@@ -613,7 +614,7 @@ export function BlogPostLayout({ page, onNavigate }: Props) {
 
             {/* If full Markdown Content is provided, render with MarkdownArticleRenderer */}
             {page.markdownContent && (
-              <article className="scroll-mt-28 space-y-6 bg-white border border-brand-200/80 rounded-2xl p-6 sm:p-10 shadow-2xs">
+              <article className="scroll-mt-28 space-y-6 bg-white border border-brand-200/90 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-soft-purple">
                 <MarkdownArticleRenderer content={page.markdownContent} onNavigate={onNavigate} />
               </article>
             )}
