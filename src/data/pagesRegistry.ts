@@ -56,6 +56,14 @@ export function normalizePath(path: string): string {
 
 // Dedicated featured image lookup for the 4 official blog posts
 const BLOG_FEATURED_IMAGE_MAP: Record<string, { image: string; alt: string }> = {
+  '/best-website-design-companies-in-bangladesh/': {
+    image: '/images/featured-web-design-companies-bangladesh.svg',
+    alt: 'Best Website Design Companies in Bangladesh: How to Choose the Right Web Design & Development Partner'
+  },
+  '/best-software-companies-in-bangladesh/': {
+    image: '/images/featured-software-companies-bangladesh.svg',
+    alt: 'Best Software Companies in Bangladesh: Top Software Development Companies to Know in 2026'
+  },
   '/tarique-rahman/': {
     image: '/images/featured-tarique-rahman.svg',
     alt: 'Tarique Rahman Prime Minister of Bangladesh and BNP Chairman'

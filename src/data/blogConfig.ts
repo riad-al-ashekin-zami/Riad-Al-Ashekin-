@@ -7,6 +7,8 @@ import { normalizePath } from './pagesRegistry';
  * Featured custom cover images mapped to specific canonical slugs
  */
 export const BLOG_FEATURED_IMAGES: Record<string, string> = {
+  '/best-website-design-companies-in-bangladesh/': '/images/featured-web-design-companies-bangladesh.svg',
+  '/best-software-companies-in-bangladesh/': '/images/featured-software-companies-bangladesh.svg',
   '/tarique-rahman/': '/images/featured-tarique-rahman.svg',
   '/seo-for-static-websites/': '/images/featured-spa-guide.svg',
   '/seo-for-single-page-applications/': '/images/featured-spa-seo-guide.svg',
@@ -24,6 +26,8 @@ export const BLOG_FEATURED_IMAGES: Record<string, string> = {
  * Initial core flagship slugs
  */
 export const OFFICIAL_BLOG_SLUGS = [
+  '/best-website-design-companies-in-bangladesh/',
+  '/best-software-companies-in-bangladesh/',
   '/tarique-rahman/',
   '/seo-for-static-websites/',
   '/seo-for-single-page-applications/',

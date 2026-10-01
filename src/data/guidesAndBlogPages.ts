@@ -3,8 +3,62 @@ import { singlePageApplicationMarkdown } from './posts/singlePageApplicationPost
 import { spaSeoMarkdown } from './posts/spaSeoPost';
 import { staticWebsiteSeoMarkdown } from './posts/staticWebsiteSeoPost';
 import { tariqueRahmanMarkdown } from './posts/tariqueRahmanPost';
+import { bestSoftwareCompaniesBangladeshMarkdown } from './posts/bestSoftwareCompaniesBangladeshPost';
+import { bestWebDesignCompaniesBangladeshMarkdown } from './posts/bestWebDesignCompaniesBangladeshPost';
 
 export const guidesAndBlogPages: PageData[] = [
+  {
+    slug: '/best-website-design-companies-in-bangladesh/',
+    canonicalUrl: 'https://riadalashekin.com/best-website-design-companies-in-bangladesh/',
+    title: 'Best Website Design Companies in Bangladesh: How to Choose the Right Web Design & Development Partner',
+    metaDescription: 'Discover the best website design companies in Bangladesh. Compare top web design and development agencies, UI/UX firms, WordPress specialists, and evaluation criteria.',
+    badge: 'Web Design & Agency Rankings',
+    category: 'guides',
+    headline: 'Best Website Design Companies in Bangladesh: How to Choose the Right Web Design & Development Partner',
+    subtitle: 'An actionable guide to selecting top web design and development agencies in Bangladesh, evaluating live portfolios, CMS architectures, mobile UX, and technical SEO.',
+    featuredImage: '/images/featured-web-design-companies-bangladesh.svg',
+    featuredImageAlt: 'Best Website Design Companies in Bangladesh - Top Web Design and Development Agencies',
+    featuredImageCaption: 'Figure 1.0: Leading Web Design and Development Companies in Bangladesh, Agency Selection Matrix & Evaluation Framework (Source: Riad Al Ashekin Advisory).',
+    readingTime: '10 min read',
+    lastUpdated: 'October 2026',
+    intro: 'Choosing a website design company in Bangladesh should involve more than comparing attractive portfolios. A business website needs to look professional, but it also needs to load quickly, work properly on mobile devices, support search-engine visibility, convert visitors into enquiries or customers, and remain maintainable after launch. This guide evaluates leading agencies, technical stacks, and selection criteria.',
+    markdownContent: bestWebDesignCompaniesBangladeshMarkdown,
+    sections: [],
+    keyTakeaways: [
+      'There is no single "best" website design company; choose an agency whose technical capabilities match your specific business requirements.',
+      'Evaluate live websites on real mobile devices rather than judging agencies solely by static portfolio screenshots.',
+      'Ensure technical SEO (crawlability, heading hierarchy, clean URLs, schema, Core Web Vitals) is integrated prior to development.',
+      'Retain 100% full legal and direct administrative ownership of domain, hosting, repository source code, and design files.',
+      'Require a clear post-launch maintenance agreement detailing backups, security patches, framework updates, and response SLAs.'
+    ],
+    relatedSlugs: ['/best-software-companies-in-bangladesh/', '/top-10-seo-agencies-in-bangladesh/', '/20-best-seo-experts-in-bangladesh/']
+  },
+  {
+    slug: '/best-software-companies-in-bangladesh/',
+    canonicalUrl: 'https://riadalashekin.com/best-software-companies-in-bangladesh/',
+    title: 'Best Software Companies in Bangladesh: Top Software Development Companies to Know in 2026',
+    metaDescription: 'Discover the best software companies in Bangladesh in 2026. Compare top software development firms, ERP providers, engineering teams, and export leaders.',
+    badge: 'Industry Market Report',
+    category: 'guides',
+    headline: 'Best Software Companies in Bangladesh: Top Software Development Companies to Know in 2026',
+    subtitle: 'An authoritative market analysis of Bangladesh\'s leading software development companies, ERP providers, engineering firms, and export-oriented IT leaders.',
+    featuredImage: '/images/featured-software-companies-bangladesh.svg',
+    featuredImageAlt: 'Best Software Companies in Bangladesh - Top Software Development Firms & Market Analysis',
+    featuredImageCaption: 'Figure 1.0: Leading Software Development Companies in Bangladesh, Delivery Capabilities & Enterprise Vendor Selection Matrix (Source: Riad Al Ashekin Advisory).',
+    readingTime: '12 min read',
+    lastUpdated: 'October 2026',
+    intro: 'Finding the right software company in Bangladesh depends less on finding a universal “number one” company and more on matching a company\'s technical strengths, delivery model, industry experience, team capacity, and support structure to your project. This guide analyzes leading firms, ERP providers, and vendor selection criteria.',
+    markdownContent: bestSoftwareCompaniesBangladeshMarkdown,
+    sections: [],
+    keyTakeaways: [
+      'There is no universal "number one" software company; match technical strengths and delivery models to your specific project needs.',
+      'BASIS reports 2,882 registered members with leading exporters serving North America, Europe, Japan, and the Middle East.',
+      'Differentiate between custom product engineering (SaaS/AI) and localized business platforms (RMG/ERP/VAT/POS).',
+      'Prioritize source-code ownership, technical team capability, and post-launch maintenance over initial low-cost quotes.',
+      'Carefully select between Fixed Price, Time & Material, and Dedicated Team engagement models.'
+    ],
+    relatedSlugs: ['/top-10-saas-development-companies-usa/', '/top-10-seo-agencies-in-bangladesh/', '/seo-for-single-page-applications/']
+  },
   {
     slug: '/tarique-rahman/',
     canonicalUrl: 'https://riadalashekin.com/tarique-rahman/',
