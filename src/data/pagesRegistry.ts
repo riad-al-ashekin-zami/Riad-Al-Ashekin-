@@ -56,6 +56,18 @@ export function normalizePath(path: string): string {
 
 // Dedicated featured image lookup for the 4 official blog posts
 const BLOG_FEATURED_IMAGE_MAP: Record<string, { image: string; alt: string }> = {
+  '/best-digital-marketing-agencies-in-bangladesh/': {
+    image: '/images/featured-digital-marketing-agencies-bangladesh.svg',
+    alt: 'Best Digital Marketing Agencies in Bangladesh: How to Choose the Right Agency'
+  },
+  '/best-advertising-agencies-in-bangladesh/': {
+    image: '/images/featured-advertising-agencies-bangladesh.svg',
+    alt: 'Best Advertising Agencies in Bangladesh: How to Choose the Right Advertising Partner'
+  },
+  '/multinational-companies-in-bangladesh/': {
+    image: '/images/featured-multinational-companies-bangladesh.svg',
+    alt: 'Multinational Companies in Bangladesh: Top MNCs, Industries, Jobs and Career Guide'
+  },
   '/best-website-design-companies-in-bangladesh/': {
     image: '/images/featured-web-design-companies-bangladesh.svg',
     alt: 'Best Website Design Companies in Bangladesh: How to Choose the Right Web Design & Development Partner'
@@ -69,7 +81,7 @@ const BLOG_FEATURED_IMAGE_MAP: Record<string, { image: string; alt: string }> = 
     alt: 'Tarique Rahman Prime Minister of Bangladesh and BNP Chairman'
   },
   '/seo-for-static-websites/': {
-    image: '/images/featured-spa-guide.svg',
+    image: '/images/featured-static-website-seo.svg',
     alt: 'SEO for Static Websites: How to Optimize a Static Site for Search'
   },
   '/seo-for-single-page-applications/': {
@@ -77,12 +89,12 @@ const BLOG_FEATURED_IMAGE_MAP: Record<string, { image: string; alt: string }> = 
     alt: 'SEO for Single Page Applications: How to Optimize SPAs for Google'
   },
   '/what-is-a-single-page-application/': {
-    image: '/images/featured-spa-guide.svg',
-    alt: 'What Is a Single Page Application (SPA) Architecture and Technical SEO Blueprint'
+    image: '/images/featured-single-page-application-guide.svg',
+    alt: 'What Is a Single Page Application (SPA)? Complete Guide to SPA Apps, JavaScript, Architecture, SEO & Examples'
   },
   '/what-is-a-single-page-application-spa/': {
-    image: '/images/featured-spa-guide.svg',
-    alt: 'What Is a Single Page Application (SPA) Architecture and Technical SEO Blueprint'
+    image: '/images/featured-single-page-application-guide.svg',
+    alt: 'What Is a Single Page Application (SPA)? Complete Guide to SPA Apps, JavaScript, Architecture, SEO & Examples'
   },
   '/best-8-seo-experts-in-sylhet/': {
     image: '/images/featured-sylhet-seo-experts.svg',

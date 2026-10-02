@@ -5,8 +5,89 @@ import { staticWebsiteSeoMarkdown } from './posts/staticWebsiteSeoPost';
 import { tariqueRahmanMarkdown } from './posts/tariqueRahmanPost';
 import { bestSoftwareCompaniesBangladeshMarkdown } from './posts/bestSoftwareCompaniesBangladeshPost';
 import { bestWebDesignCompaniesBangladeshMarkdown } from './posts/bestWebDesignCompaniesBangladeshPost';
+import { multinationalCompaniesBangladeshMarkdown } from './posts/multinationalCompaniesBangladeshPost';
+import { bestAdvertisingAgenciesBangladeshMarkdown } from './posts/bestAdvertisingAgenciesBangladeshPost';
+import { bestDigitalMarketingAgenciesBangladeshMarkdown } from './posts/bestDigitalMarketingAgenciesBangladeshPost';
 
 export const guidesAndBlogPages: PageData[] = [
+  {
+    slug: '/best-digital-marketing-agencies-in-bangladesh/',
+    canonicalUrl: 'https://riadalashekin.com/best-digital-marketing-agencies-in-bangladesh/',
+    title: 'Best Digital Marketing Agencies in Bangladesh: How to Choose the Right Agency',
+    metaDescription: 'Discover the best digital marketing agencies in Bangladesh. Compare top SEO companies, Meta Ads specialists, Google PPC firms, and performance marketing partners.',
+    badge: 'Digital Marketing & Growth',
+    category: 'guides',
+    headline: 'Best Digital Marketing Agencies in Bangladesh: How to Choose the Right Agency',
+    subtitle: 'A strategic evaluation of Bangladesh\'s leading digital marketing agencies, SEO companies, paid performance specialists, and conversion tracking frameworks.',
+    featuredImage: '/images/featured-digital-marketing-agencies-bangladesh.svg',
+    featuredImageAlt: 'Best Digital Marketing Agencies in Bangladesh - Top SEO and Performance Marketing Companies',
+    featuredImageCaption: 'Figure 1.0: Leading Digital Marketing Agencies in Bangladesh, Performance Acquisition Channels & Vendor Selection Matrix (Source: Riad Al Ashekin Advisory).',
+    readingTime: '11 min read',
+    lastUpdated: 'October 2026',
+    intro: 'Choosing the best digital marketing agency in Bangladesh starts with defining what you actually need to improve. Whether increasing ecommerce sales, building organic search authority, or driving qualified B2B leads, this guide analyzes leading Dhaka agencies, pricing models, and vendor selection criteria.',
+    markdownContent: bestDigitalMarketingAgenciesBangladeshMarkdown,
+    sections: [],
+    keyTakeaways: [
+      'Match the agency to your primary acquisition channel: SEO, paid social, Google Ads, ecommerce, or integrated branding.',
+      'Leading evaluated firms include Notionhive (design & dev), Magnito (integrated digital), GEEKY Social (performance), VISER X (search-led), and Bizcope (performance SEO).',
+      'Audit tracking infrastructure (Meta Pixel, CAPI, GA4, CRM integration) before allocating media budgets.',
+      'Retain 100% direct client ownership of advertising accounts, tracking pixels, and analytics assets.',
+      'Ensure full transparency distinguishing agency management retainers from direct ad spend.'
+    ],
+    relatedSlugs: ['/best-advertising-agencies-in-bangladesh/', '/top-10-seo-agencies-in-bangladesh/', '/best-website-design-companies-in-bangladesh/']
+  },
+  {
+    slug: '/best-advertising-agencies-in-bangladesh/',
+    canonicalUrl: 'https://riadalashekin.com/best-advertising-agencies-in-bangladesh/',
+    title: 'Best Advertising Agencies in Bangladesh: How to Choose the Right Advertising Partner',
+    metaDescription: 'Discover the best advertising agencies in Bangladesh. Compare top creative agencies, digital performance firms, media buying partners, and selection frameworks.',
+    badge: 'Advertising & Agency Rankings',
+    category: 'guides',
+    headline: 'Best Advertising Agencies in Bangladesh: How to Choose the Right Advertising Partner',
+    subtitle: 'An actionable guide to selecting top advertising, digital marketing, and media buying agencies in Bangladesh, evaluating creative portfolios, campaign attribution, and ad account control.',
+    featuredImage: '/images/featured-advertising-agencies-bangladesh.svg',
+    featuredImageAlt: 'Best Advertising Agencies in Bangladesh - Top Creative and Performance Media Partners',
+    featuredImageCaption: 'Figure 1.0: Leading Advertising Agencies in Bangladesh, Creative Disciplines & Media Buying Framework (Source: Riad Al Ashekin Advisory).',
+    readingTime: '10 min read',
+    lastUpdated: 'October 2026',
+    intro: 'Choosing an advertising agency in Bangladesh should start with the business problem you need to solve, not with a generic “top 10” ranking. Some agencies excel in brand storytelling and mass-media creative, while others specialize in Meta performance ads, Google conversion tracking, or integrated offline-online media buying. This guide analyzes leading Dhaka agencies, pricing models, and vetting criteria.',
+    markdownContent: bestAdvertisingAgenciesBangladeshMarkdown,
+    sections: [],
+    keyTakeaways: [
+      'Base agency selection on concrete business goals (cost per lead, ROAS, qualified sales pipeline) rather than vanity engagement metrics.',
+      'Verify whether an agency excels at broad brand awareness (TV/outdoor/print) or targeted digital conversion (Meta Ads/Google Ads).',
+      'Retain direct administrative ownership of your Meta Business Manager, Google Ads accounts, Pixel, and first-party conversion data.',
+      'Require total billing transparency separating agency creative/management fees from direct media ad spend.',
+      'Demand post-click conversion tracking and attribution reporting connecting ad spend directly to commercial revenue.'
+    ],
+    relatedSlugs: ['/top-10-seo-agencies-in-bangladesh/', '/best-website-design-companies-in-bangladesh/', '/best-software-companies-in-bangladesh/']
+  },
+  {
+    slug: '/multinational-companies-in-bangladesh/',
+    canonicalUrl: 'https://riadalashekin.com/multinational-companies-in-bangladesh/',
+    title: 'Multinational Companies in Bangladesh: Top MNCs, Industries, Jobs and Career Guide',
+    metaDescription: 'Discover top multinational companies in Bangladesh. Explore leading MNCs across FMCG, banking, telecom, pharmaceuticals, energy, tech, salaries, and careers.',
+    badge: 'Corporate & Career Guide',
+    category: 'guides',
+    headline: 'Multinational Companies in Bangladesh: Top MNCs, Industries, Jobs and Career Guide',
+    subtitle: 'An exhaustive economic and recruitment analysis of Bangladesh\'s leading multinational corporations across 12 sectors, hiring pathways, and executive career benchmarks.',
+    featuredImage: '/images/featured-multinational-companies-bangladesh.svg',
+    featuredImageAlt: 'Multinational Companies in Bangladesh - Top MNCs, Industries and Career Guide',
+    featuredImageCaption: 'Figure 1.0: Multinational Corporations in Bangladesh, Operating Sectors & Executive Career Framework (Source: Riad Al Ashekin Advisory).',
+    readingTime: '11 min read',
+    lastUpdated: 'October 2026',
+    intro: 'A multinational company in Bangladesh is generally a business that operates in Bangladesh while being part of a corporate group spanning multiple countries. From Unilever and Nestlé to Standard Chartered, Chevron, and Grameenphone, this guide analyzes leading multinational employers, sector distributions, salaries, and career requirements.',
+    markdownContent: multinationalCompaniesBangladeshMarkdown,
+    sections: [],
+    keyTakeaways: [
+      'Multinational companies in Bangladesh span FMCG, banking, telecom, pharma, energy, technology, logistics, and engineering.',
+      'Leading long-established employers include Unilever, Nestlé, Standard Chartered, HSBC, Chevron, Grameenphone, Bata, and Syngenta.',
+      'Legal operating models vary widely, ranging from locally incorporated subsidiaries and joint ventures to liaison offices and distribution hubs.',
+      'MNC career recruitment emphasizes structured assessment centres, business case studies, and STAR-based behavioral interviews.',
+      'Evaluate roles based on specific compensation structures, training opportunities, and management culture rather than relying solely on brand prestige.'
+    ],
+    relatedSlugs: ['/best-software-companies-in-bangladesh/', '/best-website-design-companies-in-bangladesh/', '/top-10-seo-agencies-in-bangladesh/']
+  },
   {
     slug: '/best-website-design-companies-in-bangladesh/',
     canonicalUrl: 'https://riadalashekin.com/best-website-design-companies-in-bangladesh/',
@@ -94,8 +175,8 @@ export const guidesAndBlogPages: PageData[] = [
     category: 'guides',
     headline: 'SEO for Static Websites: How to Optimize a Static Site for Search',
     subtitle: 'An in-depth guide to static site architecture, HTML-first crawlability, Core Web Vitals, CDN caching, and search ranking strategies.',
-    featuredImage: '/images/featured-spa-guide.svg',
-    featuredImageAlt: 'SEO for Static Websites Architecture and Search Crawlability',
+    featuredImage: '/images/featured-static-website-seo.svg',
+    featuredImageAlt: 'SEO for Static Websites: How to Optimize a Static Site for Search',
     readingTime: '14 min read',
     lastUpdated: 'October 2026',
     intro: 'SEO for a static website is usually straightforward because each page already exists as a complete HTML document that search engines can crawl without relying heavily on client-side JavaScript. This guide explains how to do SEO for a static website, what technical elements matter most, and how to optimize static sites for Google.',
@@ -145,8 +226,8 @@ export const guidesAndBlogPages: PageData[] = [
     category: 'guides',
     headline: 'What Is a Single Page Application (SPA)? Complete Guide to SPA Apps, JavaScript, Architecture, SEO & Examples',
     subtitle: 'An in-depth architectural breakdown of single-page apps, History API routing, client-side rendering tradeoffs, Google indexation, and enterprise engineering patterns.',
-    featuredImage: '/images/featured-spa-guide.svg',
-    featuredImageAlt: 'What Is a Single Page Application (SPA) Architecture and Technical SEO Blueprint',
+    featuredImage: '/images/featured-single-page-application-guide.svg',
+    featuredImageAlt: 'What Is a Single Page Application (SPA)? Complete Guide to SPA Apps, JavaScript, Architecture, SEO & Examples',
     featuredImageCaption: 'Figure 1.0: Single Page Application Architecture, Client-Side Routing, State Synchronization & Search Crawler Pipeline (Source: Riad Al Ashekin Advisory).',
     readingTime: '18 min read',
     lastUpdated: 'October 2026',

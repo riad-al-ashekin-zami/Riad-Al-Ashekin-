@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" fill="none">
+  <defs>
+    <linearGradient id="static-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#040d18" />
+      <stop offset="45%" stop-color="#081c26" />
+      <stop offset="100%" stop-color="#05131e" />
+    </linearGradient>
+    <linearGradient id="static-card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0c2533" stop-opacity="0.94" />
+      <stop offset="100%" stop-color="#071924" stop-opacity="0.98" />
+    </linearGradient>
+    <linearGradient id="static-card-right" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f2e3d" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#091f2c" stop-opacity="0.98" />
+    </linearGradient>
+    <linearGradient id="emerald-cyan-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="50%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+    <pattern id="static-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#133d47" stroke-width="0.8" stroke-opacity="0.32" />
+    </pattern>
+    <filter id="static-glow-filter" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="38" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1200" height="630" fill="url(#static-bg)" />
+  <rect width="1200" height="630" fill="url(#static-grid)" />
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="190" cy="160" r="190" fill="#10b981" opacity="0.20" filter="url(#static-glow-filter)" />
+  <circle cx="1030" cy="380" r="220" fill="#06b6d4" opacity="0.22" filter="url(#static-glow-filter)" />
+  <circle cx="610" cy="240" r="240" fill="#0284c7" opacity="0.14" filter="url(#static-glow-filter)" />
+
+  <!-- Top Badge -->
+  <g transform="translate(80, 56)">
+    <rect x="0" y="0" width="435" height="34" rx="17" fill="#0a2833" stroke="#10b981" stroke-width="1.2" />
+    <circle cx="18" cy="17" r="4.5" fill="#10b981" />
+    <text x="32" y="22" fill="#a7f3d0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="800" letter-spacing="1.5">TECHNICAL ARCHITECTURE • STATIC SITE SEARCH BLUEPRINT</text>
+  </g>
+
+  <!-- Headline & Subtitle -->
+  <g transform="translate(80, 132)">
+    <text x="0" y="0" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="44" font-weight="900" letter-spacing="-0.8">SEO for Static Websites</text>
+    <text x="0" y="42" fill="#6ee7b7" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="600">How to Optimize a Static Site, SSG &amp; Jamstack for Search Engine Crawlability</text>
+  </g>
+
+  <!-- Left: Static HTML Delivery & Crawl Pipeline Box -->
+  <g transform="translate(80, 222)">
+    <rect width="520" height="318" rx="20" fill="url(#static-card)" stroke="#164654" stroke-width="1.2" />
+
+    <!-- Terminal Header Bar -->
+    <g transform="translate(24, 20)">
+      <circle cx="8" cy="8" r="5" fill="#ef4444" opacity="0.8" />
+      <circle cx="26" cy="8" r="5" fill="#f59e0b" opacity="0.8" />
+      <circle cx="44" cy="8" r="5" fill="#10b981" opacity="0.8" />
+      <text x="70" y="12" fill="#94a3b8" font-family="monospace" font-size="11">static-seo-crawl-pipeline.html</text>
+      <rect x="360" y="0" width="112" height="20" rx="10" fill="#09313a" stroke="#10b981" stroke-width="0.8" />
+      <text x="372" y="14" fill="#a7f3d0" font-family="monospace" font-size="9.5" font-weight="bold">RAW HTML 100%</text>
+    </g>
+
+    <!-- Pipeline Step 1 -->
+    <g transform="translate(24, 58)">
+      <rect width="472" height="52" rx="10" fill="#09212c" stroke="#10b981" stroke-width="1" />
+      <circle cx="20" cy="26" r="10" fill="#10b981" fill-opacity="0.2" />
+      <text x="20" y="30" text-anchor="middle" fill="#10b981" font-family="monospace" font-size="11" font-weight="bold">1</text>
+      <text x="42" y="24" fill="#f0fdf4" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700">Pre-Rendering &amp; Build-Time SSG</text>
+      <text x="42" y="42" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11">Astro, Hugo, Next.js SSG, 11ty generate complete static HTML files</text>
+    </g>
+
+    <!-- Pipeline Step 2 -->
+    <g transform="translate(24, 120)">
+      <rect width="472" height="52" rx="10" fill="#09212c" stroke="#06b6d4" stroke-width="1" />
+      <circle cx="20" cy="26" r="10" fill="#06b6d4" fill-opacity="0.2" />
+      <text x="20" y="30" text-anchor="middle" fill="#06b6d4" font-family="monospace" font-size="11" font-weight="bold">2</text>
+      <text x="42" y="24" fill="#f0fdf4" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700">Global Edge CDN Distribution</text>
+      <text x="42" y="42" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11">Cloudflare, CloudFront &amp; Fastly edge caches deliver &lt;40ms TTFB worldwide</text>
+    </g>
+
+    <!-- Pipeline Step 3 -->
+    <g transform="translate(24, 182)">
+      <rect width="472" height="52" rx="10" fill="#09212c" stroke="#38bdf8" stroke-width="1" />
+      <circle cx="20" cy="26" r="10" fill="#38bdf8" fill-opacity="0.2" />
+      <text x="20" y="30" text-anchor="middle" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="bold">3</text>
+      <text x="42" y="24" fill="#f0fdf4" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700">Direct Googlebot Crawl &amp; Indexation</text>
+      <text x="42" y="42" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11">Instant raw DOM extraction • Zero JavaScript rendering queue latency</text>
+    </g>
+
+    <!-- Bottom Status Strip -->
+    <g transform="translate(24, 246)">
+      <rect width="472" height="48" rx="8" fill="#061720" stroke="#133d47" stroke-width="1" />
+      <text x="16" y="28" fill="#38bdf8" font-family="monospace" font-size="11">✓ Semantic HTML5</text>
+      <text x="146" y="28" fill="#10b981" font-family="monospace" font-size="11">✓ Clean URLs</text>
+      <text x="256" y="28" fill="#06b6d4" font-family="monospace" font-size="11">✓ XML Sitemaps</text>
+      <text x="382" y="28" fill="#a7f3d0" font-family="monospace" font-size="11">✓ Real 404s</text>
+    </g>
+  </g>
+
+  <!-- Right: Technical Optimizations Matrix -->
+  <g transform="translate(630, 222)">
+    <rect width="490" height="318" rx="20" fill="url(#static-card-right)" stroke="#164654" stroke-width="1.2" />
+
+    <!-- Card 1: Core Web Vitals & Speed -->
+    <g transform="translate(24, 22)">
+      <rect width="442" height="82" rx="14" fill="#0a2533" stroke="#1a4f5f" stroke-width="1" />
+      <circle cx="34" cy="41" r="20" fill="#10b981" fill-opacity="0.15" />
+      <text x="34" y="47" text-anchor="middle" fill="#10b981" font-family="monospace" font-size="18">⚡</text>
+      <text x="68" y="32" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" font-weight="700">Flawless Core Web Vitals &amp; Speed</text>
+      <text x="68" y="52" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11.5">Near-perfect LCP, INP &amp; CLS without JavaScript bloat</text>
+      <text x="68" y="68" fill="#34d399" font-family="monospace" font-size="10">Sub-100ms LCP • Zero Hydration Shift</text>
+    </g>
+
+    <!-- Card 2: HTML-First Crawlability -->
+    <g transform="translate(24, 118)">
+      <rect width="442" height="82" rx="14" fill="#0a2533" stroke="#1a4f5f" stroke-width="1" />
+      <circle cx="34" cy="41" r="20" fill="#06b6d4" fill-opacity="0.15" />
+      <text x="34" y="47" text-anchor="middle" fill="#06b6d4" font-family="monospace" font-size="18">🔍</text>
+      <text x="68" y="32" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" font-weight="700">Immediate Crawl &amp; Indexation Pipeline</text>
+      <text x="68" y="52" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11.5">Search engines parse raw HTML without client script execution</text>
+      <text x="68" y="68" fill="#38bdf8" font-family="monospace" font-size="10">100% Crawl Budget Efficiency • 0% Render Drop</text>
+    </g>
+
+    <!-- Card 3: Metadata, Schema & Canonical Hygiene -->
+    <g transform="translate(24, 214)">
+      <rect width="442" height="82" rx="14" fill="#0a2533" stroke="#1a4f5f" stroke-width="1" />
+      <circle cx="34" cy="41" r="20" fill="#38bdf8" fill-opacity="0.15" />
+      <text x="34" y="47" text-anchor="middle" fill="#38bdf8" font-family="monospace" font-size="18">⚙</text>
+      <text x="68" y="32" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" font-weight="700">Strict Canonicalization &amp; JSON-LD Schema</text>
+      <text x="68" y="52" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11.5">Pre-baked OpenGraph tags, Schema.org entities &amp; XML sitemaps</text>
+      <text x="68" y="68" fill="#67e8f9" font-family="monospace" font-size="10">Self-Referencing Canonicals • Valid HTTP Statuses</text>
+    </g>
+  </g>
+
+  <!-- Author Signature Footer -->
+  <g transform="translate(80, 574)">
+    <text x="0" y="0" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="600">Riad Al Ashekin Advisory</text>
+    <text x="175" y="0" fill="#334155" font-family="sans-serif" font-size="13">•</text>
+    <text x="190" y="0" fill="#34d399" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="600">riadalashekin.com/seo-for-static-websites/</text>
+  </g>
+</svg>

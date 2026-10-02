@@ -27,7 +27,7 @@ function escapeHtml(unsafe: string): string {
     .replace(/'/g, '&#039;');
 }
 
-function generateHtmlForPage(slug: string, title: string, description: string, canonicalUrl: string): string {
+function generateHtmlForPage(slug: string, title: string, description: string, canonicalUrl: string, imageUrl?: string): string {
   let html = baseTemplate;
 
   const safeTitle = escapeHtml(title);
@@ -64,6 +64,19 @@ function generateHtmlForPage(slug: string, title: string, description: string, c
   // Replace og:url
   if (html.includes('property="og:url"')) {
     html = html.replace(/<meta\s+property="og:url"\s+content=".*?"\s*\/?>/i, `<meta property="og:url" content="${safeUrl}" />`);
+  }
+
+  // Replace og:image and twitter:image if custom image provided
+  if (imageUrl) {
+    const fullImageUrl = imageUrl.startsWith('http') ? imageUrl : `${DOMAIN}${imageUrl.startsWith('/') ? '' : '/'}${imageUrl}`;
+    const safeImg = escapeHtml(fullImageUrl);
+
+    if (html.includes('property="og:image"')) {
+      html = html.replace(/<meta\s+property="og:image"\s+content=".*?"\s*\/?>/i, `<meta property="og:image" content="${safeImg}" />`);
+    }
+    if (html.includes('name="twitter:image"')) {
+      html = html.replace(/<meta\s+name="twitter:image"\s+content=".*?"\s*\/?>/i, `<meta name="twitter:image" content="${safeImg}" />`);
+    }
   }
 
   // Replace twitter:title
@@ -115,7 +128,7 @@ for (const rawPage of allPages) {
   const pageDesc = page.metaDescription || page.subtitle || page.intro || '';
   const canonical = page.canonicalUrl || `${DOMAIN}/${cleanSlug}/`;
 
-  const pageHtml = generateHtmlForPage(norm, pageTitle, pageDesc, canonical);
+  const pageHtml = generateHtmlForPage(norm, pageTitle, pageDesc, canonical, page.featuredImage);
 
   const targetFolder = path.join(distDir, cleanSlug);
   if (!fs.existsSync(targetFolder)) {
