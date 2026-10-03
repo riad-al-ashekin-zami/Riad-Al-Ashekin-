@@ -12,8 +12,35 @@ import { bestHotelManagementSoftwareBangladeshMarkdown } from './posts/bestHotel
 import { bestInventoryManagementSoftwareBangladeshMarkdown } from './posts/bestInventoryManagementSoftwareBangladeshPost';
 import { bestSchoolManagementSoftwareBangladeshMarkdown } from './posts/bestSchoolManagementSoftwareBangladeshPost';
 import { bestHospitalManagementSoftwareBangladeshMarkdown } from './posts/bestHospitalManagementSoftwareBangladeshPost';
+import { bestPharmacyManagementSoftwareBangladeshMarkdown } from './posts/bestPharmacyManagementSoftwareBangladeshPost';
 
 export const guidesAndBlogPages: PageData[] = [
+  {
+    slug: '/best-pharmacy-management-software-in-bangladesh/',
+    canonicalUrl: 'https://riadalashekin.com/best-pharmacy-management-software-in-bangladesh/',
+    title: '10 Best Pharmacy Management Software in Bangladesh (2026)',
+    metaDescription: 'Discover the 10 best pharmacy management software in Bangladesh (2026). Compare batch & expiry tracking, FEFO stock rotation, POS, customer dues, and pricing.',
+    badge: 'Pharma Tech & Pharmacy ERP',
+    category: 'rankings',
+    headline: '10 Best Pharmacy Management Software in Bangladesh (2026)',
+    subtitle: 'A comprehensive evaluation of pharmacy POS, medicine databases, batch-level expiry tracking, FEFO inventory, supplier returns, and customer dues.',
+    featuredImage: '/images/featured-pharmacy-management-software-bangladesh.svg',
+    featuredImageAlt: '10 Best Pharmacy Management Software in Bangladesh - Top Pharmacy POS and Inventory Systems',
+    featuredImageCaption: 'Figure 1.0: Leading Pharmacy Management Software in Bangladesh, Batch & Expiry Decision Matrix (Source: Riad Al Ashekin Advisory).',
+    readingTime: '17 min read',
+    lastUpdated: 'October 2026',
+    intro: 'Pharmacy management software connects medicine sales with purchasing, batch-level inventory, expiry tracking, suppliers, customer dues, accounting, barcode billing, and reporting. Pharmacy-specific systems differ from generic POS software because the stock logic must account for medicine batches, expiration dates, strip or unit-level sales, supplier returns, and thousands of medicine SKUs.',
+    markdownContent: bestPharmacyManagementSoftwareBangladeshMarkdown,
+    sections: [],
+    keyTakeaways: [
+      'A neighborhood medicine shop needs a fast, simple POS with preloaded drugs, while a pharmacy chain needs central warehouse logistics, branch transfers, and consolidated accounting.',
+      'Leading evaluated platforms include MediPharma24, PharmaHisab (21,000+ local drug database), PharmaDesk BD, SihatSuite, POSify Rx, MondayPOS Pharmacy, ShopXPOS, GCTL Pharmacy Software, EkHisab, and Daffodil POS.',
+      'Ensure the software maintains true batch-level inventory rather than an aggregated product quantity to support First Expiry, First Out (FEFO) dispensing and supplier return debit notes.',
+      'Verify strip-to-tablet fractional unit conversions so selling 2 strips correctly deducts tablets rather than entire boxes.',
+      'Evaluate offline-first software architectures (such as PharmaHisab, POSify Rx, and EkHisab) so billing never pauses during local broadband outages.'
+    ],
+    relatedSlugs: ['/best-hospital-management-software-in-bangladesh/', '/best-inventory-management-software-in-bangladesh/', '/best-software-companies-in-bangladesh/']
+  },
   {
     slug: '/best-hospital-management-software-in-bangladesh/',
     canonicalUrl: 'https://riadalashekin.com/best-hospital-management-software-in-bangladesh/',

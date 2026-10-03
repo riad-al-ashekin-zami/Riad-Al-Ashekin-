@@ -56,6 +56,14 @@ export function normalizePath(path: string): string {
 
 // Dedicated featured image lookup for the 4 official blog posts
 const BLOG_FEATURED_IMAGE_MAP: Record<string, { image: string; alt: string }> = {
+  '/best-pharmacy-management-software-in-bangladesh/': {
+    image: '/images/featured-pharmacy-management-software-bangladesh.svg',
+    alt: '10 Best Pharmacy Management Software in Bangladesh (2026)'
+  },
+  '/10-best-pharmacy-management-software-in-bangladesh/': {
+    image: '/images/featured-pharmacy-management-software-bangladesh.svg',
+    alt: '10 Best Pharmacy Management Software in Bangladesh (2026)'
+  },
   '/best-hospital-management-software-in-bangladesh/': {
     image: '/images/featured-hospital-management-software-bangladesh.svg',
     alt: '10 Best Hospital Management Software in Bangladesh (2026)'
@@ -201,6 +209,14 @@ export function getPageBySlug(slug: string): PageData | undefined {
   ) {
     variants.push('/what-is-a-single-page-application/');
     variants.push('/what-is-a-single-page-application');
+  }
+
+  if (
+    withoutSlash === '/10-best-pharmacy-management-software-in-bangladesh' ||
+    withoutSlash === '/pharmacy-management-software-in-bangladesh'
+  ) {
+    variants.push('/best-pharmacy-management-software-in-bangladesh/');
+    variants.push('/best-pharmacy-management-software-in-bangladesh');
   }
 
   if (
