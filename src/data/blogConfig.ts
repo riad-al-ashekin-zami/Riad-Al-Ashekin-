@@ -7,6 +7,14 @@ import { normalizePath } from './pagesRegistry';
  * Featured custom cover images mapped to specific canonical slugs
  */
 export const BLOG_FEATURED_IMAGES: Record<string, string> = {
+  '/best-hospital-management-software-in-bangladesh/': '/images/featured-hospital-management-software-bangladesh.svg',
+  '/10-best-hospital-management-software-in-bangladesh/': '/images/featured-hospital-management-software-bangladesh.svg',
+  '/best-school-management-software-in-bangladesh/': '/images/featured-school-management-software-bangladesh.svg',
+  '/10-best-school-management-software-in-bangladesh/': '/images/featured-school-management-software-bangladesh.svg',
+  '/best-inventory-management-software-in-bangladesh/': '/images/featured-inventory-management-software-bangladesh.svg',
+  '/10-best-inventory-management-software-in-bangladesh/': '/images/featured-inventory-management-software-bangladesh.svg',
+  '/best-hotel-management-software-in-bangladesh/': '/images/featured-hotel-management-software-bangladesh.svg',
+  '/10-best-hotel-management-software-in-bangladesh/': '/images/featured-hotel-management-software-bangladesh.svg',
   '/best-digital-marketing-agencies-in-bangladesh/': '/images/featured-digital-marketing-agencies-bangladesh.svg',
   '/best-advertising-agencies-in-bangladesh/': '/images/featured-advertising-agencies-bangladesh.svg',
   '/multinational-companies-in-bangladesh/': '/images/featured-multinational-companies-bangladesh.svg',
@@ -29,6 +37,10 @@ export const BLOG_FEATURED_IMAGES: Record<string, string> = {
  * Initial core flagship slugs
  */
 export const OFFICIAL_BLOG_SLUGS = [
+  '/best-hospital-management-software-in-bangladesh/',
+  '/best-school-management-software-in-bangladesh/',
+  '/best-inventory-management-software-in-bangladesh/',
+  '/best-hotel-management-software-in-bangladesh/',
   '/best-digital-marketing-agencies-in-bangladesh/',
   '/best-advertising-agencies-in-bangladesh/',
   '/multinational-companies-in-bangladesh/',

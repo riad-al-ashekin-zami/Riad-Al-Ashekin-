@@ -8,8 +8,116 @@ import { bestWebDesignCompaniesBangladeshMarkdown } from './posts/bestWebDesignC
 import { multinationalCompaniesBangladeshMarkdown } from './posts/multinationalCompaniesBangladeshPost';
 import { bestAdvertisingAgenciesBangladeshMarkdown } from './posts/bestAdvertisingAgenciesBangladeshPost';
 import { bestDigitalMarketingAgenciesBangladeshMarkdown } from './posts/bestDigitalMarketingAgenciesBangladeshPost';
+import { bestHotelManagementSoftwareBangladeshMarkdown } from './posts/bestHotelManagementSoftwareBangladeshPost';
+import { bestInventoryManagementSoftwareBangladeshMarkdown } from './posts/bestInventoryManagementSoftwareBangladeshPost';
+import { bestSchoolManagementSoftwareBangladeshMarkdown } from './posts/bestSchoolManagementSoftwareBangladeshPost';
+import { bestHospitalManagementSoftwareBangladeshMarkdown } from './posts/bestHospitalManagementSoftwareBangladeshPost';
 
 export const guidesAndBlogPages: PageData[] = [
+  {
+    slug: '/best-hospital-management-software-in-bangladesh/',
+    canonicalUrl: 'https://riadalashekin.com/best-hospital-management-software-in-bangladesh/',
+    title: '10 Best Hospital Management Software in Bangladesh (2026)',
+    metaDescription: 'Discover the 10 best hospital management software in Bangladesh (2026). Compare OPD/IPD, EMR/EHR, LIS, pharmacy inventory, bed management, and ERP pricing.',
+    badge: 'Healthcare Tech & Hospital ERP',
+    category: 'rankings',
+    headline: '10 Best Hospital Management Software in Bangladesh (2026)',
+    subtitle: 'A comprehensive evaluation of hospital ERPs, OPD/IPD workflows, electronic medical records, laboratory information systems, pharmacy POS, and bed management.',
+    featuredImage: '/images/featured-hospital-management-software-bangladesh.svg',
+    featuredImageAlt: '10 Best Hospital Management Software in Bangladesh - Top Clinical ERP and EMR Systems',
+    featuredImageCaption: 'Figure 1.0: Leading Hospital Management Software in Bangladesh, Clinical Architecture & Decision Matrix (Source: Riad Al Ashekin Advisory).',
+    readingTime: '18 min read',
+    lastUpdated: 'October 2026',
+    intro: 'Hospital management software connects clinical, administrative, and financial workflows such as patient registration, appointments, OPD and IPD care, electronic medical records, laboratory testing, pharmacy, billing, bed management, inventory, accounts, and staff administration. For hospitals in Bangladesh, the purchasing decision involves high-volume OPD handling, doctor serial management, Bangla interfaces, pharmacy batch/expiry tracking, diagnostic workflows, consultant commissions, bKash/Nagad payments, and offline-sync reliability.',
+    markdownContent: bestHospitalManagementSoftwareBangladeshMarkdown,
+    sections: [],
+    keyTakeaways: [
+      'A standalone diagnostic center needs a fundamentally different system from a 200-bed multi-specialty hospital with IPD wards, OT, pharmacy, and LIS.',
+      'Leading evaluated platforms include Smart Hospital Management System (Smart Software Ltd), EMSL Hospital Management Suite (HL7/PACS), Shafa HMS (offline-sync hybrid), Altushi HMS, iHospi, HMS Pro, ShifaSoft, Bdtask HMS, GCTL Infosys, and Aara Tech Hospital ERP.',
+      'Ensure deep departmental interoperability so that doctor orders flow automatically into billing, laboratory barcodes, and pharmacy dispensing without duplicate entry.',
+      'Evaluate offline-capable and hybrid-sync deployment architectures to guarantee zero downtime at counter billing and emergency admissions during local internet outages.',
+      'Calculate Total Cost of Ownership (TCO) including analyzer machine interfaces, thermal receipt/barcode printers, staff training workshops, and annual maintenance.'
+    ],
+    relatedSlugs: ['/best-software-companies-in-bangladesh/', '/best-hotel-management-software-in-bangladesh/', '/best-inventory-management-software-in-bangladesh/']
+  },
+  {
+    slug: '/best-school-management-software-in-bangladesh/',
+    canonicalUrl: 'https://riadalashekin.com/best-school-management-software-in-bangladesh/',
+    title: '10 Best School Management Software in Bangladesh (2026)',
+    metaDescription: 'Discover the 10 best school management software in Bangladesh (2026). Compare student portals, biometric attendance, bKash fee collection, GPA tabulation, and ERP pricing.',
+    badge: 'Education Tech & School ERP',
+    category: 'rankings',
+    headline: '10 Best School Management Software in Bangladesh (2026)',
+    subtitle: 'A comprehensive evaluation of campus ERPs, student lifecycle management, digital fee collection, biometric attendance, result tabulation, and portal architectures.',
+    featuredImage: '/images/featured-school-management-software-bangladesh.svg',
+    featuredImageAlt: '10 Best School Management Software in Bangladesh - Top Campus ERP and Student Portal Systems',
+    featuredImageCaption: 'Figure 1.0: Leading School Management Software in Bangladesh, Institutional Architecture & Decision Matrix (Source: Riad Al Ashekin Advisory).',
+    readingTime: '17 min read',
+    lastUpdated: 'October 2026',
+    intro: 'School management software centralizes academic and administrative workflows across educational institutions. Rather than juggling disconnected spreadsheets, manual paper ledgers, and standalone attendance hardware, a modern school management system unifies student admissions, biometric attendance, tuition fee collection, exam tabulation, routine scheduling, staff payroll, and guardian communication into a single secure platform.',
+    markdownContent: bestSchoolManagementSoftwareBangladeshMarkdown,
+    sections: [],
+    keyTakeaways: [
+      'A primary school or kindergarten needs a different system from a multi-campus high school, madrasah, or cadet college.',
+      'Leading evaluated platforms include EDUMAN (LEADS Corporation), Smart Academic (Smart Software Ltd), aamra EduManager, Scolinary, ClassTablet, iSkooll, OurCampusBD, SoftTechIQ, Duronto ERP, and Shikkha Web.',
+      'Ensure native compliance with NCTB and Education Board grading rules (GPA 5.0 scale, continuous assessment, CQ/MCQ marks, and master tabulation sheets).',
+      'Automated digital fee collection via bKash, Nagad, Rocket, and bank integration drastically reduces payment delays and accounting discrepancies.',
+      'Consider total cost of ownership (TCO) including biometric scanners, SMS gateway charges, data migration, and faculty training rather than base software licenses alone.'
+    ],
+    relatedSlugs: ['/best-software-companies-in-bangladesh/', '/best-inventory-management-software-in-bangladesh/', '/best-hotel-management-software-in-bangladesh/']
+  },
+  {
+    slug: '/best-inventory-management-software-in-bangladesh/',
+    canonicalUrl: 'https://riadalashekin.com/best-inventory-management-software-in-bangladesh/',
+    title: '10 Best Inventory Management Software in Bangladesh (2026)',
+    metaDescription: 'Discover the 10 best inventory management software in Bangladesh (2026). Compare multi-warehouse, offline POS, BDT accounting, supplier credit, and pricing.',
+    badge: 'Supply Chain & Inventory ERP',
+    category: 'rankings',
+    headline: '10 Best Inventory Management Software in Bangladesh (2026)',
+    subtitle: 'A comprehensive evaluation of stock control, multi-warehouse godowns, POS integration, BDT accounting, offline-first reliability, and implementation costs.',
+    featuredImage: '/images/featured-inventory-management-software-bangladesh.svg',
+    featuredImageAlt: '10 Best Inventory Management Software in Bangladesh - Top Stock Control and ERP Systems',
+    featuredImageCaption: 'Figure 1.0: Leading Inventory Management Software in Bangladesh, Multi-Warehouse Architecture & Decision Matrix (Source: Riad Al Ashekin Advisory).',
+    readingTime: '17 min read',
+    lastUpdated: 'October 2026',
+    intro: 'Inventory management software tracks products from purchase and receiving through storage, sales, transfers, returns, and stock adjustments. For businesses in Bangladesh, inventory software often needs to solve additional operational requirements: BDT accounting, supplier and customer dues, bKash/Nagad payments, unreliable internet connectivity, barcode printing, and multiple outlets or godowns.',
+    markdownContent: bestInventoryManagementSoftwareBangladeshMarkdown,
+    sections: [],
+    keyTakeaways: [
+      'A single retail store needs a different system from a nationwide distributor, importer, or multi-warehouse manufacturer.',
+      'Leading evaluated platforms include TallyPrime (accounting + stock), BManagerHQ (multi-warehouse), Bisnesy (POS + dues), MondayPOS (offline retail), EkHisab, Financfy, ZAB ERP, CashBook, HisabPlus, and Salesman.',
+      'For retail and pharmacy operations, offline-first systems prevent checkout bottlenecks during local internet outages and sync automatically when connected.',
+      'Accurate stock control requires event-driven ledger tracking (purchases, sales, damage, transfers) rather than manually editable quantity fields.',
+      'Always calculate total cost of ownership—including barcode scanners, thermal printers, data migration, and staff training—rather than comparing baseline software subscriptions alone.'
+    ],
+    relatedSlugs: ['/best-software-companies-in-bangladesh/', '/best-hotel-management-software-in-bangladesh/', '/top-10-saas-development-companies-usa/']
+  },
+  {
+    slug: '/best-hotel-management-software-in-bangladesh/',
+    canonicalUrl: 'https://riadalashekin.com/best-hotel-management-software-in-bangladesh/',
+    title: '10 Best Hotel Management Software in Bangladesh (2026)',
+    metaDescription: 'Discover the 10 best hotel management software in Bangladesh (2026). Compare PMS vs Hotel ERP, restaurant POS, BDT billing, cloud vs offline architectures, and implementation costs.',
+    badge: 'Hospitality Tech & ERP',
+    category: 'rankings',
+    headline: '10 Best Hotel Management Software in Bangladesh (2026)',
+    subtitle: 'A comprehensive evaluation of property management systems (PMS), hotel ERPs, restaurant POS, BDT billing, cloud vs offline architectures, and implementation costs.',
+    featuredImage: '/images/featured-hotel-management-software-bangladesh.svg',
+    featuredImageAlt: '10 Best Hotel Management Software in Bangladesh - Top PMS and Hotel ERP Systems',
+    featuredImageCaption: 'Figure 1.0: Leading Hotel Management Software in Bangladesh, PMS vs ERP Architecture & Decision Matrix (Source: Riad Al Ashekin Advisory).',
+    readingTime: '16 min read',
+    lastUpdated: 'October 2026',
+    intro: 'Hotel management software centralizes reservations, room availability, check-in and checkout, guest records, housekeeping, billing, and reporting. For hotels in Bangladesh, selecting the right system requires evaluating BDT billing, local VAT compliance, restaurant POS integration, OTA synchronization, and cloud vs offline reliability.',
+    markdownContent: bestHotelManagementSoftwareBangladeshMarkdown,
+    sections: [],
+    keyTakeaways: [
+      'There is no universal best option: a 20-room guest house needs a lightweight PMS, while a full-service resort requires an integrated hotel ERP.',
+      'Top evaluated systems include PrideHotel (Pridesys IT), ZAB Hotels (Orange Solutions), Smart Hotel ERP, NICE Hotel Suite, Pro-Inn, and AlapiStay (AI voice receptionist).',
+      'For properties with intermittent connectivity, offline-capable systems like Hotel Soft BD ensure uninterrupted front-desk operations.',
+      'Integrated restaurant POS eliminates reconciliation errors by posting restaurant and room service charges directly to guest folios.',
+      'Always calculate total implementation cost—including setup, hardware integration, OTA channel fees, and staff training—rather than comparing baseline licence fees alone.'
+    ],
+    relatedSlugs: ['/best-software-companies-in-bangladesh/', '/best-website-design-companies-in-bangladesh/', '/top-10-saas-development-companies-usa/']
+  },
   {
     slug: '/best-digital-marketing-agencies-in-bangladesh/',
     canonicalUrl: 'https://riadalashekin.com/best-digital-marketing-agencies-in-bangladesh/',

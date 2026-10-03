@@ -56,6 +56,38 @@ export function normalizePath(path: string): string {
 
 // Dedicated featured image lookup for the 4 official blog posts
 const BLOG_FEATURED_IMAGE_MAP: Record<string, { image: string; alt: string }> = {
+  '/best-hospital-management-software-in-bangladesh/': {
+    image: '/images/featured-hospital-management-software-bangladesh.svg',
+    alt: '10 Best Hospital Management Software in Bangladesh (2026)'
+  },
+  '/10-best-hospital-management-software-in-bangladesh/': {
+    image: '/images/featured-hospital-management-software-bangladesh.svg',
+    alt: '10 Best Hospital Management Software in Bangladesh (2026)'
+  },
+  '/best-school-management-software-in-bangladesh/': {
+    image: '/images/featured-school-management-software-bangladesh.svg',
+    alt: '10 Best School Management Software in Bangladesh (2026)'
+  },
+  '/10-best-school-management-software-in-bangladesh/': {
+    image: '/images/featured-school-management-software-bangladesh.svg',
+    alt: '10 Best School Management Software in Bangladesh (2026)'
+  },
+  '/best-inventory-management-software-in-bangladesh/': {
+    image: '/images/featured-inventory-management-software-bangladesh.svg',
+    alt: '10 Best Inventory Management Software in Bangladesh (2026)'
+  },
+  '/10-best-inventory-management-software-in-bangladesh/': {
+    image: '/images/featured-inventory-management-software-bangladesh.svg',
+    alt: '10 Best Inventory Management Software in Bangladesh (2026)'
+  },
+  '/best-hotel-management-software-in-bangladesh/': {
+    image: '/images/featured-hotel-management-software-bangladesh.svg',
+    alt: '10 Best Hotel Management Software in Bangladesh (2026)'
+  },
+  '/10-best-hotel-management-software-in-bangladesh/': {
+    image: '/images/featured-hotel-management-software-bangladesh.svg',
+    alt: '10 Best Hotel Management Software in Bangladesh (2026)'
+  },
   '/best-digital-marketing-agencies-in-bangladesh/': {
     image: '/images/featured-digital-marketing-agencies-bangladesh.svg',
     alt: 'Best Digital Marketing Agencies in Bangladesh: How to Choose the Right Agency'
@@ -169,6 +201,38 @@ export function getPageBySlug(slug: string): PageData | undefined {
   ) {
     variants.push('/what-is-a-single-page-application/');
     variants.push('/what-is-a-single-page-application');
+  }
+
+  if (
+    withoutSlash === '/10-best-hospital-management-software-in-bangladesh' ||
+    withoutSlash === '/hospital-management-software-in-bangladesh'
+  ) {
+    variants.push('/best-hospital-management-software-in-bangladesh/');
+    variants.push('/best-hospital-management-software-in-bangladesh');
+  }
+
+  if (
+    withoutSlash === '/10-best-hotel-management-software-in-bangladesh' ||
+    withoutSlash === '/hotel-management-software-in-bangladesh'
+  ) {
+    variants.push('/best-hotel-management-software-in-bangladesh/');
+    variants.push('/best-hotel-management-software-in-bangladesh');
+  }
+
+  if (
+    withoutSlash === '/10-best-school-management-software-in-bangladesh' ||
+    withoutSlash === '/school-management-software-in-bangladesh'
+  ) {
+    variants.push('/best-school-management-software-in-bangladesh/');
+    variants.push('/best-school-management-software-in-bangladesh');
+  }
+
+  if (
+    withoutSlash === '/10-best-inventory-management-software-in-bangladesh' ||
+    withoutSlash === '/inventory-management-software-in-bangladesh'
+  ) {
+    variants.push('/best-inventory-management-software-in-bangladesh/');
+    variants.push('/best-inventory-management-software-in-bangladesh');
   }
 
   // 1. Direct match across all registered pages

@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" fill="none">
+  <defs>
+    <linearGradient id="hotel-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050a18" />
+      <stop offset="45%" stop-color="#0c1735" />
+      <stop offset="100%" stop-color="#061226" />
+    </linearGradient>
+    <linearGradient id="hotel-card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#12234d" stop-opacity="0.94" />
+      <stop offset="100%" stop-color="#081432" stop-opacity="0.98" />
+    </linearGradient>
+    <linearGradient id="hotel-card-right" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#162959" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#0b1a3d" stop-opacity="0.98" />
+    </linearGradient>
+    <linearGradient id="gold-amber-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="50%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#6366f1" />
+    </linearGradient>
+    <pattern id="hotel-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e366d" stroke-width="0.8" stroke-opacity="0.32" />
+    </pattern>
+    <filter id="hotel-glow-filter" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="38" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1200" height="630" fill="url(#hotel-bg)" />
+  <rect width="1200" height="630" fill="url(#hotel-grid)" />
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="190" cy="160" r="190" fill="#3b82f6" opacity="0.22" filter="url(#hotel-glow-filter)" />
+  <circle cx="1030" cy="380" r="220" fill="#f59e0b" opacity="0.16" filter="url(#hotel-glow-filter)" />
+  <circle cx="610" cy="240" r="240" fill="#06b6d4" opacity="0.15" filter="url(#hotel-glow-filter)" />
+
+  <!-- Top Badge -->
+  <g transform="translate(80, 56)">
+    <rect x="0" y="0" width="435" height="34" rx="17" fill="#0d2350" stroke="#38bdf8" stroke-width="1.2" />
+    <circle cx="18" cy="17" r="4.5" fill="#f59e0b" />
+    <text x="32" y="22" fill="#bae6fd" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="800" letter-spacing="1.5">HOSPITALITY TECH &amp; ERP BENCHMARKS • 2026 EDITION</text>
+  </g>
+
+  <!-- Headline & Subtitle -->
+  <g transform="translate(80, 132)">
+    <text x="0" y="0" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="42" font-weight="900" letter-spacing="-0.8">10 Best Hotel Management Software in Bangladesh</text>
+    <text x="0" y="42" fill="#93c5fd" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="600">Top PMS, Hotel ERP, Restaurant POS &amp; Cloud Hospitality Systems to Know in 2026</text>
+  </g>
+
+  <!-- Left: Featured Hotel Software Systems Grid -->
+  <g transform="translate(80, 222)">
+    <rect width="520" height="318" rx="20" fill="url(#hotel-card)" stroke="#224586" stroke-width="1.2" />
+
+    <!-- Card Header Tag -->
+    <g transform="translate(24, 20)">
+      <rect width="260" height="26" rx="13" fill="#112d66" stroke="#38bdf8" stroke-width="1" />
+      <circle cx="14" cy="13" r="4" fill="#38bdf8" />
+      <text x="26" y="17" fill="#bae6fd" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10.5" font-weight="800" letter-spacing="1">VERIFIED SYSTEMS IN BANGLADESH</text>
+    </g>
+
+    <!-- 6 Core Software Badges Grid -->
+    <g transform="translate(24, 62)">
+      <!-- Item 1 -->
+      <g transform="translate(0, 0)">
+        <rect width="228" height="42" rx="10" fill="#0f2656" stroke="#234b8d" stroke-width="1" />
+        <circle cx="18" cy="21" r="5" fill="#f59e0b" />
+        <text x="32" y="25" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700">PrideHotel</text>
+        <text x="145" y="25" fill="#93c5fd" font-family="monospace" font-size="10">Pridesys IT</text>
+      </g>
+      <!-- Item 2 -->
+      <g transform="translate(244, 0)">
+        <rect width="228" height="42" rx="10" fill="#0f2656" stroke="#234b8d" stroke-width="1" />
+        <circle cx="18" cy="21" r="5" fill="#38bdf8" />
+        <text x="32" y="25" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700">ZAB Hotels</text>
+        <text x="135" y="25" fill="#93c5fd" font-family="monospace" font-size="10">Orange Sol.</text>
+      </g>
+
+      <!-- Item 3 -->
+      <g transform="translate(0, 52)">
+        <rect width="228" height="42" rx="10" fill="#0f2656" stroke="#234b8d" stroke-width="1" />
+        <circle cx="18" cy="21" r="5" fill="#10b981" />
+        <text x="32" y="25" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700">Smart Hotel ERP</text>
+        <text x="145" y="25" fill="#93c5fd" font-family="monospace" font-size="10">Smart Soft</text>
+      </g>
+      <!-- Item 4 -->
+      <g transform="translate(244, 52)">
+        <rect width="228" height="42" rx="10" fill="#0f2656" stroke="#234b8d" stroke-width="1" />
+        <circle cx="18" cy="21" r="5" fill="#818cf8" />
+        <text x="32" y="25" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700">NICE Hotel Suite</text>
+        <text x="150" y="25" fill="#93c5fd" font-family="monospace" font-size="10">NCES Ltd</text>
+      </g>
+
+      <!-- Item 5 -->
+      <g transform="translate(0, 104)">
+        <rect width="228" height="42" rx="10" fill="#0f2656" stroke="#234b8d" stroke-width="1" />
+        <circle cx="18" cy="21" r="5" fill="#c084fc" />
+        <text x="32" y="25" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700">AlapiStay</text>
+        <text x="135" y="25" fill="#93c5fd" font-family="monospace" font-size="10">AI Cloud PMS</text>
+      </g>
+      <!-- Item 6 -->
+      <g transform="translate(244, 104)">
+        <rect width="228" height="42" rx="10" fill="#0f2656" stroke="#234b8d" stroke-width="1" />
+        <circle cx="18" cy="21" r="5" fill="#fb7185" />
+        <text x="32" y="25" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700">Pro-Inn</text>
+        <text x="145" y="25" fill="#93c5fd" font-family="monospace" font-size="10">Glorious IT</text>
+      </g>
+
+      <!-- Item 7 -->
+      <g transform="translate(0, 156)">
+        <rect width="228" height="42" rx="10" fill="#0f2656" stroke="#234b8d" stroke-width="1" />
+        <circle cx="18" cy="21" r="5" fill="#e879f9" />
+        <text x="32" y="25" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700">Hotel Soft BD</text>
+        <text x="135" y="25" fill="#93c5fd" font-family="monospace" font-size="10">Offline ERP</text>
+      </g>
+      <!-- Item 8 -->
+      <g transform="translate(244, 156)">
+        <rect width="228" height="42" rx="10" fill="#0f2656" stroke="#234b8d" stroke-width="1" />
+        <circle cx="18" cy="21" r="5" fill="#2dd4bf" />
+        <text x="32" y="25" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700">Fountix &amp; eRestu</text>
+        <text x="150" y="25" fill="#93c5fd" font-family="monospace" font-size="10">Web Suites</text>
+      </g>
+    </g>
+
+    <!-- Bottom Metrics -->
+    <g transform="translate(24, 276)">
+      <rect width="472" height="26" rx="6" fill="#081736" />
+      <text x="14" y="17" fill="#38bdf8" font-family="monospace" font-size="10.5">✓ Front Desk PMS</text>
+      <text x="145" y="17" fill="#f59e0b" font-family="monospace" font-size="10.5">✓ Restaurant POS</text>
+      <text x="275" y="17" fill="#10b981" font-family="monospace" font-size="10.5">✓ BDT / VAT</text>
+      <text x="375" y="17" fill="#c084fc" font-family="monospace" font-size="10.5">✓ OTA Sync</text>
+    </g>
+  </g>
+
+  <!-- Right: Architecture & Decision Framework Card -->
+  <g transform="translate(630, 222)">
+    <rect width="490" height="318" rx="20" fill="url(#hotel-card-right)" stroke="#224586" stroke-width="1.2" />
+
+    <!-- Card 1: PMS vs Hotel ERP -->
+    <g transform="translate(24, 22)">
+      <rect width="442" height="82" rx="14" fill="#0f2658" stroke="#1d4282" stroke-width="1" />
+      <circle cx="34" cy="41" r="20" fill="#f59e0b" fill-opacity="0.15" />
+      <text x="34" y="47" text-anchor="middle" fill="#f59e0b" font-family="monospace" font-size="18">🏢</text>
+      <text x="68" y="32" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" font-weight="700">PMS vs Hotel ERP Architecture</text>
+      <text x="68" y="52" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11.5">Property Management vs Centralized Finance, HR, Purchasing &amp; Multi-Property</text>
+      <text x="68" y="68" fill="#fcd34d" font-family="monospace" font-size="10">Reservations • Housekeeping • Room Folios</text>
+    </g>
+
+    <!-- Card 2: Local Integrations & BDT Billing -->
+    <g transform="translate(24, 118)">
+      <rect width="442" height="82" rx="14" fill="#0f2658" stroke="#1d4282" stroke-width="1" />
+      <circle cx="34" cy="41" r="20" fill="#38bdf8" fill-opacity="0.15" />
+      <text x="34" y="47" text-anchor="middle" fill="#38bdf8" font-family="monospace" font-size="18">💳</text>
+      <text x="68" y="32" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" font-weight="700">Bangladesh Fiscal &amp; Payment Workflows</text>
+      <text x="68" y="52" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11.5">Local VAT calculations, NID guest records, bKash/Nagad &amp; hardware PABX sync</text>
+      <text x="68" y="68" fill="#7dd3fc" font-family="monospace" font-size="10">Key-Card Encoders • Restaurant POS • KOT Sync</text>
+    </g>
+
+    <!-- Card 3: Cloud vs Offline Operations -->
+    <g transform="translate(24, 214)">
+      <rect width="442" height="82" rx="14" fill="#0f2658" stroke="#1d4282" stroke-width="1" />
+      <circle cx="34" cy="41" r="20" fill="#10b981" fill-opacity="0.15" />
+      <text x="34" y="47" text-anchor="middle" fill="#10b981" font-family="monospace" font-size="18">☁</text>
+      <text x="68" y="32" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" font-weight="700">Cloud vs Offline-First Resilience</text>
+      <text x="68" y="52" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11.5">Uninterrupted front-desk continuity during internet outages with hybrid backups</text>
+      <text x="68" y="68" fill="#6ee7b7" font-family="monospace" font-size="10">Desktop ERP • Web PMS • Remote Multi-Device</text>
+    </g>
+  </g>
+
+  <!-- Author Signature Footer -->
+  <g transform="translate(80, 574)">
+    <text x="0" y="0" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="600">Riad Al Ashekin Advisory</text>
+    <text x="175" y="0" fill="#475569" font-family="sans-serif" font-size="13">•</text>
+    <text x="190" y="0" fill="#93c5fd" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="600">riadalashekin.com/best-hotel-management-software-in-bangladesh/</text>
+  </g>
+</svg>
