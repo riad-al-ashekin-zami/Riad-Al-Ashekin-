@@ -56,6 +56,30 @@ export function normalizePath(path: string): string {
 
 // Dedicated featured image lookup for the 4 official blog posts
 const BLOG_FEATURED_IMAGE_MAP: Record<string, { image: string; alt: string }> = {
+  '/best-erp-software-in-bangladesh/': {
+    image: '/images/featured-erp-software-bangladesh.svg',
+    alt: '10 Best ERP Software in Bangladesh (2026)'
+  },
+  '/10-best-erp-software-in-bangladesh/': {
+    image: '/images/featured-erp-software-bangladesh.svg',
+    alt: '10 Best ERP Software in Bangladesh (2026)'
+  },
+  '/best-pos-software-in-bangladesh/': {
+    image: '/images/featured-pos-software-bangladesh.svg',
+    alt: '10 Best POS Software in Bangladesh (2026)'
+  },
+  '/10-best-pos-software-in-bangladesh/': {
+    image: '/images/featured-pos-software-bangladesh.svg',
+    alt: '10 Best POS Software in Bangladesh (2026)'
+  },
+  '/best-hr-software-in-bangladesh/': {
+    image: '/images/featured-hr-software-bangladesh.svg',
+    alt: '10 Best HR Software in Bangladesh (2026)'
+  },
+  '/10-best-hr-software-in-bangladesh/': {
+    image: '/images/featured-hr-software-bangladesh.svg',
+    alt: '10 Best HR Software in Bangladesh (2026)'
+  },
   '/best-pharmacy-management-software-in-bangladesh/': {
     image: '/images/featured-pharmacy-management-software-bangladesh.svg',
     alt: '10 Best Pharmacy Management Software in Bangladesh (2026)'
@@ -209,6 +233,30 @@ export function getPageBySlug(slug: string): PageData | undefined {
   ) {
     variants.push('/what-is-a-single-page-application/');
     variants.push('/what-is-a-single-page-application');
+  }
+
+  if (
+    withoutSlash === '/10-best-erp-software-in-bangladesh' ||
+    withoutSlash === '/erp-software-in-bangladesh'
+  ) {
+    variants.push('/best-erp-software-in-bangladesh/');
+    variants.push('/best-erp-software-in-bangladesh');
+  }
+
+  if (
+    withoutSlash === '/10-best-pos-software-in-bangladesh' ||
+    withoutSlash === '/pos-software-in-bangladesh'
+  ) {
+    variants.push('/best-pos-software-in-bangladesh/');
+    variants.push('/best-pos-software-in-bangladesh');
+  }
+
+  if (
+    withoutSlash === '/10-best-hr-software-in-bangladesh' ||
+    withoutSlash === '/hr-software-in-bangladesh'
+  ) {
+    variants.push('/best-hr-software-in-bangladesh/');
+    variants.push('/best-hr-software-in-bangladesh');
   }
 
   if (

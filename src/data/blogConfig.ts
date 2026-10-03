@@ -7,6 +7,12 @@ import { normalizePath } from './pagesRegistry';
  * Featured custom cover images mapped to specific canonical slugs
  */
 export const BLOG_FEATURED_IMAGES: Record<string, string> = {
+  '/best-erp-software-in-bangladesh/': '/images/featured-erp-software-bangladesh.svg',
+  '/10-best-erp-software-in-bangladesh/': '/images/featured-erp-software-bangladesh.svg',
+  '/best-pos-software-in-bangladesh/': '/images/featured-pos-software-bangladesh.svg',
+  '/10-best-pos-software-in-bangladesh/': '/images/featured-pos-software-bangladesh.svg',
+  '/best-hr-software-in-bangladesh/': '/images/featured-hr-software-bangladesh.svg',
+  '/10-best-hr-software-in-bangladesh/': '/images/featured-hr-software-bangladesh.svg',
   '/best-pharmacy-management-software-in-bangladesh/': '/images/featured-pharmacy-management-software-bangladesh.svg',
   '/10-best-pharmacy-management-software-in-bangladesh/': '/images/featured-pharmacy-management-software-bangladesh.svg',
   '/best-hospital-management-software-in-bangladesh/': '/images/featured-hospital-management-software-bangladesh.svg',
@@ -39,6 +45,9 @@ export const BLOG_FEATURED_IMAGES: Record<string, string> = {
  * Initial core flagship slugs
  */
 export const OFFICIAL_BLOG_SLUGS = [
+  '/best-erp-software-in-bangladesh/',
+  '/best-pos-software-in-bangladesh/',
+  '/best-hr-software-in-bangladesh/',
   '/best-pharmacy-management-software-in-bangladesh/',
   '/best-hospital-management-software-in-bangladesh/',
   '/best-school-management-software-in-bangladesh/',

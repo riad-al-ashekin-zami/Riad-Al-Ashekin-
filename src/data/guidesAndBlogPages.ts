@@ -13,8 +13,89 @@ import { bestInventoryManagementSoftwareBangladeshMarkdown } from './posts/bestI
 import { bestSchoolManagementSoftwareBangladeshMarkdown } from './posts/bestSchoolManagementSoftwareBangladeshPost';
 import { bestHospitalManagementSoftwareBangladeshMarkdown } from './posts/bestHospitalManagementSoftwareBangladeshPost';
 import { bestPharmacyManagementSoftwareBangladeshMarkdown } from './posts/bestPharmacyManagementSoftwareBangladeshPost';
+import { bestHrSoftwareBangladeshMarkdown } from './posts/bestHrSoftwareBangladeshPost';
+import { bestPosSoftwareBangladeshMarkdown } from './posts/bestPosSoftwareBangladeshPost';
+import { bestErpSoftwareBangladeshMarkdown } from './posts/bestErpSoftwareBangladeshPost';
 
 export const guidesAndBlogPages: PageData[] = [
+  {
+    slug: '/best-erp-software-in-bangladesh/',
+    canonicalUrl: 'https://riadalashekin.com/best-erp-software-in-bangladesh/',
+    title: '10 Best ERP Software in Bangladesh (2026)',
+    metaDescription: 'Discover the 10 best ERP software in Bangladesh (2026). Compare RMG & textile manufacturing, NBR VAT, LC management, supply chain, and pricing.',
+    badge: 'Enterprise Tech & ERP Benchmarks',
+    category: 'rankings',
+    headline: '10 Best ERP Software in Bangladesh (2026)',
+    subtitle: 'A comprehensive evaluation of manufacturing ERP, RMG & textile modules, multi-company accounting, LC import/export, and cloud vs on-premise systems.',
+    featuredImage: '/images/featured-erp-software-bangladesh.svg',
+    featuredImageAlt: '10 Best ERP Software in Bangladesh - Top Enterprise Resource Planning & Manufacturing Systems',
+    featuredImageCaption: 'Figure 1.0: Leading ERP Software in Bangladesh, Architecture & Decision Matrix (Source: Riad Al Ashekin Advisory).',
+    readingTime: '21 min read',
+    lastUpdated: 'October 2026',
+    intro: 'ERP software connects finance, accounting, procurement, inventory, sales, HR, payroll, production, supply chain, and other business functions through a shared system and database. Instead of maintaining separate spreadsheets or departmental applications, an ERP records transactions once and makes the resulting information available to the departments that need it.',
+    markdownContent: bestErpSoftwareBangladeshMarkdown,
+    sections: [],
+    keyTakeaways: [
+      'Garment (RMG) and textile companies benefit most from vertically specialized local ERPs like PrideERP, which handle style development, fabric consumption, CM costing, production lines, and commercial export LCs out of the box.',
+      'Leading evaluated platforms include PrideERP (Pridesys IT), Smart ERP (Smart Software Ltd), PrismERP (Divine IT), BiznessRoots (Databiz), Odoo, ERPNext (open source), SAP Business One, Microsoft Dynamics 365 Business Central, TallyPrime, and Oracle NetSuite.',
+      'SMEs and mid-sized trading businesses can deploy modular cloud systems like Smart ERP, Odoo, or ERPNext to start with accounting and inventory before adding manufacturing and CRM.',
+      'When evaluating manufacturing ERP, insist on end-to-end BOM, work-in-progress (WIP), scrap, and production variance demonstrations rather than high-level dashboard slides.',
+      'Verify Bangladesh statutory accounting support, including NBR VAT (Mushak 6.3), local fiscal year configurations, LC banking submissions, and biometric shift payroll integration.'
+    ],
+    relatedSlugs: ['/best-inventory-management-software-in-bangladesh/', '/best-software-companies-in-bangladesh/', '/multinational-companies-in-bangladesh/']
+  },
+  {
+    slug: '/best-pos-software-in-bangladesh/',
+    canonicalUrl: 'https://riadalashekin.com/best-pos-software-in-bangladesh/',
+    title: '10 Best POS Software in Bangladesh (2026)',
+    metaDescription: 'Discover the 10 best POS software in Bangladesh (2026). Compare offline billing, multi-outlet inventory, bKash/Nagad tender, thermal printing, and pricing.',
+    badge: 'Retail Tech & Point of Sale ERP',
+    category: 'rankings',
+    headline: '10 Best POS Software in Bangladesh (2026)',
+    subtitle: 'A comprehensive evaluation of retail POS platforms, offline-first billing, barcode scanning, bKash & Nagad tender handling, multi-outlet stock, and VAT workflows.',
+    featuredImage: '/images/featured-pos-software-bangladesh.svg',
+    featuredImageAlt: '10 Best POS Software in Bangladesh - Top Retail POS, Offline Billing and Inventory Platforms',
+    featuredImageCaption: 'Figure 1.0: Leading POS Software in Bangladesh, Architecture & Decision Matrix (Source: Riad Al Ashekin Advisory).',
+    readingTime: '18 min read',
+    lastUpdated: 'October 2026',
+    intro: 'POS software connects checkout, billing, inventory, purchases, returns, customer records, payments, and sales reporting at the point where a business serves its customers. More complete POS platforms can also handle accounting, multiple outlets, warehouses, loyalty programs, e-commerce orders, VAT reporting, restaurant kitchens, pharmacy batches, and employee controls.',
+    markdownContent: bestPosSoftwareBangladeshMarkdown,
+    sections: [],
+    keyTakeaways: [
+      'Evaluate offline-first POS architecture (MondayPOS, 3S Softech, Nexchar, Smart Dokani, PridePOS) so cashiers can continue billing smoothly during local broadband interruptions.',
+      'Leading evaluated platforms include MondayPOS, Mediasoft POS (25+ years retail experience), 3S Softech (restaurant/KOT focus), Managerium Retail ERP by AKIJ iBOS, Nexchar POS (free tier available), Smart POS / Smart Dokani, ShopXPOS, eHishab, PridePOS, and Daffodil POS.',
+      'Ensure the POS supports mixed-tender payments, treating cash, credit cards, bKash, and Nagad as distinct reconciliation lines against the same invoice.',
+      'For Bangladeshi retail businesses, verify built-in customer and supplier credit ledgers (due sales tracking) and compliance with NBR Mushak 6.3 invoice formats.',
+      'Multi-outlet retailers should test real-time inter-branch stock transfers and consolidated inventory dashboards across both central warehouses and individual showrooms.'
+    ],
+    relatedSlugs: ['/best-inventory-management-software-in-bangladesh/', '/best-pharmacy-management-software-in-bangladesh/', '/best-software-companies-in-bangladesh/']
+  },
+  {
+    slug: '/best-hr-software-in-bangladesh/',
+    canonicalUrl: 'https://riadalashekin.com/best-hr-software-in-bangladesh/',
+    title: '10 Best HR Software in Bangladesh (2026)',
+    metaDescription: 'Discover the 10 best HR and payroll software in Bangladesh (2026). Compare biometric attendance, NBR tax, factory shifts, mobile ESS, and pricing.',
+    badge: 'HR Technology & Workforce ERP',
+    category: 'rankings',
+    headline: '10 Best HR Software in Bangladesh (2026)',
+    subtitle: 'A comprehensive evaluation of HRMS platforms, biometric attendance sync, NBR income tax withholding, factory shift rosters, and mobile ESS apps.',
+    featuredImage: '/images/featured-hr-software-bangladesh.svg',
+    featuredImageAlt: '10 Best HR Software in Bangladesh - Top HRMS, Biometric Attendance, and Payroll Platforms',
+    featuredImageCaption: 'Figure 1.0: Leading HR and Payroll Software in Bangladesh, Architecture & Decision Matrix (Source: Riad Al Ashekin Advisory).',
+    readingTime: '19 min read',
+    lastUpdated: 'October 2026',
+    intro: 'Human resources (HR) and payroll software centralizes employee records, biometric attendance, leave policies, shift rosters, payroll processing, statutory tax deductions, and performance management. Modern HR management systems (HRMS) streamline the complete employee lifecycle from onboarding to final settlement.',
+    markdownContent: bestHrSoftwareBangladeshMarkdown,
+    sections: [],
+    keyTakeaways: [
+      'Corporate offices and tech firms prioritize mobile self-service apps with GPS check-in (PiHR, AIHR BD), while manufacturing plants require high-speed biometric turnstile sync and factory shift rosters (LinesPay, SystechiHR, Jibika Plexus).',
+      'Enterprise conglomerates benefit from multi-company hierarchies, provident fund trust accounting, and CMMI Level 3/5 compliance found in PrideHR and AccordHRM.',
+      'Ensure the HR software dynamically applies statutory overtime formulas (Basic / 208 * 2) and leave entitlements under the Bangladesh Labour Act 2006.',
+      'Verify that the payroll engine accurately calculates progressive tax deductions at source (TDS) under the NBR Income Tax Act 2023 and generates Rule 108/108A statements.',
+      'Evaluate direct disbursement integration through commercial bank BEFTN routing files or instant digital wallet payouts via bKash Payroll and Nagad.'
+    ],
+    relatedSlugs: ['/best-software-companies-in-bangladesh/', '/best-inventory-management-software-in-bangladesh/', '/multinational-companies-in-bangladesh/']
+  },
   {
     slug: '/best-pharmacy-management-software-in-bangladesh/',
     canonicalUrl: 'https://riadalashekin.com/best-pharmacy-management-software-in-bangladesh/',

@@ -1,0 +1,172 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" fill="none">
+  <defs>
+    <linearGradient id="hr-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050a18" />
+      <stop offset="45%" stop-color="#0a142c" />
+      <stop offset="100%" stop-color="#060e20" />
+    </linearGradient>
+    <linearGradient id="hr-card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f1f42" stop-opacity="0.94" />
+      <stop offset="100%" stop-color="#091329" stop-opacity="0.98" />
+    </linearGradient>
+    <linearGradient id="hr-card-right" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#142650" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#0b1732" stop-opacity="0.98" />
+    </linearGradient>
+    <pattern id="hr-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e3a6e" stroke-width="0.8" stroke-opacity="0.32" />
+    </pattern>
+    <filter id="hr-glow-filter" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="38" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1200" height="630" fill="url(#hr-bg)" />
+  <rect width="1200" height="630" fill="url(#hr-grid)" />
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="190" cy="140" r="190" fill="#6366f1" opacity="0.22" filter="url(#hr-glow-filter)" />
+  <circle cx="1030" cy="380" r="220" fill="#0ea5e9" opacity="0.18" filter="url(#hr-glow-filter)" />
+  <circle cx="620" cy="230" r="240" fill="#8b5cf6" opacity="0.14" filter="url(#hr-glow-filter)" />
+
+  <!-- Top Badge -->
+  <g transform="translate(80, 56)">
+    <rect x="0" y="0" width="455" height="34" rx="17" fill="#0d1f44" stroke="#818cf8" stroke-width="1.2" />
+    <circle cx="18" cy="17" r="4.5" fill="#818cf8" />
+    <text x="32" y="22" fill="#c7d2fe" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="800" letter-spacing="1.5">HR TECHNOLOGY &amp; WORKFORCE ERP • 2026 BENCHMARKS</text>
+  </g>
+
+  <!-- Headline & Subtitle -->
+  <g transform="translate(80, 132)">
+    <text x="0" y="0" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="42" font-weight="900" letter-spacing="-0.8">10 Best HR Software in Bangladesh</text>
+    <text x="0" y="42" fill="#a5b4fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="600">Top HRMS, Biometric Attendance, NBR Tax, Factory Shifts &amp; Payroll Platforms</text>
+  </g>
+
+  <!-- Left: Featured HR Platforms Grid -->
+  <g transform="translate(80, 222)">
+    <rect width="520" height="318" rx="20" fill="url(#hr-card)" stroke="#233f72" stroke-width="1.2" />
+
+    <!-- Card Header Tag -->
+    <g transform="translate(24, 20)">
+      <rect width="285" height="26" rx="13" fill="#142854" stroke="#818cf8" stroke-width="1" />
+      <circle cx="14" cy="13" r="4" fill="#818cf8" />
+      <text x="26" y="17" fill="#c7d2fe" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10.5" font-weight="800" letter-spacing="1">EVALUATED HR &amp; PAYROLL SYSTEMS (BANGLADESH)</text>
+    </g>
+
+    <!-- Software Badges Grid -->
+    <g transform="translate(24, 62)">
+      <!-- Item 1 -->
+      <g transform="translate(0, 0)">
+        <rect width="228" height="42" rx="10" fill="#11244d" stroke="#254378" stroke-width="1" />
+        <circle cx="18" cy="21" r="5" fill="#818cf8" />
+        <text x="32" y="25" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700">PrideHR</text>
+        <text x="145" y="25" fill="#a5b4fc" font-family="monospace" font-size="10">Pridesys IT</text>
+      </g>
+      <!-- Item 2 -->
+      <g transform="translate(244, 0)">
+        <rect width="228" height="42" rx="10" fill="#11244d" stroke="#254378" stroke-width="1" />
+        <circle cx="18" cy="21" r="5" fill="#38bdf8" />
+        <text x="32" y="25" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700">PiHR</text>
+        <text x="145" y="25" fill="#a5b4fc" font-family="monospace" font-size="10">Cloud SME</text>
+      </g>
+
+      <!-- Item 3 -->
+      <g transform="translate(0, 52)">
+        <rect width="228" height="42" rx="10" fill="#11244d" stroke="#254378" stroke-width="1" />
+        <circle cx="18" cy="21" r="5" fill="#10b981" />
+        <text x="32" y="25" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700">AccordHRM</text>
+        <text x="145" y="25" fill="#a5b4fc" font-family="monospace" font-size="10">Compliance</text>
+      </g>
+      <!-- Item 4 -->
+      <g transform="translate(244, 52)">
+        <rect width="228" height="42" rx="10" fill="#11244d" stroke="#254378" stroke-width="1" />
+        <circle cx="18" cy="21" r="5" fill="#f59e0b" />
+        <text x="32" y="25" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700">SystechiHR</text>
+        <text x="145" y="25" fill="#a5b4fc" font-family="monospace" font-size="10">RMG/Factory</text>
+      </g>
+
+      <!-- Item 5 -->
+      <g transform="translate(0, 104)">
+        <rect width="228" height="42" rx="10" fill="#11244d" stroke="#254378" stroke-width="1" />
+        <circle cx="18" cy="21" r="5" fill="#c084fc" />
+        <text x="32" y="25" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700">LinesPay</text>
+        <text x="145" y="25" fill="#a5b4fc" font-family="monospace" font-size="10">BGMEA Sync</text>
+      </g>
+      <!-- Item 6 -->
+      <g transform="translate(244, 104)">
+        <rect width="228" height="42" rx="10" fill="#11244d" stroke="#254378" stroke-width="1" />
+        <circle cx="18" cy="21" r="5" fill="#34d399" />
+        <text x="32" y="25" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700">Smart HRM</text>
+        <text x="145" y="25" fill="#a5b4fc" font-family="monospace" font-size="10">SME/Scalable</text>
+      </g>
+
+      <!-- Item 7 -->
+      <g transform="translate(0, 156)">
+        <rect width="228" height="42" rx="10" fill="#11244d" stroke="#254378" stroke-width="1" />
+        <circle cx="18" cy="21" r="5" fill="#fb7185" />
+        <text x="32" y="25" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700">AIHR BD</text>
+        <text x="145" y="25" fill="#a5b4fc" font-family="monospace" font-size="10">bKash Payroll</text>
+      </g>
+      <!-- Item 8 -->
+      <g transform="translate(244, 156)">
+        <rect width="228" height="42" rx="10" fill="#11244d" stroke="#254378" stroke-width="1" />
+        <circle cx="18" cy="21" r="5" fill="#60a5fa" />
+        <text x="32" y="25" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700">NEOS &amp; DeenHR</text>
+        <text x="155" y="25" fill="#a5b4fc" font-family="monospace" font-size="10">Enterprise</text>
+      </g>
+    </g>
+
+    <!-- Bottom Metrics -->
+    <g transform="translate(24, 276)">
+      <rect width="472" height="26" rx="6" fill="#0c1b3d" />
+      <text x="14" y="17" fill="#818cf8" font-family="monospace" font-size="10.5">✓ Biometric ZK/Hik</text>
+      <text x="160" y="17" fill="#38bdf8" font-family="monospace" font-size="10.5">✓ NBR Tax &amp; TDS</text>
+      <text x="310" y="17" fill="#10b981" font-family="monospace" font-size="10.5">✓ PF &amp; Gratuity</text>
+      <text x="420" y="17" fill="#f59e0b" font-family="monospace" font-size="10.5">✓ RMG</text>
+    </g>
+  </g>
+
+  <!-- Right: HRMS Architecture & Decision Framework Card -->
+  <g transform="translate(630, 222)">
+    <rect width="490" height="318" rx="20" fill="url(#hr-card-right)" stroke="#233f72" stroke-width="1.2" />
+
+    <!-- Card 1: Attendance Engine & Biometric Synch -->
+    <g transform="translate(24, 22)">
+      <rect width="442" height="82" rx="14" fill="#0f234c" stroke="#24447a" stroke-width="1" />
+      <circle cx="34" cy="41" r="20" fill="#818cf8" fill-opacity="0.15" />
+      <text x="34" y="47" text-anchor="middle" fill="#818cf8" font-family="monospace" font-size="18">⏱️</text>
+      <text x="68" y="32" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" font-weight="700">Biometric Attendance &amp; Shift Rosters</text>
+      <text x="68" y="52" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11.5">ZKTeco/Hikvision face &amp; fingerprint sync, factory shifts &amp; geofence</text>
+      <text x="68" y="68" fill="#a5b4fc" font-family="monospace" font-size="10">Overtime • Grace Periods • Late Deductions • Multi-Shift Rules</text>
+    </g>
+
+    <!-- Card 2: Bangladesh Payroll & Statutory Compliance -->
+    <g transform="translate(24, 118)">
+      <rect width="442" height="82" rx="14" fill="#0f234c" stroke="#24447a" stroke-width="1" />
+      <circle cx="34" cy="41" r="20" fill="#38bdf8" fill-opacity="0.15" />
+      <text x="34" y="47" text-anchor="middle" fill="#38bdf8" font-family="monospace" font-size="18">৳</text>
+      <text x="68" y="32" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" font-weight="700">Bangladesh Payroll, NBR Tax &amp; Fund Audits</text>
+      <text x="68" y="52" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11.5">Salary tax slabs, provident fund trust, gratuity, festival bonus &amp; loans</text>
+      <text x="68" y="68" fill="#7dd3fc" font-family="monospace" font-size="10">EFTN Bank Files • bKash/Nagad Disburse • Final Settlements</text>
+    </g>
+
+    <!-- Card 3: Employee Self-Service (ESS) & RMG Scale -->
+    <g transform="translate(24, 214)">
+      <rect width="442" height="82" rx="14" fill="#0f234c" stroke="#24447a" stroke-width="1" />
+      <circle cx="34" cy="41" r="20" fill="#10b981" fill-opacity="0.15" />
+      <text x="34" y="47" text-anchor="middle" fill="#10b981" font-family="monospace" font-size="18">📱</text>
+      <text x="68" y="32" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" font-weight="700">Mobile ESS Apps &amp; RMG Compliance Matrix</text>
+      <text x="68" y="52" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11.5">Leave approvals, payslip downloads, BGMEA audit reports &amp; Bangla sheets</text>
+      <text x="68" y="68" fill="#6ee7b7" font-family="monospace" font-size="10">Multi-Tier Approvals • Worker ID Cards • Zero Discrepancy</text>
+    </g>
+  </g>
+
+  <!-- Author Signature Footer -->
+  <g transform="translate(80, 574)">
+    <text x="0" y="0" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="600">Riad Al Ashekin Advisory</text>
+    <text x="175" y="0" fill="#475569" font-family="sans-serif" font-size="13">•</text>
+    <text x="190" y="0" fill="#a5b4fc" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="600">riadalashekin.com/best-hr-software-in-bangladesh/</text>
+  </g>
+</svg>
