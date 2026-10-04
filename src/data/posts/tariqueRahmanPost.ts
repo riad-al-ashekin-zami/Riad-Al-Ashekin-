@@ -6,8 +6,6 @@ He is the eldest son of former president **Ziaur Rahman** and former prime minis
 
 ## **Tarique Rahman at a Glance**
 
-<div style="overflow-x: auto;">
-
 | Detail | Information |
 | :--- | :--- |
 | **Full name** | Tarique Rahman |
@@ -21,8 +19,6 @@ He is the eldest son of former president **Ziaur Rahman** and former prime minis
 | **Daughter** | Zaima Zarnaz Rahman |
 | **Profession listed in election affidavit** | Politician |
 | **Education listed in 2025 election affidavit** | Higher Secondary |
-
-</div>
 
 The birth year has appeared differently in older sources. A BNP publication from years ago listed 1965, while his more recent BNP profile lists **1968**, and his 2025 election affidavit also states November 20, 1968. His income-tax return reportedly listed 1967, so older pages on the internet may show conflicting ages. [BNPBD API](https://api.bnpbd.org/api/upload/files/the-political-thought-of-tarique-rahman-e161.pdf?utm_source=chatgpt.com)
 

@@ -194,36 +194,8 @@ export function MarkdownArticleRenderer({ content, onNavigate }: MarkdownArticle
       </h4>`;
     });
 
-    // 7. Transform Workflow Pipelines (paragraphs containing → into responsive step sequence cards)
+    // 7. Regular Paragraph Styling (Arabic aware, clean typography, no synthetic injected banners)
     rawHtml = rawHtml.replace(/<p>([\s\S]*?)<\/p>/gi, (orig, inner) => {
-      if ((inner.includes('→') || inner.includes('->')) && !inner.includes('<table') && !inner.includes('class=')) {
-        const clean = inner.replace(/<\/?strong>/g, '').trim();
-        const steps = clean.split(/→|->/).map(s => s.trim()).filter(Boolean);
-        if (steps.length >= 2 && steps.length <= 6) {
-          const stepsHtml = steps.map((s, idx) => `
-            <div class="flex items-center gap-1.5 sm:gap-2">
-              <div class="bg-white border border-accent-200/90 px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-xl shadow-2xs text-xs sm:text-sm font-semibold text-brand-950 flex items-center gap-2 hover:border-accent-400 transition-colors">
-                <span class="w-4 h-4 sm:w-5 sm:h-5 rounded-md bg-accent-100 text-accent-700 flex items-center justify-center text-[10px] font-mono font-bold shrink-0">${idx + 1}</span>
-                <span class="leading-snug">${s}</span>
-              </div>
-              ${idx < steps.length - 1 ? '<span class="text-accent-600 font-bold text-xs sm:text-sm shrink-0 px-0.5">→</span>' : ''}
-            </div>
-          `).join('');
-
-          return `
-            <div class="my-5 sm:my-6 p-4 sm:p-5 rounded-xl sm:rounded-2xl bg-gradient-to-r from-accent-50/80 via-brand-50 to-strategy-50/80 border border-accent-200/90 shadow-2xs">
-              <div class="text-[10px] sm:text-[11px] font-mono font-bold text-accent-700 uppercase tracking-wider mb-2.5 sm:mb-3 flex items-center gap-1.5">
-                <svg class="w-3.5 h-3.5 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                <span>Execution Pipeline Sequence</span>
-              </div>
-              <div class="flex flex-wrap items-center gap-2 sm:gap-2.5">
-                ${stepsHtml}
-              </div>
-            </div>
-          `;
-        }
-      }
-
       // Check if this paragraph is predominantly Arabic text
       const isArabic = containsArabic(inner);
       if (isArabic) {
@@ -233,31 +205,104 @@ export function MarkdownArticleRenderer({ content, onNavigate }: MarkdownArticle
       return `<p class="text-[15px] sm:text-base md:text-[17px] text-brand-800 leading-relaxed my-3.5 sm:my-5 font-normal">${inner}</p>`;
     });
 
-    // 8. Style Comparison Tables (SPA vs MPA) with mobile-friendly horizontal scrolling
-    rawHtml = rawHtml.replace(/<table([^>]*)>/gi, `
-      <div class="my-6 sm:my-8 overflow-hidden rounded-xl sm:rounded-2xl border border-brand-200/90 bg-white shadow-soft-purple">
-        <div class="overflow-x-auto scrollbar-thin scrollbar-thumb-brand-200">
-          <table class="min-w-full divide-y divide-brand-200 text-left text-xs sm:text-sm" $1>
-    `);
-    rawHtml = rawHtml.replace(/<\/table>/gi, `
-          </table>
-        </div>
-        <div class="px-3.5 py-2.5 sm:px-5 sm:py-3 bg-brand-50/70 border-t border-brand-200/70 text-[11px] sm:text-xs text-brand-600 flex items-center justify-between">
-          <span class="flex items-center gap-1.5 font-medium">
-            <svg class="w-3.5 h-3.5 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            Verified Architectural Specification
-          </span>
-          <span class="font-mono text-[10px] text-brand-500 sm:hidden">
-            ← Scroll horizontally →
-          </span>
-        </div>
-      </div>
-    `);
+    // 8. Style Comparison Tables:
+    // Desktop View (hidden md:block): Premium, clean light-themed table with high-contrast slate-900 column headers (NEVER white).
+    // Mobile View (block md:hidden): Responsive vertical cards so readers NEVER need horizontal side scrolling!
+    // Zero unwanted banners above or below the table.
+    rawHtml = rawHtml.replace(/<div\s+style=["'][^"']*overflow-x:\s*auto;?[^"']*["']>\s*(<table\b)/gi, '$1');
+    rawHtml = rawHtml.replace(/(<\/table>)\s*<\/div>/gi, '$1');
 
-    rawHtml = rawHtml.replace(/<thead([^>]*)>/gi, '<thead class="bg-gradient-to-r from-brand-950 via-brand-900 to-accent-950 text-white font-bold uppercase text-[11px] sm:text-xs tracking-wider" $1>');
-    rawHtml = rawHtml.replace(/<tbody([^>]*)>/gi, '<tbody class="divide-y divide-brand-100 bg-white text-brand-900" $1>');
-    rawHtml = rawHtml.replace(/<th([^>]*)>/gi, '<th scope="col" class="px-3.5 py-3 sm:px-5 sm:py-4 font-bold text-white tracking-wide whitespace-nowrap sm:whitespace-normal" $1>');
-    rawHtml = rawHtml.replace(/<td([^>]*)>/gi, '<td class="px-3.5 py-3 sm:px-5 sm:py-4 text-xs sm:text-sm text-brand-800 leading-relaxed font-normal" $1>');
+    rawHtml = rawHtml.replace(/<table\b[^>]*>([\s\S]*?)<\/table>/gi, (originalTable, inner) => {
+      // Extract headers from thead or tr
+      const headerMatches = [...inner.matchAll(/<th\b[^>]*>([\s\S]*?)<\/th>/gi)].map(m => m[1].replace(/<[^>]+>/g, '').trim());
+
+      // Extract rows from tbody or tr
+      const tbodyMatch = inner.match(/<tbody\b[^>]*>([\s\S]*?)<\/tbody>/gi);
+      const rowsContent = tbodyMatch ? tbodyMatch[0] : inner;
+      const rowMatches = [...rowsContent.matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/gi)];
+      
+      const rows: string[][] = [];
+      for (const r of rowMatches) {
+        // Only take rows that contain <td> (exclude header row)
+        const cells = [...r[1].matchAll(/<td\b[^>]*>([\s\S]*?)<\/td>/gi)].map(m => m[1].trim());
+        if (cells.length > 0) {
+          rows.push(cells);
+        }
+      }
+
+      if (headerMatches.length === 0 || rows.length === 0) {
+        return originalTable;
+      }
+
+      // 1. Desktop View (hidden md:block):
+      // Clean light slate-100 header background, DEEP DARK text-slate-900 column names (100% visible, NEVER white), crisp border
+      const desktopHtml = `
+        <div class="hidden md:block my-6 sm:my-8 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xs">
+          <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-slate-200 text-left text-sm bg-white">
+              <thead class="bg-slate-100 text-slate-900 border-b-2 border-slate-300">
+                <tr>
+                  ${headerMatches.map((h, hIdx) => `
+                    <th scope="col" class="px-5 py-3.5 text-left text-xs font-bold uppercase tracking-wider text-slate-900 bg-slate-100 border-b border-slate-300 ${hIdx === 0 ? 'font-extrabold text-slate-950' : ''}">
+                      ${h}
+                    </th>
+                  `).join('')}
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 bg-white text-slate-800">
+                ${rows.map((r, rIdx) => `
+                  <tr class="transition-colors hover:bg-slate-50/80 ${rIdx % 2 === 1 ? 'bg-slate-50/50' : 'bg-white'}">
+                    ${r.map((cell, cIdx) => `
+                      <td class="px-5 py-3.5 text-sm text-slate-800 leading-relaxed border-b border-slate-100 ${cIdx === 0 ? 'font-semibold text-slate-950' : ''}">
+                        ${cell}
+                      </td>
+                    `).join('')}
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      `;
+
+      // 2. Mobile View (block md:hidden):
+      // Vertical stacked cards — zero horizontal side scrolling!
+      // No synthetic banners or extra headers on top of the table.
+      const mobileHtml = `
+        <div class="block md:hidden my-6 space-y-3 not-prose">
+          ${rows.map((r) => {
+            const itemName = r[0] || '';
+            const specs = r.slice(1);
+            return `
+              <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-xs space-y-2.5">
+                <div class="font-bold text-base text-slate-950 leading-snug pb-2 border-b border-slate-100">
+                  ${itemName}
+                </div>
+                <div class="space-y-2 text-xs">
+                  ${specs.map((val, cIdx) => {
+                    const headerLabel = headerMatches[cIdx + 1] || '';
+                    const isYes = val.toLowerCase() === 'yes';
+                    const isNo = val.toLowerCase() === 'no';
+                    return `
+                      <div class="flex flex-col gap-0.5 py-1 border-b border-slate-50 last:border-b-0">
+                        <span class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">
+                          ${headerLabel}
+                        </span>
+                        <span class="text-sm font-medium ${isYes ? 'text-emerald-700 font-bold' : isNo ? 'text-rose-600 font-semibold' : 'text-slate-800'} leading-relaxed">
+                          ${val}
+                        </span>
+                      </div>
+                    `;
+                  }).join('')}
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      `;
+
+      return desktopHtml + mobileHtml;
+    });
 
     // 9. Style Blockquotes with rich quote accents and responsive padding
     rawHtml = rawHtml.replace(/<blockquote([^>]*)>([\s\S]*?)<\/blockquote>/gi, (_, attrs, inner) => {

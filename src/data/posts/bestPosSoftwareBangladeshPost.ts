@@ -6,8 +6,6 @@ The 10 POS systems below serve different requirements. A small neighborhood shop
 
 ## **POS Software in Bangladesh: Quick Comparison**
 
-<div style="overflow-x: auto;">
-
 | POS Software | Particularly Relevant For | Offline | Inventory | Multi-Outlet | Accounting | Published Pricing |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **MondayPOS** | Retail chains, pharmacy, supershop, food businesses | Yes | Yes | Yes | Yes | Yes |
@@ -20,8 +18,6 @@ The 10 POS systems below serve different requirements. A small neighborhood shop
 | **eHishab** | SMEs, pharmacies, retail and trading | Cloud | Yes | Yes | Yes | Yes |
 | **PridePOS** | Retail chains and ERP-integrated businesses | Yes | Yes | Yes | ERP integration | Quote |
 | **Daffodil POS** | Pharmacy, super shop and general retail | Contact vendor | Yes | Available | Yes | Quote |
-
-</div>
 
 *Features and pricing can change. Confirm VAT functionality, hardware compatibility, offline behavior, payment integration, and support terms directly with each vendor before purchasing.*
 
@@ -558,8 +554,6 @@ Management should be able to view:
 
 For example:
 
-<div style="overflow-x: auto;">
-
 | Location | Product Stock |
 | :--- | :--- |
 | Central Warehouse | 500 |
@@ -567,8 +561,6 @@ For example:
 | Uttara | 70 |
 | Mirpur | 45 |
 | In Transit | 30 |
-
-</div>
 
 The system should show both the organizational total and the physical location of stock.
 

@@ -6,8 +6,6 @@ The 10 hospital management systems below address different parts of those requir
 
 ## **Hospital Management Software in Bangladesh: Quick Comparison**
 
-<div style="overflow-x: auto;">
-
 | Software | Particularly Relevant For | OPD/IPD | Lab & Pharmacy | EMR/EHR | Accounts/ERP | Deployment |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Smart Hospital Management System** | Hospitals, clinics, diagnostic centers | Yes | Yes | Patient records | Yes | Web-based |
@@ -20,8 +18,6 @@ The 10 hospital management systems below address different parts of those requir
 | **Bdtask HMS** | Hospitals, clinics and medical practices | Yes | Yes | Available | Yes | Web-based |
 | **GCTL Hospital Management Software** | Hospitals and diagnostic centers | Yes | Yes | Available | Yes | Configurable |
 | **Aara Tech Hospital ERP** | Clinics through hospital chains | Yes | Yes | Yes | Yes | Cloud / On-premise |
-
-</div>
 
 *Feature sets, prices, integrations, and deployment options can change. Hospitals should verify critical clinical and financial requirements directly with the vendor before implementation.*
 
@@ -475,8 +471,6 @@ The system tracks:
 * Nursing notes  
 * Discharge status
 
-<div style="overflow-x: auto;">
-
 | Bed Identifier | Ward / Location | Status | Current Occupant |
 | :--- | :--- | :--- | :--- |
 | **ICU-01** | Intensive Care Unit | Occupied | Patient #84920 |
@@ -484,8 +478,6 @@ The system tracks:
 | **Cabin-203A** | Executive Ward 2nd Floor | Cleaning / Turnover | Ready in 30 mins |
 | **Ward-B12** | General Male Ward | Reserved | Admission pending |
 | **Ward-B13** | General Male Ward | Occupied | Patient #84931 |
-
-</div>
 
 The live status updates when a patient is admitted, transferred, discharged, or when the bed temporarily becomes unavailable for sanitization.
 
@@ -772,8 +764,6 @@ Systems such as Shafa HMS and HMS Pro explicitly advertise offline-tolerant hybr
 
 ## **Hospital ERP vs Basic Hospital Management Software**
 
-<div style="overflow-x: auto;">
-
 | Capability | Basic HMS | Hospital ERP |
 | :--- | :--- | :--- |
 | **Patient Registration** | Yes | Yes |
@@ -791,8 +781,6 @@ Systems such as Shafa HMS and HMS Pro explicitly advertise offline-tolerant hybr
 | **Enterprise Clinical Reporting** | Limited | Yes |
 | **RIS / PACS / DICOM** | Rare | Available |
 | **HL7 / FHIR APIs & Interoperability** | Limited | Available |
-
-</div>
 
 A small clinic should not buy an enterprise ERP simply because it contains more modules.
 

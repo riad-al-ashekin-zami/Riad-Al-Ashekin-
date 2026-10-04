@@ -369,8 +369,6 @@ That gives the agency a measurable objective.
 
 Different agencies have different strengths.
 
-<div style="overflow-x: auto;">
-
 | Primary Goal | Agency Capability to Prioritize |
 | :--- | :--- |
 | **Google rankings** | SEO |
@@ -381,8 +379,6 @@ Different agencies have different strengths.
 | **Local business leads** | Local SEO + Google Ads |
 | **Brand awareness** | Creative + media |
 | **Website conversion** | CRO + UX |
-
-</div>
 
 Do not hire a social-media specialist for an enterprise technical-SEO problem simply because both services fall under “digital marketing.”
 
@@ -461,8 +457,6 @@ Without tracking, optimization becomes guesswork.
 
 ## **Full-Service Agency vs Specialist Agency**
 
-<div style="overflow-x: auto;">
-
 | Factor | Full-Service Agency | Specialist Agency |
 | :--- | :--- | :--- |
 | **SEO** | Usually | Strong if SEO specialist |
@@ -473,8 +467,6 @@ Without tracking, optimization becomes guesswork.
 | **Cross-channel campaigns** | Strong | Narrower |
 | **Depth in one discipline** | Varies | Usually stronger |
 | **Vendor management** | Easier | Multiple vendors may be needed |
-
-</div>
 
 A full-service company can simplify coordination. A specialist may offer deeper expertise when one channel is especially important.
 

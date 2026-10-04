@@ -736,8 +736,6 @@ The final output does.
 
 ## **Static Website vs Dynamic Website for SEO**
 
-<div style="overflow-x: auto;">
-
 | Factor | Static Website | Dynamic Website |
 | :--- | :--- | :--- |
 | **HTML availability** | Immediate | Depends on rendering |
@@ -748,8 +746,6 @@ The final output does.
 | **Large-scale personalization** | Limited | Strong |
 | **SEO capability** | Excellent | Excellent |
 | **Technical complexity** | Lower | Often higher |
-
-</div>
 
 Neither architecture automatically ranks better.
 

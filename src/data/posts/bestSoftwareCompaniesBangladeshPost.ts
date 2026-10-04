@@ -37,8 +37,6 @@ A company suitable for a fintech platform may not be the best option for a garme
 
 The following companies represent different parts of Bangladesh's software industry rather than a universal best-to-worst ranking.
 
-<div style="overflow-x: auto;">
-
 | Company | Main Strengths | Suitable For |
 | :--- | :--- | :--- |
 | **Brain Station 23** | Custom software, fintech, AI, ecommerce, ERP, team augmentation | Enterprises and international projects |
@@ -51,8 +49,6 @@ The following companies represent different parts of Bangladesh's software indus
 | **Divine IT** | Business software and enterprise systems | ERP and operational software buyers |
 | **Smart Software** | ERP, HRM, POS and business applications | Local SMEs and operational systems |
 | **Brain Station / other export-focused firms** | International software delivery | Buyers prioritizing export track record |
-
-</div>
 
 ---
 
@@ -275,8 +271,6 @@ Start by identifying what you actually need.
 
 For example:
 
-<div style="overflow-x: auto;">
-
 | Requirement | Company Type to Consider |
 | :--- | :--- |
 | **Custom SaaS** | Product engineering company |
@@ -287,8 +281,6 @@ For example:
 | **POS system** | Business software/POS vendor |
 | **HRM** | HR/ERP software provider |
 | **AI product** | AI-capable custom development team |
-
-</div>
 
 A strong ERP vendor is not automatically a strong SaaS product-development partner.
 

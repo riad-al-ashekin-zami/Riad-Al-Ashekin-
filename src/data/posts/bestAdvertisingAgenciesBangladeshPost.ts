@@ -211,8 +211,6 @@ This is especially relevant when the proposed campaign includes:
 
 The phrase **advertising agency** now covers very different services.
 
-<div style="overflow-x: auto;">
-
 | Traditional Advertising | Digital Advertising |
 | :--- | :--- |
 | TV commercials | Facebook Ads |
@@ -222,8 +220,6 @@ The phrase **advertising agency** now covers very different services.
 | Print campaigns | Retargeting |
 | Events | Social media campaigns |
 | Outdoor advertising | Performance marketing |
-
-</div>
 
 Many modern agencies offer a combination.
 
@@ -469,8 +465,6 @@ Combines both. Choose based on the channels your audience actually uses.
 
 ## **Full-Service vs Boutique Advertising Agency**
 
-<div style="overflow-x: auto;">
-
 | Factor | Full-Service Agency | Boutique Agency |
 | :--- | :--- | :--- |
 | **Creative** | Yes | Usually |
@@ -480,8 +474,6 @@ Combines both. Choose based on the channels your audience actually uses.
 | **Specialist attention** | Depends | Often higher |
 | **Large campaigns** | Stronger capacity | Depends |
 | **Cost** | Often higher | Can be lower |
-
-</div>
 
 Neither is inherently better. A boutique agency can outperform a large network agency when the project needs specialist attention.
 

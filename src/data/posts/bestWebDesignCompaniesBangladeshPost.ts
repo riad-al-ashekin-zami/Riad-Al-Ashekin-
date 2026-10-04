@@ -18,8 +18,6 @@ An ecommerce business, corporate organization, SaaS startup, restaurant, law fir
 
 The following firms represent examples of website-design providers currently operating in Bangladesh rather than a universal best-to-worst ranking.
 
-<div style="overflow-x: auto;">
-
 | Company | Location | Suitable Project Direction |
 | :--- | :--- | :--- |
 | **Dcastalia Limited** | Dhaka | Corporate websites, UI/UX and digital experiences |
@@ -31,8 +29,6 @@ The following firms represent examples of website-design providers currently ope
 | **SOFTOPARK IT LTD** | Dhaka | Web design and development |
 | **Roopokar** | Dhaka | Website design services |
 | **Web Host BD** | Dhaka | Website design with hosting-related services |
-
-</div>
 
 Third-party directories such as Clutch, GoodFirms and DesignRush maintain much larger Bangladesh agency databases, so buyers should treat any shortlist as a starting point rather than a definitive ranking.
 
@@ -542,8 +538,6 @@ The cheapest initial proposal is not necessarily the lowest-cost project over th
 
 ## **Website Design Company vs Freelancer**
 
-<div style="overflow-x: auto;">
-
 | Factor | Agency | Freelancer |
 | :--- | :--- | :--- |
 | **Team capacity** | Usually multiple specialists | Usually one person |
@@ -553,8 +547,6 @@ The cheapest initial proposal is not necessarily the lowest-cost project over th
 | **Availability** | Team continuity possible | Depends on one person |
 | **Support** | Can be structured | Often informal |
 | **Specialist skills** | Broader | Usually narrower |
-
-</div>
 
 Neither option is automatically better.
 

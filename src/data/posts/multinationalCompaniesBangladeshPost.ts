@@ -12,8 +12,6 @@ This guide covers major multinational companies operating in Bangladesh, their i
 
 Bangladesh's MNC landscape is spread across several industries.
 
-<div style="overflow-x: auto;">
-
 | Sector | Examples of Multinational Companies |
 | :--- | :--- |
 | **FMCG** | Unilever, Nestlé, Marico, Reckitt |
@@ -28,8 +26,6 @@ Bangladesh's MNC landscape is spread across several industries.
 | **Agriculture** | Syngenta |
 | **Paints & Materials** | Berger, Asian Paints, Heidelberg Materials |
 | **Professional Services** | KPMG, PwC, EY, Deloitte |
-
-</div>
 
 The exact legal structure differs by company. Some operate through locally incorporated subsidiaries, some through joint ventures, some through branches, and others through distributors, representative offices, manufacturing partnerships, or regional service arrangements.
 
@@ -494,8 +490,6 @@ are usually looking for active career opportunities rather than general company 
 
 Multinational companies recruit across many functions:
 
-<div style="overflow-x: auto;">
-
 | Function | Common Roles |
 | :--- | :--- |
 | **Marketing** | Brand Executive, Brand Manager |
@@ -508,8 +502,6 @@ Multinational companies recruit across many functions:
 | **Operations** | Operations Executive |
 | **Banking** | Relationship Manager, Risk Analyst |
 | **Graduate Programmes** | Management Trainee |
-
-</div>
 
 Actual vacancies change frequently, so candidates should check the company's official career portal rather than relying only on old job-circular pages.
 
@@ -676,8 +668,6 @@ Applications should normally be made through official channels.
 
 ## **MNC vs Local Company in Bangladesh**
 
-<div style="overflow-x: auto;">
-
 | Factor | Multinational Company | Local Company |
 | :--- | :--- | :--- |
 | **Geographic operations** | Multiple countries | Primarily domestic |
@@ -687,8 +677,6 @@ Applications should normally be made through official channels.
 | **Decision-making** | Can involve overseas headquarters | Often locally concentrated |
 | **Brand recognition** | Often international | Local/regional |
 | **Compensation** | Varies | Varies |
-
-</div>
 
 Neither category is automatically a better employer.
 

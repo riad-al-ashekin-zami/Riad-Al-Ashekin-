@@ -6,8 +6,6 @@ The right HRMS varies significantly across organizational archetypes. A high-gro
 
 ## **HR & Payroll Software in Bangladesh: Quick Comparison**
 
-<div style="overflow-x: auto;">
-
 | Software | Particularly Relevant For | Biometric Sync | NBR Tax & TDS | RMG & Factory Shifts | Mobile ESS App | Deployment |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **PrideHR** | Mid-to-large enterprises & conglomerates | Yes (LAN/Cloud) | Yes | Yes | iOS & Android | Cloud / On-premise |
@@ -20,8 +18,6 @@ The right HRMS varies significantly across organizational archetypes. A high-gro
 | **NEOS HR & ERP** | Heavy manufacturing & industrial groups | Yes | Yes | Yes | Available | Enterprise On-premise |
 | **Jibika Plexus** | RMG factories & high-volume labor units | Yes (ZKTeco/Hik) | Yes | Dedicated | Web / Mobile | Cloud / Local Network |
 | **DeenHR** | Commercial enterprises & multi-branch firms | Yes | Yes | Available | Web / Mobile | Cloud |
-
-</div>
 
 *Feature matrices, subscription tiers, and local biometric hardware driver compatibility can evolve. Evaluate shortlisted vendors against your specific workforce roster and corporate bank integration requirements before procurement.*
 

@@ -6,8 +6,6 @@ The 10 platforms evaluated below address the diverse operational and budgetary r
 
 ## **School Management Software in Bangladesh: Quick Comparison**
 
-<div style="overflow-x: auto;">
-
 | Software | Primary Institution Focus | Deployment | Biometric / RFID | Online Fees (bKash/MFS) | Result & Tabulation | Parent / Student Portal |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **EDUMAN** | Schools, colleges & madrasahs nationwide | Cloud / Hosted | Yes | Yes (bKash, Nagad, Bank) | Comprehensive NCTB GPA | Yes (Web & Mobile) |
@@ -20,8 +18,6 @@ The 10 platforms evaluated below address the diverse operational and budgetary r
 | **SoftTechIQ School ERP**| Multi-branch educational organizations | Custom / Cloud | Yes | Yes | Dynamic Exam Processing | Dedicated App |
 | **Duronto School ERP**| Public and private schools across Bangladesh | Cloud | Yes | Yes (Scheduled reminders) | Board Standard Sheet | Web Portal |
 | **Shikkha Web** | Affordable digital transformation for schools | Cloud SaaS | Yes | Yes | Semester Grade Sheet | Responsive Web |
-
-</div>
 
 *Feature sets, API integrations, and pricing models vary by institution size and module selection. Always request a live deployment demonstration and confirm hardware compatibility before purchasing.*
 

@@ -6,8 +6,6 @@ The 10 platforms below address different parts of those requirements. A single r
 
 ## **Inventory Management Software in Bangladesh: Quick Comparison**
 
-<div style="overflow-x: auto;">
-
 | Software | Particularly Relevant For | Cloud | Offline | Multi-Warehouse | POS | Accounting |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **TallyPrime** | Inventory + accounting | Yes / Local options | Yes | Yes | Limited | Extensive |
@@ -20,8 +18,6 @@ The 10 platforms below address different parts of those requirements. A single r
 | **CashBook** | Small and mid-sized businesses | Yes | Contact vendor | Available | Yes | Yes |
 | **HisabPlus** | SMEs, shops and specialized retail | Yes | Product dependent | Yes | Yes | Yes |
 | **Salesman** | Retail, wholesale and multi-branch | Hybrid | Yes | Yes | Yes | Yes |
-
-</div>
 
 *Feature availability and pricing can change. Confirm critical integrations, limits, and implementation requirements directly with each vendor before purchasing.*
 
@@ -444,8 +440,6 @@ Businesses operating multiple warehouses, godowns, branches, or shops need stock
 
 For example:
 
-<div style="overflow-x: auto;">
-
 | Location | Quantity |
 | :--- | :--- |
 | **Dhaka Central Warehouse** | 500 |
@@ -454,8 +448,6 @@ For example:
 | **Dhanmondi Branch** | 40 |
 | **In Transit** | 50 |
 | **Total Company-Wide Stock** | **935 Units** |
-
-</div>
 
 A company-wide total of **935 units** is useful, but staff also need to know where those units physically exist.
 
@@ -681,8 +673,6 @@ For Bangladesh-based retail operations, this can provide a useful balance betwee
 
 Excel can be sufficient for a very small operation with limited products and one person controlling stock. The limitation appears when inventory becomes transactional.
 
-<div style="overflow-x: auto;">
-
 | Capability | Excel | Inventory Software |
 | :--- | :--- | :--- |
 | **Product list** | Yes | Yes |
@@ -697,8 +687,6 @@ Excel can be sufficient for a very small operation with limited products and one
 | **Low-stock alerts** | Requires setup | Yes |
 | **POS integration** | Difficult | Usually |
 | **Supplier balances** | Manual | Available |
-
-</div>
 
 Once multiple employees are recording purchases, sales, returns, transfers, and adjustments, a spreadsheet becomes increasingly difficult to control.
 
@@ -734,8 +722,6 @@ For many SMEs, a combined POS and inventory system is sufficient. Larger busines
 
 Different industries require different inventory logic:
 
-<div style="overflow-x: auto;">
-
 | Business | Important Inventory Features |
 | :--- | :--- |
 | **Retail** | POS, barcode, reorder alerts |
@@ -748,8 +734,6 @@ Different industries require different inventory logic:
 | **E-commerce** | Order and channel synchronization |
 | **Manufacturing** | Raw materials, BOM, WIP |
 | **Auto Parts** | Part number, vehicle compatibility |
-
-</div>
 
 A generic stock counter may therefore be suitable for one business and inadequate for another.
 

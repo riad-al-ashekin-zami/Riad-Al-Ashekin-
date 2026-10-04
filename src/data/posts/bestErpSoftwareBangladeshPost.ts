@@ -6,8 +6,6 @@ The 10 ERP platforms below serve very different requirements. A small trading bu
 
 ## **ERP Software in Bangladesh: Quick Comparison**
 
-<div style="overflow-x: auto;">
-
 | ERP Software | Particularly Relevant For | Finance | Inventory | Manufacturing | HR/Payroll | Deployment |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **PrideERP** | RMG, textile, manufacturing, large enterprises | Yes | Yes | Strong | Yes | Enterprise / Cloud |
@@ -20,8 +18,6 @@ The 10 ERP platforms below serve very different requirements. A small trading bu
 | **Microsoft Dynamics 365 Business Central** | SMEs using Microsoft ecosystem | Yes | Yes | Premium plan | Integration available | Cloud |
 | **TallyPrime** | Accounting-led SMEs, traders and distributors | Strong | Yes | Limited | Payroll availability varies | Desktop / Connected |
 | **Oracle NetSuite** | Growing multi-entity and international businesses | Strong | Yes | Yes | Suite options | Cloud |
-
-</div>
 
 *Implementation scope, localization, pricing, partner capabilities, and module availability can differ substantially. Verify Bangladesh-specific requirements directly with the software vendor or authorized implementation partner before purchasing.*
 
@@ -790,8 +786,6 @@ If the vendor cannot demonstrate this end-to-end process clearly, the system may
 
 Accounting software focuses primarily on financial transactions. ERP integrates financial transactions with operational processes.
 
-<div style="overflow-x: auto;">
-
 | Capability | Accounting Software | ERP |
 | :--- | :--- | :--- |
 | General ledger | Yes | Yes |
@@ -805,8 +799,6 @@ Accounting software focuses primarily on financial transactions. ERP integrates 
 | Production costing | Rare | Yes |
 | Supply chain | No | Available |
 | Multi-department workflows | Limited | Yes |
-
-</div>
 
 A small business may only need accounting software. ERP becomes more valuable when several departments need to share the same operational data.
 

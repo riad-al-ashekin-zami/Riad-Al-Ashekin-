@@ -6,8 +6,6 @@ The right system for a neighborhood pharmacy may therefore be very different fro
 
 ## **Pharmacy Management Software in Bangladesh: Quick Comparison**
 
-<div style="overflow-x: auto;">
-
 | Software | Particularly Relevant For | Batch & Expiry | POS | Offline | Multi-Branch | Accounting |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **MediPharma24** | Growing pharmacies and chains | Yes | Yes | Check vendor | Yes | Yes |
@@ -20,8 +18,6 @@ The right system for a neighborhood pharmacy may therefore be very different fro
 | **GCTL Pharmacy Software** | Pharmacies needing configurable ERP/POS | Yes | Yes | Available | Yes | Yes |
 | **EkHisab** | Small pharmacies and local shops | Yes | Yes | Yes | Yes | Yes |
 | **Daffodil POS** | Pharmacy, retail and super shops | Yes | Yes | Contact vendor | Available | Yes |
-
-</div>
 
 *Pricing, medicine databases, branch limits, hardware support, and integrations can change. Confirm the features critical to your pharmacy directly with each vendor before purchasing.*
 
@@ -419,15 +415,11 @@ Batch tracking is one of the most important differences between generic retail s
 
 Suppose a pharmacy holds:
 
-<div style="overflow-x: auto;">
-
 | Medicine | Batch | Expiry | Stock Units |
 | :--- | :--- | :--- | :--- |
 | **Napa 500 mg** | B23091 | Dec 2026 | 20 |
 | **Napa 500 mg** | B24087 | Jun 2027 | 50 |
 | **Napa 500 mg** | B24112 | Jan 2028 | 35 |
-
-</div>
 
 The system must maintain these as separate inventory batches.
 
@@ -787,8 +779,6 @@ A chain requires centralized operational governance:
 * Central medicine master catalog  
 * Inter-branch stock visibility
 
-<div style="overflow-x: auto;">
-
 | Location | Napa 500 mg (Box) | Napa Extra (Box) | Stock Status |
 | :--- | :--- | :--- | :--- |
 | **Central Warehouse (Tejgaon)** | 1,500 | 800 | Full Supply |
@@ -796,8 +786,6 @@ A chain requires centralized operational governance:
 | **Uttara Branch** | 140 | 65 | Reorder Required |
 | **Mirpur Branch** | 85 | 30 | Low Stock Alert |
 | **In Transit** | 100 | 50 | Transfer Pending |
-
-</div>
 
 Management must be able to view both individual branch stock and total enterprise inventory simultaneously.
 

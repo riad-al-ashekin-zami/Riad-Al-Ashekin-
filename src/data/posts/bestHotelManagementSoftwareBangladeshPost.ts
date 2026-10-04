@@ -6,8 +6,6 @@ The 10 platforms below address different parts of that requirement. There is no 
 
 ## **Hotel Management Software in Bangladesh: Quick Comparison**
 
-<div style="overflow-x: auto;">
-
 | Software | Particularly Relevant For | Deployment | PMS | Restaurant/POS | Housekeeping | ERP/Back Office |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **PrideHotel** | Larger hotels and integrated operations | Contact vendor | Yes | Yes | Yes | Extensive |
@@ -20,8 +18,6 @@ The 10 platforms below address different parts of that requirement. There is no 
 | **Fountix** | Hotels, resorts and restaurants | Web platform | Yes | Yes | Yes | Operational modules |
 | **eRestu Hotel** | Hotel operations with structured financial workflows | Web application | Yes | Separate restaurant suite | Yes | Finance features |
 | **GCTL Infosys** | Hotels wanting PMS, reporting and custom workflows | Contact vendor | Yes | Features vary | Yes | Available |
-
-</div>
 
 *Deployment and feature sets can change, so confirm required integrations directly with each vendor before purchasing.*
 
@@ -438,8 +434,6 @@ Ask vendors exactly which OTAs they support rather than assuming that "channel m
 
 ## **PMS vs Hotel ERP: What Do You Actually Need?**
 
-<div style="overflow-x: auto;">
-
 | Requirement | PMS | Hotel ERP |
 | :--- | :--- | :--- |
 | **Reservations** | Yes | Yes |
@@ -454,8 +448,6 @@ Ask vendors exactly which OTAs they support rather than assuming that "channel m
 | **HR & Payroll** | Rare | Often |
 | **Multi-Department Workflows** | Limited | Strong |
 | **Enterprise Reporting** | Limited | Strong |
-
-</div>
 
 A smaller hotel usually does not need to implement a complex ERP simply because it offers more modules.
 
