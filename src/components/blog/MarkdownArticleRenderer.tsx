@@ -329,9 +329,18 @@ export function MarkdownArticleRenderer({ content, onNavigate }: MarkdownArticle
 
   // Handle internal navigation for in-app links
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    // If user held Ctrl, Cmd, Shift, Alt or clicked with a non-primary mouse button, let browser open in new tab
+    if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey || e.button !== 0) {
+      return;
+    }
+
     const target = e.target as HTMLElement;
     const anchor = target.closest('a');
     if (!anchor) return;
+
+    if (anchor.getAttribute('target') === '_blank') {
+      return;
+    }
 
     const href = anchor.getAttribute('href');
     if (href && (href.startsWith('/') || href.startsWith('https://riadalashekin.com/'))) {

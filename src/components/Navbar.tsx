@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronRight, Mail } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { BrandLogo } from './common/BrandLogo';
+import { handleLinkClick } from '../utils/navigation';
 
 interface Props {
   currentSlug: string;
@@ -60,9 +61,13 @@ export function Navbar({ currentSlug, onNavigate, onOpenDirectory }: Props) {
         <div className="flex items-center justify-between h-12 sm:h-14">
           
           {/* Logo / Personal Brandmark */}
-          <button 
-            onClick={() => handleNavClick('/')}
-            className="text-left flex items-center gap-3 group cursor-pointer"
+          <a 
+            href="/"
+            onClick={(e) => {
+              handleLinkClick(e, '/', onNavigate);
+              setIsOpen(false);
+            }}
+            className="text-left flex items-center gap-3 group cursor-pointer no-underline"
           >
             {/* Minimalist Monogram / Logo Mark with Royal Brand Hue */}
             <BrandLogo />
@@ -78,17 +83,26 @@ export function Navbar({ currentSlug, onNavigate, onOpenDirectory }: Props) {
                 Business &amp; Tech Consultant
               </span>
             </div>
-          </button>
+          </a>
           
           {/* Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center gap-1 xl:gap-1.5 px-3 py-1 rounded-full bg-brand-900/60 border border-brand-800/80 backdrop-blur-md">
             {navLinks.map((item) => {
               const active = isLinkActive(item.slug);
               return (
-                <button
+                <a
                   key={item.label}
-                  onClick={item.action ? item.action : () => handleNavClick(item.slug)}
-                  className={`relative px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 cursor-pointer ${
+                  href={item.slug}
+                  onClick={(e) => {
+                    if (item.action) {
+                      e.preventDefault();
+                      item.action();
+                    } else {
+                      handleLinkClick(e, item.slug, onNavigate);
+                    }
+                    setIsOpen(false);
+                  }}
+                  className={`relative px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 cursor-pointer no-underline inline-block ${
                     active 
                       ? 'text-white font-semibold bg-brand-800/90 shadow-xs' 
                       : 'text-brand-300 hover:text-white hover:bg-brand-800/40'
@@ -101,7 +115,7 @@ export function Navbar({ currentSlug, onNavigate, onOpenDirectory }: Props) {
                       className="absolute bottom-0 left-3 right-3 h-[2px] bg-gradient-to-r from-accent-400 via-accent-300 to-accent-400 rounded-full"
                     />
                   )}
-                </button>
+                </a>
               );
             })}
           </nav>
@@ -109,13 +123,17 @@ export function Navbar({ currentSlug, onNavigate, onOpenDirectory }: Props) {
           {/* Action CTAs */}
           <div className="hidden lg:flex items-center gap-2.5">
             {/* Contact CTA Button */}
-            <button 
-              onClick={() => handleNavClick('/contact/')}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-accent-600 hover:bg-accent-500 text-white text-xs font-bold transition-all duration-200 shadow-[0_0_20px_rgba(120,57,238,0.35)] hover:shadow-[0_0_28px_rgba(120,57,238,0.5)] cursor-pointer"
+            <a 
+              href="/contact/"
+              onClick={(e) => {
+                handleLinkClick(e, '/contact/', onNavigate);
+                setIsOpen(false);
+              }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-accent-600 hover:bg-accent-500 text-white text-xs font-bold transition-all duration-200 shadow-[0_0_20px_rgba(120,57,238,0.35)] hover:shadow-[0_0_28px_rgba(120,57,238,0.5)] cursor-pointer no-underline"
             >
               <Mail className="w-3.5 h-3.5 text-accent-100" />
               <span>Contact Me</span>
-            </button>
+            </a>
           </div>
 
           {/* Mobile Menu Controls */}
@@ -143,65 +161,97 @@ export function Navbar({ currentSlug, onNavigate, onOpenDirectory }: Props) {
             className="lg:hidden border-t border-brand-800 bg-[#150d28]/98 backdrop-blur-2xl px-5 py-6 space-y-4 shadow-2xl overflow-hidden"
           >
             <div className="grid grid-cols-2 gap-2 text-xs font-medium text-brand-200">
-              <button 
-                onClick={() => handleNavClick('/')} 
-                className="text-left p-3 rounded-xl bg-brand-900/90 border border-brand-800 text-white font-bold flex items-center justify-between"
+              <a 
+                href="/"
+                onClick={(e) => {
+                  handleLinkClick(e, '/', onNavigate);
+                  setIsOpen(false);
+                }}
+                className="text-left p-3 rounded-xl bg-brand-900/90 border border-brand-800 text-white font-bold flex items-center justify-between no-underline"
               >
                 <span>Home</span>
                 <ChevronRight className="w-3.5 h-3.5 text-brand-400" />
-              </button>
-              <button 
-                onClick={() => handleNavClick('/about-me/')} 
-                className="text-left p-3 rounded-xl hover:bg-brand-900/60 flex items-center justify-between"
+              </a>
+              <a 
+                href="/about-me/"
+                onClick={(e) => {
+                  handleLinkClick(e, '/about-me/', onNavigate);
+                  setIsOpen(false);
+                }}
+                className="text-left p-3 rounded-xl hover:bg-brand-900/60 flex items-center justify-between no-underline text-brand-200"
               >
                 <span>About</span>
                 <ChevronRight className="w-3.5 h-3.5 text-brand-400" />
-              </button>
-              <button 
-                onClick={() => handleNavClick('/services/')} 
-                className="text-left p-3 rounded-xl hover:bg-brand-900/60 flex items-center justify-between"
+              </a>
+              <a 
+                href="/services/"
+                onClick={(e) => {
+                  handleLinkClick(e, '/services/', onNavigate);
+                  setIsOpen(false);
+                }}
+                className="text-left p-3 rounded-xl hover:bg-brand-900/60 flex items-center justify-between no-underline text-brand-200"
               >
                 <span>Services</span>
                 <ChevronRight className="w-3.5 h-3.5 text-brand-400" />
-              </button>
-              <button 
-                onClick={() => handleNavClick('/seo-pricing/')} 
-                className="text-left p-3 rounded-xl hover:bg-brand-900/60 flex items-center justify-between"
+              </a>
+              <a 
+                href="/seo-pricing/"
+                onClick={(e) => {
+                  handleLinkClick(e, '/seo-pricing/', onNavigate);
+                  setIsOpen(false);
+                }}
+                className="text-left p-3 rounded-xl hover:bg-brand-900/60 flex items-center justify-between no-underline text-brand-200"
               >
                 <span>Pricing</span>
                 <ChevronRight className="w-3.5 h-3.5 text-brand-400" />
-              </button>
-              <button 
-                onClick={() => handleNavClick('/seo-tools/')} 
-                className="text-left p-3 rounded-xl hover:bg-brand-900/60 flex items-center justify-between"
+              </a>
+              <a 
+                href="/seo-tools/"
+                onClick={(e) => {
+                  handleLinkClick(e, '/seo-tools/', onNavigate);
+                  setIsOpen(false);
+                }}
+                className="text-left p-3 rounded-xl hover:bg-brand-900/60 flex items-center justify-between no-underline text-brand-200"
               >
                 <span>Tools</span>
                 <ChevronRight className="w-3.5 h-3.5 text-brand-400" />
-              </button>
-              <button 
-                onClick={() => handleNavClick('/blog/')} 
-                className="text-left p-3 rounded-xl hover:bg-brand-900/60 flex items-center justify-between"
+              </a>
+              <a 
+                href="/blog/"
+                onClick={(e) => {
+                  handleLinkClick(e, '/blog/', onNavigate);
+                  setIsOpen(false);
+                }}
+                className="text-left p-3 rounded-xl hover:bg-brand-900/60 flex items-center justify-between no-underline text-brand-200"
               >
                 <span>Blogs</span>
                 <ChevronRight className="w-3.5 h-3.5 text-brand-400" />
-              </button>
-              <button 
-                onClick={() => handleNavClick('/contact/')} 
-                className="text-left p-3 rounded-xl hover:bg-brand-900/60 flex items-center justify-between col-span-2"
+              </a>
+              <a 
+                href="/contact/"
+                onClick={(e) => {
+                  handleLinkClick(e, '/contact/', onNavigate);
+                  setIsOpen(false);
+                }}
+                className="text-left p-3 rounded-xl hover:bg-brand-900/60 flex items-center justify-between col-span-2 no-underline text-brand-200"
               >
                 <span>Contact</span>
                 <ChevronRight className="w-3.5 h-3.5 text-brand-400" />
-              </button>
+              </a>
             </div>
 
             <div className="pt-3 border-t border-brand-800 flex flex-col gap-2.5">
-              <button 
-                onClick={() => handleNavClick('/contact/')}
-                className="w-full py-3 bg-accent-600 hover:bg-accent-500 text-white font-bold rounded-xl text-xs text-center flex items-center justify-center gap-2 shadow-lg cursor-pointer"
+              <a 
+                href="/contact/"
+                onClick={(e) => {
+                  handleLinkClick(e, '/contact/', onNavigate);
+                  setIsOpen(false);
+                }}
+                className="w-full py-3 bg-accent-600 hover:bg-accent-500 text-white font-bold rounded-xl text-xs text-center flex items-center justify-center gap-2 shadow-lg cursor-pointer no-underline"
               >
                 <Mail className="w-4 h-4" />
                 <span>Contact Me</span>
-              </button>
+              </a>
             </div>
           </motion.div>
         )}

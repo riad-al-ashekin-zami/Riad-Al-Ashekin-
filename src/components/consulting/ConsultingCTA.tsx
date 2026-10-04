@@ -8,6 +8,7 @@ import {
   ShieldCheck,
   Compass
 } from 'lucide-react';
+import { handleLinkClick } from '../../utils/navigation';
 
 interface Props {
   onNavigate?: (slug: string) => void;
@@ -58,21 +59,23 @@ export function ConsultingCTA({ onNavigate }: Props) {
 
             {/* CTAs */}
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button
-                onClick={handlePricing}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-accent-600 hover:bg-accent-700 text-white rounded-xl font-bold text-base transition-all shadow-glow group cursor-pointer"
+              <a
+                href="/seo-pricing/"
+                onClick={(e) => handleLinkClick(e, '/seo-pricing/', onNavigate)}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-accent-600 hover:bg-accent-700 text-white rounded-xl font-bold text-base transition-all shadow-glow group cursor-pointer no-underline"
               >
                 <span>View Consulting Packages &amp; Pricing</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
+              </a>
 
-              <button
-                onClick={handleContact}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 bg-brand-900 hover:bg-brand-850 text-white rounded-xl font-bold text-base border border-brand-800 transition-all cursor-pointer"
+              <a
+                href="/contact/"
+                onClick={(e) => handleLinkClick(e, '/contact/', onNavigate)}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 bg-brand-900 hover:bg-brand-850 text-white rounded-xl font-bold text-base border border-brand-800 transition-all cursor-pointer no-underline"
               >
                 <Mail className="w-5 h-5 text-brand-300" />
                 <span>Send a Direct Inquiry</span>
-              </button>
+              </a>
             </div>
 
             {/* Assurance Badges */}

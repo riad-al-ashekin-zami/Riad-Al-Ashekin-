@@ -11,6 +11,7 @@ import {
   ExternalLink 
 } from 'lucide-react';
 import { getPageBySlug } from '../data/pagesRegistry';
+import { handleLinkClick } from '../utils/navigation';
 
 interface Props {
   onNavigate: (slug: string) => void;
@@ -138,10 +139,17 @@ export function FeaturedSlugsGrid({ onNavigate, onOpenDirectory }: Props) {
                       return (
                         <div
                           key={slug}
-                          onClick={() => onNavigate(page.slug)}
-                          className="p-3 bg-white rounded-xl border border-brand-200 hover:border-accent-300 hover:bg-accent-50/30 transition-all flex items-center justify-between gap-3 cursor-pointer group shadow-2xs"
+                          className="relative p-3 bg-white rounded-xl border border-brand-200 hover:border-accent-300 hover:bg-accent-50/30 transition-all flex items-center justify-between gap-3 group shadow-2xs"
                         >
-                          <div className="min-w-0">
+                          {/* Full row primary link for SPA left-click and native right-click/middle-click */}
+                          <a
+                            href={page.slug}
+                            onClick={(e) => handleLinkClick(e, page.slug, onNavigate)}
+                            className="absolute inset-0 z-10 rounded-xl cursor-pointer"
+                            aria-label={`Open ${page.headline}`}
+                          />
+
+                          <div className="min-w-0 pointer-events-none relative z-0">
                             <div className="text-xs font-bold text-brand-900 truncate group-hover:text-accent-700 transition-colors">
                               {page.headline}
                             </div>
@@ -150,10 +158,10 @@ export function FeaturedSlugsGrid({ onNavigate, onOpenDirectory }: Props) {
                             </div>
                           </div>
 
-                          <div className="flex items-center gap-1.5 shrink-0">
+                          <div className="flex items-center gap-1.5 shrink-0 relative z-20">
                             <button
                               onClick={(e) => handleCopy(e, page.canonicalUrl)}
-                              className="p-1.5 rounded-lg text-brand-400 hover:text-brand-900 hover:bg-brand-100 transition-colors"
+                              className="p-1.5 rounded-lg text-brand-400 hover:text-brand-900 hover:bg-brand-100 transition-colors cursor-pointer"
                               title="Copy exact canonical URL"
                             >
                               {copiedUrl === page.canonicalUrl ? (
@@ -162,7 +170,17 @@ export function FeaturedSlugsGrid({ onNavigate, onOpenDirectory }: Props) {
                                 <Copy className="w-3.5 h-3.5" />
                               )}
                             </button>
-                            <ExternalLink className="w-3.5 h-3.5 text-brand-300 group-hover:text-brand-700 transition-colors" />
+                            <a
+                              href={page.slug}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="p-1.5 rounded-lg text-brand-400 hover:text-accent-700 hover:bg-accent-100/50 transition-colors cursor-pointer"
+                              title="Open in new tab"
+                              aria-label={`Open ${page.headline} in a new tab`}
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <ExternalLink className="w-3.5 h-3.5" />
+                            </a>
                           </div>
                         </div>
                       );

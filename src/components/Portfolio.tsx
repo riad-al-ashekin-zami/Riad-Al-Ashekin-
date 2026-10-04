@@ -10,6 +10,7 @@ import {
   Search,
   Building2
 } from 'lucide-react';
+import { handleLinkClick } from '../utils/navigation';
 
 interface Props {
   onNavigate?: (slug: string) => void;
@@ -124,14 +125,17 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
         </span>
       )}
 
-      <div className="w-11 h-11 sm:w-12 sm:h-12 bg-white rounded-xl border border-brand-200/70 p-1.5 flex items-center justify-center relative shadow-2xs group-hover:border-accent-200 transition-all">
+      <div className="w-11 h-11 sm:w-12 sm:h-12 bg-white rounded-xl border border-brand-200/70 p-1.5 flex items-center justify-center relative shadow-2xs group-hover:border-accent-200 transition-all shrink-0">
         {!imgError ? (
           <img
-            src={`https://icon.horse/icon/${project.domain}`}
+            src={`https://www.google.com/s2/favicons?domain=${project.domain}&sz=64`}
             alt={`${project.name} logo`}
+            width="48"
+            height="48"
             className="w-full h-full object-contain transition-transform duration-200 group-hover:scale-105"
             onError={() => setImgError(true)}
             loading="lazy"
+            decoding="async"
           />
         ) : (
           <span className="font-mono font-bold text-xs text-brand-700 uppercase">
@@ -317,19 +321,21 @@ export function Portfolio({ onNavigate }: Props) {
           <div className="flex flex-wrap items-center gap-2.5 shrink-0 self-start sm:self-auto">
             {onNavigate && (
               <>
-                <button
-                  onClick={() => onNavigate('/seo-portfolio/')}
-                  className="px-3.5 py-2 bg-white border border-brand-200/80 hover:bg-brand-50 text-brand-900 rounded-lg text-xs font-bold transition-colors shadow-2xs inline-flex items-center gap-1.5 cursor-pointer"
+                <a
+                  href="/seo-portfolio/"
+                  onClick={(e) => handleLinkClick(e, '/seo-portfolio/', onNavigate)}
+                  className="px-3.5 py-2 bg-white border border-brand-200/80 hover:bg-brand-50 text-brand-900 rounded-lg text-xs font-bold transition-colors shadow-2xs inline-flex items-center gap-1.5 cursor-pointer no-underline"
                 >
                   <span>Detailed Case Studies</span>
                   <ArrowRight className="w-3.5 h-3.5 text-brand-400" />
-                </button>
-                <button
-                  onClick={() => onNavigate('/seo-pricing/')}
-                  className="px-3.5 py-2 bg-brand-950 hover:bg-brand-800 text-white rounded-lg text-xs font-bold transition-colors inline-flex items-center gap-1 cursor-pointer"
+                </a>
+                <a
+                  href="/seo-pricing/"
+                  onClick={(e) => handleLinkClick(e, '/seo-pricing/', onNavigate)}
+                  className="px-3.5 py-2 bg-brand-950 hover:bg-brand-800 text-white rounded-lg text-xs font-bold transition-colors inline-flex items-center gap-1 cursor-pointer no-underline"
                 >
                   <span>Pricing &amp; Retainers</span>
-                </button>
+                </a>
               </>
             )}
           </div>

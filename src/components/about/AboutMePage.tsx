@@ -37,6 +37,7 @@ import {
 import { VerifiedProfiles } from './VerifiedProfiles';
 import { DevelopedProducts } from './DevelopedProducts';
 import { useAuthorPhoto, PORTRAIT_OPTIONS, SITE_AUTHOR } from '../../data/authorProfile';
+import { handleLinkClick } from '../../utils/navigation';
 
 interface Props {
   onNavigate: (slug: string) => void;
@@ -292,12 +293,13 @@ export function AboutMePage({ onNavigate }: Props) {
           
           {/* Breadcrumb Navigation */}
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-brand-300 mb-8">
-            <button 
-              onClick={() => onNavigate('/')}
-              className="hover:text-white transition-colors font-medium cursor-pointer"
+            <a 
+              href="/"
+              onClick={(e) => handleLinkClick(e, '/', onNavigate)}
+              className="hover:text-white transition-colors font-medium cursor-pointer no-underline"
             >
               Home
-            </button>
+            </a>
             <ChevronRight className="w-3.5 h-3.5 text-brand-600" />
             <span className="text-white font-medium">About Me</span>
           </nav>
@@ -346,19 +348,21 @@ export function AboutMePage({ onNavigate }: Props) {
 
               {/* Action CTAs */}
               <div className="pt-4 flex flex-wrap items-center gap-4">
-                <button
-                  onClick={() => onNavigate('/seo-pricing/')}
-                  className="px-6 py-3.5 bg-accent-600 hover:bg-accent-500 text-white rounded-xl font-bold text-xs sm:text-sm transition-all inline-flex items-center gap-2 shadow-lg shadow-accent-950/40 cursor-pointer"
+                <a
+                  href="/seo-pricing/"
+                  onClick={(e) => handleLinkClick(e, '/seo-pricing/', onNavigate)}
+                  className="px-6 py-3.5 bg-accent-600 hover:bg-accent-500 text-white rounded-xl font-bold text-xs sm:text-sm transition-all inline-flex items-center gap-2 shadow-lg shadow-accent-950/40 cursor-pointer no-underline"
                 >
                   <span>Pricing &amp; Retainers</span>
                   <ArrowRight className="w-4 h-4" />
-                </button>
-                <button
-                  onClick={() => onNavigate('/contact/')}
-                  className="px-6 py-3.5 bg-brand-900/90 hover:bg-brand-800 text-brand-100 hover:text-white rounded-xl font-semibold text-xs sm:text-sm transition-all border border-brand-700/80 inline-flex items-center gap-2 cursor-pointer"
+                </a>
+                <a
+                  href="/contact/"
+                  onClick={(e) => handleLinkClick(e, '/contact/', onNavigate)}
+                  className="px-6 py-3.5 bg-brand-900/90 hover:bg-brand-800 text-brand-100 hover:text-white rounded-xl font-semibold text-xs sm:text-sm transition-all border border-brand-700/80 inline-flex items-center gap-2 cursor-pointer no-underline"
                 >
                   <span>Contact for Advisory</span>
-                </button>
+                </a>
               </div>
 
             </div>
@@ -1171,20 +1175,22 @@ export function AboutMePage({ onNavigate }: Props) {
             </div>
 
             <div className="shrink-0 flex flex-col sm:flex-row gap-3.5">
-              <button
-                onClick={() => onNavigate('/seo-pricing/')}
-                className="px-6 py-3.5 bg-accent-600 hover:bg-accent-500 text-white rounded-xl font-bold text-xs sm:text-sm transition-all inline-flex items-center justify-center gap-2 shadow-lg shadow-accent-950/40 cursor-pointer whitespace-nowrap"
+              <a
+                href="/seo-pricing/"
+                onClick={(e) => handleLinkClick(e, '/seo-pricing/', onNavigate)}
+                className="px-6 py-3.5 bg-accent-600 hover:bg-accent-500 text-white rounded-xl font-bold text-xs sm:text-sm transition-all inline-flex items-center justify-center gap-2 shadow-lg shadow-accent-950/40 cursor-pointer whitespace-nowrap no-underline"
               >
                 <span>View Pricing &amp; Retainers</span>
                 <ArrowRight className="w-4 h-4" />
-              </button>
-              <button
-                onClick={() => onNavigate('/contact/')}
-                className="px-6 py-3.5 bg-brand-900 hover:bg-brand-800 text-brand-100 hover:text-white rounded-xl font-semibold text-xs sm:text-sm transition-all border border-brand-700/90 inline-flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap"
+              </a>
+              <a
+                href="/contact/"
+                onClick={(e) => handleLinkClick(e, '/contact/', onNavigate)}
+                className="px-6 py-3.5 bg-brand-900 hover:bg-brand-800 text-brand-100 hover:text-white rounded-xl font-semibold text-xs sm:text-sm transition-all border border-brand-700/90 inline-flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap no-underline"
               >
                 <MessageSquare className="w-4 h-4" />
                 <span>Send Direct Message</span>
-              </button>
+              </a>
             </div>
           </div>
 

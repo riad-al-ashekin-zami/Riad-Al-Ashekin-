@@ -64,10 +64,10 @@ const VENTURES: Venture[] = [
 function VentureLogo({ venture }: { venture: Venture }) {
   const [errorStage, setErrorStage] = useState<number>(0);
 
-  // Exact style and logo fetching source from "Verified Production Work" (Portfolio.tsx)
+  // Fast, cached, compressed favicon from Google CDN (~1.5 KiB vs 40 KiB icon.horse)
   const logoSrc = errorStage === 0
-    ? `https://icon.horse/icon/${venture.domain}`
-    : `https://www.google.com/s2/favicons?domain=${venture.domain}&sz=128`;
+    ? `https://www.google.com/s2/favicons?domain=${venture.domain}&sz=64`
+    : `https://icon.horse/icon/${venture.domain}`;
 
   return (
     <div className="w-11 h-11 sm:w-12 sm:h-12 bg-white rounded-xl border border-brand-200/70 p-1.5 flex items-center justify-center relative shadow-2xs group-hover:border-accent-200 transition-all shrink-0">
@@ -75,9 +75,12 @@ function VentureLogo({ venture }: { venture: Venture }) {
         <img
           src={logoSrc}
           alt={`${venture.name} logo`}
+          width="48"
+          height="48"
           className="w-full h-full object-contain transition-transform duration-200 group-hover:scale-105"
           onError={() => setErrorStage(prev => prev + 1)}
           loading="lazy"
+          decoding="async"
         />
       ) : (
         <span className="font-mono font-bold text-xs text-brand-700 uppercase">

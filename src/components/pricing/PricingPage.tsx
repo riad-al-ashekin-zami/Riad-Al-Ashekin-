@@ -20,6 +20,7 @@ import {
   Award
 } from 'lucide-react';
 import { motion } from 'motion/react';
+import { handleLinkClick } from '../../utils/navigation';
 
 interface Props {
   onNavigate: (slug: string) => void;
@@ -126,12 +127,13 @@ export function PricingPage({ onNavigate }: Props) {
           
           {/* Breadcrumb Navigation */}
           <nav className="flex items-center gap-2 text-xs text-brand-400 mb-6">
-            <button 
-              onClick={() => onNavigate('/')} 
-              className="hover:text-white transition-colors cursor-pointer font-medium"
+            <a 
+              href="/"
+              onClick={(e) => handleLinkClick(e, '/', onNavigate)} 
+              className="hover:text-white transition-colors cursor-pointer font-medium no-underline"
             >
               Home
-            </button>
+            </a>
             <ChevronRight className="w-3.5 h-3.5 text-brand-600" />
             <span className="text-white font-medium">Pricing &amp; Engagements</span>
           </nav>
@@ -249,14 +251,14 @@ export function PricingPage({ onNavigate }: Props) {
             </div>
 
             <div className="pt-8 mt-6 border-t border-brand-100">
-              <button
-                type="button"
-                onClick={() => handleBookSession('SEO Consultancy')}
-                className="w-full py-3.5 px-4 bg-brand-950 hover:bg-brand-800 text-white rounded-xl text-xs font-bold transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer group"
+              <a
+                href="/contact/"
+                onClick={(e) => handleLinkClick(e, '/contact/', onNavigate)}
+                className="w-full py-3.5 px-4 bg-brand-950 hover:bg-brand-800 text-white rounded-xl text-xs font-bold transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer group no-underline"
               >
                 <span>Request SEO Consultation</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-              </button>
+              </a>
             </div>
           </div>
 
@@ -333,14 +335,14 @@ export function PricingPage({ onNavigate }: Props) {
             </div>
 
             <div className="pt-8 mt-6 border-t border-brand-800 relative z-10">
-              <button
-                type="button"
-                onClick={handleCustomQuote}
-                className="w-full py-3.5 px-4 bg-accent-600 hover:bg-accent-500 text-white rounded-xl text-xs font-bold transition-all shadow-lg shadow-accent-600/30 flex items-center justify-center gap-2 cursor-pointer group"
+              <a
+                href="/contact/"
+                onClick={(e) => handleLinkClick(e, '/contact/', onNavigate)}
+                className="w-full py-3.5 px-4 bg-accent-600 hover:bg-accent-500 text-white rounded-xl text-xs font-bold transition-all shadow-lg shadow-accent-600/30 flex items-center justify-center gap-2 cursor-pointer group no-underline"
               >
                 <span>Request Strategy Proposal</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-              </button>
+              </a>
             </div>
           </div>
 
@@ -433,14 +435,14 @@ export function PricingPage({ onNavigate }: Props) {
             </div>
 
             <div className="pt-8 mt-6 border-t border-brand-100">
-              <button
-                type="button"
-                onClick={() => handleBookSession('Business Consultancy')}
-                className="w-full py-3.5 px-4 bg-brand-950 hover:bg-brand-800 text-white rounded-xl text-xs font-bold transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer group"
+              <a
+                href="/contact/"
+                onClick={(e) => handleLinkClick(e, '/contact/', onNavigate)}
+                className="w-full py-3.5 px-4 bg-brand-950 hover:bg-brand-800 text-white rounded-xl text-xs font-bold transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer group no-underline"
               >
                 <span>Request Business Advisory</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-              </button>
+              </a>
             </div>
           </div>
 
@@ -676,14 +678,14 @@ export function PricingPage({ onNavigate }: Props) {
               </div>
 
               <div className="pt-2">
-                <button
-                  type="button"
-                  onClick={handleCustomQuote}
-                  className="w-full py-3 px-4 bg-accent-600 hover:bg-accent-500 text-white rounded-xl text-xs font-bold transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
+                <a
+                  href="/contact/"
+                  onClick={(e) => handleLinkClick(e, '/contact/', onNavigate)}
+                  className="w-full py-3 px-4 bg-accent-600 hover:bg-accent-500 text-white rounded-xl text-xs font-bold transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer no-underline"
                 >
                   <span>Submit Custom Enterprise Inquiry</span>
                   <ArrowRight className="w-3.5 h-3.5" />
-                </button>
+                </a>
               </div>
 
             </div>
@@ -848,13 +850,14 @@ export function PricingPage({ onNavigate }: Props) {
             </div>
 
             <div className="shrink-0 pt-2 lg:pt-0">
-              <button
-                onClick={handleCustomQuote}
-                className="w-full sm:w-auto px-5 py-2.5 bg-accent-600 hover:bg-accent-500 text-white rounded-xl text-xs font-bold transition-all shadow-md inline-flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap"
+              <a
+                href="/contact/"
+                onClick={(e) => handleLinkClick(e, '/contact/', onNavigate)}
+                className="w-full sm:w-auto px-5 py-2.5 bg-accent-600 hover:bg-accent-500 text-white rounded-xl text-xs font-bold transition-all shadow-md inline-flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap no-underline"
               >
                 <span>Submit Engagement Inquiry</span>
                 <ArrowRight className="w-3.5 h-3.5" />
-              </button>
+              </a>
             </div>
           </div>
         </div>

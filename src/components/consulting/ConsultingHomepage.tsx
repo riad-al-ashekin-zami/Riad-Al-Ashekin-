@@ -14,6 +14,7 @@ import { CoFoundedVentures } from '../CoFoundedVentures';
 import { ThingsIveBuilt } from '../ThingsIveBuilt';
 
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { handleLinkClick } from '../../utils/navigation';
 
 interface Props {
   onNavigate: (slug: string) => void;
@@ -45,13 +46,14 @@ export function ConsultingHomepage({ onNavigate, isPreview = false }: Props) {
             </div>
 
             <div className="flex items-center gap-2 shrink-0">
-              <button
-                onClick={() => onNavigate('/')}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-accent-600 hover:bg-accent-500 text-white font-bold transition-colors cursor-pointer"
+              <a
+                href="/"
+                onClick={(e) => handleLinkClick(e, '/', onNavigate)}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-accent-600 hover:bg-accent-500 text-white font-bold transition-colors cursor-pointer no-underline"
               >
                 <span>Go to Home (/)</span>
                 <ArrowRight className="w-3.5 h-3.5" />
-              </button>
+              </a>
             </div>
           </div>
         </div>

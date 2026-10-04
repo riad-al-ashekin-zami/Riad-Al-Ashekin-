@@ -36,6 +36,7 @@ import { FeaturedImage } from './FeaturedImage';
 import { SITE_AUTHOR, useAuthorPhoto } from '../../data/authorProfile';
 import { getRelatedBlogPosts, BLOG_FEATURED_IMAGES } from '../../data/blogConfig';
 import { MarkdownArticleRenderer, extractHeadingsFromMarkdown } from './MarkdownArticleRenderer';
+import { handleLinkClick } from '../../utils/navigation';
 
 interface Props {
   page: PageData;
@@ -236,19 +237,21 @@ export function BlogPostLayout({ page, onNavigate }: Props) {
           
           {/* Breadcrumb Navigation */}
           <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-xs text-brand-300 mb-6 sm:mb-8">
-            <button 
-              onClick={() => onNavigate('/')}
+            <a 
+              href="/"
+              onClick={(e) => handleLinkClick(e, '/', onNavigate)}
               className="hover:text-white transition-colors font-medium cursor-pointer"
             >
               Home
-            </button>
+            </a>
             <ChevronRight className="w-3.5 h-3.5 text-brand-500" />
-            <button
-              onClick={() => onNavigate('/blog/')}
+            <a
+              href="/blog/"
+              onClick={(e) => handleLinkClick(e, '/blog/', onNavigate)}
               className="hover:text-white transition-colors font-medium cursor-pointer"
             >
               Blog
-            </button>
+            </a>
             <ChevronRight className="w-3.5 h-3.5 text-brand-500" />
             <span className="text-white font-semibold truncate max-w-[240px] sm:max-w-md">
               {page.headline}
@@ -496,13 +499,14 @@ export function BlogPostLayout({ page, onNavigate }: Props) {
                     Work directly with Riad Al Ashekin to optimize systems and dominate search.
                   </p>
                   
-                  <button
-                    onClick={() => onNavigate('/seo-pricing/')}
-                    className="w-full py-2 px-3 bg-accent-600 hover:bg-accent-500 text-white rounded-lg text-xs font-bold transition-all shadow-sm flex items-center justify-center gap-1.5 cursor-pointer"
+                  <a
+                    href="/seo-pricing/"
+                    onClick={(e) => handleLinkClick(e, '/seo-pricing/', onNavigate)}
+                    className="w-full py-2 px-3 bg-accent-600 hover:bg-accent-500 text-white rounded-lg text-xs font-bold transition-all shadow-sm flex items-center justify-center gap-1.5 cursor-pointer no-underline"
                   >
                     <span>Pricing &amp; Retainers</span>
                     <ArrowRight className="w-3 h-3" />
-                  </button>
+                  </a>
                 </div>
               </div>
 
@@ -699,13 +703,14 @@ export function BlogPostLayout({ page, onNavigate }: Props) {
                           <CheckCircle2 className="w-3.5 h-3.5 text-accent-500" />
                           Verified Technical Insight
                         </span>
-                        <button
-                          onClick={() => onNavigate('/seo-pricing/')}
-                          className="font-bold text-accent-700 hover:text-accent-900 inline-flex items-center gap-1 cursor-pointer"
+                        <a
+                          href="/seo-pricing/"
+                          onClick={(e) => handleLinkClick(e, '/seo-pricing/', onNavigate)}
+                          className="font-bold text-accent-700 hover:text-accent-900 inline-flex items-center gap-1 cursor-pointer no-underline"
                         >
                           <span>Pricing &amp; Retainers</span>
                           <ArrowRight className="w-3 h-3" />
-                        </button>
+                        </a>
                       </div>
                     </article>
                   );
@@ -872,13 +877,14 @@ export function BlogPostLayout({ page, onNavigate }: Props) {
                   </span>
                 </div>
 
-                <button
-                  onClick={() => onNavigate('/seo-pricing/')}
-                  className="px-4 py-2 bg-brand-950 hover:bg-brand-800 text-white rounded-xl text-xs font-bold transition-all inline-flex items-center gap-1.5 shadow-sm cursor-pointer"
+                <a
+                  href="/seo-pricing/"
+                  onClick={(e) => handleLinkClick(e, '/seo-pricing/', onNavigate)}
+                  className="px-4 py-2 bg-brand-950 hover:bg-brand-800 text-white rounded-xl text-xs font-bold transition-all inline-flex items-center gap-1.5 shadow-sm cursor-pointer no-underline"
                 >
                   <span>Pricing &amp; Retainers</span>
                   <ArrowRight className="w-3.5 h-3.5" />
-                </button>
+                </a>
               </div>
             </section>
 
@@ -893,29 +899,36 @@ export function BlogPostLayout({ page, onNavigate }: Props) {
                     <h3 className="text-sm font-bold text-brand-950 uppercase tracking-wider">
                       More Articles from Riad Al Ashekin
                     </h3>
-                    <button
-                      onClick={() => onNavigate('/blog/')}
+                    <a
+                      href="/blog/"
+                      onClick={(e) => handleLinkClick(e, '/blog/', onNavigate)}
                       className="text-xs font-bold text-accent-700 hover:text-accent-900 inline-flex items-center gap-1 cursor-pointer"
                     >
                       <span>Browse All Articles &amp; Guides</span>
                       <ArrowRight className="w-3 h-3" />
-                    </button>
+                    </a>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                     {otherPosts.map((relPage, rIdx) => (
-                      <button
+                      <div
                         key={`rel-${relPage.slug}-${rIdx}`}
-                        onClick={() => onNavigate(relPage.slug)}
-                        className="text-left p-3.5 rounded-2xl border border-brand-200 hover:border-accent-400 hover:bg-white transition-all bg-white/70 group shadow-2xs cursor-pointer flex flex-col justify-between"
+                        className="relative text-left p-3.5 rounded-2xl border border-brand-200 hover:border-accent-400 hover:bg-white transition-all bg-white/70 group shadow-2xs flex flex-col justify-between"
                       >
-                        <div className="space-y-2.5">
+                        <a
+                          href={relPage.slug}
+                          onClick={(e) => handleLinkClick(e, relPage.slug, onNavigate)}
+                          className="absolute inset-0 z-10 rounded-2xl cursor-pointer"
+                          aria-label={relPage.headline}
+                        />
+
+                        <div className="space-y-2.5 pointer-events-none relative z-0">
                           {relPage.featuredImage && (
                             <div className="aspect-[16/9] rounded-xl overflow-hidden bg-brand-950 border border-brand-800/40">
                               <img 
                                 src={relPage.featuredImage} 
                                 alt={relPage.headline}
                                 referrerPolicy="no-referrer"
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 pointer-events-none"
                               />
                             </div>
                           )}
@@ -928,11 +941,25 @@ export function BlogPostLayout({ page, onNavigate }: Props) {
                             </p>
                           </div>
                         </div>
-                        <div className="mt-3 pt-2 border-t border-brand-100 flex items-center justify-between text-[10px] text-brand-400 font-mono">
-                          <span className="truncate">{relPage.readingTime || 'Read post'}</span>
-                          <span className="text-accent-600 font-bold group-hover:translate-x-0.5 transition-transform">→</span>
+
+                        <div className="mt-3 pt-2 border-t border-brand-100 flex items-center justify-between text-[10px] text-brand-400 font-mono relative z-20">
+                          <span className="truncate pointer-events-none">{relPage.readingTime || 'Read post'}</span>
+                          <div className="flex items-center gap-1.5">
+                            <a
+                              href={relPage.slug}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="p-1 rounded text-brand-400 hover:text-accent-700 hover:bg-accent-100/50 transition-colors cursor-pointer"
+                              title="Open in new tab"
+                              aria-label={`Open "${relPage.headline}" in a new tab`}
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <ExternalLink className="w-3.5 h-3.5" />
+                            </a>
+                            <span className="text-accent-600 font-bold group-hover:translate-x-0.5 transition-transform pointer-events-none">→</span>
+                          </div>
                         </div>
-                      </button>
+                      </div>
                     ))}
                   </div>
                 </section>
@@ -953,19 +980,21 @@ export function BlogPostLayout({ page, onNavigate }: Props) {
                   Connect 1-on-1 with Riad Al Ashekin to audit your application architecture, uncover high-ROI search opportunities, and execute with precision.
                 </p>
                 <div className="flex flex-wrap gap-3 pt-2">
-                  <button
-                    onClick={() => onNavigate('/seo-pricing/')}
+                  <a
+                    href="/seo-pricing/"
+                    onClick={(e) => handleLinkClick(e, '/seo-pricing/', onNavigate)}
                     className="px-6 py-3 bg-white hover:bg-brand-100 text-brand-950 rounded-full font-bold text-xs transition-all inline-flex items-center gap-2 shadow-md cursor-pointer"
                   >
                     <span>Pricing &amp; Retainers</span>
                     <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
-                  <button
-                    onClick={() => onNavigate('/contact/')}
-                    className="px-6 py-3 bg-transparent border border-brand-700 hover:border-brand-500 text-white rounded-full font-bold text-xs transition-all cursor-pointer"
+                  </a>
+                  <a
+                    href="/contact/"
+                    onClick={(e) => handleLinkClick(e, '/contact/', onNavigate)}
+                    className="px-6 py-3 bg-transparent border border-brand-700 hover:border-brand-500 text-white rounded-full font-bold text-xs transition-all cursor-pointer inline-block"
                   >
                     Send an Inquiry
-                  </button>
+                  </a>
                 </div>
               </div>
             </section>

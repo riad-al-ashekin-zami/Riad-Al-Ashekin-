@@ -1,24 +1,19 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Activity, Target, LineChart, TrendingUp } from 'lucide-react';
+import { handleLinkClick } from '../utils/navigation';
 
 interface HeroProps {
   onNavigate?: (slug: string) => void;
 }
 
 export function Hero({ onNavigate }: HeroProps) {
-  const handlePricing = (e: React.MouseEvent) => {
-    if (onNavigate) {
-      e.preventDefault();
-      onNavigate('/seo-pricing/');
-    }
+  const handlePricing = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    handleLinkClick(e, '/seo-pricing/', onNavigate);
   };
 
-  const handleWork = (e: React.MouseEvent) => {
-    if (onNavigate) {
-      e.preventDefault();
-      onNavigate('/seo-portfolio/');
-    }
+  const handleWork = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    handleLinkClick(e, '/seo-portfolio/', onNavigate);
   };
 
   return (

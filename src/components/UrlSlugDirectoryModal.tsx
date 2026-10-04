@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { allPages, categoryMeta } from '../data/pagesRegistry';
 import { PageCategory } from '../types';
 import { Search, X, ExternalLink, Copy, Check, Filter, Layers } from 'lucide-react';
+import { handleLinkClick } from '../utils/navigation';
 
 interface Props {
   isOpen: boolean;
@@ -108,34 +109,52 @@ export function UrlSlugDirectoryModal({ isOpen, onClose, onSelectPage, currentSl
           {/* Home Link */}
           {(selectedCategory === 'all' || searchQuery.toLowerCase().includes('home')) && (
             <div
-              onClick={() => {
-                onSelectPage('/');
-                onClose();
-              }}
-              className={`p-3 rounded-xl flex items-center justify-between gap-4 cursor-pointer hover:bg-brand-50 transition-colors ${
+              className={`relative p-3 rounded-xl flex items-center justify-between gap-4 hover:bg-brand-50 transition-colors ${
                 currentSlug === '/' ? 'bg-accent-50/70 border border-accent-200' : ''
               }`}
             >
-              <div className="min-w-0">
+              <a
+                href="/"
+                onClick={(e) => {
+                  handleLinkClick(e, '/', onSelectPage);
+                  onClose();
+                }}
+                className="absolute inset-0 z-10 rounded-xl cursor-pointer"
+                aria-label="Home Page"
+              />
+              <div className="min-w-0 pointer-events-none relative z-0">
                 <div className="flex items-center gap-2 mb-0.5">
                   <span className="text-[10px] font-bold uppercase tracking-wider text-accent-700 bg-accent-100 px-2 py-0.5 rounded-md">
                     Home Page
                   </span>
                   <span className="text-xs font-bold text-brand-950 truncate">
-                    Riad Al Ashekin | SEO Consultant & Strategist
+                    Riad Al Ashekin | Business &amp; Technology Consultant
                   </span>
                 </div>
                 <div className="font-mono text-[11px] text-brand-500 truncate">
                   https://riadalashekin.com/
                 </div>
               </div>
-              <button
-                onClick={(e) => handleCopy(e, 'https://riadalashekin.com/')}
-                className="p-1.5 text-brand-400 hover:text-brand-900 shrink-0"
-                title="Copy URL"
-              >
-                {copiedSlug === 'https://riadalashekin.com/' ? <Check className="w-4 h-4 text-growth-600" /> : <Copy className="w-4 h-4" />}
-              </button>
+              <div className="flex items-center gap-2 shrink-0 relative z-20">
+                <button
+                  onClick={(e) => handleCopy(e, 'https://riadalashekin.com/')}
+                  className="p-1.5 text-brand-400 hover:text-brand-900 rounded-lg hover:bg-brand-100 transition-colors cursor-pointer"
+                  title="Copy URL"
+                >
+                  {copiedSlug === 'https://riadalashekin.com/' ? <Check className="w-4 h-4 text-growth-600" /> : <Copy className="w-4 h-4" />}
+                </button>
+                <a
+                  href="/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-1.5 text-brand-400 hover:text-accent-700 hover:bg-accent-100/50 rounded-lg transition-colors cursor-pointer"
+                  title="Open in new tab"
+                  aria-label="Open Home Page in a new tab"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+              </div>
             </div>
           )}
 
@@ -144,15 +163,20 @@ export function UrlSlugDirectoryModal({ isOpen, onClose, onSelectPage, currentSl
             return (
               <div
                 key={page.slug}
-                onClick={() => {
-                  onSelectPage(page.slug);
-                  onClose();
-                }}
-                className={`p-3 rounded-xl flex items-center justify-between gap-4 cursor-pointer hover:bg-brand-50 transition-colors ${
+                className={`relative p-3 rounded-xl flex items-center justify-between gap-4 hover:bg-brand-50 transition-colors ${
                   isCurrent ? 'bg-accent-50/70 border border-accent-200' : ''
                 }`}
               >
-                <div className="min-w-0">
+                <a
+                  href={page.slug}
+                  onClick={(e) => {
+                    handleLinkClick(e, page.slug, onSelectPage);
+                    onClose();
+                  }}
+                  className="absolute inset-0 z-10 rounded-xl cursor-pointer"
+                  aria-label={page.headline}
+                />
+                <div className="min-w-0 pointer-events-none relative z-0">
                   <div className="flex items-center gap-2 mb-0.5">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-brand-600 bg-brand-100 px-2 py-0.5 rounded-md">
                       {page.badge}
@@ -166,10 +190,10 @@ export function UrlSlugDirectoryModal({ isOpen, onClose, onSelectPage, currentSl
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 shrink-0">
+                <div className="flex items-center gap-2 shrink-0 relative z-20">
                   <button
                     onClick={(e) => handleCopy(e, page.canonicalUrl)}
-                    className="p-1.5 text-brand-400 hover:text-brand-900 rounded-lg hover:bg-brand-100 transition-colors"
+                    className="p-1.5 text-brand-400 hover:text-brand-900 rounded-lg hover:bg-brand-100 transition-colors cursor-pointer"
                     title="Copy exact canonical URL"
                   >
                     {copiedSlug === page.canonicalUrl ? (
@@ -178,7 +202,17 @@ export function UrlSlugDirectoryModal({ isOpen, onClose, onSelectPage, currentSl
                       <Copy className="w-4 h-4" />
                     )}
                   </button>
-                  <ExternalLink className="w-4 h-4 text-brand-400" />
+                  <a
+                    href={page.slug}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-1.5 text-brand-400 hover:text-accent-700 hover:bg-accent-100/50 rounded-lg transition-colors cursor-pointer"
+                    title="Open in new tab"
+                    aria-label={`Open ${page.headline} in a new tab`}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
                 </div>
               </div>
             );

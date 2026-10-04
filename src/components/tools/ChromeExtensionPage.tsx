@@ -13,6 +13,7 @@ import {
   Layers 
 } from 'lucide-react';
 import { MetaTagChecker } from './MetaTagChecker';
+import { handleLinkClick } from '../../utils/navigation';
 
 interface Props {
   onNavigate: (slug: string) => void;
@@ -42,13 +43,13 @@ export function ChromeExtensionPage({ onNavigate }: Props) {
         
         {/* Header Breadcrumb */}
         <div className="flex items-center gap-2 text-xs text-brand-500 mb-6">
-          <button 
-            type="button" 
-            onClick={() => onNavigate('/seo-tools/')} 
-            className="hover:text-accent-700 cursor-pointer"
+          <a 
+            href="/seo-tools/"
+            onClick={(e) => handleLinkClick(e, '/seo-tools/', onNavigate)} 
+            className="hover:text-accent-700 cursor-pointer no-underline"
           >
             My SEO Tools
-          </button>
+          </a>
           <span>/</span>
           <span className="text-brand-950 font-semibold">Chrome Extension</span>
         </div>
@@ -170,13 +171,13 @@ export function ChromeExtensionPage({ onNavigate }: Props) {
 
             {/* Link back to all tools */}
             <div className="pt-4 text-center">
-              <button
-                type="button"
-                onClick={() => onNavigate('/seo-tools/')}
-                className="text-xs font-bold text-accent-700 hover:underline inline-flex items-center gap-1.5 cursor-pointer"
+              <a
+                href="/seo-tools/"
+                onClick={(e) => handleLinkClick(e, '/seo-tools/', onNavigate)}
+                className="text-xs font-bold text-accent-700 hover:underline inline-flex items-center gap-1.5 cursor-pointer no-underline"
               >
                 <span>← Back to All SEO Tools</span>
-              </button>
+              </a>
             </div>
           </div>
         ) : (

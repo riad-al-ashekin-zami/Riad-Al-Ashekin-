@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 import { allPages, getPageBySlug, normalizePath } from '../../data/pagesRegistry';
 import { PageData } from '../../types';
+import { handleLinkClick } from '../../utils/navigation';
 
 interface Props {
   onNavigate: (slug: string) => void;
@@ -166,9 +167,15 @@ export function SitemapPage({ onNavigate }: Props) {
     <div className="pt-28 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Breadcrumb Navigation */}
       <div className="flex items-center gap-2 text-xs text-brand-500 mb-6 font-medium">
-        <button onClick={() => onNavigate('/')} className="hover:text-brand-900 transition-colors">Home</button>
+        <a 
+          href="/" 
+          onClick={(e) => handleLinkClick(e, '/', onNavigate)} 
+          className="hover:text-brand-900 transition-colors cursor-pointer no-underline"
+        >
+          Home
+        </a>
         <span>/</span>
-        <span className="text-brand-900 font-semibold">Sitemap & Indexation Directory</span>
+        <span className="text-brand-900 font-semibold">Sitemap &amp; Indexation Directory</span>
       </div>
 
       {/* Main Header Hero */}
@@ -369,12 +376,13 @@ export function SitemapPage({ onNavigate }: Props) {
                   </td>
 
                   <td className="py-3 px-4 space-y-0.5">
-                    <button
-                      onClick={() => onNavigate(item.slug)}
-                      className="font-bold text-brand-950 hover:text-accent-600 transition-colors text-left block text-xs"
+                    <a
+                      href={item.slug}
+                      onClick={(e) => handleLinkClick(e, item.slug, onNavigate)}
+                      className="font-bold text-brand-950 hover:text-accent-600 transition-colors text-left block text-xs no-underline cursor-pointer"
                     >
                       {item.title}
-                    </button>
+                    </a>
                     <div className="flex items-center gap-2">
                       <span className="font-mono text-[11px] text-brand-500">
                         {item.slug}
@@ -419,13 +427,26 @@ export function SitemapPage({ onNavigate }: Props) {
                   </td>
 
                   <td className="py-3 px-4 text-right">
-                    <button
-                      onClick={() => onNavigate(item.slug)}
-                      className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-brand-50 hover:bg-brand-100 text-brand-800 font-semibold text-[11px] transition-colors"
-                    >
-                      <span>Visit</span>
-                      <ArrowRight className="w-3 h-3" />
-                    </button>
+                    <div className="flex items-center justify-end gap-1.5">
+                      <a
+                        href={item.slug}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-1 rounded text-brand-400 hover:text-accent-600 hover:bg-brand-100 transition-colors cursor-pointer"
+                        title="Open in new tab"
+                        aria-label={`Open ${item.title} in a new tab`}
+                      >
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                      <a
+                        href={item.slug}
+                        onClick={(e) => handleLinkClick(e, item.slug, onNavigate)}
+                        className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-brand-50 hover:bg-brand-100 text-brand-800 font-semibold text-[11px] transition-colors no-underline cursor-pointer"
+                      >
+                        <span>Visit</span>
+                        <ArrowRight className="w-3 h-3" />
+                      </a>
+                    </div>
                   </td>
                 </tr>
               ))}

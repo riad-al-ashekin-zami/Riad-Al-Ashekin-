@@ -43,16 +43,8 @@ export const allPages: PageData[] = [
   ...legalPages,
 ];
 
-// Helper to normalize path for matching
-export function normalizePath(path: string): string {
-  if (!path || path === '/') return '/';
-  // preserve leading slash
-  let clean = path.trim();
-  if (!clean.startsWith('/')) {
-    clean = '/' + clean;
-  }
-  return clean;
-}
+import { normalizePath } from '../utils/pathUtils';
+export { normalizePath };
 
 // Dedicated featured image lookup for the 4 official blog posts
 const BLOG_FEATURED_IMAGE_MAP: Record<string, { image: string; alt: string }> = {

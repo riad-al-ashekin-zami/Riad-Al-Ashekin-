@@ -21,6 +21,7 @@ import {
   AlertCircle
 } from 'lucide-react';
 import { motion } from 'motion/react';
+import { handleLinkClick } from '../../utils/navigation';
 
 interface Props {
   onNavigate: (slug: string) => void;
@@ -91,12 +92,13 @@ export function ContactPage({ onNavigate }: Props) {
           
           {/* Breadcrumb Navigation */}
           <nav className="flex items-center gap-2 text-xs text-brand-400 mb-6">
-            <button 
-              onClick={() => onNavigate('/')} 
-              className="hover:text-white transition-colors cursor-pointer"
+            <a 
+              href="/"
+              onClick={(e) => handleLinkClick(e, '/', onNavigate)} 
+              className="hover:text-white transition-colors cursor-pointer no-underline"
             >
               Home
-            </button>
+            </a>
             <ChevronRight className="w-3.5 h-3.5 text-brand-600" />
             <span className="text-white font-medium">Direct Inquiries &amp; Advisory</span>
           </nav>
@@ -187,14 +189,14 @@ export function ContactPage({ onNavigate }: Props) {
                 <p className="text-xs text-brand-600 mb-3 leading-relaxed">
                   Reviewing engagement tiers, hourly advisory rates, or custom scopes?
                 </p>
-                <button
-                  type="button"
-                  onClick={() => onNavigate('/seo-pricing/')}
-                  className="w-full py-2.5 px-4 bg-brand-100 hover:bg-brand-200 text-brand-900 rounded-xl text-xs font-bold transition-all inline-flex items-center justify-center gap-2 cursor-pointer border border-brand-200"
+                <a
+                  href="/seo-pricing/"
+                  onClick={(e) => handleLinkClick(e, '/seo-pricing/', onNavigate)}
+                  className="w-full py-2.5 px-4 bg-brand-100 hover:bg-brand-200 text-brand-900 rounded-xl text-xs font-bold transition-all inline-flex items-center justify-center gap-2 cursor-pointer border border-brand-200 no-underline"
                 >
                   <span>Explore Pricing &amp; Retainers</span>
                   <ArrowRight className="w-3.5 h-3.5 text-accent-700" />
-                </button>
+                </a>
               </div>
             </div>
 
@@ -246,12 +248,13 @@ export function ContactPage({ onNavigate }: Props) {
                     >
                       Send Another Inquiry
                     </button>
-                    <button
-                      onClick={() => onNavigate('/services/')}
-                      className="px-5 py-2.5 bg-brand-950 hover:bg-brand-800 text-white rounded-xl text-xs font-bold transition-all cursor-pointer"
+                    <a
+                      href="/services/"
+                      onClick={(e) => handleLinkClick(e, '/services/', onNavigate)}
+                      className="px-5 py-2.5 bg-brand-950 hover:bg-brand-800 text-white rounded-xl text-xs font-bold transition-all cursor-pointer no-underline inline-block"
                     >
                       View Services &amp; Advisory Tiers
-                    </button>
+                    </a>
                   </div>
                 </div>
               ) : (

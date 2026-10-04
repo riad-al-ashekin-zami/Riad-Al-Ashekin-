@@ -9,10 +9,12 @@ import {
   Calendar,
   Compass,
   CheckCircle2,
-  BookOpen
+  BookOpen,
+  ExternalLink
 } from 'lucide-react';
 import { getOfficialBlogPosts } from '../../data/blogConfig';
 import { SITE_AUTHOR, useAuthorPhoto } from '../../data/authorProfile';
+import { handleLinkClick } from '../../utils/navigation';
 
 interface Props {
   onNavigate: (slug: string) => void;
@@ -183,12 +185,13 @@ export function BlogIndexHub({ onNavigate }: Props) {
           
           {/* Breadcrumb Navigation */}
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-brand-300 mb-6 font-medium">
-            <button 
-              onClick={() => onNavigate('/')}
+            <a 
+              href="/"
+              onClick={(e) => handleLinkClick(e, '/', onNavigate)}
               className="hover:text-white transition-colors cursor-pointer"
             >
               Home
-            </button>
+            </a>
             <ChevronRight className="w-3.5 h-3.5 text-brand-500" />
             <span className="text-white font-semibold">Blog</span>
           </nav>
@@ -299,10 +302,17 @@ export function BlogIndexHub({ onNavigate }: Props) {
               return (
                 <article
                   key={`blog-article-${article.slug}-${idx}`}
-                  onClick={() => onNavigate(article.slug)}
-                  className="bg-white rounded-2xl border border-brand-200/85 hover:border-accent-500/60 shadow-2xs hover:shadow-md transition-all p-5 flex flex-col justify-between group cursor-pointer"
+                  className="relative bg-white rounded-2xl border border-brand-200/85 hover:border-accent-500/60 shadow-2xs hover:shadow-md transition-all p-5 flex flex-col justify-between group text-left"
                 >
-                  <div className="space-y-3.5">
+                  {/* Primary full-card anchor for smooth SPA left-click, and native browser right-click / middle-click / Ctrl+click */}
+                  <a
+                    href={article.slug}
+                    onClick={(e) => handleLinkClick(e, article.slug, onNavigate)}
+                    className="absolute inset-0 z-10 rounded-2xl cursor-pointer"
+                    aria-label={`Read article: ${article.headline}`}
+                  />
+
+                  <div className="space-y-3.5 pointer-events-none">
                     
                     {/* Featured Image */}
                     {article.featuredImage ? (
@@ -311,7 +321,7 @@ export function BlogIndexHub({ onNavigate }: Props) {
                           src={article.featuredImage} 
                           alt={article.featuredImageAlt || article.headline}
                           referrerPolicy="no-referrer"
-                          className="w-full h-full object-cover object-center group-hover:scale-103 transition-transform duration-300"
+                          className="w-full h-full object-cover object-center group-hover:scale-103 transition-transform duration-300 pointer-events-none"
                           loading="lazy"
                         />
                       </div>
@@ -361,21 +371,37 @@ export function BlogIndexHub({ onNavigate }: Props) {
 
                   </div>
 
-                  {/* Card Footer: Author + Read Link */}
-                  <div className="pt-4 mt-4 border-t border-brand-100 flex items-center justify-between text-xs">
-                    <div className="flex items-center gap-2 text-brand-700">
+                  {/* Card Footer: Author + Open in New Tab Button + Read Link */}
+                  <div className="pt-4 mt-4 border-t border-brand-100 flex items-center justify-between text-xs relative z-20">
+                    <div className="flex items-center gap-2 text-brand-700 pointer-events-none">
                       <img 
                         src={authorAvatar} 
                         alt={SITE_AUTHOR.name}
-                        className="w-5 h-5 rounded-full object-cover border border-brand-200"
+                        className="w-5 h-5 rounded-full object-cover border border-brand-200 pointer-events-none"
                       />
                       <span className="font-medium text-brand-800">{SITE_AUTHOR.name}</span>
                     </div>
 
-                    <span className="inline-flex items-center gap-1.5 font-bold text-accent-700 group-hover:text-accent-900 group-hover:translate-x-0.5 transition-all">
-                      <span>Read</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </span>
+                    <div className="flex items-center gap-2">
+                      {/* Explicit Open in New Tab action link */}
+                      <a
+                        href={article.slug}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-semibold text-brand-600 hover:text-accent-700 bg-brand-50 hover:bg-accent-50 border border-brand-200/80 hover:border-accent-300 transition-all shadow-2xs cursor-pointer no-underline"
+                        title="Open article in a new tab"
+                        aria-label={`Open "${article.headline}" in a new tab`}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <ExternalLink className="w-3 h-3" />
+                        <span>New Tab</span>
+                      </a>
+
+                      <span className="inline-flex items-center gap-1.5 font-bold text-accent-700 group-hover:text-accent-900 group-hover:translate-x-0.5 transition-all pointer-events-none">
+                        <span>Read</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </span>
+                    </div>
                   </div>
 
                 </article>
@@ -416,24 +442,27 @@ export function BlogIndexHub({ onNavigate }: Props) {
             </div>
             
             <div className="flex flex-wrap items-center gap-2 shrink-0">
-              <button
-                onClick={() => onNavigate('/seo-tools/')}
-                className="px-4 py-2 bg-brand-950 hover:bg-brand-800 text-white rounded-xl text-xs font-bold transition-all cursor-pointer shadow-2xs"
+              <a
+                href="/seo-tools/"
+                onClick={(e) => handleLinkClick(e, '/seo-tools/', onNavigate)}
+                className="px-4 py-2 bg-brand-950 hover:bg-brand-800 text-white rounded-xl text-xs font-bold transition-all cursor-pointer shadow-2xs inline-block"
               >
                 SEO Tools Hub
-              </button>
-              <button
-                onClick={() => onNavigate('/seo-checklist/')}
-                className="px-4 py-2 bg-brand-50 hover:bg-brand-100 border border-brand-200 text-brand-900 rounded-xl text-xs font-bold transition-all cursor-pointer"
+              </a>
+              <a
+                href="/seo-checklist/"
+                onClick={(e) => handleLinkClick(e, '/seo-checklist/', onNavigate)}
+                className="px-4 py-2 bg-brand-50 hover:bg-brand-100 border border-brand-200 text-brand-900 rounded-xl text-xs font-bold transition-all cursor-pointer inline-block"
               >
                 SEO Checklist
-              </button>
-              <button
-                onClick={() => onNavigate('/seo-pricing/')}
-                className="px-4 py-2 bg-accent-600 hover:bg-accent-500 text-white rounded-xl text-xs font-bold transition-all cursor-pointer shadow-2xs"
+              </a>
+              <a
+                href="/seo-pricing/"
+                onClick={(e) => handleLinkClick(e, '/seo-pricing/', onNavigate)}
+                className="px-4 py-2 bg-accent-600 hover:bg-accent-500 text-white rounded-xl text-xs font-bold transition-all cursor-pointer shadow-2xs inline-block"
               >
                 Pricing &amp; Retainers
-              </button>
+              </a>
             </div>
           </div>
         </section>
@@ -452,19 +481,21 @@ export function BlogIndexHub({ onNavigate }: Props) {
               Collaborate 1-on-1 with Riad Al Ashekin to audit your application stack, unblock organic growth bottlenecks, and architect sustainable digital ecosystems.
             </p>
             <div className="flex flex-wrap gap-3 pt-2">
-              <button
-                onClick={() => onNavigate('/contact/')}
+              <a
+                href="/contact/"
+                onClick={(e) => handleLinkClick(e, '/contact/', onNavigate)}
                 className="px-5 py-2.5 bg-accent-600 hover:bg-accent-500 text-white rounded-xl font-bold text-xs transition-all inline-flex items-center gap-2 shadow-md cursor-pointer"
               >
                 <span>Schedule Direct Advisory</span>
                 <ArrowRight className="w-3.5 h-3.5" />
-              </button>
-              <button
-                onClick={() => onNavigate('/seo-pricing/')}
-                className="px-5 py-2.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white rounded-xl font-bold text-xs transition-all cursor-pointer"
+              </a>
+              <a
+                href="/seo-pricing/"
+                onClick={(e) => handleLinkClick(e, '/seo-pricing/', onNavigate)}
+                className="px-5 py-2.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white rounded-xl font-bold text-xs transition-all cursor-pointer inline-block"
               >
                 <span>View Pricing &amp; Retainers</span>
-              </button>
+              </a>
             </div>
           </div>
         </section>

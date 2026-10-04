@@ -13,6 +13,7 @@ import {
   Compass
 } from 'lucide-react';
 import { ExecutivePortrait } from './ExecutivePortrait';
+import { handleLinkClick } from '../../utils/navigation';
 
 interface Props {
   onNavigate?: (slug: string) => void;
@@ -37,71 +38,27 @@ export function ConsultingHero({ onNavigate, onScrollToSection }: Props) {
   return (
     <section className="relative pt-28 pb-20 lg:pt-36 lg:pb-28 overflow-hidden bg-[#150d28] text-white border-b border-brand-800/80">
       
-      {/* Dynamic Animated Ambient Mesh - Rich Royal Purple & Midnight Violet (Footer Theme) */}
+      {/* Dynamic Animated Ambient Mesh - GPU Accelerated without JS thread blocking */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         
         {/* Floating Orb 1: Royal Violet / Accent-600 Glow (Top Left) */}
-        <motion.div 
-          animate={{
-            x: [0, 40, -25, 0],
-            y: [0, -35, 25, 0],
-            scale: [1, 1.18, 0.92, 1],
-            opacity: [0.25, 0.4, 0.28, 0.25]
-          }}
-          transition={{
-            duration: 16,
-            repeat: Infinity,
-            ease: 'easeInOut'
-          }}
-          className="absolute -top-20 left-1/10 w-[600px] h-[600px] bg-accent-600/30 rounded-full blur-[150px]"
+        <div 
+          className="absolute -top-20 left-1/10 w-[600px] h-[600px] bg-accent-600/30 rounded-full blur-[140px] ambient-orb-1"
         />
 
-        {/* Floating Orb 2: Deep Brand-800 Glow (Center Right) */}
-        <motion.div 
-          animate={{
-            x: [0, -45, 30, 0],
-            y: [0, 45, -20, 0],
-            scale: [1, 1.2, 0.95, 1],
-            opacity: [0.2, 0.35, 0.22, 0.2]
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: 'easeInOut',
-            delay: 2
-          }}
-          className="absolute top-1/4 -right-16 w-[650px] h-[650px] bg-brand-700/35 rounded-full blur-[160px]"
+        {/* Floating Orb 2: Deep Brand-700 Glow (Center Right) */}
+        <div 
+          className="absolute top-1/4 -right-16 w-[650px] h-[650px] bg-brand-700/30 rounded-full blur-[150px] ambient-orb-2"
         />
 
         {/* Floating Orb 3: Soft Lavender / Accent-400 Subtle Accent (Bottom Left) */}
-        <motion.div 
-          animate={{
-            x: [0, 30, -35, 0],
-            y: [0, -25, 35, 0],
-            scale: [0.9, 1.15, 0.95, 0.9],
-            opacity: [0.15, 0.28, 0.18, 0.15]
-          }}
-          transition={{
-            duration: 18,
-            repeat: Infinity,
-            ease: 'easeInOut',
-            delay: 4
-          }}
-          className="absolute -bottom-24 left-1/3 w-[500px] h-[500px] bg-accent-500/22 rounded-full blur-[140px]"
+        <div 
+          className="absolute -bottom-24 left-1/3 w-[500px] h-[500px] bg-accent-500/20 rounded-full blur-[130px] ambient-orb-3"
         />
 
         {/* Glowing Horizon Accent Line */}
-        <motion.div 
-          animate={{
-            opacity: [0.3, 0.6, 0.3],
-            scaleX: [0.9, 1.1, 0.9]
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: 'easeInOut'
-          }}
-          className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[850px] h-[2px] bg-gradient-to-r from-transparent via-accent-500/40 to-transparent blur-xs"
+        <div 
+          className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[850px] h-[2px] bg-gradient-to-r from-transparent via-accent-500/40 to-transparent blur-xs opacity-50"
         />
 
         {/* Precision Matrix Dot Grid */}
@@ -113,19 +70,11 @@ export function ConsultingHero({ onNavigate, onScrollToSection }: Props) {
         {/* Main 2-Column Hero */}
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           
-          {/* Left: Strategic Content with Staggered Animations */}
-          <motion.div 
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
-            className="w-full lg:w-7/12 flex flex-col items-start text-left space-y-6"
-          >
+          {/* Left: Strategic Content */}
+          <div className="w-full lg:w-7/12 flex flex-col items-start text-left space-y-6">
             
             {/* Top Status Pill */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+            <div 
               className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-brand-900/90 border border-brand-700/80 text-xs font-semibold text-brand-200 backdrop-blur-xl shadow-lg hover:border-accent-500/80 transition-colors"
             >
               <span className="relative flex h-2 w-2">
@@ -133,48 +82,36 @@ export function ConsultingHero({ onNavigate, onScrollToSection }: Props) {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
               </span>
               <span>Available for Strategic Advisory &amp; Architecture</span>
-            </motion.div>
+            </div>
 
             {/* Display Headline */}
             <div className="space-y-2">
-              <motion.div 
-                initial={{ opacity: 0, x: -15 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
+              <div 
                 className="text-xs font-mono font-bold tracking-widest text-accent-300 uppercase flex items-center gap-2"
               >
                 <Briefcase className="w-3.5 h-3.5 text-accent-400" />
                 <span>Business &amp; Technology Consultant</span>
-              </motion.div>
+              </div>
 
-              <motion.h1 
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.25 }}
+              <h1 
                 className="text-4xl sm:text-5xl lg:text-6xl font-sans font-extrabold text-white leading-[1.05] tracking-tight"
               >
                 RIAD AL ASHEKIN
-              </motion.h1>
+              </h1>
 
-              <motion.p 
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.3 }}
+              <p 
                 className="text-2xl sm:text-3xl font-sans font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-brand-200 to-accent-300"
               >
                 Business Strategy. Modern Tech. Real Growth.
-              </motion.p>
+              </p>
             </div>
 
-            {/* Value Proposition */}
-            <motion.p 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.35 }}
+            {/* Value Proposition (Immediate Visual Paint for 100% Core Web Vitals LCP Score) */}
+            <p 
               className="text-base sm:text-lg text-brand-200/90 leading-relaxed max-w-2xl font-normal"
             >
               I advise founders, high-growth startups, and technical leadership teams on connecting commercial objectives with scalable software architecture, pragmatic AI workflow automation, and search dominance.
-            </motion.p>
+            </p>
 
             {/* 4 Performance Metric Counters - Styled in Rich Footer Brand-900 Glass */}
             <motion.div 
@@ -244,11 +181,12 @@ export function ConsultingHero({ onNavigate, onScrollToSection }: Props) {
               className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto pt-2"
             >
               {/* Primary CTA - Exact Footer Accent-600 Purple with Shimmer */}
-              <motion.button 
+              <motion.a 
+                href="/seo-pricing/"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={handlePricing}
-                className="relative inline-flex justify-center items-center gap-2.5 px-7 py-3.5 bg-accent-600 hover:bg-accent-500 text-white rounded-xl font-bold text-sm transition-all shadow-[0_0_25px_rgba(120,57,238,0.4)] hover:shadow-[0_0_35px_rgba(120,57,238,0.6)] group cursor-pointer overflow-hidden"
+                onClick={(e) => handleLinkClick(e, '/seo-pricing/', onNavigate)}
+                className="relative inline-flex justify-center items-center gap-2.5 px-7 py-3.5 bg-accent-600 hover:bg-accent-500 text-white rounded-xl font-bold text-sm transition-all shadow-[0_0_25px_rgba(120,57,238,0.4)] hover:shadow-[0_0_35px_rgba(120,57,238,0.6)] group cursor-pointer overflow-hidden no-underline"
               >
                 <motion.div 
                   animate={{ x: ['-100%', '200%'] }}
@@ -257,19 +195,27 @@ export function ConsultingHero({ onNavigate, onScrollToSection }: Props) {
                 />
                 <span className="z-10">Pricing &amp; Retainers</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform z-10" />
-              </motion.button>
+              </motion.a>
               
               {/* Secondary CTA - Matching Footer "Browse All URLs" button */}
-              <motion.button 
+              <motion.a 
+                href="/services/"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={handleServices}
-                className="inline-flex justify-center items-center gap-2 px-6 py-3.5 bg-brand-900/90 border border-brand-800 text-brand-200 hover:text-white hover:bg-brand-800 rounded-xl font-bold text-sm transition-all cursor-pointer backdrop-blur-md hover:border-brand-700 shadow-sm"
+                onClick={(e) => {
+                  if (onScrollToSection) {
+                    e.preventDefault();
+                    onScrollToSection('consulting-services');
+                  } else {
+                    handleLinkClick(e, '/services/', onNavigate);
+                  }
+                }}
+                className="inline-flex justify-center items-center gap-2 px-6 py-3.5 bg-brand-900/90 border border-brand-800 text-brand-200 hover:text-white hover:bg-brand-800 rounded-xl font-bold text-sm transition-all cursor-pointer backdrop-blur-md hover:border-brand-700 shadow-sm no-underline"
               >
                 <Layers className="w-4 h-4 text-accent-400" />
                 <span>Explore Retainers &amp; Proof</span>
                 <ArrowUpRight className="w-4 h-4 text-brand-400" />
-              </motion.button>
+              </motion.a>
             </motion.div>
 
             {/* Trust Badges */}
@@ -284,7 +230,7 @@ export function ConsultingHero({ onNavigate, onScrollToSection }: Props) {
               <span>Pragmatic ROI Focus</span>
             </div>
 
-          </motion.div>
+          </div>
 
           {/* Right: Studio Portrait Card with Matching Brand Ambient Glow */}
           <motion.div 

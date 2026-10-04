@@ -19,18 +19,9 @@ export function ExecutivePortrait({ className = '', onBookingClick }: Props) {
 
   return (
     <div className={`relative w-full max-w-md mx-auto ${className}`}>
-      {/* Background ambient glow matching Footer Royal Midnight Theme with subtle breathing pulse */}
-      <motion.div 
-        animate={{
-          opacity: [0.4, 0.7, 0.4],
-          scale: [1, 1.05, 1]
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: 'easeInOut'
-        }}
-        className="absolute -inset-3 bg-gradient-to-tr from-accent-600/30 via-brand-600/20 to-brand-800/30 rounded-3xl blur-2xl pointer-events-none" 
+      {/* Background ambient glow matching Footer Royal Midnight Theme */}
+      <div 
+        className="absolute -inset-3 bg-gradient-to-tr from-accent-600/30 via-brand-600/20 to-brand-800/30 rounded-3xl blur-2xl pointer-events-none opacity-50" 
       />
 
       {/* Main Studio Portrait Card - Clean, Crisp & Minimalist in Royal Dark Glass */}
@@ -52,6 +43,11 @@ export function ExecutivePortrait({ className = '', onBookingClick }: Props) {
             src={imageSrc} 
             alt="Riad Al Ashekin - Business & Technology Consultant" 
             referrerPolicy="no-referrer"
+            width="640"
+            height="800"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover object-[center_top] transition-transform duration-700 hover:scale-[1.01]"
           />
 

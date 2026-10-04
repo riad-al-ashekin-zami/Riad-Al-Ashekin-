@@ -19,6 +19,7 @@ import {
 import { ToolRegistryItem } from '../../data/toolDetails/types';
 import { getRelatedTools } from '../../data/toolDetails';
 import { ToolInteractiveWidget } from './ToolInteractiveWidget';
+import { handleLinkClick } from '../../utils/navigation';
 
 interface DedicatedToolPageProps {
   tool: ToolRegistryItem;
@@ -117,19 +118,21 @@ export const DedicatedToolPage: React.FC<DedicatedToolPageProps> = ({ tool, onNa
           
           {/* Breadcrumb Navigation */}
           <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-xs text-brand-300 mb-6">
-            <button 
-              onClick={() => onNavigate('/')}
-              className="hover:text-white transition-colors cursor-pointer font-medium"
+            <a 
+              href="/"
+              onClick={(e) => handleLinkClick(e, '/', onNavigate)}
+              className="hover:text-white transition-colors cursor-pointer font-medium no-underline"
             >
               Home
-            </button>
+            </a>
             <ChevronRight className="w-3.5 h-3.5 text-brand-600" />
-            <button 
-              onClick={() => onNavigate('/seo-tools/')}
-              className="hover:text-white transition-colors cursor-pointer font-medium"
+            <a 
+              href="/seo-tools/"
+              onClick={(e) => handleLinkClick(e, '/seo-tools/', onNavigate)}
+              className="hover:text-white transition-colors cursor-pointer font-medium no-underline"
             >
               SEO Tools
-            </button>
+            </a>
             <ChevronRight className="w-3.5 h-3.5 text-brand-600" />
             <span className="text-accent-300 font-semibold truncate max-w-xs">{tool.name}</span>
           </nav>
@@ -352,21 +355,23 @@ export const DedicatedToolPage: React.FC<DedicatedToolPageProps> = ({ tool, onNa
               <h2 className="text-xl sm:text-2xl font-bold text-brand-950">
                 Related SEO Tools
               </h2>
-              <button
-                onClick={() => onNavigate('/seo-tools/')}
-                className="text-xs font-bold text-accent-700 hover:text-accent-800 flex items-center gap-1 transition-colors"
+              <a
+                href="/seo-tools/"
+                onClick={(e) => handleLinkClick(e, '/seo-tools/', onNavigate)}
+                className="text-xs font-bold text-accent-700 hover:text-accent-800 flex items-center gap-1 transition-colors no-underline cursor-pointer"
               >
                 <span>View All Tools</span>
                 <ArrowRight className="w-3.5 h-3.5" />
-              </button>
+              </a>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {relatedTools.map(rel => (
-                <div
+                <a
                   key={rel.id}
-                  onClick={() => onNavigate(rel.path)}
-                  className="group bg-white hover:bg-brand-50/50 border border-brand-200/80 hover:border-accent-400 rounded-2xl p-5 flex flex-col justify-between transition-all duration-200 cursor-pointer shadow-2xs hover:shadow-md"
+                  href={rel.path}
+                  onClick={(e) => handleLinkClick(e, rel.path, onNavigate)}
+                  className="group bg-white hover:bg-brand-50/50 border border-brand-200/80 hover:border-accent-400 rounded-2xl p-5 flex flex-col justify-between transition-all duration-200 cursor-pointer shadow-2xs hover:shadow-md no-underline block"
                 >
                   <div>
                     {rel.badge && (
@@ -385,7 +390,7 @@ export const DedicatedToolPage: React.FC<DedicatedToolPageProps> = ({ tool, onNa
                     <span>Open Tool</span>
                     <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-0.5 transition-transform" />
                   </div>
-                </div>
+                </a>
               ))}
             </div>
           </section>
@@ -404,18 +409,20 @@ export const DedicatedToolPage: React.FC<DedicatedToolPageProps> = ({ tool, onNa
               Book a strategic consultation with Riad Al Ashekin for enterprise audit roadmaps, Core Web Vitals remediation, and organic search architecture.
             </p>
             <div className="pt-2 flex flex-wrap justify-center gap-3">
-              <button
-                onClick={() => onNavigate('/contact/')}
-                className="px-6 py-2.5 bg-accent-600 hover:bg-accent-500 text-white rounded-xl text-xs font-bold transition-colors cursor-pointer"
+              <a
+                href="/contact/"
+                onClick={(e) => handleLinkClick(e, '/contact/', onNavigate)}
+                className="px-6 py-2.5 bg-accent-600 hover:bg-accent-500 text-white rounded-xl text-xs font-bold transition-colors cursor-pointer no-underline"
               >
                 Schedule Consultation
-              </button>
-              <button
-                onClick={() => onNavigate('/seo-tools/')}
-                className="px-6 py-2.5 bg-brand-900/80 hover:bg-brand-800 text-brand-200 border border-brand-700 rounded-xl text-xs font-bold transition-colors cursor-pointer"
+              </a>
+              <a
+                href="/seo-tools/"
+                onClick={(e) => handleLinkClick(e, '/seo-tools/', onNavigate)}
+                className="px-6 py-2.5 bg-brand-900/80 hover:bg-brand-800 text-brand-200 border border-brand-700 rounded-xl text-xs font-bold transition-colors cursor-pointer no-underline"
               >
                 Explore More Tools
-              </button>
+              </a>
             </div>
           </div>
         </div>

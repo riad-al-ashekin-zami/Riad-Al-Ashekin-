@@ -8,6 +8,7 @@ import {
   Layers,
   ArrowUpRight
 } from 'lucide-react';
+import { handleLinkClick } from '../../utils/navigation';
 
 interface Props {
   onNavigate?: (slug: string) => void;
@@ -140,13 +141,14 @@ export function ConsultingServicesMatrix({ onNavigate }: Props) {
 
                 <div className="pt-3.5 border-t border-brand-100 flex items-center justify-between text-xs sm:text-sm text-brand-500">
                   <span className="truncate pr-2">Best for: <strong className="text-brand-800">{srv.bestFor.split(' ')[0]} {srv.bestFor.split(' ')[1]}</strong></span>
-                  <button
-                    onClick={handleInquire}
-                    className="inline-flex items-center gap-1 font-bold text-accent-700 hover:text-accent-800 shrink-0 cursor-pointer"
+                  <a
+                    href="/contact/"
+                    onClick={(e) => handleLinkClick(e, '/contact/', onNavigate)}
+                    className="inline-flex items-center gap-1 font-bold text-accent-700 hover:text-accent-800 shrink-0 cursor-pointer no-underline"
                   >
                     <span>Inquire</span>
                     <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
+                  </a>
                 </div>
               </div>
             );

@@ -17,6 +17,7 @@ import {
   ChevronRight
 } from 'lucide-react';
 import { motion } from 'motion/react';
+import { handleLinkClick } from '../../utils/navigation';
 
 interface Props {
   onNavigate: (slug: string) => void;
@@ -116,12 +117,13 @@ export function ServicesPage({ onNavigate }: Props) {
           
           {/* Breadcrumb Navigation */}
           <nav className="flex items-center gap-2 text-xs text-brand-400 mb-6">
-            <button 
-              onClick={() => onNavigate('/')} 
-              className="hover:text-white transition-colors cursor-pointer"
+            <a 
+              href="/"
+              onClick={(e) => handleLinkClick(e, '/', onNavigate)} 
+              className="hover:text-white transition-colors cursor-pointer no-underline"
             >
               Home
-            </button>
+            </a>
             <ChevronRight className="w-3.5 h-3.5 text-brand-600" />
             <span className="text-white font-medium">Services &amp; Advisory</span>
           </nav>
@@ -232,13 +234,14 @@ export function ServicesPage({ onNavigate }: Props) {
                     <span className="font-semibold text-brand-800 line-clamp-1">{service.bestFor}</span>
                   </div>
 
-                  <button
-                    onClick={() => handleInquire(service.title)}
-                    className="px-4 py-2 bg-brand-950 hover:bg-brand-800 text-white rounded-xl text-xs font-bold transition-all inline-flex items-center gap-1.5 shadow-sm shrink-0 cursor-pointer group-hover:bg-accent-600"
+                  <a
+                    href="/contact/"
+                    onClick={(e) => handleLinkClick(e, '/contact/', onNavigate)}
+                    className="px-4 py-2 bg-brand-950 hover:bg-brand-800 text-white rounded-xl text-xs font-bold transition-all inline-flex items-center gap-1.5 shadow-sm shrink-0 cursor-pointer group-hover:bg-accent-600 no-underline"
                   >
                     <span>Inquire</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                  </button>
+                  </a>
                 </div>
 
               </div>
@@ -433,13 +436,14 @@ export function ServicesPage({ onNavigate }: Props) {
             </div>
 
             <div className="shrink-0 pt-2 lg:pt-0">
-              <button
-                onClick={() => handleInquire()}
-                className="w-full sm:w-auto px-5 py-2.5 bg-accent-600 hover:bg-accent-500 text-white rounded-xl text-xs font-bold transition-all shadow-md inline-flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap"
+              <a
+                href="/contact/"
+                onClick={(e) => handleLinkClick(e, '/contact/', onNavigate)}
+                className="w-full sm:w-auto px-5 py-2.5 bg-accent-600 hover:bg-accent-500 text-white rounded-xl text-xs font-bold transition-all shadow-md inline-flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap no-underline"
               >
                 <span>Request Advisory Proposal</span>
                 <ArrowRight className="w-3.5 h-3.5" />
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -458,19 +462,21 @@ export function ServicesPage({ onNavigate }: Props) {
             Collaborate with Riad Al Ashekin to review your technical architecture, solve search visibility bottlenecks, and establish high-margin compounding growth.
           </p>
           <div className="pt-2 flex flex-wrap justify-center gap-4">
-            <button
-              onClick={() => onNavigate('/seo-pricing/')}
-              className="px-7 py-3.5 bg-accent-600 hover:bg-accent-500 text-white rounded-full text-xs font-bold transition-all inline-flex items-center gap-2 shadow-lg cursor-pointer"
+            <a
+              href="/seo-pricing/"
+              onClick={(e) => handleLinkClick(e, '/seo-pricing/', onNavigate)}
+              className="px-7 py-3.5 bg-accent-600 hover:bg-accent-500 text-white rounded-full text-xs font-bold transition-all inline-flex items-center gap-2 shadow-lg cursor-pointer no-underline"
             >
               <span>View Pricing &amp; Retainers</span>
               <ArrowRight className="w-3.5 h-3.5" />
-            </button>
-            <button
-              onClick={() => onNavigate('/contact/')}
-              className="px-7 py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white rounded-full text-xs font-bold transition-all inline-flex items-center gap-2 cursor-pointer"
+            </a>
+            <a
+              href="/contact/"
+              onClick={(e) => handleLinkClick(e, '/contact/', onNavigate)}
+              className="px-7 py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white rounded-full text-xs font-bold transition-all inline-flex items-center gap-2 cursor-pointer no-underline"
             >
               <span>Send Direct Inquiry</span>
-            </button>
+            </a>
           </div>
         </div>
       </section>

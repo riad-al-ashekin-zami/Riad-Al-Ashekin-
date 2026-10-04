@@ -18,6 +18,7 @@ import {
 import { ALL_SEO_TOOLS_DATA, SeoToolItem } from '../../data/allSeoToolsData';
 import { getToolById, getToolBySlug } from '../../data/toolDetails';
 import { InstantToolModal } from './InstantToolModal';
+import { handleLinkClick } from '../../utils/navigation';
 
 export { ALL_SEO_TOOLS_DATA };
 export const SEO_TOOLS_DATA = ALL_SEO_TOOLS_DATA;
@@ -104,12 +105,13 @@ export function SeoToolsHub({ onNavigate }: SeoToolsHubProps) {
           
           {/* Breadcrumb Navigation */}
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-brand-300 mb-6">
-            <button 
-              onClick={() => onNavigate('/')}
-              className="hover:text-white transition-colors font-medium cursor-pointer"
+            <a 
+              href="/"
+              onClick={(e) => handleLinkClick(e, '/', onNavigate)}
+              className="hover:text-white transition-colors font-medium cursor-pointer no-underline"
             >
               Home
-            </button>
+            </a>
             <ChevronRight className="w-3.5 h-3.5 text-brand-600" />
             <span className="text-white font-medium">SEO Tools</span>
           </nav>
@@ -196,16 +198,23 @@ export function SeoToolsHub({ onNavigate }: SeoToolsHubProps) {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-6">
             {filteredTools.map((tool) => {
-              const isFullPage = tool.slug.startsWith('/');
+              const detail = getToolById(tool.id) || getToolBySlug(tool.slug) || getToolBySlug(tool.id);
+              const targetPath = detail ? detail.path : (tool.slug.startsWith('/') ? tool.slug : `/${tool.slug.replace(/^tool:/, '')}/`);
+
               return (
-                <motion.div
+                <div
                   key={tool.id}
-                  whileHover={{ y: -3 }}
-                  transition={{ duration: 0.2 }}
-                  onClick={() => handleToolClick(tool)}
-                  className="group bg-white hover:bg-brand-50/50 border border-brand-200/80 hover:border-accent-400/90 rounded-2xl p-5 sm:p-6 flex flex-col justify-between transition-all duration-200 cursor-pointer shadow-[0_4px_16px_rgba(21,13,40,0.03)] hover:shadow-[0_12px_24px_rgba(120,57,238,0.08)]"
+                  className="group relative bg-white hover:bg-brand-50/50 border border-brand-200/80 hover:border-accent-400/90 rounded-2xl p-5 sm:p-6 flex flex-col justify-between transition-all duration-200 shadow-[0_4px_16px_rgba(21,13,40,0.03)] hover:shadow-[0_12px_24px_rgba(120,57,238,0.08)] text-left"
                 >
-                  <div>
+                  {/* Primary full card anchor */}
+                  <a
+                    href={targetPath}
+                    onClick={(e) => handleLinkClick(e, targetPath, onNavigate)}
+                    className="absolute inset-0 z-10 rounded-2xl cursor-pointer"
+                    aria-label={`Open ${tool.title}`}
+                  />
+
+                  <div className="pointer-events-none relative z-0">
                     {/* Badge */}
                     {tool.badge && (
                       <span className="inline-block px-2 py-0.5 rounded-md bg-accent-50 text-accent-700 border border-accent-200/80 text-[10.5px] font-bold uppercase tracking-wider mb-2.5">
@@ -224,18 +233,28 @@ export function SeoToolsHub({ onNavigate }: SeoToolsHubProps) {
                     </p>
                   </div>
 
-                  {/* Explore Dedicated Tool Page CTA */}
-                  <div className="pt-2.5 border-t border-brand-100/80 flex items-center justify-between">
-                    <span className="inline-flex items-center gap-1.5 text-xs font-bold text-accent-700 group-hover:text-accent-600 transition-colors">
-                      <span>Open Dedicated Tool</span>
+                  {/* Explore Dedicated Tool Page CTA & New Tab Button */}
+                  <div className="pt-2.5 border-t border-brand-100/80 flex items-center justify-between relative z-20">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-bold text-accent-700 group-hover:text-accent-600 transition-colors pointer-events-none">
+                      <span>Open Tool</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                     </span>
-                    <span className="inline-flex items-center gap-1 text-[11px] font-medium text-brand-400 group-hover:text-accent-600">
-                      <CheckCircle2 className="w-3 h-3 text-emerald-500" />
-                      <span>Free Tool</span>
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <a
+                        href={targetPath}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 px-2 py-1 rounded-md text-[11px] font-semibold text-brand-500 hover:text-accent-700 bg-brand-50 hover:bg-accent-50 border border-brand-200/70 hover:border-accent-300 transition-all cursor-pointer no-underline"
+                        title="Open tool in a new tab"
+                        aria-label={`Open "${tool.title}" in a new tab`}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <ExternalLink className="w-3 h-3" />
+                        <span>New Tab</span>
+                      </a>
+                    </div>
                   </div>
-                </motion.div>
+                </div>
               );
             })}
           </div>

@@ -33,6 +33,7 @@ import { SitemapTester } from '../tools/SitemapTester';
 import { ContactPage } from '../tools/ContactPage';
 import { PdfViewerPage } from '../tools/PdfViewerPage';
 import { getPageBySlug } from '../../data/pagesRegistry';
+import { handleLinkClick } from '../../utils/navigation';
 
 interface Props {
   page: PageData;
@@ -143,12 +144,13 @@ export function StandardPageLayout({ page, onNavigate }: Props) {
           
           {/* Breadcrumb Navigation */}
           <nav className="flex flex-wrap items-center gap-2 text-xs text-brand-300 mb-6">
-            <button 
-              onClick={() => onNavigate('/')}
-              className="hover:text-white transition-colors cursor-pointer font-medium"
+            <a 
+              href="/"
+              onClick={(e) => handleLinkClick(e, '/', onNavigate)}
+              className="hover:text-white transition-colors cursor-pointer font-medium no-underline"
             >
               Home
-            </button>
+            </a>
             <ChevronRight className="w-3.5 h-3.5 text-brand-600" />
             <span className="capitalize text-brand-300 font-medium">
               {page.category === 'guides' ? 'Documentation' : page.category.replace('-', ' ')}
@@ -185,20 +187,22 @@ export function StandardPageLayout({ page, onNavigate }: Props) {
 
             {/* Quick Actions & URL Bar */}
             <div className="flex flex-wrap items-center gap-3 pt-3">
-              <button
-                onClick={() => onNavigate('/contact/')}
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-accent-600 hover:bg-accent-500 text-white text-xs font-bold transition-all shadow-md cursor-pointer"
+              <a
+                href="/contact/"
+                onClick={(e) => handleLinkClick(e, '/contact/', onNavigate)}
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-accent-600 hover:bg-accent-500 text-white text-xs font-bold transition-all shadow-md cursor-pointer no-underline"
               >
                 <span>Consult with Riad</span>
                 <ArrowRight className="w-3.5 h-3.5" />
-              </button>
+              </a>
 
-              <button
-                onClick={() => onNavigate('/seo-pricing/')}
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-brand-900 hover:bg-brand-800 border border-brand-700 text-brand-200 hover:text-white text-xs font-semibold transition-all cursor-pointer"
+              <a
+                href="/seo-pricing/"
+                onClick={(e) => handleLinkClick(e, '/seo-pricing/', onNavigate)}
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-brand-900 hover:bg-brand-800 border border-brand-700 text-brand-200 hover:text-white text-xs font-semibold transition-all cursor-pointer no-underline"
               >
                 <span>Pricing &amp; Retainers</span>
-              </button>
+              </a>
 
               <button
                 onClick={handleCopyUrl}
@@ -387,10 +391,11 @@ export function StandardPageLayout({ page, onNavigate }: Props) {
                     const rel = getPageBySlug(slug);
                     if (!rel) return null;
                     return (
-                      <button
+                      <a
                         key={slug}
-                        onClick={() => onNavigate(rel.slug)}
-                        className="text-left p-4 rounded-xl border border-brand-200 hover:border-accent-400 bg-white hover:bg-brand-50/50 transition-all group shadow-2xs cursor-pointer flex flex-col justify-between"
+                        href={rel.slug}
+                        onClick={(e) => handleLinkClick(e, rel.slug, onNavigate)}
+                        className="text-left p-4 rounded-xl border border-brand-200 hover:border-accent-400 bg-white hover:bg-brand-50/50 transition-all group shadow-2xs cursor-pointer flex flex-col justify-between no-underline block"
                       >
                         <div>
                           <span className="text-[10px] font-bold text-accent-700 uppercase tracking-wider block mb-1">
@@ -403,7 +408,7 @@ export function StandardPageLayout({ page, onNavigate }: Props) {
                         <span className="text-[10px] font-mono text-brand-400 mt-3 block truncate">
                           {rel.slug}
                         </span>
-                      </button>
+                      </a>
                     );
                   })}
                 </div>
@@ -424,19 +429,21 @@ export function StandardPageLayout({ page, onNavigate }: Props) {
                   Work directly with Riad Al Ashekin to audit your software stack, optimize search revenue models, and scale with engineering confidence.
                 </p>
                 <div className="flex flex-wrap gap-3 pt-2">
-                  <button
-                    onClick={() => onNavigate('/contact/')}
-                    className="px-5 py-2.5 bg-accent-600 hover:bg-accent-500 text-white rounded-xl font-bold text-xs transition-all inline-flex items-center gap-2 shadow-md cursor-pointer"
+                  <a
+                    href="/contact/"
+                    onClick={(e) => handleLinkClick(e, '/contact/', onNavigate)}
+                    className="px-5 py-2.5 bg-accent-600 hover:bg-accent-500 text-white rounded-xl font-bold text-xs transition-all inline-flex items-center gap-2 shadow-md cursor-pointer no-underline"
                   >
                     <span>Send Project Inquiry</span>
                     <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
-                  <button
-                    onClick={() => onNavigate('/seo-pricing/')}
-                    className="px-5 py-2.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white rounded-xl font-bold text-xs transition-all cursor-pointer"
+                  </a>
+                  <a
+                    href="/seo-pricing/"
+                    onClick={(e) => handleLinkClick(e, '/seo-pricing/', onNavigate)}
+                    className="px-5 py-2.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white rounded-xl font-bold text-xs transition-all cursor-pointer no-underline"
                   >
                     <span>View Pricing &amp; Retainers</span>
-                  </button>
+                  </a>
                 </div>
               </div>
             </section>
@@ -482,12 +489,13 @@ export function StandardPageLayout({ page, onNavigate }: Props) {
                 B.Sc. in Computer Science &amp; Engineering. Advising tech startups, growth agencies, and global enterprises.
               </p>
               <div className="pt-2">
-                <button
-                  onClick={() => onNavigate('/contact/')}
-                  className="w-full py-2 px-3 bg-accent-600 hover:bg-accent-500 text-white rounded-xl text-xs font-bold transition-all text-center block cursor-pointer shadow-sm"
+                <a
+                  href="/contact/"
+                  onClick={(e) => handleLinkClick(e, '/contact/', onNavigate)}
+                  className="w-full py-2 px-3 bg-accent-600 hover:bg-accent-500 text-white rounded-xl text-xs font-bold transition-all text-center block cursor-pointer shadow-sm no-underline"
                 >
                   Contact Riad
-                </button>
+                </a>
               </div>
             </div>
 
@@ -497,27 +505,30 @@ export function StandardPageLayout({ page, onNavigate }: Props) {
                 Quick Shortcuts
               </span>
               <div className="space-y-1.5 text-xs font-medium text-brand-700">
-                <button 
-                  onClick={() => onNavigate('/seo-tools/')}
-                  className="w-full text-left p-1.5 hover:bg-brand-50 hover:text-accent-700 rounded-md transition-colors flex items-center justify-between cursor-pointer"
+                <a 
+                  href="/seo-tools/"
+                  onClick={(e) => handleLinkClick(e, '/seo-tools/', onNavigate)}
+                  className="w-full text-left p-1.5 hover:bg-brand-50 hover:text-accent-700 rounded-md transition-colors flex items-center justify-between cursor-pointer no-underline block"
                 >
                   <span>All Free SEO Tools</span>
                   <ChevronRight className="w-3.5 h-3.5 text-brand-400" />
-                </button>
-                <button 
-                  onClick={() => onNavigate('/blog/')}
-                  className="w-full text-left p-1.5 hover:bg-brand-50 hover:text-accent-700 rounded-md transition-colors flex items-center justify-between cursor-pointer"
+                </a>
+                <a 
+                  href="/blog/"
+                  onClick={(e) => handleLinkClick(e, '/blog/', onNavigate)}
+                  className="w-full text-left p-1.5 hover:bg-brand-50 hover:text-accent-700 rounded-md transition-colors flex items-center justify-between cursor-pointer no-underline block"
                 >
-                  <span>Official Blog Posts (4)</span>
+                  <span>Blog &amp; Publications</span>
                   <ChevronRight className="w-3.5 h-3.5 text-brand-400" />
-                </button>
-                <button 
-                  onClick={() => onNavigate('/about-me/')}
-                  className="w-full text-left p-1.5 hover:bg-brand-50 hover:text-accent-700 rounded-md transition-colors flex items-center justify-between cursor-pointer"
+                </a>
+                <a 
+                  href="/about-me/"
+                  onClick={(e) => handleLinkClick(e, '/about-me/', onNavigate)}
+                  className="w-full text-left p-1.5 hover:bg-brand-50 hover:text-accent-700 rounded-md transition-colors flex items-center justify-between cursor-pointer no-underline block"
                 >
                   <span>About &amp; Credentials</span>
                   <ChevronRight className="w-3.5 h-3.5 text-brand-400" />
-                </button>
+                </a>
               </div>
             </div>
 
