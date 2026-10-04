@@ -5,6 +5,8 @@ ErrorDocument 404 /
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+  # Allow ACME challenges and AI / Agentic discovery manifests in .well-known
+  RewriteRule ^\.well-known/ - [L]
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d

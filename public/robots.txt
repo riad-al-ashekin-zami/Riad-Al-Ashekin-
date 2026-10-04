@@ -9,3 +9,6 @@ Disallow: /api/
 
 # Sitemap directive pointing to the canonical XML sitemap
 Sitemap: https://riadalashekin.com/sitemap.xml
+
+# Agentic Resource Discovery (ARD) Manifest
+Agentmap: https://riadalashekin.com/.well-known/ai-catalog.json

@@ -9,6 +9,15 @@ function portraitSaverPlugin(): Plugin {
     name: 'portrait-saver-plugin',
     configureServer(server) {
       server.middlewares.use((req, res, next) => {
+        if (req.url && req.url.startsWith('/.well-known/')) {
+          const cleanUrl = req.url.split('?')[0];
+          const filePath = path.join(process.cwd(), 'public', cleanUrl);
+          if (fs.existsSync(filePath)) {
+            res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+            res.end(fs.readFileSync(filePath));
+            return;
+          }
+        }
         if (req.method === 'POST' && req.url === '/api/save-portrait') {
           let body = '';
           req.on('data', (chunk) => {

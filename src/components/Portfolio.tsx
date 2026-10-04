@@ -126,7 +126,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
       )}
 
       <div className="w-11 h-11 sm:w-12 sm:h-12 bg-white rounded-xl border border-brand-200/70 p-1.5 flex items-center justify-center relative shadow-2xs group-hover:border-accent-200 transition-all shrink-0">
-        {!imgError ? (
+        {!imgError && project.domain !== 'launchcraftar.com' && project.domain !== 'dhakabazar.ca' ? (
           <img
             src={`https://www.google.com/s2/favicons?domain=${project.domain}&sz=64`}
             alt={`${project.name} logo`}
