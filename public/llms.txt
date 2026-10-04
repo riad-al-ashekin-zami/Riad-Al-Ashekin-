@@ -1,0 +1,28 @@
+# Riad Al Ashekin - Business & Technology Consultant & Strategist
+
+> Business & Technology Consultant advising founders and executives on software architecture, commercial growth, AI automation, and search.
+
+## Overview
+Riad Al Ashekin is an executive consultant, operator, and software architect based in Bangladesh with global consulting practice. He specializes in aligning business reality with engineering decisions, eliminating tech debt, orchestrating pragmatic AI automations, and scaling organic search.
+
+## Core Advisory Services
+- [Advisory & Consulting Services](https://riadalashekin.com/services/): Strategic technical advisory, architectural roadmaps, and fractional CTO oversight.
+- [Pricing & Retainers](https://riadalashekin.com/seo-pricing/): Flexible consulting retainers, technical audits, and sprint packages.
+- [About & Background](https://riadalashekin.com/about-me/): Operating track record, executive credentials, and co-founded ventures.
+- [Contact & Inquiries](https://riadalashekin.com/contact/): Direct consultation scheduling and project scoping.
+
+## Free Developer & SEO Utilities
+- [Meta Tag & SERP Preview Checker](https://riadalashekin.com/meta-title-description-checker/): Google SERP desktop and mobile snippet simulator.
+- [Robots.txt Tester & Validator](https://riadalashekin.com/robots-txt-tester/): Syntax and directive validator for search engine bots.
+- [Free Robots.txt Generator](https://riadalashekin.com/free-robots-txt-generator/): Structured crawl rule authoring tool.
+- [/llms.txt Generator (AI)](https://riadalashekin.com/free-llms-txt-generator/): Generates LLM manifest files for autonomous agent discoverability.
+- [SEO ROI Calculator](https://riadalashekin.com/seo-roi-calculator/): Organic search payback model and financial returns forecaster.
+- [Character & Word Counter](https://riadalashekin.com/character-counter/): Editorial and metadata length optimization utility.
+- [List to Comma Separator](https://riadalashekin.com/comma-separator/): Text delimiter formatting utility.
+
+## Strategic Research & Publications
+- [Best ERP Software in Bangladesh](https://riadalashekin.com/best-erp-software-in-bangladesh/): Enterprise software architecture and vendor evaluation.
+- [Best POS Software in Bangladesh](https://riadalashekin.com/best-pos-software-in-bangladesh/): Retail point-of-sale systems review and integration guide.
+- [Measuring ROI of SEO](https://riadalashekin.com/roi-of-seo-how-to-measure-calculate-maximize-seo-roi/): Financial metrics framework for search investments.
+- [Ultimate Guide to Robots.txt](https://riadalashekin.com/ultimate-guide-robots-txt/): Crawler governance and server budget optimization.
+- [HTML & XML Sitemap Directory](https://riadalashekin.com/sitemap/): Full index of 165+ indexed articles, utilities, and services.

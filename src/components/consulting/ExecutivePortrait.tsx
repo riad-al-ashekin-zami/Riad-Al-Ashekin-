@@ -1,12 +1,13 @@
 import React from 'react';
-import { motion } from 'motion/react';
 import { 
   ShieldCheck, 
   MapPin 
 } from 'lucide-react';
 
 // Dedicated Homepage Executive Portrait - Full vertical studio portrait with natural headroom and executive presence
-const HOMEPAGE_PORTRAIT = '/images/riad-booking-portrait.jpg';
+const HOMEPAGE_PORTRAIT_JPG = '/images/riad-booking-portrait.jpg';
+const HOMEPAGE_PORTRAIT_WEBP = '/images/riad-booking-portrait.webp';
+const HOMEPAGE_PORTRAIT_MOBILE = '/images/riad-booking-portrait-mobile.webp';
 
 interface Props {
   className?: string;
@@ -14,9 +15,6 @@ interface Props {
 }
 
 export function ExecutivePortrait({ className = '', onBookingClick }: Props) {
-  // Use the full high-resolution vertical executive portrait (or custom uploaded portrait if explicitly configured)
-  const imageSrc = HOMEPAGE_PORTRAIT;
-
   return (
     <div className={`relative w-full max-w-md mx-auto ${className}`}>
       {/* Background ambient glow matching Footer Royal Midnight Theme */}
@@ -38,18 +36,22 @@ export function ExecutivePortrait({ className = '', onBookingClick }: Props) {
         {/* Image Container - Crystal Clear, High Definition & Unblurred */}
         <div className="relative aspect-[3/4] sm:aspect-[4/5] w-full overflow-hidden flex items-end justify-center bg-[#1d143a]">
           
-          {/* Portrait Image with Pure Sharpness and Natural Clarity */}
-          <img 
-            src={imageSrc} 
-            alt="Riad Al Ashekin - Business & Technology Consultant" 
-            referrerPolicy="no-referrer"
-            width="640"
-            height="800"
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-            className="w-full h-full object-cover object-[center_top] transition-transform duration-700 hover:scale-[1.01]"
-          />
+          {/* Responsive Picture with Ultra-Lightweight Modern WebP (13-22 KiB vs 95 KiB) */}
+          <picture className="w-full h-full">
+            <source media="(max-width: 640px)" srcSet={HOMEPAGE_PORTRAIT_MOBILE} type="image/webp" />
+            <source srcSet={HOMEPAGE_PORTRAIT_WEBP} type="image/webp" />
+            <img 
+              src={HOMEPAGE_PORTRAIT_JPG} 
+              alt="Riad Al Ashekin - Business & Technology Consultant" 
+              referrerPolicy="no-referrer"
+              width="640"
+              height="800"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              className="w-full h-full object-cover object-[center_top] transition-transform duration-700 hover:scale-[1.01]"
+            />
+          </picture>
 
           {/* Clean Bottom Text Readability Gradient - Only at the very bottom, face stays 100% untouched & clear */}
           <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#150d28] via-[#150d28]/75 to-transparent pointer-events-none" />

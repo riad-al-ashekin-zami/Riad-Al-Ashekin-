@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'motion/react';
 import { 
   ArrowRight, 
   Briefcase, 
@@ -114,23 +113,16 @@ export function ConsultingHero({ onNavigate, onScrollToSection }: Props) {
             </p>
 
             {/* 4 Performance Metric Counters - Styled in Rich Footer Brand-900 Glass */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.4 }}
-              className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full pt-1 pb-1"
-            >
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full pt-1 pb-1">
               {[
                 { value: '35+', label: 'Ventures Advised', sub: 'Client & Co-Founded' },
                 { value: '4', label: 'Companies Co-Founded', sub: 'Operating Equity' },
                 { value: '10+', label: 'Years in Tech & SEO', sub: 'Engineering Depth' },
                 { value: '100%', label: 'Direct Founder Access', sub: 'Zero Agency Layers' }
               ].map((stat, idx) => (
-                <motion.div 
+                <div 
                   key={idx}
-                  whileHover={{ y: -3, scale: 1.02 }}
-                  transition={{ duration: 0.2 }}
-                  className="p-3.5 rounded-2xl bg-brand-900/70 border border-brand-800/90 backdrop-blur-md hover:border-accent-500/80 hover:shadow-[0_0_25px_rgba(120,57,238,0.25)] transition-all cursor-default group"
+                  className="p-3.5 rounded-2xl bg-brand-900/70 border border-brand-800/90 backdrop-blur-md hover:border-accent-500/80 hover:shadow-[0_0_25px_rgba(120,57,238,0.25)] hover:-translate-y-1 transition-all duration-200 cursor-default group"
                 >
                   <div className="text-2xl sm:text-3xl font-black text-white font-sans tracking-tight group-hover:text-accent-300 transition-colors">
                     {stat.value}
@@ -141,17 +133,12 @@ export function ConsultingHero({ onNavigate, onScrollToSection }: Props) {
                   <div className="text-[10px] text-brand-400 font-mono">
                     {stat.sub}
                   </div>
-                </motion.div>
+                </div>
               ))}
-            </motion.div>
+            </div>
 
             {/* Core Strategic Pillars Row */}
-            <motion.div 
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.45 }}
-              className="grid grid-cols-2 sm:grid-cols-4 gap-2 w-full"
-            >
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 w-full">
               {[
                 { label: 'Business Strategy', icon: Briefcase },
                 { label: 'Tech Architecture', icon: Cpu },
@@ -160,48 +147,35 @@ export function ConsultingHero({ onNavigate, onScrollToSection }: Props) {
               ].map((item, idx) => {
                 const Icon = item.icon;
                 return (
-                  <motion.div 
+                  <div 
                     key={idx} 
-                    whileHover={{ scale: 1.03 }}
-                    transition={{ duration: 0.15 }}
-                    className="px-3 py-2 rounded-xl bg-brand-900/90 border border-brand-800 flex items-center gap-2 text-xs font-semibold text-brand-200 hover:border-accent-500 hover:text-white transition-colors cursor-default shadow-xs"
+                    className="px-3 py-2 rounded-xl bg-brand-900/90 border border-brand-800 flex items-center gap-2 text-xs font-semibold text-brand-200 hover:border-accent-500 hover:text-white transition-all hover:scale-[1.02] cursor-default shadow-xs"
                   >
                     <Icon className="w-3.5 h-3.5 text-accent-400 shrink-0" />
                     <span className="truncate">{item.label}</span>
-                  </motion.div>
+                  </div>
                 );
               })}
-            </motion.div>
+            </div>
 
             {/* High-Contrast Action Buttons Matching Footer Aesthetics */}
-            <motion.div 
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto pt-2"
-            >
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto pt-2">
               {/* Primary CTA - Exact Footer Accent-600 Purple with Shimmer */}
-              <motion.a 
+              <a 
                 href="/seo-pricing/"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
                 onClick={(e) => handleLinkClick(e, '/seo-pricing/', onNavigate)}
-                className="relative inline-flex justify-center items-center gap-2.5 px-7 py-3.5 bg-accent-600 hover:bg-accent-500 text-white rounded-xl font-bold text-sm transition-all shadow-[0_0_25px_rgba(120,57,238,0.4)] hover:shadow-[0_0_35px_rgba(120,57,238,0.6)] group cursor-pointer overflow-hidden no-underline"
+                className="relative inline-flex justify-center items-center gap-2.5 px-7 py-3.5 bg-accent-600 hover:bg-accent-500 text-white rounded-xl font-bold text-sm transition-all shadow-[0_0_25px_rgba(120,57,238,0.4)] hover:shadow-[0_0_35px_rgba(120,57,238,0.6)] hover:-translate-y-0.5 group cursor-pointer overflow-hidden no-underline"
               >
-                <motion.div 
-                  animate={{ x: ['-100%', '200%'] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12 pointer-events-none"
+                <div 
+                  className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 animate-pulse pointer-events-none"
                 />
                 <span className="z-10">Pricing &amp; Retainers</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform z-10" />
-              </motion.a>
+              </a>
               
               {/* Secondary CTA - Matching Footer "Browse All URLs" button */}
-              <motion.a 
+              <a 
                 href="/services/"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
                 onClick={(e) => {
                   if (onScrollToSection) {
                     e.preventDefault();
@@ -210,13 +184,13 @@ export function ConsultingHero({ onNavigate, onScrollToSection }: Props) {
                     handleLinkClick(e, '/services/', onNavigate);
                   }
                 }}
-                className="inline-flex justify-center items-center gap-2 px-6 py-3.5 bg-brand-900/90 border border-brand-800 text-brand-200 hover:text-white hover:bg-brand-800 rounded-xl font-bold text-sm transition-all cursor-pointer backdrop-blur-md hover:border-brand-700 shadow-sm no-underline"
+                className="inline-flex justify-center items-center gap-2 px-6 py-3.5 bg-brand-900/90 border border-brand-800 text-brand-200 hover:text-white hover:bg-brand-800 rounded-xl font-bold text-sm transition-all cursor-pointer backdrop-blur-md hover:border-brand-700 hover:-translate-y-0.5 shadow-sm no-underline"
               >
                 <Layers className="w-4 h-4 text-accent-400" />
                 <span>Explore Retainers &amp; Proof</span>
                 <ArrowUpRight className="w-4 h-4 text-brand-400" />
-              </motion.a>
-            </motion.div>
+              </a>
+            </div>
 
             {/* Trust Badges */}
             <div className="pt-4 border-t border-brand-800/80 flex flex-wrap items-center gap-4 text-xs text-brand-400">
@@ -233,31 +207,20 @@ export function ConsultingHero({ onNavigate, onScrollToSection }: Props) {
           </div>
 
           {/* Right: Studio Portrait Card with Matching Brand Ambient Glow */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.25, ease: 'easeOut' }}
-            className="w-full lg:w-5/12 flex justify-center lg:justify-end"
-          >
+          <div className="w-full lg:w-5/12 flex justify-center lg:justify-end">
             <ExecutivePortrait onBookingClick={handlePricing} />
-          </motion.div>
+          </div>
 
         </div>
 
         {/* Problem-First Advisory Engine Diagnostics Strip */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-16 pt-8 border-t border-brand-800/80"
-        >
+        <div className="mt-16 pt-8 border-t border-brand-800/80">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-4">
             <div className="flex items-center gap-2">
               <Compass className="w-4 h-4 text-accent-400" />
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-brand-200">
+              <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-brand-200">
                 Problem-First Advisory Engine
-              </span>
+              </h3>
             </div>
             <span className="text-xs text-brand-400 italic">
               “Diagnostics before prescriptions. Architecture before marketing.”
@@ -301,7 +264,7 @@ export function ConsultingHero({ onNavigate, onScrollToSection }: Props) {
               </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
       </div>
     </section>

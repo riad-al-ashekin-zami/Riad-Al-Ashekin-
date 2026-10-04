@@ -16,7 +16,29 @@ if (!fs.existsSync(templatePath)) {
   process.exit(0);
 }
 
-const baseTemplate = fs.readFileSync(templatePath, 'utf8');
+let baseTemplate = fs.readFileSync(templatePath, 'utf8');
+
+// Inline compiled CSS directly into <style> to eliminate the 670ms render-blocking stylesheet request
+const cssLinkRegex = /<link\s+[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+\.css)["'][^>]*>|<link\s+[^>]*href=["']([^"']+\.css)["'][^>]*rel=["']stylesheet["'][^>]*>/gi;
+baseTemplate = baseTemplate.replace(cssLinkRegex, (match, p1, p2) => {
+  const cssHref = p1 || p2;
+  if (!cssHref) return match;
+  try {
+    const cssRelPath = cssHref.startsWith('/') ? cssHref.slice(1) : cssHref;
+    const cssFilePath = path.join(distDir, cssRelPath);
+    if (fs.existsSync(cssFilePath)) {
+      const cssContent = fs.readFileSync(cssFilePath, 'utf8');
+      console.log(`Inlined ${cssRelPath} (${(cssContent.length / 1024).toFixed(1)} KiB) directly into HTML head`);
+      return `<style id="app-critical-css">\n${cssContent}\n</style>`;
+    }
+  } catch (err) {
+    console.warn('Failed to inline CSS file:', err);
+  }
+  return match;
+});
+
+// Update dist/index.html with inlined CSS
+fs.writeFileSync(templatePath, baseTemplate, 'utf8');
 
 function escapeHtml(unsafe: string): string {
   return unsafe

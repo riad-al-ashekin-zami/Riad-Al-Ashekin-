@@ -13,7 +13,7 @@ export interface AuthorProfile {
 }
 
 export const PORTRAIT_OPTIONS = {
-  formal: '/images/riad-portrait.jpg',
+  formal: '/images/riad-portrait.webp',
   casual: '/images/riad-author-1x1.jpg'
 };
 
@@ -24,9 +24,9 @@ export const SITE_AUTHOR: AuthorProfile = {
   badge: 'Author',
   subRole: 'Business & Technology Consultant • SEO Strategist • Software Architect',
   bio: 'Advising founders, executives, and enterprise leadership teams across North America, Europe, and Asia on software architectures, digital go-to-market execution, and organic acquisition dominance.',
-  avatarUrl: '/images/riad-portrait.jpg',
-  squarePortraitUrl: '/images/riad-portrait.jpg',
-  fullPortraitUrl: '/images/riad-booking-portrait.jpg'
+  avatarUrl: '/images/riad-portrait.webp',
+  squarePortraitUrl: '/images/riad-portrait.webp',
+  fullPortraitUrl: '/images/riad-booking-portrait.webp'
 };
 
 /**

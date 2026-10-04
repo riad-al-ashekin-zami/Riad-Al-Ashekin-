@@ -149,9 +149,9 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
       </div>
 
       <div className="w-full space-y-0.5">
-        <h4 className="text-sm sm:text-base font-bold text-brand-900 group-hover:text-accent-700 transition-colors truncate">
+        <h3 className="text-sm sm:text-base font-bold text-brand-900 group-hover:text-accent-700 transition-colors truncate">
           {project.name}
-        </h4>
+        </h3>
         <span className="text-xs font-mono text-brand-400 uppercase tracking-wide block truncate">
           {project.category}
         </span>

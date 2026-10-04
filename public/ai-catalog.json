@@ -1,0 +1,41 @@
+{
+  "$schema": "https://specs.agentcatalog.org/v1/schema.json",
+  "name": "Riad Al Ashekin Advisory & Tools Catalog",
+  "description": "Comprehensive resource directory of strategic technology consulting services, production software architecture, and developer utilities.",
+  "url": "https://riadalashekin.com",
+  "version": "1.0.0",
+  "provider": {
+    "name": "Riad Al Ashekin",
+    "url": "https://riadalashekin.com"
+  },
+  "resources": [
+    {
+      "id": "consulting-services",
+      "name": "Advisory & Consulting Services",
+      "type": "service",
+      "url": "https://riadalashekin.com/services/",
+      "description": "Strategic advisory on software architecture, commercial scaling, and technical SEO."
+    },
+    {
+      "id": "meta-tag-checker",
+      "name": "Meta Tag & SERP Checker",
+      "type": "tool",
+      "url": "https://riadalashekin.com/meta-title-description-checker/",
+      "description": "Interactive Google SERP simulator and title/description snippet validator."
+    },
+    {
+      "id": "robots-txt-tester",
+      "name": "Robots.txt Tester",
+      "type": "tool",
+      "url": "https://riadalashekin.com/robots-txt-tester/",
+      "description": "Technical web crawler directive analysis and syntax checker."
+    },
+    {
+      "id": "sitemap",
+      "name": "Sitemap Catalog",
+      "type": "directory",
+      "url": "https://riadalashekin.com/sitemap.xml",
+      "description": "Machine-readable XML sitemap index of all published resources."
+    }
+  ]
+}

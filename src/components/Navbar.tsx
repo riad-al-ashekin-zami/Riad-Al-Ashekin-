@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronRight, Mail } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
 import { BrandLogo } from './common/BrandLogo';
 import { handleLinkClick } from '../utils/navigation';
 
@@ -18,14 +17,9 @@ export function Navbar({ currentSlug, onNavigate, onOpenDirectory }: Props) {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const handleNavClick = (slug: string) => {
-    onNavigate(slug);
-    setIsOpen(false);
-  };
 
   const navLinks: Array<{ label: string; slug: string; action?: () => void }> = [
     { label: 'Home', slug: '/' },
@@ -110,8 +104,7 @@ export function Navbar({ currentSlug, onNavigate, onOpenDirectory }: Props) {
                 >
                   {item.label}
                   {active && (
-                    <motion.div 
-                      layoutId="activeNavIndicator"
+                    <span 
                       className="absolute bottom-0 left-3 right-3 h-[2px] bg-gradient-to-r from-accent-400 via-accent-300 to-accent-400 rounded-full"
                     />
                   )}
@@ -150,112 +143,106 @@ export function Navbar({ currentSlug, onNavigate, onOpenDirectory }: Props) {
         </div>
       </div>
 
-      {/* Smooth Mobile Drawer Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div 
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className="lg:hidden border-t border-brand-800 bg-[#150d28]/98 backdrop-blur-2xl px-5 py-6 space-y-4 shadow-2xl overflow-hidden"
+      {/* Smooth Mobile Drawer Menu with Pure CSS Transitions (No Framer Motion forced reflows) */}
+      <div 
+        className={`lg:hidden border-t border-brand-800 bg-[#150d28]/98 backdrop-blur-2xl px-5 transition-all duration-300 overflow-hidden shadow-2xl ${
+          isOpen ? 'max-h-[500px] py-6 opacity-100' : 'max-h-0 py-0 opacity-0 pointer-events-none'
+        }`}
+      >
+        <div className="grid grid-cols-2 gap-2 text-xs font-medium text-brand-200">
+          <a 
+            href="/"
+            onClick={(e) => {
+              handleLinkClick(e, '/', onNavigate);
+              setIsOpen(false);
+            }}
+            className="text-left p-3 rounded-xl bg-brand-900/90 border border-brand-800 text-white font-bold flex items-center justify-between no-underline"
           >
-            <div className="grid grid-cols-2 gap-2 text-xs font-medium text-brand-200">
-              <a 
-                href="/"
-                onClick={(e) => {
-                  handleLinkClick(e, '/', onNavigate);
-                  setIsOpen(false);
-                }}
-                className="text-left p-3 rounded-xl bg-brand-900/90 border border-brand-800 text-white font-bold flex items-center justify-between no-underline"
-              >
-                <span>Home</span>
-                <ChevronRight className="w-3.5 h-3.5 text-brand-400" />
-              </a>
-              <a 
-                href="/about-me/"
-                onClick={(e) => {
-                  handleLinkClick(e, '/about-me/', onNavigate);
-                  setIsOpen(false);
-                }}
-                className="text-left p-3 rounded-xl hover:bg-brand-900/60 flex items-center justify-between no-underline text-brand-200"
-              >
-                <span>About</span>
-                <ChevronRight className="w-3.5 h-3.5 text-brand-400" />
-              </a>
-              <a 
-                href="/services/"
-                onClick={(e) => {
-                  handleLinkClick(e, '/services/', onNavigate);
-                  setIsOpen(false);
-                }}
-                className="text-left p-3 rounded-xl hover:bg-brand-900/60 flex items-center justify-between no-underline text-brand-200"
-              >
-                <span>Services</span>
-                <ChevronRight className="w-3.5 h-3.5 text-brand-400" />
-              </a>
-              <a 
-                href="/seo-pricing/"
-                onClick={(e) => {
-                  handleLinkClick(e, '/seo-pricing/', onNavigate);
-                  setIsOpen(false);
-                }}
-                className="text-left p-3 rounded-xl hover:bg-brand-900/60 flex items-center justify-between no-underline text-brand-200"
-              >
-                <span>Pricing</span>
-                <ChevronRight className="w-3.5 h-3.5 text-brand-400" />
-              </a>
-              <a 
-                href="/seo-tools/"
-                onClick={(e) => {
-                  handleLinkClick(e, '/seo-tools/', onNavigate);
-                  setIsOpen(false);
-                }}
-                className="text-left p-3 rounded-xl hover:bg-brand-900/60 flex items-center justify-between no-underline text-brand-200"
-              >
-                <span>Tools</span>
-                <ChevronRight className="w-3.5 h-3.5 text-brand-400" />
-              </a>
-              <a 
-                href="/blog/"
-                onClick={(e) => {
-                  handleLinkClick(e, '/blog/', onNavigate);
-                  setIsOpen(false);
-                }}
-                className="text-left p-3 rounded-xl hover:bg-brand-900/60 flex items-center justify-between no-underline text-brand-200"
-              >
-                <span>Blogs</span>
-                <ChevronRight className="w-3.5 h-3.5 text-brand-400" />
-              </a>
-              <a 
-                href="/contact/"
-                onClick={(e) => {
-                  handleLinkClick(e, '/contact/', onNavigate);
-                  setIsOpen(false);
-                }}
-                className="text-left p-3 rounded-xl hover:bg-brand-900/60 flex items-center justify-between col-span-2 no-underline text-brand-200"
-              >
-                <span>Contact</span>
-                <ChevronRight className="w-3.5 h-3.5 text-brand-400" />
-              </a>
-            </div>
+            <span>Home</span>
+            <ChevronRight className="w-3.5 h-3.5 text-brand-400" />
+          </a>
+          <a 
+            href="/about-me/"
+            onClick={(e) => {
+              handleLinkClick(e, '/about-me/', onNavigate);
+              setIsOpen(false);
+            }}
+            className="text-left p-3 rounded-xl hover:bg-brand-900/60 flex items-center justify-between no-underline text-brand-200"
+          >
+            <span>About</span>
+            <ChevronRight className="w-3.5 h-3.5 text-brand-400" />
+          </a>
+          <a 
+            href="/services/"
+            onClick={(e) => {
+              handleLinkClick(e, '/services/', onNavigate);
+              setIsOpen(false);
+            }}
+            className="text-left p-3 rounded-xl hover:bg-brand-900/60 flex items-center justify-between no-underline text-brand-200"
+          >
+            <span>Services</span>
+            <ChevronRight className="w-3.5 h-3.5 text-brand-400" />
+          </a>
+          <a 
+            href="/seo-pricing/"
+            onClick={(e) => {
+              handleLinkClick(e, '/seo-pricing/', onNavigate);
+              setIsOpen(false);
+            }}
+            className="text-left p-3 rounded-xl hover:bg-brand-900/60 flex items-center justify-between no-underline text-brand-200"
+          >
+            <span>Pricing</span>
+            <ChevronRight className="w-3.5 h-3.5 text-brand-400" />
+          </a>
+          <a 
+            href="/seo-tools/"
+            onClick={(e) => {
+              handleLinkClick(e, '/seo-tools/', onNavigate);
+              setIsOpen(false);
+            }}
+            className="text-left p-3 rounded-xl hover:bg-brand-900/60 flex items-center justify-between no-underline text-brand-200"
+          >
+            <span>Tools</span>
+            <ChevronRight className="w-3.5 h-3.5 text-brand-400" />
+          </a>
+          <a 
+            href="/blog/"
+            onClick={(e) => {
+              handleLinkClick(e, '/blog/', onNavigate);
+              setIsOpen(false);
+            }}
+            className="text-left p-3 rounded-xl hover:bg-brand-900/60 flex items-center justify-between no-underline text-brand-200"
+          >
+            <span>Blogs</span>
+            <ChevronRight className="w-3.5 h-3.5 text-brand-400" />
+          </a>
+          <a 
+            href="/contact/"
+            onClick={(e) => {
+              handleLinkClick(e, '/contact/', onNavigate);
+              setIsOpen(false);
+            }}
+            className="text-left p-3 rounded-xl hover:bg-brand-900/60 flex items-center justify-between col-span-2 no-underline text-brand-200"
+          >
+            <span>Contact</span>
+            <ChevronRight className="w-3.5 h-3.5 text-brand-400" />
+          </a>
+        </div>
 
-            <div className="pt-3 border-t border-brand-800 flex flex-col gap-2.5">
-              <a 
-                href="/contact/"
-                onClick={(e) => {
-                  handleLinkClick(e, '/contact/', onNavigate);
-                  setIsOpen(false);
-                }}
-                className="w-full py-3 bg-accent-600 hover:bg-accent-500 text-white font-bold rounded-xl text-xs text-center flex items-center justify-center gap-2 shadow-lg cursor-pointer no-underline"
-              >
-                <Mail className="w-4 h-4" />
-                <span>Contact Me</span>
-              </a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        <div className="pt-3 border-t border-brand-800 flex flex-col gap-2.5">
+          <a 
+            href="/contact/"
+            onClick={(e) => {
+              handleLinkClick(e, '/contact/', onNavigate);
+              setIsOpen(false);
+            }}
+            className="w-full py-3 bg-accent-600 hover:bg-accent-500 text-white font-bold rounded-xl text-xs text-center flex items-center justify-center gap-2 shadow-lg cursor-pointer no-underline"
+          >
+            <Mail className="w-4 h-4" />
+            <span>Contact Me</span>
+          </a>
+        </div>
+      </div>
     </header>
   );
 }
