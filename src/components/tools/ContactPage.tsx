@@ -243,7 +243,7 @@ export function ContactPage({ onNavigate }: Props) {
                       Thank you for reaching out, {fullName || 'there'}!
                     </h3>
                     <p className="text-xs sm:text-sm text-brand-600 leading-relaxed">
-                      Your inquiry regarding <strong className="text-brand-900">{inquiryType === 'advisory' ? serviceEngagement : generalSubject}</strong> has been received. Riad Al Ashekin personally reviews all messages and will respond to <strong className="text-brand-900">{workEmail}</strong> within 24 business hours.
+                      Your inquiry regarding <strong className="text-brand-900">{inquiryType === 'advisory' ? serviceEngagement : generalSubject}</strong> has been received. Riad Al Ashekin personally reviews all messages and will respond to your email (<strong className="text-brand-900">{workEmail}</strong>) from <strong className="text-brand-900">ashekinriad@gmail.com</strong> within 24 business hours.
                     </p>
                   </div>
 
@@ -265,8 +265,13 @@ export function ContactPage({ onNavigate }: Props) {
                   </div>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Hidden Formspree Routing & Spam Protection Fields */}
+                <form
+                  onSubmit={handleSubmit}
+                  action="https://formspree.io/f/xpwblkrk"
+                  method="POST"
+                  className="space-y-6"
+                >
+                  {/* Hidden Formspree Routing Fields */}
                   <input
                     type="hidden"
                     name="inquiryType"
@@ -276,14 +281,6 @@ export function ContactPage({ onNavigate }: Props) {
                     type="hidden"
                     name="_subject"
                     value={`New ${inquiryType === 'advisory' ? 'Strategic Advisory' : 'General'} Inquiry from ${fullName || 'Website Visitor'}`}
-                  />
-                  <input
-                    type="text"
-                    name="_gotcha"
-                    tabIndex={-1}
-                    autoComplete="off"
-                    className="hidden"
-                    aria-hidden="true"
                   />
                   
                   {/* Form Header */}
@@ -570,11 +567,20 @@ export function ContactPage({ onNavigate }: Props) {
                     />
                   </div>
 
-                  {/* Form-level Formspree error summary */}
-                  {state.errors && state.errors.getFormErrors().length > 0 && (
+                  {/* Form-level & fallback Formspree error summary */}
+                  {state.errors && (state.errors.getFormErrors().length > 0 || state.errors.getAllFieldErrors().length > 0) && (
                     <div className="p-3.5 bg-rose-50 border border-rose-200 rounded-xl text-xs text-rose-700 flex items-start gap-2">
                       <AlertCircle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
-                      <ValidationError errors={state.errors} />
+                      <div className="space-y-1">
+                        <ValidationError errors={state.errors} />
+                        {state.errors.getFormErrors().length === 0 &&
+                          state.errors.getAllFieldErrors().map(([fieldName, errs]) => (
+                            <div key={String(fieldName)}>
+                              <strong className="capitalize">{String(fieldName)}:</strong>{' '}
+                              {errs.map((err) => err.message).join(', ')}
+                            </div>
+                          ))}
+                      </div>
                     </div>
                   )}
 
