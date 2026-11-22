@@ -14,7 +14,7 @@ const SAMPLE_SCHEMAS = {
     "jobTitle": "Strategic SEO Consultant"
   },
   "sameAs": [
-    "https://linkedin.com/in/riadalashekin",
+    "https://www.linkedin.com/in/riad-al-ashekin-zami",
     "https://twitter.com/riadalashekin"
   ]
 }`,

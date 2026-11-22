@@ -18,9 +18,11 @@ import {
   Globe,
   Building2,
   DollarSign,
-  AlertCircle
+  AlertCircle,
+  Loader2
 } from 'lucide-react';
 import { motion } from 'motion/react';
+import { useForm, ValidationError } from '@formspree/react';
 import { handleLinkClick } from '../../utils/navigation';
 
 interface Props {
@@ -49,13 +51,17 @@ export function ContactPage({ onNavigate }: Props) {
   
   // Shared Message
   const [message, setMessage] = useState('');
-  
-  // Confirmation state
-  const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
+  // Formspree React integration (Endpoint: https://formspree.io/f/xpwblkrk)
+  const [state, handleSubmit, reset] = useForm('xpwblkrk');
+
+  const handleResetForm = () => {
+    reset();
+    setFullName('');
+    setWorkEmail('');
+    setOrganization('');
+    setWebsiteUrl('');
+    setMessage('');
   };
 
   return (
@@ -143,10 +149,10 @@ export function ContactPage({ onNavigate }: Props) {
                   <div className="space-y-0.5">
                     <p className="font-bold text-brand-950">Personal Primary Email</p>
                     <a 
-                      href="mailto:riad.al.ashekin@gmail.com" 
+                      href="mailto:ashekinriad@gmail.com" 
                       className="text-accent-700 hover:text-accent-800 font-medium break-all"
                     >
-                      riad.al.ashekin@gmail.com
+                      ashekinriad@gmail.com
                     </a>
                   </div>
                 </div>
@@ -155,7 +161,7 @@ export function ContactPage({ onNavigate }: Props) {
                   <MapPin className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                   <div className="space-y-0.5">
                     <p className="font-bold text-brand-950">Base of Operations</p>
-                    <p className="text-brand-600">Sylhet &amp; Dhaka, Bangladesh</p>
+                    <p className="text-brand-600">Dhaka, Bangladesh</p>
                     <p className="text-[11px] text-brand-400">Advising global clients across US, UK, EU, and APAC</p>
                   </div>
                 </div>
@@ -165,12 +171,12 @@ export function ContactPage({ onNavigate }: Props) {
                   <div className="space-y-0.5">
                     <p className="font-bold text-brand-950">Professional Network</p>
                     <a 
-                      href="https://www.linkedin.com/in/riadalashekin" 
+                      href="https://www.linkedin.com/in/riad-al-ashekin-zami" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="text-accent-700 hover:text-accent-800 font-medium break-all"
                     >
-                      linkedin.com/in/riadalashekin
+                      linkedin.com/in/riad-al-ashekin-zami
                     </a>
                   </div>
                 </div>
@@ -224,7 +230,7 @@ export function ContactPage({ onNavigate }: Props) {
           <div className="lg:col-span-8">
             <div className="bg-white rounded-3xl border border-brand-200/90 p-6 sm:p-9 shadow-sm">
               
-              {submitted ? (
+              {state.succeeded ? (
                 <div className="py-12 text-center space-y-5 max-w-lg mx-auto">
                   <div className="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-3xl flex items-center justify-center mx-auto border-2 border-emerald-200 shadow-xs">
                     <CheckCircle2 className="w-8 h-8" />
@@ -243,7 +249,8 @@ export function ContactPage({ onNavigate }: Props) {
 
                   <div className="pt-4 flex justify-center gap-3">
                     <button
-                      onClick={() => setSubmitted(false)}
+                      type="button"
+                      onClick={handleResetForm}
                       className="px-5 py-2.5 bg-brand-100 hover:bg-brand-200 text-brand-900 rounded-xl text-xs font-bold transition-all cursor-pointer"
                     >
                       Send Another Inquiry
@@ -259,6 +266,25 @@ export function ContactPage({ onNavigate }: Props) {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Hidden Formspree Routing & Spam Protection Fields */}
+                  <input
+                    type="hidden"
+                    name="inquiryType"
+                    value={inquiryType === 'advisory' ? 'Strategic Advisory / Retainer' : 'General Inquiry / Question'}
+                  />
+                  <input
+                    type="hidden"
+                    name="_subject"
+                    value={`New ${inquiryType === 'advisory' ? 'Strategic Advisory' : 'General'} Inquiry from ${fullName || 'Website Visitor'}`}
+                  />
+                  <input
+                    type="text"
+                    name="_gotcha"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    className="hidden"
+                    aria-hidden="true"
+                  />
                   
                   {/* Form Header */}
                   <div className="border-b border-brand-100 pb-5 space-y-1">
@@ -328,30 +354,46 @@ export function ContactPage({ onNavigate }: Props) {
                   {/* Standard Identity Fields */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-bold text-brand-800 uppercase tracking-wider mb-1.5">
+                      <label htmlFor="contact-fullName" className="block text-xs font-bold text-brand-800 uppercase tracking-wider mb-1.5">
                         Your Full Name <span className="text-accent-600">*</span>
                       </label>
                       <input
+                        id="contact-fullName"
                         type="text"
+                        name="fullName"
                         required
                         value={fullName}
                         onChange={(e) => setFullName(e.target.value)}
                         placeholder="e.g., Sarah Jenkins"
                         className="w-full px-3.5 py-2.5 bg-brand-50/40 border border-brand-200 rounded-xl text-xs text-brand-950 placeholder-brand-400 focus:bg-white focus:border-accent-500 focus:ring-2 focus:ring-accent-400/20 outline-hidden transition-all"
                       />
+                      <ValidationError
+                        prefix="Full Name"
+                        field="fullName"
+                        errors={state.errors}
+                        className="mt-1.5 text-[11px] font-medium text-rose-600"
+                      />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-brand-800 uppercase tracking-wider mb-1.5">
+                      <label htmlFor="contact-email" className="block text-xs font-bold text-brand-800 uppercase tracking-wider mb-1.5">
                         Work / Official Email <span className="text-accent-600">*</span>
                       </label>
                       <input
+                        id="contact-email"
                         type="email"
+                        name="email"
                         required
                         value={workEmail}
                         onChange={(e) => setWorkEmail(e.target.value)}
                         placeholder="e.g., s.jenkins@company.com"
                         className="w-full px-3.5 py-2.5 bg-brand-50/40 border border-brand-200 rounded-xl text-xs text-brand-950 placeholder-brand-400 focus:bg-white focus:border-accent-500 focus:ring-2 focus:ring-accent-400/20 outline-hidden transition-all"
+                      />
+                      <ValidationError
+                        prefix="Email"
+                        field="email"
+                        errors={state.errors}
+                        className="mt-1.5 text-[11px] font-medium text-rose-600"
                       />
                     </div>
                   </div>
@@ -359,13 +401,15 @@ export function ContactPage({ onNavigate }: Props) {
                   {/* Optional Organization / Domain Fields */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-bold text-brand-800 uppercase tracking-wider mb-1.5">
+                      <label htmlFor="contact-organization" className="block text-xs font-bold text-brand-800 uppercase tracking-wider mb-1.5">
                         Company / Venture Name
                       </label>
                       <div className="relative">
                         <Building2 className="w-3.5 h-3.5 text-brand-400 absolute left-3.5 top-3" />
                         <input
+                          id="contact-organization"
                           type="text"
+                          name="organization"
                           value={organization}
                           onChange={(e) => setOrganization(e.target.value)}
                           placeholder="e.g., Acme Cloud Inc."
@@ -375,13 +419,15 @@ export function ContactPage({ onNavigate }: Props) {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-brand-800 uppercase tracking-wider mb-1.5">
+                      <label htmlFor="contact-websiteUrl" className="block text-xs font-bold text-brand-800 uppercase tracking-wider mb-1.5">
                         Website or Platform URL
                       </label>
                       <div className="relative">
                         <Globe className="w-3.5 h-3.5 text-brand-400 absolute left-3.5 top-3" />
                         <input
+                          id="contact-websiteUrl"
                           type="text"
+                          name="websiteUrl"
                           value={websiteUrl}
                           onChange={(e) => setWebsiteUrl(e.target.value)}
                           placeholder="e.g., https://yourdomain.com"
@@ -404,10 +450,12 @@ export function ContactPage({ onNavigate }: Props) {
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-xs font-bold text-brand-700 uppercase tracking-wider mb-1.5">
+                          <label htmlFor="contact-serviceEngagement" className="block text-xs font-bold text-brand-700 uppercase tracking-wider mb-1.5">
                             Advisory Engagement
                           </label>
                           <select
+                            id="contact-serviceEngagement"
+                            name="serviceEngagement"
                             value={serviceEngagement}
                             onChange={(e) => setServiceEngagement(e.target.value)}
                             className="w-full px-3 py-2.5 bg-white border border-brand-200 rounded-xl text-xs text-brand-900 focus:border-accent-500 focus:ring-2 focus:ring-accent-400/20 outline-hidden cursor-pointer"
@@ -428,10 +476,12 @@ export function ContactPage({ onNavigate }: Props) {
                         </div>
 
                         <div>
-                          <label className="block text-xs font-bold text-brand-700 uppercase tracking-wider mb-1.5">
+                          <label htmlFor="contact-primaryObjective" className="block text-xs font-bold text-brand-700 uppercase tracking-wider mb-1.5">
                             Primary Bottleneck / Focus
                           </label>
                           <select
+                            id="contact-primaryObjective"
+                            name="primaryObjective"
                             value={primaryObjective}
                             onChange={(e) => setPrimaryObjective(e.target.value)}
                             className="w-full px-3 py-2.5 bg-white border border-brand-200 rounded-xl text-xs text-brand-900 focus:border-accent-500 focus:ring-2 focus:ring-accent-400/20 outline-hidden cursor-pointer"
@@ -470,10 +520,12 @@ export function ContactPage({ onNavigate }: Props) {
                   {inquiryType === 'general' && (
                     <div className="p-5 bg-brand-50/60 rounded-2xl border border-brand-200/80 space-y-3">
                       <div>
-                        <label className="block text-xs font-bold text-brand-700 uppercase tracking-wider mb-1.5">
+                        <label htmlFor="contact-generalSubject" className="block text-xs font-bold text-brand-700 uppercase tracking-wider mb-1.5">
                           Subject / Topic of Discussion
                         </label>
                         <select
+                          id="contact-generalSubject"
+                          name="generalSubject"
                           value={generalSubject}
                           onChange={(e) => setGeneralSubject(e.target.value)}
                           className="w-full px-3 py-2.5 bg-white border border-brand-200 rounded-xl text-xs text-brand-900 focus:border-accent-500 focus:ring-2 focus:ring-accent-400/20 outline-hidden cursor-pointer"
@@ -491,12 +543,14 @@ export function ContactPage({ onNavigate }: Props) {
                   {/* Detailed Message Textarea */}
                   <div>
                     <div className="flex items-center justify-between mb-1.5">
-                      <label className="block text-xs font-bold text-brand-800 uppercase tracking-wider">
+                      <label htmlFor="contact-message" className="block text-xs font-bold text-brand-800 uppercase tracking-wider">
                         {inquiryType === 'advisory' ? 'Project Context & Strategic Objectives' : 'Your Message / Inquiry'} <span className="text-accent-600">*</span>
                       </label>
                       <span className="text-[10px] text-brand-400">Be as detailed as possible</span>
                     </div>
                     <textarea
+                      id="contact-message"
+                      name="message"
                       rows={4}
                       required
                       value={message}
@@ -508,16 +562,40 @@ export function ContactPage({ onNavigate }: Props) {
                       }
                       className="w-full p-3.5 bg-brand-50/40 border border-brand-200 rounded-xl text-xs text-brand-950 placeholder-brand-400 focus:bg-white focus:border-accent-500 focus:ring-2 focus:ring-accent-400/20 outline-hidden transition-all leading-relaxed"
                     />
+                    <ValidationError
+                      prefix="Message"
+                      field="message"
+                      errors={state.errors}
+                      className="mt-1.5 text-[11px] font-medium text-rose-600"
+                    />
                   </div>
+
+                  {/* Form-level Formspree error summary */}
+                  {state.errors && state.errors.getFormErrors().length > 0 && (
+                    <div className="p-3.5 bg-rose-50 border border-rose-200 rounded-xl text-xs text-rose-700 flex items-start gap-2">
+                      <AlertCircle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
+                      <ValidationError errors={state.errors} />
+                    </div>
+                  )}
 
                   {/* Submit Button & Assurance Strip */}
                   <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-brand-100">
                     <button
                       type="submit"
-                      className="px-7 py-3.5 bg-brand-950 hover:bg-accent-600 text-white rounded-xl text-xs font-bold transition-all shadow-md inline-flex items-center justify-center gap-2 cursor-pointer group"
+                      disabled={state.submitting}
+                      className="px-7 py-3.5 bg-brand-950 hover:bg-accent-600 disabled:opacity-60 disabled:cursor-not-allowed text-white rounded-xl text-xs font-bold transition-all shadow-md inline-flex items-center justify-center gap-2 cursor-pointer group"
                     >
-                      <Send className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                      <span>{inquiryType === 'advisory' ? 'Submit Strategic Advisory Inquiry' : 'Send General Message'}</span>
+                      {state.submitting ? (
+                        <>
+                          <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                          <span>Sending Inquiry...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                          <span>{inquiryType === 'advisory' ? 'Submit Strategic Advisory Inquiry' : 'Send General Message'}</span>
+                        </>
+                      )}
                     </button>
 
                     <span className="text-[11px] text-brand-500 flex items-center gap-1.5">

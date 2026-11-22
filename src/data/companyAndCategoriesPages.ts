@@ -106,9 +106,9 @@ export const companyAndCategoriesPages: PageData[] = [
         title: 'Direct Channels & Availability',
         content: 'You can reach me directly through any of the following verified channels:',
         bullets: [
-          'Email: riad.al.ashekin@gmail.com',
+          'Email: ashekinriad@gmail.com',
           'Primary Website: https://riadalashekin.com',
-          'Location: Sylhet & Dhaka, Bangladesh (Advising Clients Globally Across US, UK, EU, and APAC)'
+          'Location: Dhaka, Bangladesh (Advising Clients Globally Across US, UK, EU, and APAC)'
         ]
       }
     ],
@@ -131,9 +131,9 @@ export const companyAndCategoriesPages: PageData[] = [
         title: 'Direct Channels & Availability',
         content: 'You can reach me directly through any of the following verified channels:',
         bullets: [
-          'Email: riad.al.ashekin@gmail.com',
+          'Email: ashekinriad@gmail.com',
           'Primary Website: https://riadalashekin.com',
-          'Location: Sylhet & Dhaka, Bangladesh (Advising Clients Globally Across US, UK, EU, and APAC)'
+          'Location: Dhaka, Bangladesh (Advising Clients Globally Across US, UK, EU, and APAC)'
         ]
       }
     ],

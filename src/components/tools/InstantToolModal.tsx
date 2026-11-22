@@ -159,7 +159,7 @@ export const InstantToolModal: React.FC<InstantToolModalProps> = ({ tool, onClos
         "logo": "https://riadalashekin.com/brand-icon.png",
         "sameAs": [
           "https://twitter.com/riadalashekin",
-          "https://linkedin.com/in/riadalashekin",
+          "https://www.linkedin.com/in/riad-al-ashekin-zami",
           "https://github.com/riadalashekin"
         ]
       }, null, 2);
