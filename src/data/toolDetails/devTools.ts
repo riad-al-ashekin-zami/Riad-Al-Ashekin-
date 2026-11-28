@@ -263,7 +263,7 @@ export const devTools: ToolRegistryItem[] = [
       'xml-validator',
       'sitemap-tester',
       'json-formatter',
-      'html-formatter'
+      'html-cleaner'
     ],
     belowSectionGuide: {
       howToUseHeading: 'How to use the XML Formatter',
@@ -569,7 +569,7 @@ export const devTools: ToolRegistryItem[] = [
       'html-minifier',
       'css-minifier',
       'json-formatter',
-      'json-minifier'
+      'svg-optimizer'
     ],
     belowSectionGuide: {
       howToUseHeading: 'How to use the JavaScript Minifier',
@@ -849,7 +849,7 @@ export const devTools: ToolRegistryItem[] = [
     relatedToolSlugs: [
       'word-counter-pro',
       'character-counter',
-      'html-formatter',
+      'markdown-to-html',
       'html-cleaner'
     ],
     legacyPaths: ['/lorem-ipsum-generator/', '/privacy-policy-for-lorem-ipsum-generator/']

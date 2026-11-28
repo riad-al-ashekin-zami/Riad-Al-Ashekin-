@@ -59,6 +59,32 @@ export function BlogPostLayout({ page, onNavigate }: Props) {
   const [aiSummaryModal, setAiSummaryModal] = useState<string | null>(null);
   const [copiedPrompt, setCopiedPrompt] = useState(false);
 
+  // Inject matching FAQPage JSON-LD on blog posts that supply faqs
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+    document.querySelectorAll('script[data-blog-faq-schema="true"]').forEach(el => el.remove());
+    if (!page.faqs || page.faqs.length === 0) return;
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.setAttribute('data-blog-faq-schema', 'true');
+    script.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: page.faqs.map(faq => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer,
+        },
+      })),
+    });
+    document.head.appendChild(script);
+    return () => {
+      document.querySelectorAll('script[data-blog-faq-schema="true"]').forEach(el => el.remove());
+    };
+  }, [page.slug, page.faqs]);
+
   // Author Photo Management (supports instant real-time photo replacement)
   const { avatar: authorAvatar, updatePhoto, resetPhoto } = useAuthorPhoto();
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -360,14 +386,16 @@ export function BlogPostLayout({ page, onNavigate }: Props) {
       <div className="py-6 sm:py-10 lg:py-12 pb-16 sm:pb-20 px-3.5 sm:px-6 lg:px-8 max-w-7xl mx-auto">
 
         {/* Featured Image - Dedicated High-Fidelity Artwork */}
-        <FeaturedImage
-          imageUrl={page.featuredImage || BLOG_FEATURED_IMAGES[page.slug] || BLOG_FEATURED_IMAGES[page.slug.endsWith('/') ? page.slug : `${page.slug}/`]}
-          alt={page.featuredImageAlt || page.headline}
-          caption={page.featuredImageCaption}
-          badge={page.badge}
-          headline={page.headline}
-          category={page.category}
-        />
+        {!page.hideFeaturedImage && (
+          <FeaturedImage
+            imageUrl={page.featuredImage || BLOG_FEATURED_IMAGES[page.slug] || BLOG_FEATURED_IMAGES[page.slug.endsWith('/') ? page.slug : `${page.slug}/`]}
+            alt={page.featuredImageAlt || page.headline}
+            caption={page.featuredImageCaption}
+            badge={page.badge}
+            headline={page.headline}
+            category={page.category}
+          />
+        )}
 
         {/* Mobile Sticky TOC Drawer Button (Visible on screens < lg) */}
         <div className="lg:hidden sticky top-[56px] sm:top-[64px] z-30 mb-6 sm:mb-8 bg-white/95 backdrop-blur-md border border-brand-200 rounded-xl p-2 sm:p-2.5 shadow-sm">
@@ -750,7 +778,7 @@ export function BlogPostLayout({ page, onNavigate }: Props) {
             )}
 
             {/* Interactive FAQs Accordion (Section Anchor: faqs-section) */}
-            {page.faqs && page.faqs.length > 0 && (
+            {!page.skipAutoFaqAccordion && page.faqs && page.faqs.length > 0 && (
               <section 
                 id="faqs-section" 
                 className="scroll-mt-28 space-y-6 pt-4 border-t border-brand-200/80"

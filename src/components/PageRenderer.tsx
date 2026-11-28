@@ -35,9 +35,11 @@ export function PageRenderer({ page: propPage, slug, onNavigate }: Props) {
 
   useEffect(() => {
     if (page) {
-      const pageTitle = page.title 
-        ? (page.title.includes('Riad Al Ashekin') ? page.title : `${page.title} | Riad Al Ashekin`)
-        : `${page.headline} | Riad Al Ashekin`;
+      const pageTitle = page.exactSeoTitle && page.title
+        ? page.title
+        : page.title
+          ? (page.title.includes('Riad Al Ashekin') ? page.title : `${page.title} | Riad Al Ashekin`)
+          : `${page.headline} | Riad Al Ashekin`;
       const pageDesc = page.metaDescription || page.subtitle || page.intro || '';
       const canonical = page.canonicalUrl || `https://riadalashekin.com${page.slug.endsWith('/') ? page.slug : page.slug + '/'}`;
 

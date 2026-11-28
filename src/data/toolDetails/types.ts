@@ -40,7 +40,9 @@ export interface ToolRegistryItem {
   slug: string; // e.g. "meta-title-description-checker"
   path: string; // e.g. "/tools/meta-title-description-checker/"
   canonicalUrl: string; // e.g. "https://riadalashekin.com/tools/meta-title-description-checker/"
-  category: 'serp' | 'crawler' | 'schema' | 'content' | 'url' | 'calculator' | 'image' | 'dev';
+  category: 'serp' | 'crawler' | 'schema' | 'content' | 'url' | 'calculator' | 'image' | 'dev' | 'utility';
+  schemaType?: 'WebApplication' | 'SoftwareApplication';
+  softwareApplicationCategory?: 'UtilitiesApplication' | 'DeveloperApplication';
   badge: string;
   shortDescription: string;
   seoTitle: string;

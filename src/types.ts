@@ -59,4 +59,7 @@ export interface PageData {
   toolConfig?: Record<string, unknown>;
   toolDetailId?: string;
   relatedSlugs?: string[];
+  exactSeoTitle?: boolean;
+  skipAutoFaqAccordion?: boolean;
+  hideFeaturedImage?: boolean;
 }

@@ -3,7 +3,7 @@ export interface SeoToolItem {
   title: string;
   description: string;
   slug: string;
-  category: 'serp' | 'crawler' | 'schema' | 'content' | 'url' | 'calculator' | 'image' | 'dev';
+  category: 'serp' | 'crawler' | 'schema' | 'content' | 'url' | 'calculator' | 'image' | 'dev' | 'utility';
   badge?: string;
   isInteractiveWidget?: boolean;
 }
@@ -853,6 +853,408 @@ export const ALL_SEO_TOOLS_DATA: SeoToolItem[] = [
     category: 'dev',
     badge: 'Sanitizer',
     isInteractiveWidget: true
+  },
+
+  // --- Utility tools (50 New Browser Utilities) ---
+  {
+    id: 'case-converter',
+    title: 'Case Converter',
+    description: 'Convert text to UPPERCASE, lowercase, Title Case, Sentence case, camelCase, snake_case, and kebab-case in your browser.',
+    slug: '/case-converter/',
+    category: 'utility',
+    badge: 'Text Utility'
+  },
+  {
+    id: 'remove-duplicate-lines',
+    title: 'Remove Duplicate Lines',
+    description: 'Delete repeated lines from any list with options for case sensitivity, trimming spaces, keeping first occurrence, and removing empty lines.',
+    slug: '/remove-duplicate-lines/',
+    category: 'utility',
+    badge: 'List Utility'
+  },
+  {
+    id: 'sort-lines',
+    title: 'Sort Lines',
+    description: 'Sort lines of text alphabetically (A–Z, Z–A), numerically, by line length, or randomly in your browser.',
+    slug: '/sort-lines/',
+    category: 'utility',
+    badge: 'List Utility'
+  },
+  {
+    id: 'remove-line-breaks',
+    title: 'Remove Line Breaks',
+    description: 'Clean up hard line breaks copied from PDFs or emails, preserve paragraphs, or join lines with a custom separator.',
+    slug: '/remove-line-breaks/',
+    category: 'utility',
+    badge: 'Text Utility'
+  },
+  {
+    id: 'remove-extra-spaces',
+    title: 'Remove Extra Spaces',
+    description: 'Remove double spaces, leading/trailing spaces, tabs, non-breaking spaces, and blank lines from text.',
+    slug: '/remove-extra-spaces/',
+    category: 'utility',
+    badge: 'Text Utility'
+  },
+  {
+    id: 'find-and-replace-text',
+    title: 'Find and Replace Text',
+    description: 'Find and replace words, phrases, or regex patterns in text with case-sensitive, whole-word, and match-count display.',
+    slug: '/find-and-replace-text/',
+    category: 'utility',
+    badge: 'Text Utility'
+  },
+  {
+    id: 'reverse-text',
+    title: 'Reverse Text',
+    description: 'Flip text backwards by character, reverse word order, reverse line order, or reverse letters inside each word.',
+    slug: '/reverse-text/',
+    category: 'utility',
+    badge: 'Text Utility'
+  },
+  {
+    id: 'text-to-binary',
+    title: 'Text to Binary Converter',
+    description: 'Convert UTF-8 plain text into 8-bit binary bytes or decode binary back to readable text.',
+    slug: '/text-to-binary/',
+    category: 'utility',
+    badge: 'Encoding'
+  },
+  {
+    id: 'morse-code-translator',
+    title: 'Morse Code Translator',
+    description: 'Translate text to International Morse code and back with browser Web Audio tone playback and speed control.',
+    slug: '/morse-code-translator/',
+    category: 'utility',
+    badge: 'Encoding'
+  },
+  {
+    id: 'random-name-picker',
+    title: 'Random Name Picker',
+    description: 'Pick one or multiple random winners from any name list using browser cryptographic randomness.',
+    slug: '/random-name-picker/',
+    category: 'utility',
+    badge: 'Picker Utility'
+  },
+  {
+    id: 'base64-encode-decode',
+    title: 'Base64 Encode & Decode',
+    description: 'Encode UTF-8 text to Base64 or decode Base64 strings back to text with URL-safe (- and _) support.',
+    slug: '/base64-encode-decode/',
+    category: 'utility',
+    badge: 'Dev Utility'
+  },
+  {
+    id: 'qr-code-generator',
+    title: 'QR Code Generator',
+    description: 'Create custom QR codes for URLs, text, email, phone, and Wi-Fi networks and download as PNG or SVG.',
+    slug: '/qr-code-generator/',
+    category: 'utility',
+    badge: 'QR Builder'
+  },
+  {
+    id: 'uuid-generator',
+    title: 'UUID Generator',
+    description: 'Generate 1 to 1,000 random UUID v4 identifiers using Web Crypto randomness with uppercase and no-hyphens options.',
+    slug: '/uuid-generator/',
+    category: 'utility',
+    badge: 'Dev Utility'
+  },
+  {
+    id: 'hash-generator',
+    title: 'Hash Generator',
+    description: 'Compute MD5, SHA-1, SHA-256, SHA-384, and SHA-512 cryptographic digests in your browser.',
+    slug: '/hash-generator/',
+    category: 'utility',
+    badge: 'Dev Utility'
+  },
+  {
+    id: 'jwt-decoder',
+    title: 'JWT Decoder',
+    description: 'Decode a JSON Web Token locally to inspect formatted header, payload claims, readable timestamps, and expiry status.',
+    slug: '/jwt-decoder/',
+    category: 'utility',
+    badge: 'Dev Utility'
+  },
+  {
+    id: 'regex-tester',
+    title: 'Regex Tester',
+    description: 'Test JavaScript regular expressions live with inline match highlighting, g/i/m/s/u flags, and capture groups.',
+    slug: '/regex-tester/',
+    category: 'utility',
+    badge: 'Dev Utility'
+  },
+  {
+    id: 'cron-expression-generator',
+    title: 'Cron Expression Generator',
+    description: 'Build 5-field cron schedules visually, read any cron expression in plain English, and view the next 5 run times.',
+    slug: '/cron-expression-generator/',
+    category: 'utility',
+    badge: 'Dev Utility'
+  },
+  {
+    id: 'csv-to-json',
+    title: 'CSV to JSON Converter',
+    description: 'Convert CSV files or pasted spreadsheet text to JSON objects or arrays in your browser with delimiter detection.',
+    slug: '/csv-to-json/',
+    category: 'utility',
+    badge: 'Data Utility'
+  },
+  {
+    id: 'json-to-csv',
+    title: 'JSON to CSV Converter',
+    description: 'Flatten nested JSON arrays into Excel-compatible CSV in your browser with live table preview and file download.',
+    slug: '/json-to-csv/',
+    category: 'utility',
+    badge: 'Data Utility'
+  },
+  {
+    id: 'yaml-to-json',
+    title: 'YAML to JSON Converter',
+    description: 'Convert YAML to JSON and JSON back to YAML in your browser with indentation controls and line-number error messages.',
+    slug: '/yaml-to-json/',
+    category: 'utility',
+    badge: 'Data Utility'
+  },
+  {
+    id: 'unix-timestamp-converter',
+    title: 'Unix Timestamp Converter',
+    description: 'Convert Unix epoch timestamps (seconds or milliseconds) into UTC, local time, and ISO 8601 dates.',
+    slug: '/unix-timestamp-converter/',
+    category: 'utility',
+    badge: 'Time Utility'
+  },
+  {
+    id: 'hex-to-rgb',
+    title: 'HEX to RGB Converter',
+    description: 'Convert HEX (3/6/8-digit), RGB(A), and HSL(A) colors with a native color picker, swatch, and WCAG contrast ratios.',
+    slug: '/hex-to-rgb/',
+    category: 'utility',
+    badge: 'Color Utility'
+  },
+  {
+    id: 'css-gradient-generator',
+    title: 'CSS Gradient Generator',
+    description: 'Design linear and radial CSS gradients visually with angle sliders, multi-stop color controls, and CSS copy.',
+    slug: '/css-gradient-generator/',
+    category: 'utility',
+    badge: 'CSS Builder'
+  },
+  {
+    id: 'box-shadow-generator',
+    title: 'CSS Box Shadow Generator',
+    description: 'Build multi-layer CSS box-shadow styles visually with sliders for offset, blur, spread, opacity, and inset shadows.',
+    slug: '/box-shadow-generator/',
+    category: 'utility',
+    badge: 'CSS Builder'
+  },
+  {
+    id: 'html-entity-encoder',
+    title: 'HTML Entity Encoder & Decoder',
+    description: 'Escape reserved HTML characters or non-ASCII symbols to numeric entities, and decode HTML entities back to text.',
+    slug: '/html-entity-encoder/',
+    category: 'utility',
+    badge: 'Dev Utility'
+  },
+  {
+    id: 'percentage-calculator',
+    title: 'Percentage Calculator',
+    description: 'Calculate X% of Y, find what percentage X is of Y, and compute percentage increase or decrease live.',
+    slug: '/percentage-calculator/',
+    category: 'utility',
+    badge: 'Calculator'
+  },
+  {
+    id: 'age-calculator',
+    title: 'Age Calculator',
+    description: 'Calculate exact chronological age in years, months, and days plus total weeks, days, and next birthday countdown.',
+    slug: '/age-calculator/',
+    category: 'utility',
+    badge: 'Calculator'
+  },
+  {
+    id: 'date-difference-calculator',
+    title: 'Date Difference Calculator',
+    description: 'Count days, weeks, calendar duration, and Monday–Friday business days between two dates, or add/subtract days.',
+    slug: '/date-difference-calculator/',
+    category: 'utility',
+    badge: 'Calculator'
+  },
+  {
+    id: 'emi-calculator',
+    title: 'Loan EMI Calculator',
+    description: 'Compute monthly loan EMI, total interest, total payment, and a full month-by-month amortization schedule.',
+    slug: '/emi-calculator/',
+    category: 'utility',
+    badge: 'Finance Math'
+  },
+  {
+    id: 'compound-interest-calculator',
+    title: 'Compound Interest Calculator',
+    description: 'Project future value, cumulative interest, and year-by-year growth with custom compounding and monthly additions.',
+    slug: '/compound-interest-calculator/',
+    category: 'utility',
+    badge: 'Finance Math'
+  },
+  {
+    id: 'profit-margin-calculator',
+    title: 'Profit Margin Calculator',
+    description: 'Compute gross profit, margin %, markup %, and target selling price from cost, price, margin, or markup.',
+    slug: '/profit-margin-calculator/',
+    category: 'utility',
+    badge: 'Business Math'
+  },
+  {
+    id: 'discount-calculator',
+    title: 'Discount Calculator',
+    description: 'Compute final sale price and total savings from percentage or fixed discounts, stacked offers, and sales tax.',
+    slug: '/discount-calculator/',
+    category: 'utility',
+    badge: 'Shopping Math'
+  },
+  {
+    id: 'sales-tax-calculator',
+    title: 'Sales Tax & VAT Calculator',
+    description: 'Add any sales tax or VAT percentage to a net price, or reverse-calculate pre-tax price and tax from a gross total.',
+    slug: '/sales-tax-calculator/',
+    category: 'utility',
+    badge: 'Tax Math'
+  },
+  {
+    id: 'break-even-calculator',
+    title: 'Break-Even Calculator',
+    description: 'Find break-even units, break-even revenue, contribution margin, target-profit units, and a revenue vs. cost chart.',
+    slug: '/break-even-calculator/',
+    category: 'utility',
+    badge: 'Business Math'
+  },
+  {
+    id: 'cpm-calculator',
+    title: 'CPM Calculator',
+    description: 'Solve for CPM (Cost per 1,000 impressions), Total Ad Cost, or Total Impressions given any two values.',
+    slug: '/cpm-calculator/',
+    category: 'utility',
+    badge: 'Ad Math'
+  },
+  {
+    id: 'cpc-calculator',
+    title: 'CPC Calculator',
+    description: 'Solve for Cost per Click (CPC), Total Ad Spend, or Total Clicks from any two metrics, plus optional CTR.',
+    slug: '/cpc-calculator/',
+    category: 'utility',
+    badge: 'Ad Math'
+  },
+  {
+    id: 'freelance-rate-calculator',
+    title: 'Freelance Hourly Rate Calculator',
+    description: 'Calculate freelance hourly, 8-hour daily, and fixed project rates from your income target, overhead, taxes, and hours.',
+    slug: '/freelance-rate-calculator/',
+    category: 'utility',
+    badge: 'Pricing Math'
+  },
+  {
+    id: 'aspect-ratio-calculator',
+    title: 'Aspect Ratio Calculator',
+    description: 'Calculate simplified aspect ratios and proportionally locked width or height in pixels with common presets.',
+    slug: '/aspect-ratio-calculator/',
+    category: 'utility',
+    badge: 'Media Math'
+  },
+  {
+    id: 'time-zone-converter',
+    title: 'Time Zone Converter',
+    description: 'Convert any date and time across multiple global IANA time zones with automatic Daylight Saving Time offsets.',
+    slug: '/time-zone-converter/',
+    category: 'utility',
+    badge: 'Time Utility'
+  },
+  {
+    id: 'countdown-timer',
+    title: 'Countdown Timer',
+    description: 'Run a timestamp-accurate duration timer or date countdown with fullscreen mode and browser audio alert chimes.',
+    slug: '/countdown-timer/',
+    category: 'utility',
+    badge: 'Timer Utility'
+  },
+  {
+    id: 'invoice-generator',
+    title: 'Invoice Generator',
+    description: 'Create clean invoices online with line items, optional logo, tax and discount percentages, and client-side PDF download.',
+    slug: '/invoice-generator/',
+    category: 'utility',
+    badge: 'Business Utility'
+  },
+  {
+    id: 'email-signature-generator',
+    title: 'Email Signature Generator',
+    description: 'Create a responsive HTML email signature with 3 layouts, photo URL, and links, then copy it into Gmail or Outlook.',
+    slug: '/email-signature-generator/',
+    category: 'utility',
+    badge: 'Email Utility'
+  },
+  {
+    id: 'privacy-policy-generator',
+    title: 'Privacy Policy Generator',
+    description: 'Generate a basic starting privacy policy template from a short form and export as .txt or .html.',
+    slug: '/privacy-policy-generator/',
+    category: 'utility',
+    badge: 'Template Utility'
+  },
+  {
+    id: 'business-name-generator',
+    title: 'Business Name Generator',
+    description: 'Generate up to 50 business and brand name ideas offline from seed keywords using prefixes, suffixes, and word blends.',
+    slug: '/business-name-generator/',
+    category: 'utility',
+    badge: 'Naming Utility'
+  },
+  {
+    id: 'username-generator',
+    title: 'Username Generator',
+    description: 'Generate unique username ideas from your name or keywords with separator, style, length, and number options.',
+    slug: '/username-generator/',
+    category: 'utility',
+    badge: 'Naming Utility'
+  },
+  {
+    id: 'random-number-generator',
+    title: 'Random Number Generator',
+    description: 'Generate random integers or decimals in any range with Web Crypto randomness, duplicate blocking, and sorting.',
+    slug: '/random-number-generator/',
+    category: 'utility',
+    badge: 'Number Utility'
+  },
+  {
+    id: 'placeholder-image-generator',
+    title: 'Placeholder Image Generator',
+    description: 'Create dummy placeholder images in any size, color, font size, and text online and download as PNG, JPG, or WebP.',
+    slug: '/placeholder-image-generator/',
+    category: 'utility',
+    badge: 'Design Utility'
+  },
+  {
+    id: 'image-to-pdf',
+    title: 'Image to PDF Converter',
+    description: 'Combine multiple JPG, PNG, and WebP images into one downloadable PDF with drag-to-reorder and margin controls.',
+    slug: '/image-to-pdf/',
+    category: 'utility',
+    badge: 'PDF Utility'
+  },
+  {
+    id: 'image-cropper',
+    title: 'Image Cropper',
+    description: 'Crop JPG, PNG, and WebP images in your browser using free crop or fixed aspect ratios plus rotate and flip tools.',
+    slug: '/image-cropper/',
+    category: 'utility',
+    badge: 'Image Utility'
+  },
+  {
+    id: 'fake-data-generator',
+    title: 'Fake Data Generator',
+    description: 'Generate up to 1,000 rows of fictional test names, example.com emails, addresses, and dates with JSON and CSV export.',
+    slug: '/fake-data-generator/',
+    category: 'utility',
+    badge: 'Data Utility'
   }
 ];
 

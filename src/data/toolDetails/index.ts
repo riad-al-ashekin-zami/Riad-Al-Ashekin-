@@ -7,6 +7,10 @@ import { urlTools } from './urlTools';
 import { calculatorTools } from './calculatorTools';
 import { imageTools } from './imageTools';
 import { devTools } from './devTools';
+import { utilityTextTools } from './utilityTextTools';
+import { utilityDevTools } from './utilityDevTools';
+import { utilityCalcTools } from './utilityCalcTools';
+import { utilityGenTools } from './utilityGenTools';
 
 export * from './types';
 export { serpTools } from './serpTools';
@@ -17,6 +21,10 @@ export { urlTools } from './urlTools';
 export { calculatorTools } from './calculatorTools';
 export { imageTools } from './imageTools';
 export { devTools } from './devTools';
+export { utilityTextTools } from './utilityTextTools';
+export { utilityDevTools } from './utilityDevTools';
+export { utilityCalcTools } from './utilityCalcTools';
+export { utilityGenTools } from './utilityGenTools';
 
 export const ALL_TOOL_DETAILS: ToolRegistryItem[] = [
   ...serpTools,
@@ -27,6 +35,10 @@ export const ALL_TOOL_DETAILS: ToolRegistryItem[] = [
   ...calculatorTools,
   ...imageTools,
   ...devTools,
+  ...utilityTextTools,
+  ...utilityDevTools,
+  ...utilityCalcTools,
+  ...utilityGenTools,
 ];
 
 // Lookup maps for rapid resolution

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { Suspense, useState, useMemo } from 'react';
 import { 
   Copy, 
   Check, 
@@ -34,11 +34,89 @@ import { StructuredDataTester } from './StructuredDataTester';
 import { UrlTester } from './UrlTester';
 import { SitemapTester } from './SitemapTester';
 
+const lazyUtility = (
+  loader: () => Promise<Record<string, React.ComponentType<any>>>,
+  exportName: string
+) => React.lazy(() => loader().then(m => ({ default: m[exportName] })));
+
+const UTILITY_WIDGET_MAP: Record<string, React.LazyExoticComponent<React.ComponentType<any>>> = {
+  // Text utilities (1-10)
+  'case-converter': lazyUtility(() => import('./utilities/TextUtilityWidgets'), 'CaseConverterWidget'),
+  'remove-duplicate-lines': lazyUtility(() => import('./utilities/TextUtilityWidgets'), 'RemoveDuplicateLinesWidget'),
+  'sort-lines': lazyUtility(() => import('./utilities/TextUtilityWidgets'), 'SortLinesWidget'),
+  'remove-line-breaks': lazyUtility(() => import('./utilities/TextUtilityWidgets'), 'RemoveLineBreaksWidget'),
+  'remove-extra-spaces': lazyUtility(() => import('./utilities/TextUtilityWidgets'), 'RemoveExtraSpacesWidget'),
+  'find-and-replace-text': lazyUtility(() => import('./utilities/TextUtilityWidgets'), 'FindAndReplaceWidget'),
+  'reverse-text': lazyUtility(() => import('./utilities/TextUtilityWidgets'), 'ReverseTextWidget'),
+  'text-to-binary': lazyUtility(() => import('./utilities/TextUtilityWidgets'), 'TextToBinaryWidget'),
+  'morse-code-translator': lazyUtility(() => import('./utilities/TextUtilityWidgets'), 'MorseCodeTranslatorWidget'),
+  'random-name-picker': lazyUtility(() => import('./utilities/TextUtilityWidgets'), 'RandomNamePickerWidget'),
+  // Developer utilities (11-20)
+  'base64-encode-decode': lazyUtility(() => import('./utilities/DevUtilityWidgets'), 'Base64Widget'),
+  'qr-code-generator': lazyUtility(() => import('./utilities/DevUtilityWidgets'), 'QrCodeGeneratorWidget'),
+  'uuid-generator': lazyUtility(() => import('./utilities/DevUtilityWidgets'), 'UuidGeneratorWidget'),
+  'hash-generator': lazyUtility(() => import('./utilities/DevUtilityWidgets'), 'HashGeneratorWidget'),
+  'jwt-decoder': lazyUtility(() => import('./utilities/DevUtilityWidgets'), 'JwtDecoderWidget'),
+  'regex-tester': lazyUtility(() => import('./utilities/DevUtilityWidgets'), 'RegexTesterWidget'),
+  'cron-expression-generator': lazyUtility(() => import('./utilities/DevUtilityWidgets'), 'CronGeneratorWidget'),
+  'csv-to-json': lazyUtility(() => import('./utilities/DevUtilityWidgets'), 'CsvToJsonWidget'),
+  'json-to-csv': lazyUtility(() => import('./utilities/DevUtilityWidgets'), 'JsonToCsvWidget'),
+  'yaml-to-json': lazyUtility(() => import('./utilities/DevUtilityWidgets'), 'YamlToJsonWidget'),
+  // Design & Developer formatting utilities (21-25)
+  'unix-timestamp-converter': lazyUtility(() => import('./utilities/DevDesignWidgets'), 'UnixTimestampWidget'),
+  'hex-to-rgb': lazyUtility(() => import('./utilities/DevDesignWidgets'), 'HexToRgbWidget'),
+  'css-gradient-generator': lazyUtility(() => import('./utilities/DevDesignWidgets'), 'CssGradientWidget'),
+  'box-shadow-generator': lazyUtility(() => import('./utilities/DevDesignWidgets'), 'CssBoxShadowWidget'),
+  'html-entity-encoder': lazyUtility(() => import('./utilities/DevDesignWidgets'), 'HtmlEntityWidget'),
+  // Calculators (26-40)
+  'percentage-calculator': lazyUtility(() => import('./utilities/CalculatorWidgets'), 'PercentageCalculatorWidget'),
+  'age-calculator': lazyUtility(() => import('./utilities/CalculatorWidgets'), 'AgeCalculatorWidget'),
+  'date-difference-calculator': lazyUtility(() => import('./utilities/CalculatorWidgets'), 'DateDifferenceWidget'),
+  'emi-calculator': lazyUtility(() => import('./utilities/CalculatorWidgets'), 'EmiCalculatorWidget'),
+  'compound-interest-calculator': lazyUtility(() => import('./utilities/CalculatorWidgets'), 'CompoundInterestWidget'),
+  'profit-margin-calculator': lazyUtility(() => import('./utilities/CalculatorWidgets'), 'ProfitMarginWidget'),
+  'discount-calculator': lazyUtility(() => import('./utilities/CalculatorWidgets'), 'DiscountCalculatorWidget'),
+  'sales-tax-calculator': lazyUtility(() => import('./utilities/CalculatorWidgets'), 'SalesTaxWidget'),
+  'break-even-calculator': lazyUtility(() => import('./utilities/CalculatorWidgets'), 'BreakEvenWidget'),
+  'cpm-calculator': lazyUtility(() => import('./utilities/CalculatorWidgets'), 'CpmCalculatorWidget'),
+  'cpc-calculator': lazyUtility(() => import('./utilities/CalculatorWidgets'), 'CpcCalculatorWidget'),
+  'freelance-rate-calculator': lazyUtility(() => import('./utilities/CalculatorWidgets'), 'FreelanceRateWidget'),
+  'aspect-ratio-calculator': lazyUtility(() => import('./utilities/CalculatorWidgets'), 'AspectRatioWidget'),
+  'time-zone-converter': lazyUtility(() => import('./utilities/CalculatorWidgets'), 'TimeZoneConverterWidget'),
+  'countdown-timer': lazyUtility(() => import('./utilities/CalculatorWidgets'), 'CountdownTimerWidget'),
+  // Generators & Image/PDF tools (41-50)
+  'invoice-generator': lazyUtility(() => import('./utilities/GeneratorUtilityWidgets'), 'InvoiceGeneratorWidget'),
+  'email-signature-generator': lazyUtility(() => import('./utilities/GeneratorUtilityWidgets'), 'EmailSignatureWidget'),
+  'privacy-policy-generator': lazyUtility(() => import('./utilities/GeneratorUtilityWidgets'), 'PrivacyPolicyWidget'),
+  'business-name-generator': lazyUtility(() => import('./utilities/GeneratorUtilityWidgets'), 'BusinessNameGeneratorWidget'),
+  'username-generator': lazyUtility(() => import('./utilities/GeneratorUtilityWidgets'), 'UsernameGeneratorWidget'),
+  'random-number-generator': lazyUtility(() => import('./utilities/GeneratorUtilityWidgets'), 'RandomNumberGeneratorWidget'),
+  'placeholder-image-generator': lazyUtility(() => import('./utilities/GeneratorUtilityWidgets'), 'PlaceholderImageWidget'),
+  'image-to-pdf': lazyUtility(() => import('./utilities/GeneratorUtilityWidgets'), 'ImageToPdfWidget'),
+  'image-cropper': lazyUtility(() => import('./utilities/GeneratorUtilityWidgets'), 'ImageCropperWidget'),
+  'fake-data-generator': lazyUtility(() => import('./utilities/GeneratorUtilityWidgets'), 'FakeDataGeneratorWidget'),
+};
+
 interface ToolInteractiveWidgetProps {
   tool: ToolRegistryItem;
 }
 
 export const ToolInteractiveWidget: React.FC<ToolInteractiveWidgetProps> = ({ tool }) => {
+  const MatchedUtilityWidget = UTILITY_WIDGET_MAP[tool.id];
+  if (MatchedUtilityWidget) {
+    return (
+      <Suspense
+        fallback={
+          <div className="bg-white rounded-2xl border border-brand-200 p-10 flex items-center justify-center">
+            <div className="w-6 h-6 border-2 border-accent-600 border-t-transparent rounded-full animate-spin" />
+          </div>
+        }
+      >
+        <MatchedUtilityWidget />
+      </Suspense>
+    );
+  }
+
   const [copied, setCopied] = useState(false);
 
   // General inputs

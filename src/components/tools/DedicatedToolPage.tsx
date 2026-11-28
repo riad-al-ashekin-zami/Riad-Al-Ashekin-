@@ -75,20 +75,35 @@ export const DedicatedToolPage: React.FC<DedicatedToolPageProps> = ({ tool, onNa
     }))
   } : null;
 
-  const appSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": tool.name,
-    "url": tool.canonicalUrl,
-    "applicationCategory": "SEOApplication",
-    "operatingSystem": "All",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "description": tool.metaDescription
-  };
+  const appSchema = tool.schemaType === 'SoftwareApplication'
+    ? {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": tool.name,
+        "url": tool.canonicalUrl,
+        "applicationCategory": tool.softwareApplicationCategory || "UtilitiesApplication",
+        "operatingSystem": "Any (web browser)",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "description": tool.metaDescription
+      }
+    : {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": tool.name,
+        "url": tool.canonicalUrl,
+        "applicationCategory": "SEOApplication",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "description": tool.metaDescription
+      };
 
   return (
     <div className="w-full min-h-screen bg-[#f9f8fc] text-brand-950 flex flex-col">

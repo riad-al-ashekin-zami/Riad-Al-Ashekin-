@@ -1,0 +1,778 @@
+==================== PROMPT 1 of 10 — Text tools 1 ====================
+
+Build 5 NEW tool pages in ONE pass. Match the existing tool pages exactly: same layout, header, footer, typography, colors and the same content-section structure as /character-counter/.
+Do not change any existing page, URL or tool, except adding the new tools to /seo-tools/ and the sitemaps as described below.
+
+GENERAL RULES FOR EVERY NEW TOOL
+- The tool must run fully in the browser (no server, no paid API, no sign-up). Nothing the user types or uploads is sent anywhere.
+- Fully responsive on desktop, tablet and mobile. No horizontal scroll. Buttons large enough to tap. Visible keyboard focus.
+- Clear error messages for invalid input. A "Copy" button on every text result (with a short "Copied" confirmation).
+- URL: exactly the slug given, with trailing slash. Self-referencing canonical. Return 200.
+- <title>: exactly as given. H1: tool name + short description WITHOUT " | Riad Al Ashekin".
+- Meta description and og:description: exactly as given.
+- Content BELOW the tool, 400–700 words, in the pre-rendered HTML (not loaded later by JavaScript):
+  H2 "How to use the [Tool name]" (3–5 numbered steps)
+  H2 "What the [Tool name] does" (only features that really exist in your code)
+  H2 "Example" (one short realistic input and the real output)
+  H2 "Frequently asked questions" (4 questions, short answers) + FAQPage JSON-LD with the exact same wording
+  H2 "Related tools" (the 3 links given, as plain <a href> links)
+- Add SoftwareApplication JSON-LD: name, applicationCategory "UtilitiesApplication" (or "DeveloperApplication" for developer tools), operatingSystem "Any (web browser)", offers price "0". Do NOT add ratings or review counts.
+- Formulas in calculators: show the formula on the page, and use exactly that formula in the code.
+- Do NOT invent statistics, user numbers, ratings, awards, testimonials or legal/financial guarantees.
+- Plain, simple English.
+
+SITE INTEGRATION
+- /seo-tools/: add each new tool under an H2 category "Utility tools" (create it once if it does not exist; reuse it in later batches), as a plain <a href> link with the tool name and a one-line description, in the pre-rendered HTML.
+- Add each new URL to sitemap.xml and to the HTML sitemap page /sitemap/.
+- Only link to "Related tools" that exist. If a related URL does not exist yet, link to it only after it is built; otherwise replace it with /seo-tools/.
+
+THE 5 TOOLS
+
+1) Case Converter
+- URL: /case-converter/
+- <title>: Case Converter - Change Text to Upper, Lower, Title & Sentence Case | Riad Al Ashekin
+- Meta description: Convert text to UPPERCASE, lowercase, Title Case, Sentence case, camelCase, snake_case and kebab-case online. Paste text and copy the result.
+- H1: Case Converter - Change Text to Upper, Lower, Title & Sentence Case
+- What the tool must do: Textarea input; buttons for UPPERCASE, lowercase, Title Case, Sentence case, camelCase, snake_case, kebab-case; live result box; copy and clear buttons; character count of result.
+- FAQ topics: difference between title case and sentence case; what camelCase and snake_case are used for; does it change numbers or symbols
+- Related tools: /remove-extra-spaces/, /find-and-replace-text/, /character-counter/
+
+2) Remove Duplicate Lines
+- URL: /remove-duplicate-lines/
+- <title>: Remove Duplicate Lines - Delete Repeated Lines from Text | Riad Al Ashekin
+- Meta description: Remove duplicate lines from any list or text online. Options for case-sensitive matching, trimming spaces and removing empty lines. Copy the clean list.
+- H1: Remove Duplicate Lines - Delete Repeated Lines from Text
+- What the tool must do: Textarea input; options: case-sensitive on/off, trim spaces, remove empty lines, keep first occurrence; output box; counts of lines before/after and duplicates removed; copy button.
+- FAQ topics: does it keep the original order; is matching case-sensitive; how large a list can it handle (say it runs in the browser, depends on device)
+- Related tools: /sort-lines/, /comma-separator/, /remove-line-breaks/
+
+3) Sort Lines
+- URL: /sort-lines/
+- <title>: Sort Lines - Sort Text Lines Alphabetically or by Length | Riad Al Ashekin
+- Meta description: Sort lines of text A to Z, Z to A, by length or numerically. Option to remove duplicates and empty lines. Free online line sorter.
+- H1: Sort Lines - Sort Text Lines Alphabetically or by Length
+- What the tool must do: Textarea; sort modes: A–Z, Z–A, numeric ascending/descending, by length, random shuffle; options: case-insensitive, remove empty lines, remove duplicates; output; copy.
+- FAQ topics: how numeric sort differs from alphabetical sort; can it sort numbers with decimals; does it change line content
+- Related tools: /remove-duplicate-lines/, /comma-separator/, /reverse-text/
+
+4) Remove Line Breaks
+- URL: /remove-line-breaks/
+- <title>: Remove Line Breaks - Join Lines & Remove Paragraph Breaks | Riad Al Ashekin
+- Meta description: Remove line breaks from text copied from PDFs or emails. Keep paragraph breaks or join everything into one line, with a custom separator.
+- H1: Remove Line Breaks - Join Lines & Remove Paragraph Breaks
+- What the tool must do: Textarea; modes: remove all line breaks, keep paragraph breaks (double line breaks), replace line breaks with a custom separator (space, comma, custom); output; copy.
+- FAQ topics: why text copied from a PDF has line breaks; how to keep paragraphs; can I replace line breaks with commas
+- Related tools: /remove-extra-spaces/, /comma-separator/, /find-and-replace-text/
+
+5) Remove Extra Spaces
+- URL: /remove-extra-spaces/
+- <title>: Remove Extra Spaces - Clean Up Double Spaces, Tabs & Whitespace | Riad Al Ashekin
+- Meta description: Remove double spaces, leading and trailing spaces, tabs and blank lines from text online. Clean whitespace in one click and copy the result.
+- H1: Remove Extra Spaces - Clean Up Double Spaces, Tabs & Whitespace
+- What the tool must do: Textarea; options: collapse multiple spaces, trim each line, convert tabs to spaces, remove blank lines, remove all spaces; output; count of characters removed; copy.
+- FAQ topics: what counts as whitespace; difference between trimming and collapsing spaces; does it remove non-breaking spaces (only if implemented)
+- Related tools: /remove-line-breaks/, /case-converter/, /html-cleaner/
+
+When finished, reply with one line per tool: URL works (200), H2s added, word count, FAQPage + SoftwareApplication schema added, and that it was added to /seo-tools/ and both sitemaps. Do not ask questions; if something is unclear, choose the simplest working option.
+
+
+==================== PROMPT 2 of 10 — Text tools 2 ====================
+
+Build 5 NEW tool pages in ONE pass. Match the existing tool pages exactly: same layout, header, footer, typography, colors and the same content-section structure as /character-counter/.
+Do not change any existing page, URL or tool, except adding the new tools to /seo-tools/ and the sitemaps as described below.
+
+GENERAL RULES FOR EVERY NEW TOOL
+- The tool must run fully in the browser (no server, no paid API, no sign-up). Nothing the user types or uploads is sent anywhere.
+- Fully responsive on desktop, tablet and mobile. No horizontal scroll. Buttons large enough to tap. Visible keyboard focus.
+- Clear error messages for invalid input. A "Copy" button on every text result (with a short "Copied" confirmation).
+- URL: exactly the slug given, with trailing slash. Self-referencing canonical. Return 200.
+- <title>: exactly as given. H1: tool name + short description WITHOUT " | Riad Al Ashekin".
+- Meta description and og:description: exactly as given.
+- Content BELOW the tool, 400–700 words, in the pre-rendered HTML (not loaded later by JavaScript):
+  H2 "How to use the [Tool name]" (3–5 numbered steps)
+  H2 "What the [Tool name] does" (only features that really exist in your code)
+  H2 "Example" (one short realistic input and the real output)
+  H2 "Frequently asked questions" (4 questions, short answers) + FAQPage JSON-LD with the exact same wording
+  H2 "Related tools" (the 3 links given, as plain <a href> links)
+- Add SoftwareApplication JSON-LD: name, applicationCategory "UtilitiesApplication" (or "DeveloperApplication" for developer tools), operatingSystem "Any (web browser)", offers price "0". Do NOT add ratings or review counts.
+- Formulas in calculators: show the formula on the page, and use exactly that formula in the code.
+- Do NOT invent statistics, user numbers, ratings, awards, testimonials or legal/financial guarantees.
+- Plain, simple English.
+
+SITE INTEGRATION
+- /seo-tools/: add each new tool under an H2 category "Utility tools" (create it once if it does not exist; reuse it in later batches), as a plain <a href> link with the tool name and a one-line description, in the pre-rendered HTML.
+- Add each new URL to sitemap.xml and to the HTML sitemap page /sitemap/.
+- Only link to "Related tools" that exist. If a related URL does not exist yet, link to it only after it is built; otherwise replace it with /seo-tools/.
+
+THE 5 TOOLS
+
+1) Find and Replace Text
+- URL: /find-and-replace-text/
+- <title>: Find and Replace Text - Replace Words in Text Online | Riad Al Ashekin
+- Meta description: Find and replace words or phrases in any text online. Options for case-sensitive, whole-word and regex matching, with a count of replacements.
+- H1: Find and Replace Text - Replace Words in Text Online
+- What the tool must do: Textarea; find field; replace field; options: case-sensitive, whole word, use regular expression; replace all; shows number of matches; output; copy.
+- FAQ topics: how to replace a word everywhere at once; what whole-word matching means; can I use regular expressions
+- Related tools: /regex-tester/, /case-converter/, /remove-extra-spaces/
+
+2) Reverse Text
+- URL: /reverse-text/
+- <title>: Reverse Text - Flip Text, Words or Lines Backwards | Riad Al Ashekin
+- Meta description: Reverse text online: flip every character, reverse word order or reverse line order. Free text reverser with copy button.
+- H1: Reverse Text - Flip Text, Words or Lines Backwards
+- What the tool must do: Textarea; modes: reverse characters, reverse word order, reverse line order, reverse each word; output; copy.
+- FAQ topics: difference between reversing characters and reversing words; does it work with emoji (only state what the code does); uses of reversed text
+- Related tools: /sort-lines/, /case-converter/, /text-to-binary/
+
+3) Text to Binary Converter
+- URL: /text-to-binary/
+- <title>: Text to Binary Converter - Convert Text to Binary & Binary to Text | Riad Al Ashekin
+- Meta description: Convert text to binary code and binary back to text online. Supports spaces between bytes and UTF-8 characters.
+- H1: Text to Binary Converter - Convert Text to Binary & Binary to Text
+- What the tool must do: Two-way: text→binary and binary→text; option for space-separated 8-bit bytes; UTF-8 encoding; output; copy; error message for invalid binary.
+- FAQ topics: how text is stored as binary; why each letter is 8 digits; can it convert binary back to text
+- Related tools: /morse-code-translator/, /base64-encode-decode/, /hash-generator/
+
+4) Morse Code Translator
+- URL: /morse-code-translator/
+- <title>: Morse Code Translator - Convert Text to Morse Code & Back | Riad Al Ashekin
+- Meta description: Translate text to Morse code and Morse code to text online. Uses International Morse code, with optional audio playback.
+- H1: Morse Code Translator - Convert Text to Morse Code & Back
+- What the tool must do: Two-way text↔Morse using International Morse code; letter separator space, word separator slash; optional play-sound button using the Web Audio API with speed setting; copy.
+- FAQ topics: what International Morse code is; how letters and words are separated; what SOS looks like in Morse
+- Related tools: /text-to-binary/, /reverse-text/, /case-converter/
+
+5) Random Name Picker
+- URL: /random-name-picker/
+- <title>: Random Name Picker - Pick a Random Winner from a List | Riad Al Ashekin
+- Meta description: Pick a random name or winner from a list online. Paste names, choose how many to draw, and remove picked names for the next round.
+- H1: Random Name Picker - Pick a Random Winner from a List
+- What the tool must do: Textarea one name per line; number of winners; option to remove picked names from the list; pick button; shows result; uses crypto.getRandomValues for randomness; history of picks in this session.
+- FAQ topics: is the pick truly random (explain crypto.getRandomValues); can I pick more than one winner; are names saved anywhere (no, stays in browser)
+- Related tools: /random-number-generator/, /remove-duplicate-lines/, /sort-lines/
+
+When finished, reply with one line per tool: URL works (200), H2s added, word count, FAQPage + SoftwareApplication schema added, and that it was added to /seo-tools/ and both sitemaps. Do not ask questions; if something is unclear, choose the simplest working option.
+
+
+==================== PROMPT 3 of 10 — Developer tools 1 ====================
+
+Build 5 NEW tool pages in ONE pass. Match the existing tool pages exactly: same layout, header, footer, typography, colors and the same content-section structure as /character-counter/.
+Do not change any existing page, URL or tool, except adding the new tools to /seo-tools/ and the sitemaps as described below.
+
+GENERAL RULES FOR EVERY NEW TOOL
+- The tool must run fully in the browser (no server, no paid API, no sign-up). Nothing the user types or uploads is sent anywhere.
+- Fully responsive on desktop, tablet and mobile. No horizontal scroll. Buttons large enough to tap. Visible keyboard focus.
+- Clear error messages for invalid input. A "Copy" button on every text result (with a short "Copied" confirmation).
+- URL: exactly the slug given, with trailing slash. Self-referencing canonical. Return 200.
+- <title>: exactly as given. H1: tool name + short description WITHOUT " | Riad Al Ashekin".
+- Meta description and og:description: exactly as given.
+- Content BELOW the tool, 400–700 words, in the pre-rendered HTML (not loaded later by JavaScript):
+  H2 "How to use the [Tool name]" (3–5 numbered steps)
+  H2 "What the [Tool name] does" (only features that really exist in your code)
+  H2 "Example" (one short realistic input and the real output)
+  H2 "Frequently asked questions" (4 questions, short answers) + FAQPage JSON-LD with the exact same wording
+  H2 "Related tools" (the 3 links given, as plain <a href> links)
+- Add SoftwareApplication JSON-LD: name, applicationCategory "UtilitiesApplication" (or "DeveloperApplication" for developer tools), operatingSystem "Any (web browser)", offers price "0". Do NOT add ratings or review counts.
+- Formulas in calculators: show the formula on the page, and use exactly that formula in the code.
+- Do NOT invent statistics, user numbers, ratings, awards, testimonials or legal/financial guarantees.
+- Plain, simple English.
+
+SITE INTEGRATION
+- /seo-tools/: add each new tool under an H2 category "Utility tools" (create it once if it does not exist; reuse it in later batches), as a plain <a href> link with the tool name and a one-line description, in the pre-rendered HTML.
+- Add each new URL to sitemap.xml and to the HTML sitemap page /sitemap/.
+- Only link to "Related tools" that exist. If a related URL does not exist yet, link to it only after it is built; otherwise replace it with /seo-tools/.
+
+THE 5 TOOLS
+
+1) Base64 Encode & Decode
+- URL: /base64-encode-decode/
+- <title>: Base64 Encode & Decode - Encode & Decode Base64 Online | Riad Al Ashekin
+- Meta description: Encode text to Base64 or decode Base64 to text online. Supports UTF-8 and URL-safe Base64. Runs in your browser.
+- H1: Base64 Encode & Decode - Encode & Decode Base64 Online
+- What the tool must do: Two-way text↔Base64; UTF-8 safe; URL-safe option (- and _); error message for invalid input; copy.
+- FAQ topics: what Base64 is used for; is Base64 encryption (no); what URL-safe Base64 is
+- Related tools: /url-encoder/, /hash-generator/, /jwt-decoder/
+
+2) QR Code Generator
+- URL: /qr-code-generator/
+- <title>: QR Code Generator - Create Free QR Codes for URLs & Text | Riad Al Ashekin
+- Meta description: Create QR codes for links, text, email, phone and Wi-Fi online. Choose size and colors, then download as PNG or SVG. No sign-up.
+- H1: QR Code Generator - Create Free QR Codes for URLs & Text
+- What the tool must do: Types: URL, text, email, phone, Wi-Fi (SSID, password, encryption); size; foreground/background color; error correction level; live preview; download PNG and SVG. Use a client-side QR library.
+- FAQ topics: do these QR codes expire (static codes do not); PNG vs SVG; what error correction means
+- Related tools: /utm-builder/, /url-cleaner/, /placeholder-image-generator/
+
+3) UUID Generator
+- URL: /uuid-generator/
+- <title>: UUID Generator - Generate Random UUID v4 Online | Riad Al Ashekin
+- Meta description: Generate random UUID v4 values online. Create one or many at once, choose uppercase or no hyphens, and copy them in one click.
+- H1: UUID Generator - Generate Random UUID v4 Online
+- What the tool must do: Generate UUID v4 using crypto.randomUUID (fallback crypto.getRandomValues); quantity 1–1000; options uppercase, without hyphens; list output; copy all.
+- FAQ topics: what a UUID is; what v4 means; can two UUIDs be the same (extremely unlikely, explain)
+- Related tools: /random-number-generator/, /hash-generator/, /random-password-generator/
+
+4) Hash Generator
+- URL: /hash-generator/
+- <title>: Hash Generator - MD5, SHA-1, SHA-256 & SHA-512 Online | Riad Al Ashekin
+- Meta description: Generate MD5, SHA-1, SHA-256 and SHA-512 hashes from text online. Hashing runs in your browser, so your text is not sent anywhere.
+- H1: Hash Generator - MD5, SHA-1, SHA-256 & SHA-512 Online
+- What the tool must do: Text input; outputs MD5, SHA-1, SHA-256, SHA-384, SHA-512 (Web Crypto for SHA, small JS lib for MD5); lowercase/uppercase hex; copy each.
+- FAQ topics: what a hash is; can a hash be reversed; why MD5 and SHA-1 should not be used for passwords
+- Related tools: /base64-encode-decode/, /uuid-generator/, /random-password-generator/
+
+5) JWT Decoder
+- URL: /jwt-decoder/
+- <title>: JWT Decoder - Decode JSON Web Tokens Online | Riad Al Ashekin
+- Meta description: Decode a JWT and read its header and payload online. Shows expiry and issued-at times. Decoding runs in your browser.
+- H1: JWT Decoder - Decode JSON Web Tokens Online
+- What the tool must do: Paste JWT; decode header and payload (Base64URL) into formatted JSON; show exp, iat, nbf as readable dates and whether expired; note that signature is NOT verified.
+- FAQ topics: does decoding verify the signature (no); is it safe to paste a token (decoding is local, but don't share live tokens); what exp and iat mean
+- Related tools: /base64-encode-decode/, /json-formatter/, /unix-timestamp-converter/
+
+When finished, reply with one line per tool: URL works (200), H2s added, word count, FAQPage + SoftwareApplication schema added, and that it was added to /seo-tools/ and both sitemaps. Do not ask questions; if something is unclear, choose the simplest working option.
+
+
+==================== PROMPT 4 of 10 — Developer tools 2 ====================
+
+Build 5 NEW tool pages in ONE pass. Match the existing tool pages exactly: same layout, header, footer, typography, colors and the same content-section structure as /character-counter/.
+Do not change any existing page, URL or tool, except adding the new tools to /seo-tools/ and the sitemaps as described below.
+
+GENERAL RULES FOR EVERY NEW TOOL
+- The tool must run fully in the browser (no server, no paid API, no sign-up). Nothing the user types or uploads is sent anywhere.
+- Fully responsive on desktop, tablet and mobile. No horizontal scroll. Buttons large enough to tap. Visible keyboard focus.
+- Clear error messages for invalid input. A "Copy" button on every text result (with a short "Copied" confirmation).
+- URL: exactly the slug given, with trailing slash. Self-referencing canonical. Return 200.
+- <title>: exactly as given. H1: tool name + short description WITHOUT " | Riad Al Ashekin".
+- Meta description and og:description: exactly as given.
+- Content BELOW the tool, 400–700 words, in the pre-rendered HTML (not loaded later by JavaScript):
+  H2 "How to use the [Tool name]" (3–5 numbered steps)
+  H2 "What the [Tool name] does" (only features that really exist in your code)
+  H2 "Example" (one short realistic input and the real output)
+  H2 "Frequently asked questions" (4 questions, short answers) + FAQPage JSON-LD with the exact same wording
+  H2 "Related tools" (the 3 links given, as plain <a href> links)
+- Add SoftwareApplication JSON-LD: name, applicationCategory "UtilitiesApplication" (or "DeveloperApplication" for developer tools), operatingSystem "Any (web browser)", offers price "0". Do NOT add ratings or review counts.
+- Formulas in calculators: show the formula on the page, and use exactly that formula in the code.
+- Do NOT invent statistics, user numbers, ratings, awards, testimonials or legal/financial guarantees.
+- Plain, simple English.
+
+SITE INTEGRATION
+- /seo-tools/: add each new tool under an H2 category "Utility tools" (create it once if it does not exist; reuse it in later batches), as a plain <a href> link with the tool name and a one-line description, in the pre-rendered HTML.
+- Add each new URL to sitemap.xml and to the HTML sitemap page /sitemap/.
+- Only link to "Related tools" that exist. If a related URL does not exist yet, link to it only after it is built; otherwise replace it with /seo-tools/.
+
+THE 5 TOOLS
+
+1) Regex Tester
+- URL: /regex-tester/
+- <title>: Regex Tester - Test JavaScript Regular Expressions Online | Riad Al Ashekin
+- Meta description: Test regular expressions online with live match highlighting, capture groups and flags. Uses the JavaScript regex engine.
+- H1: Regex Tester - Test JavaScript Regular Expressions Online
+- What the tool must do: Pattern input; flags g, i, m, s, u; test string textarea; live highlighting of matches; list of matches with capture groups and index; error message for invalid pattern.
+- FAQ topics: which regex flavor it uses (JavaScript); what the g, i and m flags do; how capture groups work
+- Related tools: /find-and-replace-text/, /url-parser/, /json-validator/
+
+2) Cron Expression Generator
+- URL: /cron-expression-generator/
+- <title>: Cron Expression Generator - Build & Explain Cron Schedules | Riad Al Ashekin
+- Meta description: Build cron expressions with a simple form and read any cron schedule in plain English. Shows the next run times.
+- H1: Cron Expression Generator - Build & Explain Cron Schedules
+- What the tool must do: Form fields for minute, hour, day of month, month, day of week; generated 5-field expression; paste an expression to get a plain-English explanation; next 5 run times in the user's time zone.
+- FAQ topics: what the 5 fields of a cron expression mean; what */5 means; is the schedule in UTC or local time (explain depends on server)
+- Related tools: /unix-timestamp-converter/, /time-zone-converter/, /regex-tester/
+
+3) CSV to JSON Converter
+- URL: /csv-to-json/
+- <title>: CSV to JSON Converter - Convert CSV Files to JSON Online | Riad Al Ashekin
+- Meta description: Convert CSV to JSON online. Upload a file or paste data, choose the delimiter and header row, then copy or download the JSON.
+- H1: CSV to JSON Converter - Convert CSV Files to JSON Online
+- What the tool must do: Paste or upload .csv; delimiter auto/comma/semicolon/tab; first row as headers on/off; output array of objects or arrays; pretty-print; copy and download .json. Process in browser.
+- FAQ topics: does my file get uploaded to a server (no); how quoted values with commas are handled; what if there is no header row
+- Related tools: /json-to-csv/, /json-formatter/, /yaml-to-json/
+
+4) JSON to CSV Converter
+- URL: /json-to-csv/
+- <title>: JSON to CSV Converter - Convert JSON to CSV for Excel | Riad Al Ashekin
+- Meta description: Convert JSON arrays to CSV online for Excel or Google Sheets. Nested fields are flattened. Copy the result or download a .csv file.
+- H1: JSON to CSV Converter - Convert JSON to CSV for Excel
+- What the tool must do: Paste or upload JSON array; flatten nested objects with dot notation; choose delimiter; table preview; copy and download .csv.
+- FAQ topics: what JSON structure works best; how nested objects are handled; will it open in Excel
+- Related tools: /csv-to-json/, /json-validator/, /json-formatter/
+
+5) YAML to JSON Converter
+- URL: /yaml-to-json/
+- <title>: YAML to JSON Converter - Convert YAML to JSON & JSON to YAML | Riad Al Ashekin
+- Meta description: Convert YAML to JSON and JSON to YAML online. Validates syntax and shows clear error messages with line numbers.
+- H1: YAML to JSON Converter - Convert YAML to JSON & JSON to YAML
+- What the tool must do: Two-way YAML↔JSON using a client-side YAML parser; indentation option; error messages with line number; copy.
+- FAQ topics: difference between YAML and JSON; why YAML indentation errors happen; are comments kept (no, JSON has no comments)
+- Related tools: /json-formatter/, /csv-to-json/, /xml-formatter/
+
+When finished, reply with one line per tool: URL works (200), H2s added, word count, FAQPage + SoftwareApplication schema added, and that it was added to /seo-tools/ and both sitemaps. Do not ask questions; if something is unclear, choose the simplest working option.
+
+
+==================== PROMPT 5 of 10 — Developer tools 3 ====================
+
+Build 5 NEW tool pages in ONE pass. Match the existing tool pages exactly: same layout, header, footer, typography, colors and the same content-section structure as /character-counter/.
+Do not change any existing page, URL or tool, except adding the new tools to /seo-tools/ and the sitemaps as described below.
+
+GENERAL RULES FOR EVERY NEW TOOL
+- The tool must run fully in the browser (no server, no paid API, no sign-up). Nothing the user types or uploads is sent anywhere.
+- Fully responsive on desktop, tablet and mobile. No horizontal scroll. Buttons large enough to tap. Visible keyboard focus.
+- Clear error messages for invalid input. A "Copy" button on every text result (with a short "Copied" confirmation).
+- URL: exactly the slug given, with trailing slash. Self-referencing canonical. Return 200.
+- <title>: exactly as given. H1: tool name + short description WITHOUT " | Riad Al Ashekin".
+- Meta description and og:description: exactly as given.
+- Content BELOW the tool, 400–700 words, in the pre-rendered HTML (not loaded later by JavaScript):
+  H2 "How to use the [Tool name]" (3–5 numbered steps)
+  H2 "What the [Tool name] does" (only features that really exist in your code)
+  H2 "Example" (one short realistic input and the real output)
+  H2 "Frequently asked questions" (4 questions, short answers) + FAQPage JSON-LD with the exact same wording
+  H2 "Related tools" (the 3 links given, as plain <a href> links)
+- Add SoftwareApplication JSON-LD: name, applicationCategory "UtilitiesApplication" (or "DeveloperApplication" for developer tools), operatingSystem "Any (web browser)", offers price "0". Do NOT add ratings or review counts.
+- Formulas in calculators: show the formula on the page, and use exactly that formula in the code.
+- Do NOT invent statistics, user numbers, ratings, awards, testimonials or legal/financial guarantees.
+- Plain, simple English.
+
+SITE INTEGRATION
+- /seo-tools/: add each new tool under an H2 category "Utility tools" (create it once if it does not exist; reuse it in later batches), as a plain <a href> link with the tool name and a one-line description, in the pre-rendered HTML.
+- Add each new URL to sitemap.xml and to the HTML sitemap page /sitemap/.
+- Only link to "Related tools" that exist. If a related URL does not exist yet, link to it only after it is built; otherwise replace it with /seo-tools/.
+
+THE 5 TOOLS
+
+1) Unix Timestamp Converter
+- URL: /unix-timestamp-converter/
+- <title>: Unix Timestamp Converter - Epoch Time to Date & Date to Timestamp | Riad Al Ashekin
+- Meta description: Convert Unix timestamps to readable dates and dates to epoch time online. Supports seconds and milliseconds, in UTC and your local time.
+- H1: Unix Timestamp Converter - Epoch Time to Date & Date to Timestamp
+- What the tool must do: Live current timestamp; timestamp→date (auto-detect seconds vs milliseconds) shown in UTC, local time and ISO 8601; date/time→timestamp; copy.
+- FAQ topics: what a Unix timestamp is; seconds vs milliseconds; what the year 2038 problem is
+- Related tools: /time-zone-converter/, /date-difference-calculator/, /cron-expression-generator/
+
+2) HEX to RGB Converter
+- URL: /hex-to-rgb/
+- <title>: HEX to RGB Converter - Convert HEX, RGB & HSL Colors | Riad Al Ashekin
+- Meta description: Convert HEX color codes to RGB and HSL, and RGB back to HEX, online. Includes a color picker and a live preview.
+- H1: HEX to RGB Converter - Convert HEX, RGB & HSL Colors
+- What the tool must do: Input HEX (3/6/8 digit), RGB(A) or HSL(A); outputs all formats; native color picker; live swatch; copy buttons; basic contrast ratio against white and black.
+- FAQ topics: difference between HEX and RGB; what the alpha value is; what a good contrast ratio is (state WCAG guideline as a guideline)
+- Related tools: /css-gradient-generator/, /box-shadow-generator/, /favicon-generator/
+
+3) CSS Gradient Generator
+- URL: /css-gradient-generator/
+- <title>: CSS Gradient Generator - Create Linear & Radial Gradients | Riad Al Ashekin
+- Meta description: Create linear and radial CSS gradients with a visual editor. Add color stops, set the angle and copy the CSS code.
+- H1: CSS Gradient Generator - Create Linear & Radial Gradients
+- What the tool must do: Linear/radial; angle; add/remove color stops with position; live preview; CSS output; copy; a few starter presets created by you (no brand names).
+- FAQ topics: linear vs radial gradient; do gradients work in all modern browsers; how to add transparency
+- Related tools: /hex-to-rgb/, /box-shadow-generator/, /css-minifier/
+
+4) CSS Box Shadow Generator
+- URL: /box-shadow-generator/
+- <title>: CSS Box Shadow Generator - Create CSS Box Shadows Visually | Riad Al Ashekin
+- Meta description: Create CSS box-shadow effects with sliders for offset, blur, spread and color. Preview live and copy the CSS code.
+- H1: CSS Box Shadow Generator - Create CSS Box Shadows Visually
+- What the tool must do: Sliders: x, y, blur, spread; color with opacity; inset toggle; multiple layers; live preview card; CSS output; copy.
+- FAQ topics: what blur vs spread does; how to make an inner shadow; can I stack multiple shadows
+- Related tools: /css-gradient-generator/, /hex-to-rgb/, /css-minifier/
+
+5) HTML Entity Encoder & Decoder
+- URL: /html-entity-encoder/
+- <title>: HTML Entity Encoder & Decoder - Escape & Unescape HTML Characters | Riad Al Ashekin
+- Meta description: Encode special characters to HTML entities or decode entities back to text online. Escape <, >, & and quotes for safe HTML.
+- H1: HTML Entity Encoder & Decoder - Escape & Unescape HTML Characters
+- What the tool must do: Two-way encode/decode; option encode only reserved characters or all non-ASCII; output; copy.
+- FAQ topics: which characters must be escaped in HTML; named vs numeric entities; why escaping helps prevent broken HTML
+- Related tools: /html-cleaner/, /url-encoder/, /markdown-to-html/
+
+When finished, reply with one line per tool: URL works (200), H2s added, word count, FAQPage + SoftwareApplication schema added, and that it was added to /seo-tools/ and both sitemaps. Do not ask questions; if something is unclear, choose the simplest working option.
+
+
+==================== PROMPT 6 of 10 — Calculators 1 ====================
+
+Build 5 NEW tool pages in ONE pass. Match the existing tool pages exactly: same layout, header, footer, typography, colors and the same content-section structure as /character-counter/.
+Do not change any existing page, URL or tool, except adding the new tools to /seo-tools/ and the sitemaps as described below.
+
+GENERAL RULES FOR EVERY NEW TOOL
+- The tool must run fully in the browser (no server, no paid API, no sign-up). Nothing the user types or uploads is sent anywhere.
+- Fully responsive on desktop, tablet and mobile. No horizontal scroll. Buttons large enough to tap. Visible keyboard focus.
+- Clear error messages for invalid input. A "Copy" button on every text result (with a short "Copied" confirmation).
+- URL: exactly the slug given, with trailing slash. Self-referencing canonical. Return 200.
+- <title>: exactly as given. H1: tool name + short description WITHOUT " | Riad Al Ashekin".
+- Meta description and og:description: exactly as given.
+- Content BELOW the tool, 400–700 words, in the pre-rendered HTML (not loaded later by JavaScript):
+  H2 "How to use the [Tool name]" (3–5 numbered steps)
+  H2 "What the [Tool name] does" (only features that really exist in your code)
+  H2 "Example" (one short realistic input and the real output)
+  H2 "Frequently asked questions" (4 questions, short answers) + FAQPage JSON-LD with the exact same wording
+  H2 "Related tools" (the 3 links given, as plain <a href> links)
+- Add SoftwareApplication JSON-LD: name, applicationCategory "UtilitiesApplication" (or "DeveloperApplication" for developer tools), operatingSystem "Any (web browser)", offers price "0". Do NOT add ratings or review counts.
+- Formulas in calculators: show the formula on the page, and use exactly that formula in the code.
+- Do NOT invent statistics, user numbers, ratings, awards, testimonials or legal/financial guarantees.
+- Plain, simple English.
+
+SITE INTEGRATION
+- /seo-tools/: add each new tool under an H2 category "Utility tools" (create it once if it does not exist; reuse it in later batches), as a plain <a href> link with the tool name and a one-line description, in the pre-rendered HTML.
+- Add each new URL to sitemap.xml and to the HTML sitemap page /sitemap/.
+- Only link to "Related tools" that exist. If a related URL does not exist yet, link to it only after it is built; otherwise replace it with /seo-tools/.
+
+THE 5 TOOLS
+
+1) Percentage Calculator
+- URL: /percentage-calculator/
+- <title>: Percentage Calculator - Calculate Percentages, Increase & Decrease | Riad Al Ashekin
+- Meta description: Calculate percentages online: X% of Y, X is what percent of Y, and percentage increase or decrease, with the formula shown.
+- H1: Percentage Calculator - Calculate Percentages, Increase & Decrease
+- What the tool must do: Three modes: what is X% of Y; X is what % of Y; % change from X to Y; results update live; show the formula used for each result.
+- FAQ topics: how to calculate a percentage of a number; how to calculate percentage increase; percentage vs percentage points
+- Related tools: /discount-calculator/, /profit-margin-calculator/, /sales-tax-calculator/
+
+2) Age Calculator
+- URL: /age-calculator/
+- <title>: Age Calculator - Calculate Exact Age in Years, Months & Days | Riad Al Ashekin
+- Meta description: Calculate exact age from date of birth in years, months and days online. Also shows total days, weeks and the next birthday.
+- H1: Age Calculator - Calculate Exact Age in Years, Months & Days
+- What the tool must do: Date of birth; 'age at' date (default today); output years, months, days; total months, weeks, days; days until next birthday.
+- FAQ topics: how leap years are handled; can I calculate age on a past or future date; why months have different lengths affects result
+- Related tools: /date-difference-calculator/, /countdown-timer/, /unix-timestamp-converter/
+
+3) Date Difference Calculator
+- URL: /date-difference-calculator/
+- <title>: Date Difference Calculator - Days Between Two Dates | Riad Al Ashekin
+- Meta description: Calculate the number of days, weeks, months and years between two dates online. Option to include the end date and count business days.
+- H1: Date Difference Calculator - Days Between Two Dates
+- What the tool must do: Start and end date; include end date toggle; result in days, weeks, months+days, years; business days (Mon–Fri) count; add/subtract days from a date.
+- FAQ topics: does it count the end date; how business days are counted (weekends only, no public holidays); how to add days to a date
+- Related tools: /age-calculator/, /countdown-timer/, /time-zone-converter/
+
+4) Loan EMI Calculator
+- URL: /emi-calculator/
+- <title>: Loan EMI Calculator - Monthly Payment & Interest Calculator | Riad Al Ashekin
+- Meta description: Calculate your monthly loan EMI, total interest and total payment online. Includes a full month-by-month amortization schedule.
+- H1: Loan EMI Calculator - Monthly Payment & Interest Calculator
+- What the tool must do: Loan amount; annual interest rate; tenure in months or years; EMI using standard reducing-balance formula; total interest; total payment; amortization table; currency-neutral.
+- FAQ topics: what EMI means; the EMI formula (show it); does the result include fees or insurance (no)
+- Related tools: /compound-interest-calculator/, /percentage-calculator/, /break-even-calculator/
+
+5) Compound Interest Calculator
+- URL: /compound-interest-calculator/
+- <title>: Compound Interest Calculator - Calculate Investment Growth Over Time | Riad Al Ashekin
+- Meta description: Calculate compound interest online with optional monthly contributions. See the future value, total interest and a year-by-year table.
+- H1: Compound Interest Calculator - Calculate Investment Growth Over Time
+- What the tool must do: Principal; annual rate; years; compounding frequency (yearly, quarterly, monthly, daily); optional regular contribution; future value; total interest; yearly table; currency-neutral.
+- FAQ topics: compound vs simple interest; how compounding frequency changes the result; formula (show it)
+- Related tools: /emi-calculator/, /percentage-calculator/, /profit-margin-calculator/
+
+When finished, reply with one line per tool: URL works (200), H2s added, word count, FAQPage + SoftwareApplication schema added, and that it was added to /seo-tools/ and both sitemaps. Do not ask questions; if something is unclear, choose the simplest working option.
+
+
+==================== PROMPT 7 of 10 — Calculators 2 ====================
+
+Build 5 NEW tool pages in ONE pass. Match the existing tool pages exactly: same layout, header, footer, typography, colors and the same content-section structure as /character-counter/.
+Do not change any existing page, URL or tool, except adding the new tools to /seo-tools/ and the sitemaps as described below.
+
+GENERAL RULES FOR EVERY NEW TOOL
+- The tool must run fully in the browser (no server, no paid API, no sign-up). Nothing the user types or uploads is sent anywhere.
+- Fully responsive on desktop, tablet and mobile. No horizontal scroll. Buttons large enough to tap. Visible keyboard focus.
+- Clear error messages for invalid input. A "Copy" button on every text result (with a short "Copied" confirmation).
+- URL: exactly the slug given, with trailing slash. Self-referencing canonical. Return 200.
+- <title>: exactly as given. H1: tool name + short description WITHOUT " | Riad Al Ashekin".
+- Meta description and og:description: exactly as given.
+- Content BELOW the tool, 400–700 words, in the pre-rendered HTML (not loaded later by JavaScript):
+  H2 "How to use the [Tool name]" (3–5 numbered steps)
+  H2 "What the [Tool name] does" (only features that really exist in your code)
+  H2 "Example" (one short realistic input and the real output)
+  H2 "Frequently asked questions" (4 questions, short answers) + FAQPage JSON-LD with the exact same wording
+  H2 "Related tools" (the 3 links given, as plain <a href> links)
+- Add SoftwareApplication JSON-LD: name, applicationCategory "UtilitiesApplication" (or "DeveloperApplication" for developer tools), operatingSystem "Any (web browser)", offers price "0". Do NOT add ratings or review counts.
+- Formulas in calculators: show the formula on the page, and use exactly that formula in the code.
+- Do NOT invent statistics, user numbers, ratings, awards, testimonials or legal/financial guarantees.
+- Plain, simple English.
+
+SITE INTEGRATION
+- /seo-tools/: add each new tool under an H2 category "Utility tools" (create it once if it does not exist; reuse it in later batches), as a plain <a href> link with the tool name and a one-line description, in the pre-rendered HTML.
+- Add each new URL to sitemap.xml and to the HTML sitemap page /sitemap/.
+- Only link to "Related tools" that exist. If a related URL does not exist yet, link to it only after it is built; otherwise replace it with /seo-tools/.
+
+THE 5 TOOLS
+
+1) Profit Margin Calculator
+- URL: /profit-margin-calculator/
+- <title>: Profit Margin Calculator - Gross Margin, Markup & Selling Price | Riad Al Ashekin
+- Meta description: Calculate profit margin, markup and selling price online. Enter cost and price, or cost and target margin, and see the profit instantly.
+- H1: Profit Margin Calculator - Gross Margin, Markup & Selling Price
+- What the tool must do: Modes: cost + price → profit, margin %, markup %; cost + margin % → price; cost + markup % → price; formulas shown.
+- FAQ topics: difference between margin and markup; how to price for a target margin; formula (show it)
+- Related tools: /break-even-calculator/, /discount-calculator/, /percentage-calculator/
+
+2) Discount Calculator
+- URL: /discount-calculator/
+- <title>: Discount Calculator - Sale Price & Savings Calculator | Riad Al Ashekin
+- Meta description: Calculate the sale price and how much you save with a percentage or fixed discount online. Supports a second discount and sales tax.
+- H1: Discount Calculator - Sale Price & Savings Calculator
+- What the tool must do: Original price; discount % or fixed amount; optional extra discount stacked; optional tax %; final price; savings; formula shown.
+- FAQ topics: how to calculate a discount; are two discounts the same as adding them (no, explain); is tax applied before or after discount (option)
+- Related tools: /percentage-calculator/, /sales-tax-calculator/, /profit-margin-calculator/
+
+3) Sales Tax & VAT Calculator
+- URL: /sales-tax-calculator/
+- <title>: Sales Tax & VAT Calculator - Add or Remove Tax from a Price | Riad Al Ashekin
+- Meta description: Add sales tax or VAT to a price, or remove it from a tax-inclusive price, online. Enter any tax rate and see net, tax and gross amounts.
+- H1: Sales Tax & VAT Calculator - Add or Remove Tax from a Price
+- What the tool must do: Mode add tax / remove tax; amount; tax rate %; net, tax amount, gross; formula shown; no preset country rates (user enters rate).
+- FAQ topics: how to remove VAT from a gross price (formula); difference between sales tax and VAT; why removing 20% is not the same as subtracting 20%
+- Related tools: /discount-calculator/, /percentage-calculator/, /profit-margin-calculator/
+
+4) Break-Even Calculator
+- URL: /break-even-calculator/
+- <title>: Break-Even Calculator - Find Your Break-Even Point in Units & Sales | Riad Al Ashekin
+- Meta description: Calculate your break-even point in units and revenue online. Enter fixed costs, price per unit and variable cost per unit.
+- H1: Break-Even Calculator - Find Your Break-Even Point in Units & Sales
+- What the tool must do: Fixed costs; price per unit; variable cost per unit; break-even units; break-even revenue; contribution margin; optional target profit → units needed; simple chart.
+- FAQ topics: what break-even point means; break-even formula (show it); what contribution margin is
+- Related tools: /profit-margin-calculator/, /roas-calculator/, /emi-calculator/
+
+5) CPM Calculator
+- URL: /cpm-calculator/
+- <title>: CPM Calculator - Cost per 1,000 Impressions | Riad Al Ashekin
+- Meta description: Calculate CPM, total ad cost or impressions online. Enter any two values to find the third, with the CPM formula shown.
+- H1: CPM Calculator - Cost per 1,000 Impressions
+- What the tool must do: Solve for any one of CPM, cost, impressions given the other two; formula shown; currency-neutral.
+- FAQ topics: what CPM means; CPM formula; CPM vs CPC
+- Related tools: /cpc-calculator/, /roas-calculator/, /conversion-rate-calculator/
+
+When finished, reply with one line per tool: URL works (200), H2s added, word count, FAQPage + SoftwareApplication schema added, and that it was added to /seo-tools/ and both sitemaps. Do not ask questions; if something is unclear, choose the simplest working option.
+
+
+==================== PROMPT 8 of 10 — Calculators 3 ====================
+
+Build 5 NEW tool pages in ONE pass. Match the existing tool pages exactly: same layout, header, footer, typography, colors and the same content-section structure as /character-counter/.
+Do not change any existing page, URL or tool, except adding the new tools to /seo-tools/ and the sitemaps as described below.
+
+GENERAL RULES FOR EVERY NEW TOOL
+- The tool must run fully in the browser (no server, no paid API, no sign-up). Nothing the user types or uploads is sent anywhere.
+- Fully responsive on desktop, tablet and mobile. No horizontal scroll. Buttons large enough to tap. Visible keyboard focus.
+- Clear error messages for invalid input. A "Copy" button on every text result (with a short "Copied" confirmation).
+- URL: exactly the slug given, with trailing slash. Self-referencing canonical. Return 200.
+- <title>: exactly as given. H1: tool name + short description WITHOUT " | Riad Al Ashekin".
+- Meta description and og:description: exactly as given.
+- Content BELOW the tool, 400–700 words, in the pre-rendered HTML (not loaded later by JavaScript):
+  H2 "How to use the [Tool name]" (3–5 numbered steps)
+  H2 "What the [Tool name] does" (only features that really exist in your code)
+  H2 "Example" (one short realistic input and the real output)
+  H2 "Frequently asked questions" (4 questions, short answers) + FAQPage JSON-LD with the exact same wording
+  H2 "Related tools" (the 3 links given, as plain <a href> links)
+- Add SoftwareApplication JSON-LD: name, applicationCategory "UtilitiesApplication" (or "DeveloperApplication" for developer tools), operatingSystem "Any (web browser)", offers price "0". Do NOT add ratings or review counts.
+- Formulas in calculators: show the formula on the page, and use exactly that formula in the code.
+- Do NOT invent statistics, user numbers, ratings, awards, testimonials or legal/financial guarantees.
+- Plain, simple English.
+
+SITE INTEGRATION
+- /seo-tools/: add each new tool under an H2 category "Utility tools" (create it once if it does not exist; reuse it in later batches), as a plain <a href> link with the tool name and a one-line description, in the pre-rendered HTML.
+- Add each new URL to sitemap.xml and to the HTML sitemap page /sitemap/.
+- Only link to "Related tools" that exist. If a related URL does not exist yet, link to it only after it is built; otherwise replace it with /seo-tools/.
+
+THE 5 TOOLS
+
+1) CPC Calculator
+- URL: /cpc-calculator/
+- <title>: CPC Calculator - Cost per Click Calculator | Riad Al Ashekin
+- Meta description: Calculate cost per click, total ad spend or clicks online. Enter any two values to get the third, plus CTR if you add impressions.
+- H1: CPC Calculator - Cost per Click Calculator
+- What the tool must do: Solve for CPC, cost or clicks from the other two; optional impressions → CTR; formula shown; currency-neutral.
+- FAQ topics: what CPC means; CPC formula; how CTR relates to CPC
+- Related tools: /cpm-calculator/, /conversion-rate-calculator/, /organic-ctr-calculator/
+
+2) Freelance Hourly Rate Calculator
+- URL: /freelance-rate-calculator/
+- <title>: Freelance Hourly Rate Calculator - Work Out What to Charge per Hour | Riad Al Ashekin
+- Meta description: Work out your freelance hourly rate from your income goal, expenses, billable hours and time off. See daily and project rates too.
+- H1: Freelance Hourly Rate Calculator - Work Out What to Charge per Hour
+- What the tool must do: Target yearly income; yearly business expenses; tax % estimate (user input); working weeks; billable hours per week; profit buffer %; results hourly, daily (8h), and per-project from hours estimate.
+- FAQ topics: what billable hours are; why freelance rates are higher than salary hourly rates; does it include taxes (only the % the user enters)
+- Related tools: /profit-margin-calculator/, /invoice-generator/, /break-even-calculator/
+
+3) Aspect Ratio Calculator
+- URL: /aspect-ratio-calculator/
+- <title>: Aspect Ratio Calculator - Resize Images & Video Without Distortion | Riad Al Ashekin
+- Meta description: Calculate aspect ratios and new width or height for images and video online. Common ratios like 16:9, 4:3 and 1:1 included.
+- H1: Aspect Ratio Calculator - Resize Images & Video Without Distortion
+- What the tool must do: Enter width+height → simplified ratio; enter ratio + width → height (and vice versa); preset ratios 16:9, 4:3, 1:1, 9:16, 21:9, 3:2; visual preview box.
+- FAQ topics: what aspect ratio means; how to resize without stretching; common ratios for video and social posts (only generic ratios, no platform claims)
+- Related tools: /image-resizer/, /image-dimension-checker/, /image-cropper/
+
+4) Time Zone Converter
+- URL: /time-zone-converter/
+- <title>: Time Zone Converter - Convert Time Between Time Zones | Riad Al Ashekin
+- Meta description: Convert a date and time between any time zones online. Handles daylight saving time automatically using your browser's time zone data.
+- H1: Time Zone Converter - Convert Time Between Time Zones
+- What the tool must do: Pick date/time and source zone; add multiple target zones; uses Intl API (IANA zones) incl. DST; show UTC offset; swap; 'now' button.
+- FAQ topics: does it handle daylight saving time (yes via browser data); what UTC offset means; UTC vs GMT
+- Related tools: /unix-timestamp-converter/, /date-difference-calculator/, /countdown-timer/
+
+5) Countdown Timer
+- URL: /countdown-timer/
+- <title>: Countdown Timer - Online Timer & Countdown to a Date | Riad Al Ashekin
+- Meta description: Set an online countdown timer in minutes or count down to any date. Full-screen mode and an alarm sound when time is up.
+- H1: Countdown Timer - Online Timer & Countdown to a Date
+- What the tool must do: Modes: timer (h:m:s) and countdown to date/time; start/pause/reset; full-screen; optional sound at end via Web Audio; keeps working if tab inactive (use timestamps, not interval counting).
+- FAQ topics: does it keep running in a background tab; can I count down to a date; does it work offline once loaded
+- Related tools: /date-difference-calculator/, /age-calculator/, /time-zone-converter/
+
+When finished, reply with one line per tool: URL works (200), H2s added, word count, FAQPage + SoftwareApplication schema added, and that it was added to /seo-tools/ and both sitemaps. Do not ask questions; if something is unclear, choose the simplest working option.
+
+
+==================== PROMPT 9 of 10 — Generators 1 ====================
+
+Build 5 NEW tool pages in ONE pass. Match the existing tool pages exactly: same layout, header, footer, typography, colors and the same content-section structure as /character-counter/.
+Do not change any existing page, URL or tool, except adding the new tools to /seo-tools/ and the sitemaps as described below.
+
+GENERAL RULES FOR EVERY NEW TOOL
+- The tool must run fully in the browser (no server, no paid API, no sign-up). Nothing the user types or uploads is sent anywhere.
+- Fully responsive on desktop, tablet and mobile. No horizontal scroll. Buttons large enough to tap. Visible keyboard focus.
+- Clear error messages for invalid input. A "Copy" button on every text result (with a short "Copied" confirmation).
+- URL: exactly the slug given, with trailing slash. Self-referencing canonical. Return 200.
+- <title>: exactly as given. H1: tool name + short description WITHOUT " | Riad Al Ashekin".
+- Meta description and og:description: exactly as given.
+- Content BELOW the tool, 400–700 words, in the pre-rendered HTML (not loaded later by JavaScript):
+  H2 "How to use the [Tool name]" (3–5 numbered steps)
+  H2 "What the [Tool name] does" (only features that really exist in your code)
+  H2 "Example" (one short realistic input and the real output)
+  H2 "Frequently asked questions" (4 questions, short answers) + FAQPage JSON-LD with the exact same wording
+  H2 "Related tools" (the 3 links given, as plain <a href> links)
+- Add SoftwareApplication JSON-LD: name, applicationCategory "UtilitiesApplication" (or "DeveloperApplication" for developer tools), operatingSystem "Any (web browser)", offers price "0". Do NOT add ratings or review counts.
+- Formulas in calculators: show the formula on the page, and use exactly that formula in the code.
+- Do NOT invent statistics, user numbers, ratings, awards, testimonials or legal/financial guarantees.
+- Plain, simple English.
+
+SITE INTEGRATION
+- /seo-tools/: add each new tool under an H2 category "Utility tools" (create it once if it does not exist; reuse it in later batches), as a plain <a href> link with the tool name and a one-line description, in the pre-rendered HTML.
+- Add each new URL to sitemap.xml and to the HTML sitemap page /sitemap/.
+- Only link to "Related tools" that exist. If a related URL does not exist yet, link to it only after it is built; otherwise replace it with /seo-tools/.
+
+THE 5 TOOLS
+
+1) Invoice Generator
+- URL: /invoice-generator/
+- <title>: Invoice Generator - Create & Download Free Invoices as PDF | Riad Al Ashekin
+- Meta description: Create a simple invoice online and download it as a PDF. Add your logo, line items, tax and discount. No sign-up, nothing stored.
+- H1: Invoice Generator - Create & Download Free Invoices as PDF
+- What the tool must do: Fields: from, to, invoice number, dates, currency text, line items (qty × price), tax %, discount, notes; optional logo upload; live preview; download PDF client-side; nothing saved to a server.
+- FAQ topics: is my invoice data stored (no); can I add tax and discount; is this invoice legally valid (say requirements vary by country; check local rules)
+- Related tools: /freelance-rate-calculator/, /sales-tax-calculator/, /email-signature-generator/
+
+2) Email Signature Generator
+- URL: /email-signature-generator/
+- <title>: Email Signature Generator - Create an HTML Email Signature | Riad Al Ashekin
+- Meta description: Create a professional HTML email signature online. Add your name, title, contact details, photo and links, then copy it into Gmail or Outlook.
+- H1: Email Signature Generator - Create an HTML Email Signature
+- What the tool must do: Fields: name, title, company, phone, email, website, address, photo URL, social links; 3 layouts you design yourself; live preview; copy as rich HTML and copy HTML source; brief steps for pasting.
+- FAQ topics: how to add the signature in Gmail and Outlook (general steps); why images may not show (hosted image URL needed); does it work on mobile
+- Related tools: /invoice-generator/, /qr-code-generator/, /hex-to-rgb/
+
+3) Privacy Policy Generator
+- URL: /privacy-policy-generator/
+- <title>: Privacy Policy Generator - Create a Basic Privacy Policy for a Website | Riad Al Ashekin
+- Meta description: Generate a basic privacy policy for your website or app from a short form. Copy the text or download it. Review it with a lawyer before use.
+- H1: Privacy Policy Generator - Create a Basic Privacy Policy for a Website
+- What the tool must do: Form: site name, URL, owner, contact email, country, data collected (checkboxes: contact form, analytics, cookies, newsletter, payments), third parties (free text); generates structured policy text; copy and download .txt/.html. Visible disclaimer: template, not legal advice.
+- FAQ topics: is this policy legally enough (no, template only, check local law like GDPR/CCPA); do I need a privacy policy; what to update when I add new tools
+- Related tools: /fake-data-generator/, /invoice-generator/, /free-robots-txt-generator/
+
+4) Business Name Generator
+- URL: /business-name-generator/
+- <title>: Business Name Generator - Brainstorm Brand & Company Names | Riad Al Ashekin
+- Meta description: Generate business and brand name ideas from your keywords online. Mix prefixes, suffixes and word blends, then check domain ideas.
+- H1: Business Name Generator - Brainstorm Brand & Company Names
+- What the tool must do: Keyword input; style options (short, compound, blended, with prefix/suffix); uses built-in word lists, no AI API; generate 50 ideas; save favorites in-session; show .com idea text only (do NOT claim availability check unless implemented).
+- FAQ topics: are the names trademarked or available (we do not check; search before using); how to choose a good business name; can I filter by length
+- Related tools: /username-generator/, /random-name-picker/, /seo-slug-generator/
+
+5) Username Generator
+- URL: /username-generator/
+- <title>: Username Generator - Create Unique Usernames from Your Name | Riad Al Ashekin
+- Meta description: Generate username ideas from your name or keywords online. Choose length, numbers and separators, then copy the ones you like.
+- H1: Username Generator - Create Unique Usernames from Your Name
+- What the tool must do: Input name/keywords; options include numbers, separators (_ . -), max length, style; generate list; copy; no availability check claim.
+- FAQ topics: does it check if a username is taken (no); tips for a memorable username; can I avoid numbers
+- Related tools: /business-name-generator/, /random-password-generator/, /random-number-generator/
+
+When finished, reply with one line per tool: URL works (200), H2s added, word count, FAQPage + SoftwareApplication schema added, and that it was added to /seo-tools/ and both sitemaps. Do not ask questions; if something is unclear, choose the simplest working option.
+
+
+==================== PROMPT 10 of 10 — Generators 2 ====================
+
+Build 5 NEW tool pages in ONE pass. Match the existing tool pages exactly: same layout, header, footer, typography, colors and the same content-section structure as /character-counter/.
+Do not change any existing page, URL or tool, except adding the new tools to /seo-tools/ and the sitemaps as described below.
+
+GENERAL RULES FOR EVERY NEW TOOL
+- The tool must run fully in the browser (no server, no paid API, no sign-up). Nothing the user types or uploads is sent anywhere.
+- Fully responsive on desktop, tablet and mobile. No horizontal scroll. Buttons large enough to tap. Visible keyboard focus.
+- Clear error messages for invalid input. A "Copy" button on every text result (with a short "Copied" confirmation).
+- URL: exactly the slug given, with trailing slash. Self-referencing canonical. Return 200.
+- <title>: exactly as given. H1: tool name + short description WITHOUT " | Riad Al Ashekin".
+- Meta description and og:description: exactly as given.
+- Content BELOW the tool, 400–700 words, in the pre-rendered HTML (not loaded later by JavaScript):
+  H2 "How to use the [Tool name]" (3–5 numbered steps)
+  H2 "What the [Tool name] does" (only features that really exist in your code)
+  H2 "Example" (one short realistic input and the real output)
+  H2 "Frequently asked questions" (4 questions, short answers) + FAQPage JSON-LD with the exact same wording
+  H2 "Related tools" (the 3 links given, as plain <a href> links)
+- Add SoftwareApplication JSON-LD: name, applicationCategory "UtilitiesApplication" (or "DeveloperApplication" for developer tools), operatingSystem "Any (web browser)", offers price "0". Do NOT add ratings or review counts.
+- Formulas in calculators: show the formula on the page, and use exactly that formula in the code.
+- Do NOT invent statistics, user numbers, ratings, awards, testimonials or legal/financial guarantees.
+- Plain, simple English.
+
+SITE INTEGRATION
+- /seo-tools/: add each new tool under an H2 category "Utility tools" (create it once if it does not exist; reuse it in later batches), as a plain <a href> link with the tool name and a one-line description, in the pre-rendered HTML.
+- Add each new URL to sitemap.xml and to the HTML sitemap page /sitemap/.
+- Only link to "Related tools" that exist. If a related URL does not exist yet, link to it only after it is built; otherwise replace it with /seo-tools/.
+
+THE 5 TOOLS
+
+1) Random Number Generator
+- URL: /random-number-generator/
+- <title>: Random Number Generator - Pick Random Numbers in Any Range | Riad Al Ashekin
+- Meta description: Generate random numbers in any range online. Pick one or many, allow or block duplicates, and sort the results.
+- H1: Random Number Generator - Pick Random Numbers in Any Range
+- What the tool must do: Min, max, quantity; integers or decimals (decimal places); allow duplicates toggle; sort toggle; uses crypto.getRandomValues; copy.
+- FAQ topics: how random are the numbers (crypto.getRandomValues); can I get numbers without repeats; can I generate decimals
+- Related tools: /random-name-picker/, /uuid-generator/, /random-password-generator/
+
+2) Placeholder Image Generator
+- URL: /placeholder-image-generator/
+- <title>: Placeholder Image Generator - Create Dummy Images Any Size | Riad Al Ashekin
+- Meta description: Create placeholder images in any size, color and text online. Download as PNG, JPG or WebP for mockups and website layouts.
+- H1: Placeholder Image Generator - Create Dummy Images Any Size
+- What the tool must do: Width, height, background color, text color, custom text (default 'W × H'), font size; render on canvas; download PNG/JPG/WebP; preset sizes for common web uses (generic, no platform claims).
+- FAQ topics: what placeholder images are used for; can I set custom text; which format to download
+- Related tools: /image-resizer/, /aspect-ratio-calculator/, /image-compressor/
+
+3) Image to PDF Converter
+- URL: /image-to-pdf/
+- <title>: Image to PDF Converter - Combine JPG & PNG Images into One PDF | Riad Al Ashekin
+- Meta description: Convert JPG, PNG and WebP images to a single PDF online. Reorder pages, choose page size and margins. Files stay in your browser.
+- H1: Image to PDF Converter - Combine JPG & PNG Images into One PDF
+- What the tool must do: Upload multiple images; drag to reorder; page size (A4, Letter, fit to image); orientation; margin; create PDF client-side; download; nothing uploaded.
+- FAQ topics: are my images uploaded to a server (no); can I change the order; which page size to choose
+- Related tools: /image-compressor/, /image-to-jpg-converter/, /image-resizer/
+
+4) Image Cropper
+- URL: /image-cropper/
+- <title>: Image Cropper - Crop Images Online to Any Size or Ratio | Riad Al Ashekin
+- Meta description: Crop JPG, PNG and WebP images online. Use free crop or a fixed aspect ratio, then download the cropped image. No upload to a server.
+- H1: Image Cropper - Crop Images Online to Any Size or Ratio
+- What the tool must do: Upload image; crop box free or fixed ratio (1:1, 4:3, 16:9, 9:16, custom); rotate 90°; flip; output width/height shown; download in original format; client-side canvas.
+- FAQ topics: does cropping reduce quality; are images uploaded (no); how to crop to an exact size
+- Related tools: /image-resizer/, /aspect-ratio-calculator/, /image-compressor/
+
+5) Fake Data Generator
+- URL: /fake-data-generator/
+- <title>: Fake Data Generator - Generate Test Names, Emails & Addresses | Riad Al Ashekin
+- Meta description: Generate fake test data online: names, emails, phone numbers, addresses and dates. Export as JSON or CSV for testing and demos.
+- H1: Fake Data Generator - Generate Test Names, Emails & Addresses
+- What the tool must do: Choose fields (first/last name, email using example.com domain, phone in a clearly fictional format, street, city, country, date, number, UUID); row count up to 1,000; preview table; export JSON/CSV; built-in word lists, no external API.
+- FAQ topics: is the data real (no, randomly generated, emails use example.com); what it is used for (testing, demos); can I export to CSV
+- Related tools: /csv-to-json/, /uuid-generator/, /json-to-csv/
+
+When finished, reply with one line per tool: URL works (200), H2s added, word count, FAQPage + SoftwareApplication schema added, and that it was added to /seo-tools/ and both sitemaps. Do not ask questions; if something is unclear, choose the simplest working option.

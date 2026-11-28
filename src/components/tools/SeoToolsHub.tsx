@@ -68,7 +68,8 @@ export function SeoToolsHub({ onNavigate }: SeoToolsHubProps) {
     { id: 'url', label: 'URLs & UTM Tracking' },
     { id: 'calculator', label: 'Calculators & ROI' },
     { id: 'image', label: 'Images & Media' },
-    { id: 'dev', label: 'Code & Formatters' }
+    { id: 'dev', label: 'Code & Formatters' },
+    { id: 'utility', label: 'Utility tools' }
   ];
 
   return (
