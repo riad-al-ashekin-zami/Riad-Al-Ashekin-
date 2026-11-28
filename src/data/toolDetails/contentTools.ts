@@ -194,16 +194,76 @@ export const contentTools: ToolRegistryItem[] = [
     },
     faqs: [
       {
-        question: 'Should technical or B2B content also aim for simple readability?',
-        answer: 'Yes! Even senior software engineers and enterprise executives appreciate concise, direct sentences. Technical precision should come from accurate terminology, not bloated sentence structure.'
+        question: 'What does a readability score mean?',
+        answer: 'A readability score estimates how easy a piece of writing is to read based on sentence length and word complexity. On common scales such as Flesch Reading Ease (0 to 100), higher scores mean shorter sentences and simpler words, while lower scores indicate denser academic or technical phrasing.'
+      },
+      {
+        question: 'What readability score should I aim for in web content?',
+        answer: 'A common guideline for general web articles and product pages is a Flesch Reading Ease score around 60 to 70, which corresponds roughly to plain everyday English. Even technical guides benefit from breaking long 30-word sentences into shorter, clearer lines.'
+      },
+      {
+        question: 'What does the interactive box on this page show?',
+        answer: 'It provides a client-side Input Text / Code / URLs editor paired with an Output Results panel and a Copy Output button so you can paste, tighten, and copy your draft without uploading anything to a server.'
+      },
+      {
+        question: 'Does the Readability Checker store or send my text anywhere?',
+        answer: 'No. Everything you paste into the editor stays inside your browser session with zero data transmission.'
       }
     ],
     relatedToolSlugs: [
       'word-counter-pro',
-      'seo-content-analyzer',
+      'character-counter',
       'keyword-density-checker',
-      'character-counter'
-    ]
+      'seo-content-analyzer'
+    ],
+    belowSectionGuide: {
+      howToUseHeading: 'How to use the Readability Checker',
+      howToUseSteps: [
+        'Paste your draft article, email, or landing page copy into the Input Text / Code / URLs box.',
+        'Read through the Output Results panel directly below the editor to review sentence breaks and paragraph spacing in a clean monospace view.',
+        'Edit long sentences or split dense walls of text inside the input box until each paragraph reads clearly.',
+        'Click Copy Output (shown once text is entered) to copy your revised draft to the clipboard.'
+      ],
+      checksOrShowsHeading: 'What the Readability Checker does',
+      checksOrShowsIntro: 'The interactive utility on this page gives you a local distraction-free review workspace with zero data transmission:',
+      checksOrShowsPoints: [
+        'Input Text / Code / URLs editor: Accepts plain text, Markdown, or HTML drafts of any length for quick editing.',
+        'Live Output Results panel: Displays your entered draft immediately below the input area so you can scan line flow and paragraph structure cleanly.',
+        'Client-side privacy: Processes your draft completely inside your browser without sending copy to external APIs or servers.',
+        'One-click Copy Output button: Appears above the Output Results box whenever text is present so you can copy your cleaned copy back into your CMS.'
+      ],
+      exampleHeading: 'Example',
+      exampleInputLabel: 'Sample input',
+      exampleInput: 'Keep paragraphs short and clear. Aim for one main idea per sentence so readers on mobile screens can scan quickly.',
+      exampleOutputLabel: 'Output Results panel',
+      exampleOutput: 'Keep paragraphs short and clear. Aim for one main idea per sentence so readers on mobile screens can scan quickly. (ready via Copy Output)',
+      exampleNote: 'Reviewing your draft in a plain view makes run-on sentences and oversized paragraphs easy to spot before publishing.',
+      faqHeading: 'Frequently asked questions',
+      faqs: [
+        {
+          question: 'What does a readability score mean?',
+          answer: 'A readability score estimates how easy a piece of writing is to read based on sentence length and word complexity. On common scales such as Flesch Reading Ease (0 to 100), higher scores mean shorter sentences and simpler words, while lower scores indicate denser academic or technical phrasing.'
+        },
+        {
+          question: 'What readability score should I aim for in web content?',
+          answer: 'A common guideline for general web articles and product pages is a Flesch Reading Ease score around 60 to 70, which corresponds roughly to plain everyday English. Even technical guides benefit from breaking long 30-word sentences into shorter, clearer lines.'
+        },
+        {
+          question: 'What does the interactive box on this page show?',
+          answer: 'It provides a client-side Input Text / Code / URLs editor paired with an Output Results panel and a Copy Output button so you can paste, tighten, and copy your draft without uploading anything to a server.'
+        },
+        {
+          question: 'Does the Readability Checker store or send my text anywhere?',
+          answer: 'No. Everything you paste into the editor stays inside your browser session with zero data transmission.'
+        }
+      ],
+      relatedHeading: 'Related tools',
+      relatedSlugs: [
+        'word-counter-pro',
+        'character-counter',
+        'keyword-density-checker'
+      ]
+    }
   },
   {
     id: 'word-counter-pro',
@@ -288,17 +348,79 @@ export const contentTools: ToolRegistryItem[] = [
     },
     faqs: [
       {
+        question: 'How many words is 32,000 characters?',
+        answer: 'In plain English, 32,000 characters is typically about 4,500 to 6,400 words, assuming an average of five to seven characters per word including spaces. Short everyday words push the count higher, while longer technical words lower it.'
+      },
+      {
         question: 'Do spaces count as characters?',
-        answer: 'Yes, in technical specifications and social platforms, spaces and punctuation marks count toward total character limits.'
+        answer: 'Yes. The main Characters card counts every space, punctuation mark, letter, digit, and line break in your text. Right below that number, the tool also displays the character count without spaces so you can check both figures at once.'
+      },
+      {
+        question: 'Does the Character Counter upload or save my text?',
+        answer: 'No. Every calculation runs directly in your browser using JavaScript while you type or paste, so your draft never leaves your device.'
+      },
+      {
+        question: 'How does the tool calculate reading time?',
+        answer: 'It divides the detected word count by a standard rate of 200 words per minute and rounds up to the nearest minute, displaying 0m when the text box is empty.'
       }
     ],
     relatedToolSlugs: [
       'word-counter-pro',
-      'meta-title-description-length-checker',
       'readability-checker',
+      'meta-title-description-checker',
       'comma-separator'
     ],
-    legacyPaths: ['/character-counter/']
+    legacyPaths: ['/character-counter/'],
+    belowSectionGuide: {
+      howToUseHeading: 'How to use the Character Counter',
+      howToUseSteps: [
+        'Click inside the large text box and type your draft or paste existing copy from a document, CMS, or spreadsheet.',
+        'Watch the five metric cards above the text box update automatically on every keystroke without clicking a submit button.',
+        'Click Insert Sample Text if you want to test the counters immediately with a short pre-written SEO paragraph.',
+        'Review your total characters, characters without spaces, word count, sentence count, paragraph count, and estimated reading time.',
+        'Click Copy Text to copy your finished copy to the clipboard, or click Clear to reset the editor to zero.'
+      ],
+      checksOrShowsHeading: 'What the Character Counter shows',
+      checksOrShowsIntro: 'The tool measures plain text live in your browser across five counters and provides quick editor actions above the text box:',
+      checksOrShowsPoints: [
+        'Characters (with and without spaces): Displays total characters including spaces and line breaks, plus a secondary count with all whitespace removed.',
+        'Words: Counts space-separated words across single lines and multi-paragraph drafts, resetting cleanly to zero when empty.',
+        'Sentences: Splits text on periods, exclamation marks, and question marks to estimate total sentences.',
+        'Paragraphs: Counts non-empty text blocks separated by line breaks so you can check section pacing.',
+        'Read Time: Estimates reading duration in minutes at 200 words per minute, alongside Clear, Insert Sample Text, and Copy Text buttons.'
+      ],
+      exampleHeading: 'Example',
+      exampleInputLabel: 'Sample input',
+      exampleInput: 'Technical SEO audits fix crawl errors, slow pages, and broken links. Run a check before publishing.',
+      exampleOutputLabel: 'What the tool returns',
+      exampleOutput: 'Characters: 99 (84 no spaces) | Words: 16 | Sentences: 2 | Paragraphs: 1 | Read Time: ~1m',
+      exampleNote: 'Useful when checking short meta descriptions, social captions, or paragraph lengths against common guidelines before publishing.',
+      faqHeading: 'Frequently asked questions',
+      faqs: [
+        {
+          question: 'How many words is 32,000 characters?',
+          answer: 'In plain English, 32,000 characters is typically about 4,500 to 6,400 words, assuming an average of five to seven characters per word including spaces. Short everyday words push the count higher, while longer technical words lower it.'
+        },
+        {
+          question: 'Do spaces count as characters?',
+          answer: 'Yes. The main Characters card counts every space, punctuation mark, letter, digit, and line break in your text. Right below that number, the tool also displays the character count without spaces so you can check both figures at once.'
+        },
+        {
+          question: 'Does the Character Counter upload or save my text?',
+          answer: 'No. Every calculation runs directly in your browser using JavaScript while you type or paste, so your draft never leaves your device.'
+        },
+        {
+          question: 'How does the tool calculate reading time?',
+          answer: 'It divides the detected word count by a standard rate of 200 words per minute and rounds up to the nearest minute, displaying 0m when the text box is empty.'
+        }
+      ],
+      relatedHeading: 'Related tools',
+      relatedSlugs: [
+        'word-counter-pro',
+        'readability-checker',
+        'meta-title-description-checker'
+      ]
+    }
   },
   {
     id: 'keyword-combiner',
@@ -478,8 +600,20 @@ export const contentTools: ToolRegistryItem[] = [
     },
     faqs: [
       {
-        question: 'Are long-tail keywords worth targeting if they have low search volume?',
-        answer: 'Yes! A query with 50 monthly searches where 10% of searchers become paying enterprise clients is far more valuable than a 10,000-search term that generates zero qualified leads.'
+        question: 'What is a long-tail keyword?',
+        answer: 'A long-tail keyword is a longer, more specific search phrase (often three or more words) that matches a clearer user intent than a broad one-word or two-word head term.'
+      },
+      {
+        question: 'What does the Long-Tail Keyword Generator tool on this page do?',
+        answer: 'The interactive widget provides a client-side Input Text / Code / URLs box, an Output Results preview panel, and a Copy Output button so you can draft, refine, and copy long-tail keyword lists in your browser.'
+      },
+      {
+        question: 'How should I organize long-tail keyword variations before writing content?',
+        answer: 'Group phrases that share the same search intent onto one target page so closely related variations reinforce a single guide instead of splitting into overlapping pages.'
+      },
+      {
+        question: 'Are keyword notes entered here saved on a server?',
+        answer: 'No. All keyword text stays in your current browser session and is never transmitted to a server.'
       }
     ],
     relatedToolSlugs: [
@@ -487,7 +621,55 @@ export const contentTools: ToolRegistryItem[] = [
       'keyword-modifier-generator',
       'keyword-combiner',
       'search-intent-classifier'
-    ]
+    ],
+    belowSectionGuide: {
+      howToUseHeading: 'How to use the Long-Tail Keyword Generator',
+      howToUseSteps: [
+        'Enter your seed topic and specific long-tail phrase variations (such as audience, use-case, or comparison qualifiers) into the Input Text / Code / URLs box.',
+        'Review your formatted list in the Output Results panel below to remove duplicates and check phrasing.',
+        'Refine or reorder the phrases directly in the input editor until your target list is clear.',
+        'Click Copy Output (shown once text is entered) to copy the keyword list into your content brief or spreadsheet.'
+      ],
+      checksOrShowsHeading: 'What the Long-Tail Keyword Generator does',
+      checksOrShowsIntro: 'This browser utility serves as a clean, private staging editor for collecting and copying long-tail keyword ideas:',
+      checksOrShowsPoints: [
+        'Client-side keyword editor: Lets you type or paste multi-line seed topics and long-tail variations with zero data transmission.',
+        'Output Results view: Displays your entered keyword list in a readable monospace panel for quick proofing.',
+        'One-click Copy Output: Shows a Copy Output button as soon as text is added so you can export your list in one click.',
+        'No external database calls: Does not query live search volume or generate remote keyword suggestions.'
+      ],
+      exampleHeading: 'Example',
+      exampleInputLabel: 'Sample input',
+      exampleInput: 'email marketing checklist for ecommerce\nemail marketing automation for small agencies\nbest email onboarding flow for SaaS startups',
+      exampleOutputLabel: 'Output Results panel',
+      exampleOutput: 'email marketing checklist for ecommerce\nemail marketing automation for small agencies\nbest email onboarding flow for SaaS startups',
+      exampleNote: 'Keeping specific intent modifiers next to the seed term helps match each phrase to a focused article section or landing page.',
+      faqHeading: 'Frequently asked questions',
+      faqs: [
+        {
+          question: 'What is a long-tail keyword?',
+          answer: 'A long-tail keyword is a longer, more specific search phrase (often three or more words) that matches a clearer user intent than a broad one-word or two-word head term.'
+        },
+        {
+          question: 'What does the Long-Tail Keyword Generator tool on this page do?',
+          answer: 'The interactive widget provides a client-side Input Text / Code / URLs box, an Output Results preview panel, and a Copy Output button so you can draft, refine, and copy long-tail keyword lists in your browser.'
+        },
+        {
+          question: 'How should I organize long-tail keyword variations before writing content?',
+          answer: 'Group phrases that share the same search intent onto one target page so closely related variations reinforce a single guide instead of splitting into overlapping pages.'
+        },
+        {
+          question: 'Are keyword notes entered here saved on a server?',
+          answer: 'No. All keyword text stays in your current browser session and is never transmitted to a server.'
+        }
+      ],
+      relatedHeading: 'Related tools',
+      relatedSlugs: [
+        'question-keyword-generator',
+        'keyword-modifier-generator',
+        'search-intent-classifier'
+      ]
+    }
   },
   {
     id: 'question-keyword-generator',

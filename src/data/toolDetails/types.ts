@@ -16,6 +16,24 @@ export interface ToolTechnicalExplanation {
   points?: string[];
 }
 
+export interface ToolBelowSectionGuide {
+  howToUseHeading: string;
+  howToUseSteps: string[];
+  checksOrShowsHeading: string;
+  checksOrShowsIntro: string;
+  checksOrShowsPoints: string[];
+  exampleHeading: string;
+  exampleInputLabel?: string;
+  exampleInput: string;
+  exampleOutputLabel?: string;
+  exampleOutput: string;
+  exampleNote?: string;
+  faqHeading: string;
+  faqs: ToolFaq[];
+  relatedHeading: string;
+  relatedSlugs: [string, string, string];
+}
+
 export interface ToolRegistryItem {
   id: string;
   name: string;
@@ -36,4 +54,5 @@ export interface ToolRegistryItem {
   faqs: ToolFaq[];
   relatedToolSlugs: string[];
   legacyPaths?: string[];
+  belowSectionGuide?: ToolBelowSectionGuide;
 }

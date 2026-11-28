@@ -44,26 +44,80 @@ export const serpTools: ToolRegistryItem[] = [
     },
     faqs: [
       {
-        question: 'Why does Google rewrite my meta title even when it fits within the limit?',
-        answer: 'Google rewrites titles when it believes the existing title tag does not accurately match the user query, is keyword-stuffed, repetitive across the site, or differs significantly from the main on-page H1 heading.'
+        question: 'What is the ideal meta title length?',
+        answer: 'A common guideline is 50 to 60 characters and roughly under 580 pixels wide so your headline fits on a single line without being cut off. Search engines do not enforce a strict character limit and may adjust displayed titles depending on the query.'
       },
       {
-        question: 'Does the meta description directly impact Google rankings?',
-        answer: 'Meta descriptions are not a direct algorithmic ranking signal, but they directly determine click-through rate (CTR). Higher CTR drives more qualified visitors and signals strong user relevance.'
+        question: 'What is the ideal meta description length?',
+        answer: 'A common guideline is 120 to 160 characters, which gives enough room to summarize the page clearly without getting cut short in most previews. Descriptions under 70 characters often look sparse, while text over 160 characters may truncate.'
       },
       {
-        question: 'What is the pixel limit difference between desktop and mobile search snippets?',
-        answer: 'Desktop titles cap around 580–600px, while mobile titles allow slightly more vertical wrapping up to two lines before truncating. Descriptions truncate earlier on mobile devices (roughly 680px).'
+        question: 'Why does the checker estimate pixel width as well as characters?',
+        answer: 'Search result containers have a fixed visual width rather than a fixed character count, so wide letters like W and M take more space than narrow letters like i and l. Tracking both characters and approximate pixels helps catch wide titles early.'
+      },
+      {
+        question: 'Does Google always display the exact meta title and description I write?',
+        answer: 'No. Search engines sometimes generate snippet text or adjust titles from on-page headings or body copy when they consider it a better match for what a searcher typed.'
       }
     ],
     relatedToolSlugs: [
       'meta-title-description-length-checker',
       'serp-snippet-preview',
+      'character-counter',
       'heading-checker',
-      'seo-friendly-url-test',
-      'character-counter'
+      'seo-friendly-url-test'
     ],
-    legacyPaths: ['/meta-title-description-checker/']
+    legacyPaths: ['/meta-title-description-checker/'],
+    belowSectionGuide: {
+      howToUseHeading: 'How to use the Meta Title & Description Checker',
+      howToUseSteps: [
+        'Type or paste your page title into the Meta Title Tag box while watching the character and pixel counters update above it.',
+        'Enter your summary in the Meta Description box and adjust wording until the counter and progress bar sit in the green zone.',
+        'Paste your page address into the Canonical URL box to preview how the domain and path segments appear in the snippet breadcrumb.',
+        'Switch between the Desktop and Mobile buttons to inspect both preview card widths and check the Title Tag Health and Description Length Health notices.',
+        'Click Copy HTML Tags to copy ready-to-use title and meta description HTML tags to your clipboard.'
+      ],
+      checksOrShowsHeading: 'What the Meta Title & Description Checker checks',
+      checksOrShowsIntro: 'The checker updates a live snippet preview and runs threshold checks against common desktop and mobile display guidelines:',
+      checksOrShowsPoints: [
+        'Title character count and approximate pixel width: Measures characters against a 60-character guideline and estimates pixel width against a 580px guideline based on narrow, standard, uppercase, and wide characters.',
+        'Description character count: Tracks your meta description against a 160-character guideline with a color-coded progress bar.',
+        'Desktop and Mobile snippet preview: Renders a clickable-style title, domain breadcrumb, and description, truncating the title at 58 characters or the description at 155 characters with ellipses if limits are exceeded.',
+        'Title Tag Health and Description Length Health: Flags short titles under 30 characters, short descriptions under 70 characters, or tags that exceed length guidelines.',
+        'Copy HTML Tags action: Copies formatted <title> and <meta name="description"> tags straight to your clipboard.'
+      ],
+      exampleHeading: 'Example',
+      exampleInputLabel: 'Sample inputs',
+      exampleInput: 'Title: Technical SEO Audit Checklist for SaaS | Acme\nDescription: Step-by-step technical SEO audit checklist covering crawlability, status codes, canonical tags, and page speed optimization for SaaS sites.\nURL: https://example.com/technical-seo-audit/',
+      exampleOutputLabel: 'What the tool returns',
+      exampleOutput: 'Title: 45 / 60 chars (~375 px / 580px) - Optimal length and pixel width | Description: 139 / 160 chars - Optimal length for clear messaging | Preview shows example.com > technical-seo-audit with no truncation',
+      exampleNote: 'Staying comfortably inside common character and pixel guidelines reduces the chance of mid-word ellipses in search results.',
+      faqHeading: 'Frequently asked questions',
+      faqs: [
+        {
+          question: 'What is the ideal meta title length?',
+          answer: 'A common guideline is 50 to 60 characters and roughly under 580 pixels wide so your headline fits on a single line without being cut off. Search engines do not enforce a strict character limit and may adjust displayed titles depending on the query.'
+        },
+        {
+          question: 'What is the ideal meta description length?',
+          answer: 'A common guideline is 120 to 160 characters, which gives enough room to summarize the page clearly without getting cut short in most previews. Descriptions under 70 characters often look sparse, while text over 160 characters may truncate.'
+        },
+        {
+          question: 'Why does the checker estimate pixel width as well as characters?',
+          answer: 'Search result containers have a fixed visual width rather than a fixed character count, so wide letters like W and M take more space than narrow letters like i and l. Tracking both characters and approximate pixels helps catch wide titles early.'
+        },
+        {
+          question: 'Does Google always display the exact meta title and description I write?',
+          answer: 'No. Search engines sometimes generate snippet text or adjust titles from on-page headings or body copy when they consider it a better match for what a searcher typed.'
+        }
+      ],
+      relatedHeading: 'Related tools',
+      relatedSlugs: [
+        'meta-title-description-length-checker',
+        'serp-snippet-preview',
+        'character-counter'
+      ]
+    }
   },
   {
     id: 'meta-length-checker',
@@ -318,12 +372,20 @@ export const serpTools: ToolRegistryItem[] = [
     },
     faqs: [
       {
-        question: 'Does missing alt text trigger Google penalties?',
-        answer: 'Missing alt text won\'t trigger a manual action penalty, but it directly prevents your images from ranking in Google Images and harms your site\'s accessibility score.'
+        question: 'What is alt text?',
+        answer: 'Alt text (alternative text) is the HTML alt attribute inside an <img> tag that describes an image in plain words. Screen readers read it aloud to visually impaired visitors, browsers show it if an image fails to load, and search engines use it to understand what an image shows.'
       },
       {
-        question: 'How long should an image alt text be?',
-        answer: 'Keep alt text concise, ideally between 40 and 100 characters. For complex diagrams or infographics, provide a short alt summary and describe the details in the surrounding text.'
+        question: 'Does every image need alt text?',
+        answer: 'Every meaningful image that conveys information, context, or an action needs descriptive alt text. Purely decorative graphics, dividers, or background flourishes should still include an empty alt="" attribute so screen readers skip them cleanly rather than reading the filename.'
+      },
+      {
+        question: 'How long should image alt text be?',
+        answer: 'A common guideline is a short, specific phrase of roughly 40 to 125 characters describing what is visible in the image. Avoid starting with phrases like image of or stuffing unrelated keywords into the attribute.'
+      },
+      {
+        question: 'Does the Image Alt Text Checker upload my HTML code?',
+        answer: 'No. The tool runs inside your browser with zero data transmission, so your HTML snippets stay on your device while you review and copy them.'
       }
     ],
     relatedToolSlugs: [
@@ -331,7 +393,55 @@ export const serpTools: ToolRegistryItem[] = [
       'image-filename-checker',
       'heading-checker',
       'image-compressor'
-    ]
+    ],
+    belowSectionGuide: {
+      howToUseHeading: 'How to use the Image Alt Text Checker',
+      howToUseSteps: [
+        'Copy the HTML snippet or <img> tags from your page editor, template, or browser DevTools.',
+        'Paste the markup into the Input Text / Code / URLs editor inside the Interactive Image Alt Text Checker box.',
+        'Review your formatted snippet inside the Output Results panel below the editor to inspect each <img> tag and edit missing or unclear alt="..." attributes directly in the input box.',
+        'Click Copy Output to copy your reviewed HTML markup back into your CMS or codebase.'
+      ],
+      checksOrShowsHeading: 'What the Image Alt Text Checker shows',
+      checksOrShowsIntro: 'The tool provides a local, client-side HTML editor and live output view with zero data transmission:',
+      checksOrShowsPoints: [
+        'Input Text / Code / URLs workspace: Accepts raw HTML snippets and <img> tags for quick inspection and inline editing without leaving the page.',
+        'Live Output Results panel: Mirrors your entered HTML markup in a high-contrast monospace block as you type or paste.',
+        'Client-side execution: Keeps your draft HTML and asset paths entirely in your browser with no server upload.',
+        'Copy Output button: Appears automatically once you enter markup so you can copy updated HTML tags with one click.'
+      ],
+      exampleHeading: 'Example',
+      exampleInputLabel: 'Sample HTML input',
+      exampleInput: '<img src="/images/quarterly-traffic-chart.png" alt="Quarterly organic traffic bar chart showing steady growth">',
+      exampleOutputLabel: 'Output Results panel & review',
+      exampleOutput: '<img src="/images/quarterly-traffic-chart.png" alt="Quarterly organic traffic bar chart showing steady growth"> (ready to copy via Copy Output)',
+      exampleNote: 'Keeping markup in the editor lets you verify each <img> tag includes a descriptive alt attribute—or alt="" for purely decorative graphics—before copying it back to your site.',
+      faqHeading: 'Frequently asked questions',
+      faqs: [
+        {
+          question: 'What is alt text?',
+          answer: 'Alt text (alternative text) is the HTML alt attribute inside an <img> tag that describes an image in plain words. Screen readers read it aloud to visually impaired visitors, browsers show it if an image fails to load, and search engines use it to understand what an image shows.'
+        },
+        {
+          question: 'Does every image need alt text?',
+          answer: 'Every meaningful image that conveys information, context, or an action needs descriptive alt text. Purely decorative graphics, dividers, or background flourishes should still include an empty alt="" attribute so screen readers skip them cleanly rather than reading the filename.'
+        },
+        {
+          question: 'How long should image alt text be?',
+          answer: 'A common guideline is a short, specific phrase of roughly 40 to 125 characters describing what is visible in the image. Avoid starting with phrases like image of or stuffing unrelated keywords into the attribute.'
+        },
+        {
+          question: 'Does the Image Alt Text Checker upload my HTML code?',
+          answer: 'No. The tool runs inside your browser with zero data transmission, so your HTML snippets stay on your device while you review and copy them.'
+        }
+      ],
+      relatedHeading: 'Related tools',
+      relatedSlugs: [
+        'image-seo-analyzer',
+        'image-filename-checker',
+        'heading-checker'
+      ]
+    }
   },
   {
     id: 'og-checker',
@@ -561,16 +671,76 @@ export const serpTools: ToolRegistryItem[] = [
     },
     faqs: [
       {
-        question: 'Do nofollow links pass any PageRank value?',
-        answer: 'Google treats nofollow as a hint, meaning it generally does not pass direct PageRank equity, but it helps Google discover new URLs and understand entity relationships.'
+        question: 'What does nofollow mean on a link?',
+        answer: 'The rel="nofollow" attribute tells search engines that the site linking out does not endorse the destination page or pass ranking credit through that link. Search engines treat it as a hint when evaluating links and crawling.'
+      },
+      {
+        question: 'What is the difference between nofollow, sponsored, and ugc?',
+        answer: 'Use rel="sponsored" for paid links, ads, or affiliate links; use rel="ugc" for user-generated content such as forum posts or blog comments; and use rel="nofollow" as a general option when you do not want to endorse a link or pass ranking credit.'
+      },
+      {
+        question: 'How do I add a rel attribute to an HTML link?',
+        answer: 'Add rel="nofollow", rel="sponsored", or rel="ugc" inside the opening <a> tag alongside href, for example <a href="https://example.com" rel="sponsored">Partner</a>.'
+      },
+      {
+        question: 'Does the Nofollow Link Checker send my HTML to a server?',
+        answer: 'No. The interactive workspace runs completely in your browser with zero data transmission.'
       }
     ],
     relatedToolSlugs: [
       'internal-link-checker',
       'external-link-checker',
-      'anchor-text-analyzer',
-      'robots-meta-checker'
-    ]
+      'robots-meta-checker',
+      'anchor-text-analyzer'
+    ],
+    belowSectionGuide: {
+      howToUseHeading: 'How to use the Nofollow Link Checker',
+      howToUseSteps: [
+        'Copy the HTML anchor tags or article markup containing outbound links from your editor or page source.',
+        'Paste the HTML snippet into the Input Text / Code / URLs textarea inside the Interactive Nofollow Link Checker box.',
+        'Inspect the markup in the Output Results panel below the editor and update any <a> tags that need rel="nofollow", rel="sponsored", or rel="ugc" directly in the input box.',
+        'Click Copy Output to copy your reviewed HTML back into your CMS or template.'
+      ],
+      checksOrShowsHeading: 'What the Nofollow Link Checker does',
+      checksOrShowsIntro: 'The tool provides a local browser-based HTML workspace with zero data transmission:',
+      checksOrShowsPoints: [
+        'Input Text / Code / URLs editor: Accepts HTML <a> tags and article snippets for fast inline review and rel attribute updates.',
+        'Live Output Results panel: Displays your entered HTML markup in a monospace preview block right below the input box.',
+        'Private client-side operation: Keeps all pasted HTML and URLs inside your browser without uploading anything to a server.',
+        'Copy Output button: Appears once you enter markup so you can copy updated anchor tags in one click.'
+      ],
+      exampleHeading: 'Example',
+      exampleInputLabel: 'Sample HTML input',
+      exampleInput: '<a href="https://partner.example.com" rel="sponsored">Partner Offer</a>',
+      exampleOutputLabel: 'Output Results panel',
+      exampleOutput: '<a href="https://partner.example.com" rel="sponsored">Partner Offer</a> (ready via Copy Output)',
+      exampleNote: 'Reviewing raw anchor tags together makes it easy to spot missing rel attributes on paid or user-submitted links before publishing.',
+      faqHeading: 'Frequently asked questions',
+      faqs: [
+        {
+          question: 'What does nofollow mean on a link?',
+          answer: 'The rel="nofollow" attribute tells search engines that the site linking out does not endorse the destination page or pass ranking credit through that link. Search engines treat it as a hint when evaluating links and crawling.'
+        },
+        {
+          question: 'What is the difference between nofollow, sponsored, and ugc?',
+          answer: 'Use rel="sponsored" for paid links, ads, or affiliate links; use rel="ugc" for user-generated content such as forum posts or blog comments; and use rel="nofollow" as a general option when you do not want to endorse a link or pass ranking credit.'
+        },
+        {
+          question: 'How do I add a rel attribute to an HTML link?',
+          answer: 'Add rel="nofollow", rel="sponsored", or rel="ugc" inside the opening <a> tag alongside href, for example <a href="https://example.com" rel="sponsored">Partner</a>.'
+        },
+        {
+          question: 'Does the Nofollow Link Checker send my HTML to a server?',
+          answer: 'No. The interactive workspace runs completely in your browser with zero data transmission.'
+        }
+      ],
+      relatedHeading: 'Related tools',
+      relatedSlugs: [
+        'internal-link-checker',
+        'external-link-checker',
+        'robots-meta-checker'
+      ]
+    }
   },
   {
     id: 'internal-link-checker',
@@ -655,8 +825,20 @@ export const serpTools: ToolRegistryItem[] = [
     },
     faqs: [
       {
-        question: 'Do external links hurt my page\'s SEO ranking?',
-        answer: 'No. Natural, editorial outbound links to authoritative and relevant websites demonstrate that your content is well-researched, which correlates positively with topical trustworthiness.'
+        question: 'What does the External Link Checker workspace on this page do?',
+        answer: 'It gives you a browser-based Input Text / Code / URLs editor paired with an Output Results panel and Copy Output button so you can inspect, update, and copy outbound <a> tags locally without sending HTML to a server.'
+      },
+      {
+        question: 'Why do outbound links with target="_blank" often include rel="noopener"?',
+        answer: 'Adding rel="noopener" prevents a newly opened tab from accessing the window.opener reference of the original page, which is a standard web security precaution.'
+      },
+      {
+        question: 'When should an external link use rel="nofollow" or rel="sponsored"?',
+        answer: 'Use rel="sponsored" for paid placements or affiliate links, and rel="nofollow" when linking to external sites you do not wish to endorse or pass ranking signals to.'
+      },
+      {
+        question: 'Does pasting HTML into the External Link Checker upload content to a server?',
+        answer: 'No. Everything stays inside your browser session with zero data transmission.'
       }
     ],
     relatedToolSlugs: [
@@ -664,7 +846,55 @@ export const serpTools: ToolRegistryItem[] = [
       'nofollow-link-checker',
       'anchor-text-analyzer',
       'seo-content-analyzer'
-    ]
+    ],
+    belowSectionGuide: {
+      howToUseHeading: 'How to use the External Link Checker',
+      howToUseSteps: [
+        'Paste your HTML snippet or list of outbound <a> tags into the Input Text / Code / URLs editor.',
+        'Scan the Output Results panel below to inspect each destination URL, anchor text, protocol (https vs http), and rel or target attributes.',
+        'Update any outbound links in the input box that need HTTPS URLs, rel="noopener", or rel="sponsored" attributes.',
+        'Click Copy Output (shown once text is entered) to copy your reviewed HTML back into your page.'
+      ],
+      checksOrShowsHeading: 'What the External Link Checker does',
+      checksOrShowsIntro: 'The External Link Checker provides a local HTML staging and inspection box that runs entirely in your browser:',
+      checksOrShowsPoints: [
+        'Browser-only input box: Accepts pasted HTML markup or outbound URL lists inside Input Text / Code / URLs with zero server transmission.',
+        'Output Results panel: Echoes your entered markup in a monospace preview window so attributes and protocols are easy to verify.',
+        'Quick Copy Output action: Displays a Copy Output button once text is entered so you can move cleaned link code straight to your clipboard.',
+        'No remote crawling: Inspects only the markup you paste into the tool without fetching external pages.'
+      ],
+      exampleHeading: 'Example',
+      exampleInputLabel: 'Sample input',
+      exampleInput: '<a href="https://partner.example.com/guide" target="_blank" rel="noopener noreferrer">Read documentation</a>',
+      exampleOutputLabel: 'Output Results panel',
+      exampleOutput: '<a href="https://partner.example.com/guide" target="_blank" rel="noopener noreferrer">Read documentation</a>',
+      exampleNote: 'Staging external links in plain monospace makes it quick to confirm HTTPS URLs and target/rel attributes before publishing.',
+      faqHeading: 'Frequently asked questions',
+      faqs: [
+        {
+          question: 'What does the External Link Checker workspace on this page do?',
+          answer: 'It gives you a browser-based Input Text / Code / URLs editor paired with an Output Results panel and Copy Output button so you can inspect, update, and copy outbound <a> tags locally without sending HTML to a server.'
+        },
+        {
+          question: 'Why do outbound links with target="_blank" often include rel="noopener"?',
+          answer: 'Adding rel="noopener" prevents a newly opened tab from accessing the window.opener reference of the original page, which is a standard web security precaution.'
+        },
+        {
+          question: 'When should an external link use rel="nofollow" or rel="sponsored"?',
+          answer: 'Use rel="sponsored" for paid placements or affiliate links, and rel="nofollow" when linking to external sites you do not wish to endorse or pass ranking signals to.'
+        },
+        {
+          question: 'Does pasting HTML into the External Link Checker upload content to a server?',
+          answer: 'No. Everything stays inside your browser session with zero data transmission.'
+        }
+      ],
+      relatedHeading: 'Related tools',
+      relatedSlugs: [
+        'internal-link-checker',
+        'nofollow-link-checker',
+        'anchor-text-analyzer'
+      ]
+    }
   },
   {
     id: 'anchor-text-analyzer',

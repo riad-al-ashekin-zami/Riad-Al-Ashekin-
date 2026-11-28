@@ -142,8 +142,20 @@ export const schemaTools: ToolRegistryItem[] = [
     },
     faqs: [
       {
-        question: 'What is the difference between Schema.org validation and Google Rich Results?',
-        answer: 'Schema.org defines the full vocabulary of all theoretical web entities. Google Rich Results is a specific subset of Schema.org that Google actively supports with visual search features.'
+        question: 'What does the Schema Validator check in my JSON-LD code?',
+        answer: 'It parses your input with the browser JSON parser to verify valid JSON syntax and checks that both @context and @type properties are present. When valid, it lists the top-level keys found in your schema object.'
+      },
+      {
+        question: 'Why does JSON-LD fail validation with a JSON Syntax Error?',
+        answer: 'Common causes include a trailing comma after the last property, single quotes instead of double quotes, missing colons, or unclosed curly braces and brackets.'
+      },
+      {
+        question: 'What is the difference between Schema.org syntax checks and Google Rich Results testing?',
+        answer: 'This validator confirms valid JSON formatting and the presence of @context and @type. Rich Results eligibility also depends on whether a page includes every Google-recommended property for a specific feature type and visible matching content.'
+      },
+      {
+        question: 'What do the Load Preset buttons do?',
+        answer: 'The Organization, LocalBusiness, and Article buttons fill the editor with ready-to-edit JSON-LD templates so you can test or customize a working structure right away.'
       }
     ],
     relatedToolSlugs: [
@@ -151,7 +163,55 @@ export const schemaTools: ToolRegistryItem[] = [
       'schema-markup-generator',
       'json-validator',
       'faq-schema-generator'
-    ]
+    ],
+    belowSectionGuide: {
+      howToUseHeading: 'How to use the Schema Validator',
+      howToUseSteps: [
+        'Paste your JSON-LD code into the JSON-LD Script Code textarea, or click Organization, LocalBusiness, or Article next to Load Preset to load a template.',
+        'Click Validate Schema Syntax to run the check.',
+        'Read the result banner below the button to see whether the code passed as a Valid Schema.org Entity or returned a JSON or missing-property error.',
+        'Fix any reported syntax issue and re-validate, then click Copy JSON-LD to copy your markup.'
+      ],
+      checksOrShowsHeading: 'What the Schema Validator checks',
+      checksOrShowsIntro: 'The Schema Validator runs completely in your browser and performs these exact checks on your JSON-LD block:',
+      checksOrShowsPoints: [
+        'JSON syntax parsing: Attempts to parse your input as strict JSON and reports a JSON Syntax Error message if braces, commas, or quotes are broken.',
+        'Required @context and @type keys: Verifies that both @context and @type exist on the parsed object and alerts you if either is missing.',
+        'Detected entity summary: Displays the @type value (for example Organization or Article) alongside a comma-separated list of top-level schema attributes.',
+        'Preset templates and clipboard copy: Lets you load sample Organization, LocalBusiness, or Article JSON-LD and copy the editor contents in one click.'
+      ],
+      exampleHeading: 'Example',
+      exampleInputLabel: 'Sample input',
+      exampleInput: '{\n  "@context": "https://schema.org",\n  "@type": "Article",\n  "headline": "Technical SEO Checklist",\n  "author": { "@type": "Person", "name": "Alex Rivera" }\n}',
+      exampleOutputLabel: 'Returned output',
+      exampleOutput: 'Valid Schema.org Entity: Article\nValidated schema attributes: @context, @type, headline, author. Ready for embedding inside <script type="application/ld+json">.',
+      exampleNote: 'Paste only the raw JSON object inside <script type="application/ld+json"> rather than the surrounding HTML <script> tags when checking syntax here.',
+      faqHeading: 'Frequently asked questions',
+      faqs: [
+        {
+          question: 'What does the Schema Validator check in my JSON-LD code?',
+          answer: 'It parses your input with the browser JSON parser to verify valid JSON syntax and checks that both @context and @type properties are present. When valid, it lists the top-level keys found in your schema object.'
+        },
+        {
+          question: 'Why does JSON-LD fail validation with a JSON Syntax Error?',
+          answer: 'Common causes include a trailing comma after the last property, single quotes instead of double quotes, missing colons, or unclosed curly braces and brackets.'
+        },
+        {
+          question: 'What is the difference between Schema.org syntax checks and Google Rich Results testing?',
+          answer: 'This validator confirms valid JSON formatting and the presence of @context and @type. Rich Results eligibility also depends on whether a page includes every Google-recommended property for a specific feature type and visible matching content.'
+        },
+        {
+          question: 'What do the Load Preset buttons do?',
+          answer: 'The Organization, LocalBusiness, and Article buttons fill the editor with ready-to-edit JSON-LD templates so you can test or customize a working structure right away.'
+        }
+      ],
+      relatedHeading: 'Related tools',
+      relatedSlugs: [
+        'structured-data-test',
+        'schema-markup-generator',
+        'faq-schema-generator'
+      ]
+    }
   },
   {
     id: 'faq-schema-generator',

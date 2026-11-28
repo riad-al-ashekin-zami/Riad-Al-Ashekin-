@@ -43,12 +43,20 @@ export const urlTools: ToolRegistryItem[] = [
     },
     faqs: [
       {
-        question: 'Should I change my old URLs if they aren\'t fully SEO friendly?',
-        answer: 'Only if the existing URL is severely broken. Changing established URLs with existing backlinks requires 301 redirects, which can temporarily disrupt rankings. Prioritize clean URLs for new pages.'
+        question: 'What makes a URL SEO friendly?',
+        answer: 'An SEO-friendly URL is short, uses HTTPS, contains lowercase letters, separates words with hyphens, and avoids underscores or query characters like ?, &, =, #, and %. Clear slugs help both visitors and search crawlers see what a page is about before opening it.'
+      },
+      {
+        question: 'Should URLs use hyphens or underscores?',
+        answer: 'Use hyphens rather than underscores. Search systems treat hyphens as spaces between separate words, whereas underscores can join words together and make URLs harder to read.'
       },
       {
         question: 'How long should an SEO-friendly URL be?',
-        answer: 'Keep URLs concise, ideally between 50 and 75 characters. Short, focused URLs are easier to share, read, and remember.'
+        answer: 'Keeping a URL path at 75 characters or fewer is a common readability guideline, not a strict search engine rule. Shorter paths are easier to share, scan in search results, and copy without wrapping.'
+      },
+      {
+        question: 'Should I change older URLs that fail one of these checks?',
+        answer: 'Usually no unless the address is broken or unreadable. Changing an existing URL without adding a proper 301 redirect can break bookmarks and external links, so it is best to apply clean formatting to new pages first.'
       }
     ],
     relatedToolSlugs: [
@@ -57,7 +65,56 @@ export const urlTools: ToolRegistryItem[] = [
       'url-parser',
       'meta-title-description-checker'
     ],
-    legacyPaths: ['/seo-friendly-url-test/']
+    legacyPaths: ['/seo-friendly-url-test/'],
+    belowSectionGuide: {
+      howToUseHeading: 'How to use the SEO Friendly URL Test',
+      howToUseSteps: [
+        'Paste or type the full webpage address into the Enter Website URL to Analyze field, or edit the default sample URL.',
+        'Include https:// at the start if you want the protocol check to pass; if you omit the protocol, the parser still inspects the path.',
+        'Check the four diagnostic cards that update immediately below the input field.',
+        'Read the URL Structure Status box at the bottom to confirm whether the slug passed or needs cleanup.'
+      ],
+      checksOrShowsHeading: 'What the SEO Friendly URL Test checks',
+      checksOrShowsIntro: 'The tool parses your URL path in real time and displays four diagnostic cards plus an overall structure summary:',
+      checksOrShowsPoints: [
+        'HTTPS protocol: Checks whether the entered URL starts with https:// and warns if HTTPS encryption is missing.',
+        'Lowercase characters: Scans the pathname for uppercase A to Z letters that can cause duplicate-URL issues on case-sensitive servers.',
+        'Hyphens vs underscores: Checks whether the pathname contains underscores (_) instead of clean word-separating hyphens (-).',
+        'Pathname character length: Measures the pathname character count and flags paths longer than 75 characters as a common readability guideline.',
+        'Special character check: Flags %, ?, &, =, and # inside the status summary when the path is up to 80 characters or contains tracking symbols.'
+      ],
+      exampleHeading: 'Example',
+      exampleInputLabel: 'Sample input URL',
+      exampleInput: 'https://example.com/Services/seo_audit_guide/',
+      exampleOutputLabel: 'What the tool returns',
+      exampleOutput: 'HTTPS: Enforces Secure HTTPS Protocol | Lowercase: Contains uppercase letters | Hyphens: Contains underscores (_) instead of hyphens (-) | Length: 26 chars (Concise and optimal) | Status: Optimization Recommendations shown',
+      exampleNote: 'Changing the path to /services/seo-audit-guide/ switches all four cards green and updates the status banner to 100% SEO-Friendly.',
+      faqHeading: 'Frequently asked questions',
+      faqs: [
+        {
+          question: 'What makes a URL SEO friendly?',
+          answer: 'An SEO-friendly URL is short, uses HTTPS, contains lowercase letters, separates words with hyphens, and avoids underscores or query characters like ?, &, =, #, and %. Clear slugs help both visitors and search crawlers see what a page is about before opening it.'
+        },
+        {
+          question: 'Should URLs use hyphens or underscores?',
+          answer: 'Use hyphens rather than underscores. Search systems treat hyphens as spaces between separate words, whereas underscores can join words together and make URLs harder to read.'
+        },
+        {
+          question: 'How long should an SEO-friendly URL be?',
+          answer: 'Keeping a URL path at 75 characters or fewer is a common readability guideline, not a strict search engine rule. Shorter paths are easier to share, scan in search results, and copy without wrapping.'
+        },
+        {
+          question: 'Should I change older URLs that fail one of these checks?',
+          answer: 'Usually no unless the address is broken or unreadable. Changing an existing URL without adding a proper 301 redirect can break bookmarks and external links, so it is best to apply clean formatting to new pages first.'
+        }
+      ],
+      relatedHeading: 'Related tools',
+      relatedSlugs: [
+        'seo-slug-generator',
+        'url-cleaner',
+        'url-parser'
+      ]
+    }
   },
   {
     id: 'seo-slug-generator',
@@ -150,16 +207,78 @@ export const urlTools: ToolRegistryItem[] = [
     },
     faqs: [
       {
+        question: 'What are UTM parameters?',
+        answer: 'UTM parameters are short query tags added to the end of a URL, such as utm_source, utm_medium, utm_campaign, and utm_content. Analytics tools read those tags when a visitor lands on your page so you can see which campaign or link drove the visit.'
+      },
+      {
+        question: 'What is the difference between utm_source and utm_medium?',
+        answer: 'utm_source names the specific site, platform, or list sending the traffic, such as google, linkedin, or newsletter. utm_medium names the broader channel type, such as cpc, email, or paid_social.'
+      },
+      {
+        question: 'Does it work with Google Analytics 4?',
+        answer: 'Yes. Google Analytics 4 reads standard lowercase utm_source, utm_medium, utm_campaign, and utm_content query parameters directly into its Traffic acquisition and Session campaign reports.'
+      },
+      {
         question: 'Should I use UTM parameters on internal website links?',
-        answer: 'NEVER use UTM tracking tags on internal links. Doing so resets the user\'s active analytics session and overwrites the original inbound marketing attribution.'
+        answer: 'No. Adding UTM tags to links between pages on your own site can overwrite the original external referral source and distort your campaign reporting.'
       }
     ],
     relatedToolSlugs: [
       'url-cleaner',
       'url-parser',
-      'seo-slug-generator',
+      'seo-friendly-url-test',
       'conversion-rate-calculator'
-    ]
+    ],
+    belowSectionGuide: {
+      howToUseHeading: 'How to use the UTM Builder',
+      howToUseSteps: [
+        'Enter your target landing page address in the Destination URL field; if you omit https://, the builder adds it automatically.',
+        'Fill in Campaign Source (utm_source) with the referrer or platform, such as newsletter, linkedin, or google.',
+        'Fill in Campaign Medium (utm_medium) with the channel category, such as email, cpc, or paid_social.',
+        'Enter a Campaign Name (utm_campaign) and, if you are comparing two links or creatives, an optional Campaign Content (utm_content) label.',
+        'Click Copy Link above the Generated Campaign URL box to copy the formatted tracking link.'
+      ],
+      checksOrShowsHeading: 'What the UTM Builder shows',
+      checksOrShowsIntro: 'The builder validates URL query formatting locally in your browser and shows the live output link as you edit each field:',
+      checksOrShowsPoints: [
+        'Five structured inputs: Destination URL, Campaign Source (utm_source), Campaign Medium (utm_medium), Campaign Name (utm_campaign), and optional Campaign Content (utm_content).',
+        'Automatic protocol fallback: Prepends https:// when the destination URL does not start with http.',
+        'Lowercase normalization: Converts utm_source, utm_medium, utm_campaign, and utm_content to lowercase so mixed capitalization does not split analytics rows.',
+        'Underscore spacing for campaign labels: Replaces spaces in utm_campaign and utm_content with underscores (_) and properly encodes query parameters.',
+        'Live Generated Campaign URL preview and Copy Link button for one-click copying.'
+      ],
+      exampleHeading: 'Example',
+      exampleInputLabel: 'Sample inputs',
+      exampleInput: 'Destination URL: https://example.com/pricing | utm_source: LinkedIn | utm_medium: paid_social | utm_campaign: Q4 Demo Push | utm_content: Pricing Card',
+      exampleOutputLabel: 'Generated Campaign URL',
+      exampleOutput: 'https://example.com/pricing?utm_source=linkedin&utm_medium=paid_social&utm_campaign=q4_demo_push&utm_content=pricing_card',
+      exampleNote: 'Uppercase letters are converted to lowercase and spaces in campaign and content labels become underscores.',
+      faqHeading: 'Frequently asked questions',
+      faqs: [
+        {
+          question: 'What are UTM parameters?',
+          answer: 'UTM parameters are short query tags added to the end of a URL, such as utm_source, utm_medium, utm_campaign, and utm_content. Analytics tools read those tags when a visitor lands on your page so you can see which campaign or link drove the visit.'
+        },
+        {
+          question: 'What is the difference between utm_source and utm_medium?',
+          answer: 'utm_source names the specific site, platform, or list sending the traffic, such as google, linkedin, or newsletter. utm_medium names the broader channel type, such as cpc, email, or paid_social.'
+        },
+        {
+          question: 'Does it work with Google Analytics 4?',
+          answer: 'Yes. Google Analytics 4 reads standard lowercase utm_source, utm_medium, utm_campaign, and utm_content query parameters directly into its Traffic acquisition and Session campaign reports.'
+        },
+        {
+          question: 'Should I use UTM parameters on internal website links?',
+          answer: 'No. Adding UTM tags to links between pages on your own site can overwrite the original external referral source and distort your campaign reporting.'
+        }
+      ],
+      relatedHeading: 'Related tools',
+      relatedSlugs: [
+        'url-cleaner',
+        'url-parser',
+        'seo-friendly-url-test'
+      ]
+    }
   },
   {
     id: 'url-encoder',

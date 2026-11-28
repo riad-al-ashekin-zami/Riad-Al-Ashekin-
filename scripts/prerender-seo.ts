@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { allPages, getPageBySlug, normalizePath } from '../src/data/pagesRegistry';
+import { getToolById, getToolByPath, getToolBySlug, ToolRegistryItem } from '../src/data/toolDetails';
 
 const DOMAIN = 'https://riadalashekin.com';
 const distDir = path.resolve(process.cwd(), 'dist');
@@ -67,15 +68,80 @@ function getSubpageShell(title: string, description: string): string {
   return `<div class="min-h-screen bg-brand-50 text-brand-950 flex flex-col font-sans"><header class="fixed top-0 left-0 right-0 z-50 bg-[#150d28]/95 backdrop-blur-xl border-b border-brand-800/80 py-3.5"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex items-center justify-between h-12 sm:h-14"><a href="/" class="text-left flex items-center gap-3"><div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-brand-700 via-brand-800 to-brand-950 border border-brand-600/60 flex items-center justify-center font-bold text-white shadow-md"><span>RA</span></div><div class="flex flex-col"><span class="text-sm sm:text-base font-extrabold text-white tracking-tight">RIAD AL ASHEKIN</span><span class="text-[10px] font-mono font-medium text-brand-300 hidden sm:block">Business &amp; Tech Consultant</span></div></a><div class="hidden lg:flex items-center gap-2.5"><a href="/contact/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-accent-600 text-white text-xs font-bold shadow-md"><span>Contact Me</span></a></div></div></div></header><main class="flex-1 pt-28 pb-16"><div class="max-w-4xl mx-auto px-4 sm:px-6"><h1 class="text-3xl sm:text-4xl font-extrabold text-brand-950 tracking-tight mb-4">${escapeHtml(title)}</h1><p class="text-base sm:text-lg text-brand-700 leading-relaxed">${escapeHtml(description)}</p></div></main></div>`;
 }
 
-function generateHtmlForPage(slug: string, title: string, description: string, canonicalUrl: string, imageUrl?: string): string {
+function getToolGuideShell(tool: ToolRegistryItem): string {
+  const guide = tool.belowSectionGuide!;
+  const relatedTools = guide.relatedSlugs
+    .map(slug => getToolBySlug(slug) || getToolById(slug))
+    .filter((item): item is ToolRegistryItem => Boolean(item))
+    .slice(0, 3);
+
+  const stepsHtml = guide.howToUseSteps
+    .map((step, idx) => `<li class="flex gap-4 p-4 rounded-2xl bg-brand-50/70 border border-brand-100/90"><span class="w-7 h-7 shrink-0 rounded-full bg-accent-600 text-white font-bold text-xs flex items-center justify-center">${idx + 1}</span><span class="text-xs sm:text-sm text-brand-800 leading-relaxed font-medium pt-0.5">${escapeHtml(step)}</span></li>`)
+    .join('');
+
+  const pointsHtml = guide.checksOrShowsPoints
+    .map(pt => `<li class="flex items-start gap-3 p-3.5 rounded-xl bg-brand-50/50 border border-brand-100"><span class="text-xs sm:text-sm text-brand-800 font-medium leading-relaxed">${escapeHtml(pt)}</span></li>`)
+    .join('');
+
+  const faqsHtml = guide.faqs
+    .map(faq => `<div class="border border-brand-200/80 rounded-2xl overflow-hidden bg-white"><h3 class="px-5 py-3.5 text-xs sm:text-sm font-bold text-brand-950 bg-brand-50/50 border-b border-brand-100">${escapeHtml(faq.question)}</h3><p class="px-5 py-4 text-xs sm:text-sm text-brand-700 leading-relaxed font-normal">${escapeHtml(faq.answer)}</p></div>`)
+    .join('');
+
+  const relatedHtml = relatedTools
+    .map(rel => `<a href="${escapeHtml(rel.path)}" class="group bg-white hover:bg-brand-50/50 border border-brand-200/80 hover:border-accent-400 rounded-2xl p-5 flex flex-col justify-between transition-all duration-200 shadow-2xs no-underline block"><div><h3 class="text-sm font-bold text-brand-950">${escapeHtml(rel.name)}</h3><p class="text-xs text-brand-600 mt-1.5 mb-4 leading-relaxed">${escapeHtml(rel.shortDescription)}</p></div><div class="pt-2 border-t border-brand-100 flex items-center text-xs font-bold text-accent-700"><span>Open Tool</span></div></a>`)
+    .join('');
+
+  return `<div class="w-full min-h-screen bg-[#f9f8fc] text-brand-950 flex flex-col font-sans"><header class="fixed top-0 left-0 right-0 z-50 bg-[#150d28]/95 backdrop-blur-xl border-b border-brand-800/80 py-3.5"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex items-center justify-between h-12 sm:h-14"><a href="/" class="text-left flex items-center gap-3"><div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-brand-700 via-brand-800 to-brand-950 border border-brand-600/60 flex items-center justify-center font-bold text-white shadow-md"><span>RA</span></div><div class="flex flex-col"><span class="text-sm sm:text-base font-extrabold text-white tracking-tight">RIAD AL ASHEKIN</span><span class="text-[10px] font-mono font-medium text-brand-300 hidden sm:block">Business &amp; Tech Consultant</span></div></a><div class="hidden lg:flex items-center gap-2.5"><a href="/contact/" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-accent-600 text-white text-xs font-bold shadow-md"><span>Contact Me</span></a></div></div></div></header><section class="relative pt-24 sm:pt-28 pb-12 sm:pb-16 overflow-hidden bg-[#150d28] text-white border-b border-brand-800/80"><div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"><header class="space-y-4"><h1 class="text-3xl sm:text-4xl lg:text-5xl font-sans font-extrabold text-white tracking-tight leading-[1.15]">${escapeHtml(tool.h1)}</h1><p class="text-base sm:text-lg text-brand-200 font-normal leading-relaxed max-w-3xl">${escapeHtml(tool.intro)}</p></header></div></section><main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 w-full flex-1 space-y-12"><section aria-label="Interactive Tool" class="bg-white rounded-2xl border border-brand-200/90 shadow-sm p-6 sm:p-8 text-xs sm:text-sm text-brand-600">${escapeHtml(tool.name)}</section><div class="space-y-10"><section class="bg-white rounded-3xl border border-brand-200/90 shadow-sm p-6 sm:p-10 space-y-5"><div class="border-b border-brand-100 pb-4"><h2 class="text-xl sm:text-2xl font-bold text-brand-950">${escapeHtml(guide.howToUseHeading)}</h2></div><ol class="space-y-3 list-none p-0 m-0">${stepsHtml}</ol></section><section class="bg-white rounded-3xl border border-brand-200/90 shadow-sm p-6 sm:p-10 space-y-5"><div class="border-b border-brand-100 pb-4"><h2 class="text-xl sm:text-2xl font-bold text-brand-950">${escapeHtml(guide.checksOrShowsHeading)}</h2></div><p class="text-xs sm:text-sm text-brand-800 leading-relaxed">${escapeHtml(guide.checksOrShowsIntro)}</p><ul class="space-y-3 list-none p-0 m-0">${pointsHtml}</ul></section><section class="bg-white rounded-3xl border border-brand-200/90 shadow-sm p-6 sm:p-10 space-y-5"><h2 class="text-xl sm:text-2xl font-bold text-brand-950 border-b border-brand-100 pb-4">${escapeHtml(guide.exampleHeading)}</h2><div class="space-y-4"><div><span class="block text-xs font-bold text-brand-600 uppercase mb-1.5">${escapeHtml(guide.exampleInputLabel || 'Sample input')}</span><pre class="p-4 bg-brand-50 border border-brand-200 rounded-xl text-xs font-mono text-brand-900 whitespace-pre-wrap break-words overflow-x-auto">${escapeHtml(guide.exampleInput)}</pre></div><div><span class="block text-xs font-bold text-emerald-700 uppercase mb-1.5">${escapeHtml(guide.exampleOutputLabel || 'Returned output')}</span><pre class="p-4 bg-brand-950 border border-brand-800 rounded-xl text-xs font-mono text-emerald-400 whitespace-pre-wrap break-words overflow-x-auto">${escapeHtml(guide.exampleOutput)}</pre></div>${guide.exampleNote ? `<p class="text-xs sm:text-sm text-brand-700 leading-relaxed bg-brand-50/60 p-3.5 rounded-xl border border-brand-100">${escapeHtml(guide.exampleNote)}</p>` : ''}</div></section><section class="bg-white rounded-3xl border border-brand-200/90 shadow-sm p-6 sm:p-10 space-y-5"><div class="border-b border-brand-100 pb-4"><h2 class="text-xl sm:text-2xl font-bold text-brand-950">${escapeHtml(guide.faqHeading)}</h2></div><div class="space-y-4 pt-1">${faqsHtml}</div></section><section class="space-y-5 pt-2"><div class="flex items-center justify-between"><h2 class="text-xl sm:text-2xl font-bold text-brand-950">${escapeHtml(guide.relatedHeading)}</h2><a href="/seo-tools/" class="text-xs font-bold text-accent-700 no-underline">View All Tools</a></div><div class="grid grid-cols-1 sm:grid-cols-3 gap-4">${relatedHtml}</div></section></div></main></div>`;
+}
+
+function generateHtmlForPage(slug: string, title: string, description: string, canonicalUrl: string, imageUrl?: string, tool?: ToolRegistryItem): string {
   let html = baseTemplate;
 
   const safeTitle = escapeHtml(title);
   const safeDesc = escapeHtml(description);
   const safeUrl = escapeHtml(canonicalUrl);
 
-  // Inject subpage shell for instant FCP on deep links
-  html = html.replace('<div id="root"></div>', `<div id="root">${getSubpageShell(title, description)}</div>`);
+  // Inject server-rendered shell for instant FCP and full content availability without JS
+  if (tool && tool.belowSectionGuide) {
+    html = html.replace('<div id="root"></div>', `<div id="root">${getToolGuideShell(tool)}</div>`);
+
+    const appSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'WebApplication',
+      name: tool.name,
+      url: tool.canonicalUrl,
+      applicationCategory: 'SEOApplication',
+      operatingSystem: 'All',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD'
+      },
+      description: tool.metaDescription
+    };
+
+    const faqSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: tool.belowSectionGuide.faqs.map(f => ({
+        '@type': 'Question',
+        name: f.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: f.answer
+        }
+      }))
+    };
+
+    const safeAppJson = JSON.stringify(appSchema).replace(/</g, '\\u003c');
+    const safeFaqJson = JSON.stringify(faqSchema).replace(/</g, '\\u003c');
+    html = html.replace(
+      '</head>',
+      `  <script type="application/ld+json" data-prerender-tool-schema="true">${safeAppJson}</script>\n  <script type="application/ld+json" data-prerender-tool-schema="true">${safeFaqJson}</script>\n</head>`
+    );
+  } else {
+    html = html.replace('<div id="root"></div>', `<div id="root">${getSubpageShell(title, description)}</div>`);
+  }
 
   // Replace <title>
   html = html.replace(/<title>.*?<\/title>/i, `<title>${safeTitle}</title>`);
@@ -170,8 +236,11 @@ for (const rawPage of allPages) {
 
   const pageDesc = page.metaDescription || page.subtitle || page.intro || '';
   const canonical = page.canonicalUrl || `${DOMAIN}/${cleanSlug}/`;
+  const toolItem = page.toolDetailId
+    ? getToolById(page.toolDetailId)
+    : (getToolByPath(page.slug) || getToolBySlug(page.slug));
 
-  const pageHtml = generateHtmlForPage(norm, pageTitle, pageDesc, canonical, page.featuredImage);
+  const pageHtml = generateHtmlForPage(norm, pageTitle, pageDesc, canonical, page.featuredImage, toolItem);
 
   const targetFolder = path.join(distDir, cleanSlug);
   if (!fs.existsSync(targetFolder)) {

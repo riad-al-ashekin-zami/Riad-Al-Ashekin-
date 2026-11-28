@@ -43,8 +43,20 @@ export const devTools: ToolRegistryItem[] = [
     },
     faqs: [
       {
-        question: 'Can I format text with single quotes for SQL?',
-        answer: 'Yes! Check the "Wrap with single quotes" option to output values formatted for SQL IN clause statements (\'val1\', \'val2\').'
+        question: 'How do I turn a column of values into a comma-separated list?',
+        answer: 'Paste your column of items into the Input Items (Column or List) box with one entry per line. Leave the Delimiter set to Comma (,) and the Separated Result box updates right away, ready for the Copy button.'
+      },
+      {
+        question: 'Can it use other separators besides commas?',
+        answer: 'Yes. The Delimiter menu lets you switch between Comma (,), Semicolon (;), Pipe (|), and Space ( ). You can also check Wrap with quotes ("item") to place double quotes around each entry.'
+      },
+      {
+        question: 'Does it remove duplicates?',
+        answer: 'Yes. The Remove duplicates checkbox is enabled by default and strips exact duplicate entries automatically. Uncheck it if you need to keep every repeated item in your list.'
+      },
+      {
+        question: 'Does the Comma Separator Tool store or upload my list?',
+        answer: 'No. All splitting, trimming, deduplication, and formatting run directly in your browser using JavaScript, so your text never leaves your device.'
       }
     ],
     relatedToolSlugs: [
@@ -53,7 +65,56 @@ export const devTools: ToolRegistryItem[] = [
       'word-counter-pro',
       'json-formatter'
     ],
-    legacyPaths: ['/comma-separator/']
+    legacyPaths: ['/comma-separator/'],
+    belowSectionGuide: {
+      howToUseHeading: 'How to use the Comma Separator Tool',
+      howToUseSteps: [
+        'Paste your column of keywords, tags, or values into the Input Items (Column or List) box, or click the trash icon to clear the sample entries first.',
+        'Choose your output separator from the Delimiter dropdown: Comma (,), Semicolon (;), Pipe (|), or Space ( ).',
+        'Check Wrap with quotes ("item") if you need double quotes around every value, and keep Remove duplicates checked if you want exact repeats stripped.',
+        'Review the live item count and formatted text in the Separated Result box, then click Copy to copy the list to your clipboard.'
+      ],
+      checksOrShowsHeading: 'What the Comma Separator Tool does',
+      checksOrShowsIntro: 'The tool splits raw lists on line breaks, commas, or semicolons in your browser and outputs clean delimited text:',
+      checksOrShowsPoints: [
+        'Four delimiter options: Formats items separated by Comma (,), Semicolon (;), Pipe (|), or Space ( ).',
+        'Whitespace trimming and blank-line skipping: Strips extra spaces around each entry and ignores empty lines automatically.',
+        'Duplicate removal toggle: Removes exact duplicate entries when Remove duplicates is checked, which is enabled by default.',
+        'Double-quote wrapping toggle: Wraps each formatted item in double quotation marks ("item") when Wrap with quotes is checked.',
+        'Live item counter and Copy button: Displays the formatted item count in the toolbar and copies the Separated Result with one click.'
+      ],
+      exampleHeading: 'Example',
+      exampleInputLabel: 'Sample column input',
+      exampleInput: 'technical seo\nkeyword research\nschema markup\ntechnical seo',
+      exampleOutputLabel: 'Separated Result (Comma, Remove duplicates on)',
+      exampleOutput: 'technical seo, keyword research, schema markup (3 items formatted)',
+      exampleNote: 'Switching the Delimiter to Pipe (|) updates the output to technical seo| keyword research| schema markup without changing your original input list.',
+      faqHeading: 'Frequently asked questions',
+      faqs: [
+        {
+          question: 'How do I turn a column of values into a comma-separated list?',
+          answer: 'Paste your column of items into the Input Items (Column or List) box with one entry per line. Leave the Delimiter set to Comma (,) and the Separated Result box updates right away, ready for the Copy button.'
+        },
+        {
+          question: 'Can it use other separators besides commas?',
+          answer: 'Yes. The Delimiter menu lets you switch between Comma (,), Semicolon (;), Pipe (|), and Space ( ). You can also check Wrap with quotes ("item") to place double quotes around each entry.'
+        },
+        {
+          question: 'Does it remove duplicates?',
+          answer: 'Yes. The Remove duplicates checkbox is enabled by default and strips exact duplicate entries automatically. Uncheck it if you need to keep every repeated item in your list.'
+        },
+        {
+          question: 'Does the Comma Separator Tool store or upload my list?',
+          answer: 'No. All splitting, trimming, deduplication, and formatting run directly in your browser using JavaScript, so your text never leaves your device.'
+        }
+      ],
+      relatedHeading: 'Related tools',
+      relatedSlugs: [
+        'keyword-combiner',
+        'character-counter',
+        'word-counter-pro'
+      ]
+    }
   },
   {
     id: 'json-formatter',
@@ -182,8 +243,20 @@ export const devTools: ToolRegistryItem[] = [
     },
     faqs: [
       {
-        question: 'Does formatting an XML sitemap impact Google search crawling?',
-        answer: 'No. Search engine crawlers parse XML tags regardless of whitespace. Formatting is purely for human development and debugging efficiency.'
+        question: 'Does formatting an XML sitemap change how search engines crawl it?',
+        answer: 'No. Search engine crawlers read XML tags regardless of line breaks or spaces. Formatting makes XML sitemaps and feeds easier for people to read and check.'
+      },
+      {
+        question: 'How does the XML Formatter indent nested tags?',
+        answer: 'The tool splits markup between closing and opening brackets (><) onto separate lines and indents child tags by two spaces per nesting level.'
+      },
+      {
+        question: 'Why does Processed Output sometimes show a percentage savings?',
+        answer: 'When your input contains long runs of spacing that shrink after reformatting, the header compares character counts between Input Raw Code and Processed Output and displays the percentage difference.'
+      },
+      {
+        question: 'Is my XML code sent to a server when I paste it here?',
+        answer: 'No. Formatting runs inside your browser with no server upload.'
       }
     ],
     relatedToolSlugs: [
@@ -191,7 +264,55 @@ export const devTools: ToolRegistryItem[] = [
       'sitemap-tester',
       'json-formatter',
       'html-formatter'
-    ]
+    ],
+    belowSectionGuide: {
+      howToUseHeading: 'How to use the XML Formatter',
+      howToUseSteps: [
+        'Paste compressed or single-line XML markup into the Input Raw Code textarea.',
+        'Read the Processed Output panel below the editor, which updates automatically as you type without clicking a submit button.',
+        'Scan the two-space indented tag hierarchy to inspect opening tags, closing tags, and nested elements such as <url> and <loc>.',
+        'Click Copy Output to copy the formatted text from the preview panel to your clipboard.'
+      ],
+      checksOrShowsHeading: 'What the XML Formatter does',
+      checksOrShowsIntro: 'The XML Formatter runs locally in your browser and provides a fast way to split compact XML strings into indented lines:',
+      checksOrShowsPoints: [
+        'Live two-space indentation: Splits adjacent tags onto new lines and adds two spaces of indentation inside opening non-self-closing tags.',
+        'Prefilled sitemap sample: Displays a placeholder XML sitemap example in Input Raw Code so you can see the expected structure right away.',
+        'Character-count comparison: Shows a percentage reduction next to Processed Output whenever the formatted result has fewer characters than the raw input.',
+        'One-click clipboard copy: Provides a Copy Output button above the dark preview panel so you can grab the indented markup immediately.'
+      ],
+      exampleHeading: 'Example',
+      exampleInputLabel: 'Sample input',
+      exampleInput: '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://example.com/</loc><lastmod>2026-03-01</lastmod></url></urlset>',
+      exampleOutputLabel: 'Returned output',
+      exampleOutput: '<<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">\n  <url>\n    <loc>https://example.com/</loc>\n    <lastmod>2026-03-01</lastmod>\n  </url>\n</urlset>>',
+      exampleNote: 'The simple tag splitter wraps each line segment in angle brackets, so double-check the very first and last bracket characters before saving the copied output into a live sitemap file.',
+      faqHeading: 'Frequently asked questions',
+      faqs: [
+        {
+          question: 'Does formatting an XML sitemap change how search engines crawl it?',
+          answer: 'No. Search engine crawlers read XML tags regardless of line breaks or spaces. Formatting makes XML sitemaps and feeds easier for people to read and check.'
+        },
+        {
+          question: 'How does the XML Formatter indent nested tags?',
+          answer: 'The tool splits markup between closing and opening brackets (><) onto separate lines and indents child tags by two spaces per nesting level.'
+        },
+        {
+          question: 'Why does Processed Output sometimes show a percentage savings?',
+          answer: 'When your input contains long runs of spacing that shrink after reformatting, the header compares character counts between Input Raw Code and Processed Output and displays the percentage difference.'
+        },
+        {
+          question: 'Is my XML code sent to a server when I paste it here?',
+          answer: 'No. Formatting runs inside your browser with no server upload.'
+        }
+      ],
+      relatedHeading: 'Related tools',
+      relatedSlugs: [
+        'xml-validator',
+        'sitemap-tester',
+        'json-formatter'
+      ]
+    }
   },
   {
     id: 'xml-validator',
@@ -229,8 +350,20 @@ export const devTools: ToolRegistryItem[] = [
     },
     faqs: [
       {
-        question: 'Why is Google Search Console rejecting my XML sitemap?',
-        answer: 'The most common cause is an unescaped ampersand (&) inside a URL query string or a missing closing tag like </url>. Running it through this validator detects the exact line.'
+        question: 'What makes an XML document well-formed?',
+        answer: 'A well-formed XML file has one single root element, every opening tag has a matching closing tag or self-closing slash, attribute values sit inside quotes, and special characters such as & and < are escaped.'
+      },
+      {
+        question: 'Why can an unescaped ampersand break an XML sitemap?',
+        answer: 'XML treats & as the start of a character entity. A raw & inside a URL query string should be written as &amp; so XML parsers read the document without errors.'
+      },
+      {
+        question: 'What does the interactive XML Validator box on this page do?',
+        answer: 'It provides a client-side Input Text / Code / URLs editor paired with an Output Results panel and Copy Output button so you can paste, inspect, edit, and copy XML markup locally without uploading your file.'
+      },
+      {
+        question: 'Does the XML Validator send my XML code to a remote server?',
+        answer: 'No. Anything you paste stays inside your browser session with zero data transmission.'
       }
     ],
     relatedToolSlugs: [
@@ -238,7 +371,55 @@ export const devTools: ToolRegistryItem[] = [
       'sitemap-tester',
       'json-validator',
       'sitemap-generator'
-    ]
+    ],
+    belowSectionGuide: {
+      howToUseHeading: 'How to use the XML Validator',
+      howToUseSteps: [
+        'Paste your XML sitemap, RSS snippet, or configuration code into the Input Text / Code / URLs box.',
+        'Review your markup in the monospace Output Results panel below to check opening and closing tags, attribute quotes, and unescaped & characters.',
+        'Edit any broken tag pairs or special characters directly in the input box.',
+        'Click Copy Output (shown once text is entered) to copy the cleaned XML snippet.'
+      ],
+      checksOrShowsHeading: 'What the XML Validator does',
+      checksOrShowsIntro: 'The interactive utility on this page gives you a private browser workspace to stage, inspect, and copy XML markup:',
+      checksOrShowsPoints: [
+        'Client-side XML editor: Accepts any XML snippet or sitemap excerpt inside Input Text / Code / URLs with zero server transmission.',
+        'Live Output Results preview: Displays your entered XML in a high-contrast monospace block for clean visual inspection.',
+        'Copy Output button: Appears whenever text is present so you can copy updated markup back into your project.',
+        'No external uploads: Does not submit your XML code to a remote parser or store your files.'
+      ],
+      exampleHeading: 'Example',
+      exampleInputLabel: 'Sample input',
+      exampleInput: '<url><loc>https://example.com/?a=1&amp;b=2</loc></url>',
+      exampleOutputLabel: 'Output Results panel',
+      exampleOutput: '<url><loc>https://example.com/?a=1&amp;b=2</loc></url>',
+      exampleNote: 'Reviewing XML snippets side by side in monospace helps you spot unclosed </loc> tags or raw & characters before uploading your sitemap.',
+      faqHeading: 'Frequently asked questions',
+      faqs: [
+        {
+          question: 'What makes an XML document well-formed?',
+          answer: 'A well-formed XML file has one single root element, every opening tag has a matching closing tag or self-closing slash, attribute values sit inside quotes, and special characters such as & and < are escaped.'
+        },
+        {
+          question: 'Why can an unescaped ampersand break an XML sitemap?',
+          answer: 'XML treats & as the start of a character entity. A raw & inside a URL query string should be written as &amp; so XML parsers read the document without errors.'
+        },
+        {
+          question: 'What does the interactive XML Validator box on this page do?',
+          answer: 'It provides a client-side Input Text / Code / URLs editor paired with an Output Results panel and Copy Output button so you can paste, inspect, edit, and copy XML markup locally without uploading your file.'
+        },
+        {
+          question: 'Does the XML Validator send my XML code to a remote server?',
+          answer: 'No. Anything you paste stays inside your browser session with zero data transmission.'
+        }
+      ],
+      relatedHeading: 'Related tools',
+      relatedSlugs: [
+        'xml-formatter',
+        'sitemap-tester',
+        'sitemap-generator'
+      ]
+    }
   },
   {
     id: 'html-minifier',
@@ -368,16 +549,77 @@ export const devTools: ToolRegistryItem[] = [
     },
     faqs: [
       {
-        question: 'Is this safe for modern ES6+ JavaScript?',
-        answer: 'Yes! The minifier safely handles arrow functions, async/await, template literals, and modern ES module syntax.'
+        question: 'What does JavaScript minification do?',
+        answer: 'Minification removes comments, line breaks, and extra spaces from JavaScript code so the file has fewer characters to download and parse without changing what the script intends to run.'
+      },
+      {
+        question: 'Is this minifier safe for all JavaScript?',
+        answer: 'It works well for standard snippets that end statements cleanly with semicolons and do not contain // inside string literals like URLs. Because it strips // comments and collapses spaces with pattern matching rather than a full syntax parser, avoid pasting scripts with missing semicolons or unescaped // text inside strings.'
+      },
+      {
+        question: 'What is the difference between minification and gzip compression?',
+        answer: 'Minification rewrites the source text itself by stripping comments and whitespace before deployment. Gzip and Brotli are server-level file compressions applied during network transfer on top of already minified code.'
+      },
+      {
+        question: 'Does the JavaScript Minifier rename variables or functions?',
+        answer: 'No. It removes single-line comments, multi-line comments, and redundant whitespace while keeping all variable, parameter, and function names readable.'
       }
     ],
     relatedToolSlugs: [
       'html-minifier',
       'css-minifier',
-      'json-minifier',
-      'json-formatter'
-    ]
+      'json-formatter',
+      'json-minifier'
+    ],
+    belowSectionGuide: {
+      howToUseHeading: 'How to use the JavaScript Minifier',
+      howToUseSteps: [
+        'Paste your unminified JavaScript snippet into the Input Raw Code textarea, or keep the default placeholder function to preview how it works.',
+        'Watch the Processed Output box update live below the editor without clicking a separate submit button.',
+        'Check the percentage label next to Processed Output to see how many characters were saved.',
+        'Click Copy Output (visible when you enter code) to copy the minified JavaScript snippet to your clipboard.'
+      ],
+      checksOrShowsHeading: 'What the JavaScript Minifier does',
+      checksOrShowsIntro: 'The tool compacts JavaScript snippets directly in your browser using lightweight text cleanup rules:',
+      checksOrShowsPoints: [
+        'Multi-line comment removal: Strips block comments wrapped between /* and */.',
+        'Single-line comment removal: Strips // comments from each line.',
+        'Whitespace collapsing: Replaces line breaks, tabs, and repeated spaces with single spaces and trims leading or trailing whitespace.',
+        'Byte savings indicator: Calculates and displays the percentage reduction between your input length and the processed output.',
+        'Copy Output button: Copies the compacted JavaScript string to your clipboard with one click.'
+      ],
+      exampleHeading: 'Example',
+      exampleInputLabel: 'Input Raw Code',
+      exampleInput: 'function greet(name) {\n  // Build greeting\n  return "Hello, " + name;\n}',
+      exampleOutputLabel: 'Processed Output (31% smaller)',
+      exampleOutput: 'function greet(name) { return "Hello, " + name; }',
+      exampleNote: 'The comment and line breaks are removed while keeping the function and parameter names unchanged.',
+      faqHeading: 'Frequently asked questions',
+      faqs: [
+        {
+          question: 'What does JavaScript minification do?',
+          answer: 'Minification removes comments, line breaks, and extra spaces from JavaScript code so the file has fewer characters to download and parse without changing what the script intends to run.'
+        },
+        {
+          question: 'Is this minifier safe for all JavaScript?',
+          answer: 'It works well for standard snippets that end statements cleanly with semicolons and do not contain // inside string literals like URLs. Because it strips // comments and collapses spaces with pattern matching rather than a full syntax parser, avoid pasting scripts with missing semicolons or unescaped // text inside strings.'
+        },
+        {
+          question: 'What is the difference between minification and gzip compression?',
+          answer: 'Minification rewrites the source text itself by stripping comments and whitespace before deployment. Gzip and Brotli are server-level file compressions applied during network transfer on top of already minified code.'
+        },
+        {
+          question: 'Does the JavaScript Minifier rename variables or functions?',
+          answer: 'No. It removes single-line comments, multi-line comments, and redundant whitespace while keeping all variable, parameter, and function names readable.'
+        }
+      ],
+      relatedHeading: 'Related tools',
+      relatedSlugs: [
+        'html-minifier',
+        'css-minifier',
+        'json-formatter'
+      ]
+    }
   },
   {
     id: 'markdown-to-html',

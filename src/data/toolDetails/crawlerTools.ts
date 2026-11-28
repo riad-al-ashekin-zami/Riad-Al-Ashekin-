@@ -95,17 +95,78 @@ export const crawlerTools: ToolRegistryItem[] = [
     },
     faqs: [
       {
-        question: 'How do I block AI crawlers while allowing Googlebot?',
-        answer: 'You can add explicit Disallow: / blocks for User-agent: GPTBot, CCBot, and ClaudeBot, while keeping User-agent: Googlebot set to Allow: /.'
+        question: 'What is a robots.txt file?',
+        answer: 'A robots.txt file is a plain text file that tells search engine and AI crawlers which folders or URLs on your website they may or may not request, and where to find your XML sitemap.'
+      },
+      {
+        question: 'Where should I upload the robots.txt file?',
+        answer: 'Upload it to the root directory of your domain so it is reachable at https://yourdomain.com/robots.txt. Files placed inside subfolders are ignored by crawlers.'
+      },
+      {
+        question: 'How do I block a folder in robots.txt?',
+        answer: 'Add the folder path on its own line in the Custom Disallow Paths box, such as /private/ or /staging/, and the generator adds a Disallow rule for that folder under User-agent: *.'
+      },
+      {
+        question: 'What is the difference between robots.txt and noindex?',
+        answer: 'A robots.txt Disallow rule stops crawlers from fetching a URL, but if other pages link to it, the URL can still appear in search results without a snippet. A noindex meta tag or X-Robots-Tag header tells search engines not to index the page at all, and crawlers must be allowed to fetch the page to see that directive.'
       }
     ],
     relatedToolSlugs: [
       'robots-txt-tester',
       'sitemap-generator',
-      'free-llms-txt-generator',
-      'noindex-checker'
+      'robots-meta-checker',
+      'free-llms-txt-generator'
     ],
-    legacyPaths: ['/free-robots-txt-generator/', '/robots-txt-generator/']
+    legacyPaths: ['/free-robots-txt-generator/', '/robots-txt-generator/'],
+    belowSectionGuide: {
+      howToUseHeading: 'How to use the Robots.txt Generator',
+      howToUseSteps: [
+        'Use the three checkboxes under Crawler Directives & Bots to choose whether to block /admin/ and /wp-admin/ paths and whether to allow GPTBot and PerplexityBot.',
+        'Edit the Custom Disallow Paths box (one path per line, such as /search, /cart, or /checkout) to add any folders or endpoints you want crawlers to skip.',
+        'Enter your full sitemap address in the XML Sitemap URL field, or clear the field if you do not want a Sitemap line included.',
+        'Review the live text inside Generated robots.txt, then click Copy to copy it or Download to save the file directly as robots.txt.'
+      ],
+      checksOrShowsHeading: 'What the Robots.txt Generator does',
+      checksOrShowsIntro: 'The generator builds a plain-text robots.txt file live in your browser from the controls on the left:',
+      checksOrShowsPoints: [
+        'Default User-agent: * block: Outputs User-agent: * followed by Disallow: /admin/ and Disallow: /wp-admin/ when Block Admin & Staging Paths is checked, plus Allow: /.',
+        'Custom Disallow Paths: Converts each non-empty line into a Disallow: rule and adds a leading slash automatically if omitted.',
+        'AI crawler toggles: Appends User-agent: GPTBot with Disallow: / when ChatGPT/GPTBot is unchecked, and User-agent: PerplexityBot with Disallow: / when PerplexityBot is unchecked.',
+        'Sitemap directive: Appends a Sitemap: line at the end of the file whenever the XML Sitemap URL input is non-empty.',
+        'Copy and Download buttons: Copies the generated rules to your clipboard or downloads a ready-to-upload robots.txt file.'
+      ],
+      exampleHeading: 'Example',
+      exampleInputLabel: 'Sample settings',
+      exampleInput: 'Block Admin & Staging Paths: On | Allow GPTBot: Off | Allow PerplexityBot: On | Custom Disallow Paths: /search, /cart, /checkout | XML Sitemap URL: https://example.com/sitemap.xml',
+      exampleOutputLabel: 'Generated robots.txt',
+      exampleOutput: '# robots.txt generated via riadalashekin.com/free-robots-txt-generator/\nUser-agent: *\nDisallow: /admin/\nDisallow: /wp-admin/\nDisallow: /search\nDisallow: /cart\nDisallow: /checkout\nAllow: /\n\nUser-agent: GPTBot\nDisallow: /\n\nSitemap: https://example.com/sitemap.xml',
+      exampleNote: 'Every rule updates live as you toggle checkboxes or type custom paths.',
+      faqHeading: 'Frequently asked questions',
+      faqs: [
+        {
+          question: 'What is a robots.txt file?',
+          answer: 'A robots.txt file is a plain text file that tells search engine and AI crawlers which folders or URLs on your website they may or may not request, and where to find your XML sitemap.'
+        },
+        {
+          question: 'Where should I upload the robots.txt file?',
+          answer: 'Upload it to the root directory of your domain so it is reachable at https://yourdomain.com/robots.txt. Files placed inside subfolders are ignored by crawlers.'
+        },
+        {
+          question: 'How do I block a folder in robots.txt?',
+          answer: 'Add the folder path on its own line in the Custom Disallow Paths box, such as /private/ or /staging/, and the generator adds a Disallow rule for that folder under User-agent: *.'
+        },
+        {
+          question: 'What is the difference between robots.txt and noindex?',
+          answer: 'A robots.txt Disallow rule stops crawlers from fetching a URL, but if other pages link to it, the URL can still appear in search results without a snippet. A noindex meta tag or X-Robots-Tag header tells search engines not to index the page at all, and crawlers must be allowed to fetch the page to see that directive.'
+        }
+      ],
+      relatedHeading: 'Related tools',
+      relatedSlugs: [
+        'robots-txt-tester',
+        'sitemap-generator',
+        'robots-meta-checker'
+      ]
+    }
   },
   {
     id: 'sitemap-tester',
@@ -191,8 +252,20 @@ export const crawlerTools: ToolRegistryItem[] = [
     },
     faqs: [
       {
-        question: 'How do I submit my new sitemap to Google?',
-        answer: 'Log into Google Search Console, navigate to Indexing > Sitemaps, enter the sitemap URL (e.g. sitemap.xml), and click Submit.'
+        question: 'What is an XML sitemap?',
+        answer: 'An XML sitemap is a structured file (commonly hosted at /sitemap.xml) that lists a website\'s important canonical URLs inside <urlset>, <url>, and <loc> tags so search crawlers can discover and recrawl pages efficiently.'
+      },
+      {
+        question: 'How do I submit a sitemap to Google Search Console?',
+        answer: 'Open your verified property in Google Search Console, go to Sitemaps in the left sidebar, enter your sitemap path such as sitemap.xml in the Add a new sitemap field, and click Submit.'
+      },
+      {
+        question: 'Which URLs should be included in a sitemap?',
+        answer: 'Include only canonical, indexable URLs that return a 200 OK status. Exclude redirected URLs, 404 pages, internal search results, and pages marked with noindex.'
+      },
+      {
+        question: 'Does the interactive tool on this page upload my URL list?',
+        answer: 'No. The utility runs inside your browser with zero data transmission so your URL lists and XML drafts stay on your device.'
       }
     ],
     relatedToolSlugs: [
@@ -200,7 +273,55 @@ export const crawlerTools: ToolRegistryItem[] = [
       'sitemap-url-extractor',
       'free-robots-txt-generator',
       'xml-formatter'
-    ]
+    ],
+    belowSectionGuide: {
+      howToUseHeading: 'How to use the Sitemap Generator',
+      howToUseSteps: [
+        'Collect the canonical HTTPS URLs you want in your sitemap or prepare a draft XML <urlset> snippet.',
+        'Paste your URL list or XML draft into the Input Text / Code / URLs editor inside the Interactive Sitemap Generator box.',
+        'Inspect the text inside the Output Results box below the editor to check URL formatting, trailing slashes, and tag closures.',
+        'Click Copy Output (shown once input is entered) to copy your reviewed text to the clipboard before saving it to sitemap.xml.'
+      ],
+      checksOrShowsHeading: 'What the Sitemap Generator does',
+      checksOrShowsIntro: 'The interactive utility on this page provides a browser-local editor and preview panel with zero server uploads:',
+      checksOrShowsPoints: [
+        'Input Text / Code / URLs box: Accepts plain URL lists or XML sitemap markup directly in the browser.',
+        'Live Output Results panel: Mirrors your entered URLs or XML code in a dark monospace block for side-by-side visual verification.',
+        'Client-side execution: Keeps every URL and draft completely on your device with no data sent across the network.',
+        'Copy Output button: Appears above the Output Results block as soon as text is entered for one-click clipboard copying.'
+      ],
+      exampleHeading: 'Example',
+      exampleInputLabel: 'Sample XML draft input',
+      exampleInput: '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>https://example.com/</loc></url>\n  <url><loc>https://example.com/services/</loc></url>\n</urlset>',
+      exampleOutputLabel: 'Output Results panel',
+      exampleOutput: '<?xml version="1.0" encoding="UTF-8"?> <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> <url><loc>https://example.com/</loc></url> <url><loc>https://example.com/services/</loc></url> </urlset> (ready via Copy Output)',
+      exampleNote: 'Once copied and saved to your site root as sitemap.xml, you can validate it with the XML Sitemap Tester & Checker.',
+      faqHeading: 'Frequently asked questions',
+      faqs: [
+        {
+          question: 'What is an XML sitemap?',
+          answer: 'An XML sitemap is a structured file (commonly hosted at /sitemap.xml) that lists a website\'s important canonical URLs inside <urlset>, <url>, and <loc> tags so search crawlers can discover and recrawl pages efficiently.'
+        },
+        {
+          question: 'How do I submit a sitemap to Google Search Console?',
+          answer: 'Open your verified property in Google Search Console, go to Sitemaps in the left sidebar, enter your sitemap path such as sitemap.xml in the Add a new sitemap field, and click Submit.'
+        },
+        {
+          question: 'Which URLs should be included in a sitemap?',
+          answer: 'Include only canonical, indexable URLs that return a 200 OK status. Exclude redirected URLs, 404 pages, internal search results, and pages marked with noindex.'
+        },
+        {
+          question: 'Does the interactive tool on this page upload my URL list?',
+          answer: 'No. The utility runs inside your browser with zero data transmission so your URL lists and XML drafts stay on your device.'
+        }
+      ],
+      relatedHeading: 'Related tools',
+      relatedSlugs: [
+        'sitemap-tester',
+        'sitemap-url-extractor',
+        'free-robots-txt-generator'
+      ]
+    }
   },
   {
     id: 'sitemap-url-extractor',

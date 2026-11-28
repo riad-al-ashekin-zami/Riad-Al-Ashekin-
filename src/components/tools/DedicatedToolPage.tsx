@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { 
   ChevronRight, 
@@ -17,7 +17,7 @@ import {
   ChevronDown 
 } from 'lucide-react';
 import { ToolRegistryItem } from '../../data/toolDetails/types';
-import { getRelatedTools } from '../../data/toolDetails';
+import { getRelatedTools, getToolById, getToolBySlug } from '../../data/toolDetails';
 import { ToolInteractiveWidget } from './ToolInteractiveWidget';
 import { handleLinkClick } from '../../utils/navigation';
 
@@ -30,7 +30,24 @@ export const DedicatedToolPage: React.FC<DedicatedToolPageProps> = ({ tool, onNa
   const [copiedUrl, setCopiedUrl] = useState(false);
   const [openFaqIndices, setOpenFaqIndices] = useState<number[]>([0]);
 
-  const relatedTools = getRelatedTools(tool, 4);
+  const guide = tool.belowSectionGuide;
+
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      document
+        .querySelectorAll('script[data-prerender-tool-schema="true"]')
+        .forEach(el => el.remove());
+    }
+  }, [tool.id]);
+
+  const relatedTools = guide
+    ? guide.relatedSlugs
+        .map(slug => getToolBySlug(slug) || getToolById(slug))
+        .filter((item): item is ToolRegistryItem => Boolean(item))
+        .slice(0, 3)
+    : getRelatedTools(tool, 4);
+
+  const activeFaqs = guide ? guide.faqs : tool.faqs;
 
   const handleCopyUrl = () => {
     navigator.clipboard.writeText(tool.canonicalUrl);
@@ -45,10 +62,10 @@ export const DedicatedToolPage: React.FC<DedicatedToolPageProps> = ({ tool, onNa
   };
 
   // Structured Data Schema for FAQ and WebApplication
-  const faqSchema = tool.faqs && tool.faqs.length > 0 ? {
+  const faqSchema = activeFaqs && activeFaqs.length > 0 ? {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": tool.faqs.map(f => ({
+    "mainEntity": activeFaqs.map(f => ({
       "@type": "Question",
       "name": f.question,
       "acceptedAnswer": {
@@ -185,215 +202,369 @@ export const DedicatedToolPage: React.FC<DedicatedToolPageProps> = ({ tool, onNa
           <ToolInteractiveWidget tool={tool} />
         </section>
 
-        {/* How to Use Step-by-Step */}
-        {tool.howToUse && tool.howToUse.length > 0 && (
-          <section className="bg-white rounded-3xl border border-brand-200/90 shadow-sm p-6 sm:p-10 space-y-6">
-            <div className="flex items-center gap-3 border-b border-brand-100 pb-4">
-              <div className="w-9 h-9 rounded-xl bg-accent-50 text-accent-700 flex items-center justify-center font-bold">
-                <BookOpen className="w-5 h-5" />
-              </div>
-              <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-brand-950">
-                  How to Use the {tool.name}
-                </h2>
-                <p className="text-xs sm:text-sm text-brand-600">Follow these steps to analyze or generate your assets</p>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 pt-2">
-              {tool.howToUse.map((step, idx) => (
-                <div key={idx} className="flex gap-4 p-4 rounded-2xl bg-brand-50/70 border border-brand-100/90">
-                  <div className="w-7 h-7 shrink-0 rounded-full bg-accent-600 text-white font-bold text-xs flex items-center justify-center">
-                    {idx + 1}
-                  </div>
-                  <p className="text-xs sm:text-sm text-brand-800 leading-relaxed font-medium pt-0.5">
-                    {step}
-                  </p>
+        {guide ? (
+          <div className="space-y-10">
+            {/* 1. How to use */}
+            <section className="bg-white rounded-3xl border border-brand-200/90 shadow-sm p-6 sm:p-10 space-y-5">
+              <div className="flex items-center gap-3 border-b border-brand-100 pb-4">
+                <div className="w-9 h-9 rounded-xl bg-accent-50 text-accent-700 flex items-center justify-center font-bold">
+                  <BookOpen className="w-5 h-5" />
                 </div>
-              ))}
-            </div>
-          </section>
-        )}
-
-        {/* Features & Core Capabilities Grid */}
-        {tool.features && tool.features.length > 0 && (
-          <section className="bg-white rounded-3xl border border-brand-200/90 shadow-sm p-6 sm:p-10 space-y-6">
-            <div className="flex items-center gap-3 border-b border-brand-100 pb-4">
-              <div className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">
-                <Layers className="w-5 h-5" />
-              </div>
-              <div>
                 <h2 className="text-xl sm:text-2xl font-bold text-brand-950">
-                  Core Features &amp; Capabilities
+                  {guide.howToUseHeading}
                 </h2>
-                <p className="text-xs sm:text-sm text-brand-600">Engineered for search professionals, developers, and founders</p>
               </div>
-            </div>
+              <ol className="space-y-3 list-none p-0 m-0">
+                {guide.howToUseSteps.map((step, idx) => (
+                  <li key={idx} className="flex gap-4 p-4 rounded-2xl bg-brand-50/70 border border-brand-100/90">
+                    <span className="w-7 h-7 shrink-0 rounded-full bg-accent-600 text-white font-bold text-xs flex items-center justify-center">
+                      {idx + 1}
+                    </span>
+                    <span className="text-xs sm:text-sm text-brand-800 leading-relaxed font-medium pt-0.5">
+                      {step}
+                    </span>
+                  </li>
+                ))}
+              </ol>
+            </section>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              {tool.features.map((feature, idx) => (
-                <div key={idx} className="flex items-start gap-3 p-3.5 rounded-xl bg-brand-50/50 border border-brand-100">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="text-xs sm:text-sm text-brand-800 font-medium leading-relaxed">
-                    {feature}
-                  </span>
+            {/* 2. What the tool checks / shows */}
+            <section className="bg-white rounded-3xl border border-brand-200/90 shadow-sm p-6 sm:p-10 space-y-5">
+              <div className="flex items-center gap-3 border-b border-brand-100 pb-4">
+                <div className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">
+                  <Layers className="w-5 h-5" />
                 </div>
-              ))}
-            </div>
-          </section>
-        )}
-
-        {/* In-depth Technical Explanation / Search Architecture */}
-        {tool.technicalExplanation && (
-          <section className="bg-white rounded-3xl border border-brand-200/90 shadow-sm p-6 sm:p-10 space-y-6">
-            <div className="flex items-center gap-3 border-b border-brand-100 pb-4">
-              <div className="w-9 h-9 rounded-xl bg-indigo-50 text-indigo-700 flex items-center justify-center font-bold">
-                <Sliders className="w-5 h-5" />
-              </div>
-              <div>
                 <h2 className="text-xl sm:text-2xl font-bold text-brand-950">
-                  {tool.technicalExplanation.heading}
+                  {guide.checksOrShowsHeading}
                 </h2>
-                <p className="text-xs sm:text-sm text-brand-600">Technical insights, Google guidelines, and architectural considerations</p>
               </div>
-            </div>
+              <p className="text-xs sm:text-sm text-brand-800 leading-relaxed">
+                {guide.checksOrShowsIntro}
+              </p>
+              <ul className="space-y-3 list-none p-0 m-0">
+                {guide.checksOrShowsPoints.map((point, idx) => (
+                  <li key={idx} className="flex items-start gap-3 p-3.5 rounded-xl bg-brand-50/50 border border-brand-100">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                    <span className="text-xs sm:text-sm text-brand-800 font-medium leading-relaxed">
+                      {point}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </section>
 
-            <div className="prose prose-sm text-brand-800 max-w-none space-y-4 text-xs sm:text-sm leading-relaxed">
-              <p>{tool.technicalExplanation.body}</p>
-              
-              {tool.technicalExplanation.points && (
-                <ul className="space-y-2 list-none p-0 mt-4">
-                  {tool.technicalExplanation.points.map((pt, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5 p-2 bg-brand-50/70 rounded-lg border border-brand-100">
-                      <span className="w-1.5 h-1.5 rounded-full bg-accent-600 mt-2 shrink-0" />
-                      <span className="text-brand-900 font-medium">{pt}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          </section>
-        )}
-
-        {/* Real-World Examples / Benchmarks */}
-        {tool.examples && (
-          <section className="bg-white rounded-3xl border border-brand-200/90 shadow-sm p-6 sm:p-10 space-y-6">
-            <h2 className="text-xl sm:text-2xl font-bold text-brand-950 border-b border-brand-100 pb-4">
-              {tool.examples.title}
-            </h2>
-
-            <div className="space-y-4">
-              <div>
-                <span className="block text-xs font-bold text-brand-600 uppercase mb-1.5">Input Sample:</span>
-                <pre className="p-4 bg-brand-50 border border-brand-200 rounded-xl text-xs font-mono text-brand-900 overflow-x-auto">
-                  {tool.examples.input}
-                </pre>
-              </div>
-
-              <div>
-                <span className="block text-xs font-bold text-emerald-700 uppercase mb-1.5">Expected Output:</span>
-                <pre className="p-4 bg-brand-950 border border-brand-800 rounded-xl text-xs font-mono text-emerald-400 overflow-x-auto">
-                  {tool.examples.output}
-                </pre>
-              </div>
-
-              {tool.examples.notes && (
-                <p className="text-xs text-brand-600 italic bg-brand-50/60 p-3 rounded-xl border border-brand-100">
-                  Note: {tool.examples.notes}
-                </p>
-              )}
-            </div>
-          </section>
-        )}
-
-        {/* Frequently Asked Questions (FAQ) Accordion */}
-        {tool.faqs && tool.faqs.length > 0 && (
-          <section className="bg-white rounded-3xl border border-brand-200/90 shadow-sm p-6 sm:p-10 space-y-6">
-            <div className="flex items-center gap-3 border-b border-brand-100 pb-4">
-              <div className="w-9 h-9 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center font-bold">
-                <HelpCircle className="w-5 h-5" />
-              </div>
-              <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-brand-950">
-                  Frequently Asked Questions
-                </h2>
-                <p className="text-xs sm:text-sm text-brand-600">Everything you need to know about this tool</p>
-              </div>
-            </div>
-
-            <div className="space-y-3 pt-2">
-              {tool.faqs.map((faq, idx) => {
-                const isOpen = openFaqIndices.includes(idx);
-                return (
-                  <div 
-                    key={idx} 
-                    className="border border-brand-200/80 rounded-2xl overflow-hidden transition-all duration-200"
-                  >
-                    <button
-                      onClick={() => toggleFaq(idx)}
-                      className="w-full px-5 py-4 text-left flex items-center justify-between gap-4 bg-brand-50/40 hover:bg-brand-50 transition-colors cursor-pointer"
-                    >
-                      <span className="text-xs sm:text-sm font-bold text-brand-950">{faq.question}</span>
-                      <ChevronDown className={`w-4 h-4 text-brand-500 transition-transform duration-200 shrink-0 ${isOpen ? 'rotate-180' : ''}`} />
-                    </button>
-                    {isOpen && (
-                      <div className="px-5 py-4 bg-white border-t border-brand-100 text-xs sm:text-sm text-brand-700 leading-relaxed font-normal">
-                        {faq.answer}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </section>
-        )}
-
-        {/* Related Tools Navigation Cards */}
-        {relatedTools.length > 0 && (
-          <section className="space-y-6 pt-4">
-            <div className="flex items-center justify-between">
-              <h2 className="text-xl sm:text-2xl font-bold text-brand-950">
-                Related SEO Tools
+            {/* 3. Example */}
+            <section className="bg-white rounded-3xl border border-brand-200/90 shadow-sm p-6 sm:p-10 space-y-5">
+              <h2 className="text-xl sm:text-2xl font-bold text-brand-950 border-b border-brand-100 pb-4">
+                {guide.exampleHeading}
               </h2>
-              <a
-                href="/seo-tools/"
-                onClick={(e) => handleLinkClick(e, '/seo-tools/', onNavigate)}
-                className="text-xs font-bold text-accent-700 hover:text-accent-800 flex items-center gap-1 transition-colors no-underline cursor-pointer"
-              >
-                <span>View All Tools</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </a>
-            </div>
+              <div className="space-y-4">
+                <div>
+                  <span className="block text-xs font-bold text-brand-600 uppercase mb-1.5">
+                    {guide.exampleInputLabel || 'Sample input'}
+                  </span>
+                  <pre className="p-4 bg-brand-50 border border-brand-200 rounded-xl text-xs font-mono text-brand-900 whitespace-pre-wrap break-words overflow-x-auto">
+                    {guide.exampleInput}
+                  </pre>
+                </div>
+                <div>
+                  <span className="block text-xs font-bold text-emerald-700 uppercase mb-1.5">
+                    {guide.exampleOutputLabel || 'Returned output'}
+                  </span>
+                  <pre className="p-4 bg-brand-950 border border-brand-800 rounded-xl text-xs font-mono text-emerald-400 whitespace-pre-wrap break-words overflow-x-auto">
+                    {guide.exampleOutput}
+                  </pre>
+                </div>
+                {guide.exampleNote && (
+                  <p className="text-xs sm:text-sm text-brand-700 leading-relaxed bg-brand-50/60 p-3.5 rounded-xl border border-brand-100">
+                    {guide.exampleNote}
+                  </p>
+                )}
+              </div>
+            </section>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {relatedTools.map(rel => (
-                <a
-                  key={rel.id}
-                  href={rel.path}
-                  onClick={(e) => handleLinkClick(e, rel.path, onNavigate)}
-                  className="group bg-white hover:bg-brand-50/50 border border-brand-200/80 hover:border-accent-400 rounded-2xl p-5 flex flex-col justify-between transition-all duration-200 cursor-pointer shadow-2xs hover:shadow-md no-underline block"
-                >
-                  <div>
-                    {rel.badge && (
-                      <span className="inline-block px-2 py-0.5 rounded-md bg-accent-50 text-accent-700 border border-accent-200 text-[10px] font-bold uppercase mb-2">
-                        {rel.badge}
-                      </span>
-                    )}
-                    <h3 className="text-sm font-bold text-brand-950 group-hover:text-accent-700 transition-colors line-clamp-2">
-                      {rel.name}
+            {/* 4. Frequently asked questions (always visible in DOM, matching FAQPage JSON-LD) */}
+            <section className="bg-white rounded-3xl border border-brand-200/90 shadow-sm p-6 sm:p-10 space-y-5">
+              <div className="flex items-center gap-3 border-b border-brand-100 pb-4">
+                <div className="w-9 h-9 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center font-bold">
+                  <HelpCircle className="w-5 h-5" />
+                </div>
+                <h2 className="text-xl sm:text-2xl font-bold text-brand-950">
+                  {guide.faqHeading}
+                </h2>
+              </div>
+              <div className="space-y-4 pt-1">
+                {guide.faqs.map((faq, idx) => (
+                  <div
+                    key={idx}
+                    className="border border-brand-200/80 rounded-2xl overflow-hidden bg-white"
+                  >
+                    <h3 className="px-5 py-3.5 text-xs sm:text-sm font-bold text-brand-950 bg-brand-50/50 border-b border-brand-100">
+                      {faq.question}
                     </h3>
-                    <p className="text-xs text-brand-600 line-clamp-2 mt-1.5 mb-4">
-                      {rel.shortDescription}
+                    <p className="px-5 py-4 text-xs sm:text-sm text-brand-700 leading-relaxed font-normal">
+                      {faq.answer}
                     </p>
                   </div>
-                  <div className="pt-2 border-t border-brand-100 flex items-center text-xs font-bold text-accent-700 group-hover:text-accent-600">
-                    <span>Open Tool</span>
-                    <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-0.5 transition-transform" />
+                ))}
+              </div>
+            </section>
+
+            {/* 5. Related tools (3 links) */}
+            {relatedTools.length > 0 && (
+              <section className="space-y-5 pt-2">
+                <div className="flex items-center justify-between">
+                  <h2 className="text-xl sm:text-2xl font-bold text-brand-950">
+                    {guide.relatedHeading}
+                  </h2>
+                  <a
+                    href="/seo-tools/"
+                    onClick={(e) => handleLinkClick(e, '/seo-tools/', onNavigate)}
+                    className="text-xs font-bold text-accent-700 hover:text-accent-800 flex items-center gap-1 transition-colors no-underline cursor-pointer"
+                  >
+                    <span>View All Tools</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  {relatedTools.map(rel => (
+                    <a
+                      key={rel.id}
+                      href={rel.path}
+                      onClick={(e) => handleLinkClick(e, rel.path, onNavigate)}
+                      className="group bg-white hover:bg-brand-50/50 border border-brand-200/80 hover:border-accent-400 rounded-2xl p-5 flex flex-col justify-between transition-all duration-200 cursor-pointer shadow-2xs hover:shadow-md no-underline block"
+                    >
+                      <div>
+                        <h3 className="text-sm font-bold text-brand-950 group-hover:text-accent-700 transition-colors">
+                          {rel.name}
+                        </h3>
+                        <p className="text-xs text-brand-600 mt-1.5 mb-4 leading-relaxed">
+                          {rel.shortDescription}
+                        </p>
+                      </div>
+                      <div className="pt-2 border-t border-brand-100 flex items-center text-xs font-bold text-accent-700 group-hover:text-accent-600">
+                        <span>Open Tool</span>
+                        <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-0.5 transition-transform" />
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </section>
+            )}
+          </div>
+        ) : (
+          <>
+            {/* How to Use Step-by-Step */}
+            {tool.howToUse && tool.howToUse.length > 0 && (
+              <section className="bg-white rounded-3xl border border-brand-200/90 shadow-sm p-6 sm:p-10 space-y-6">
+                <div className="flex items-center gap-3 border-b border-brand-100 pb-4">
+                  <div className="w-9 h-9 rounded-xl bg-accent-50 text-accent-700 flex items-center justify-center font-bold">
+                    <BookOpen className="w-5 h-5" />
                   </div>
-                </a>
-              ))}
-            </div>
-          </section>
+                  <div>
+                    <h2 className="text-xl sm:text-2xl font-bold text-brand-950">
+                      How to Use the {tool.name}
+                    </h2>
+                    <p className="text-xs sm:text-sm text-brand-600">Follow these steps to analyze or generate your assets</p>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 pt-2">
+                  {tool.howToUse.map((step, idx) => (
+                    <div key={idx} className="flex gap-4 p-4 rounded-2xl bg-brand-50/70 border border-brand-100/90">
+                      <div className="w-7 h-7 shrink-0 rounded-full bg-accent-600 text-white font-bold text-xs flex items-center justify-center">
+                        {idx + 1}
+                      </div>
+                      <p className="text-xs sm:text-sm text-brand-800 leading-relaxed font-medium pt-0.5">
+                        {step}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {/* Features & Core Capabilities Grid */}
+            {tool.features && tool.features.length > 0 && (
+              <section className="bg-white rounded-3xl border border-brand-200/90 shadow-sm p-6 sm:p-10 space-y-6">
+                <div className="flex items-center gap-3 border-b border-brand-100 pb-4">
+                  <div className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">
+                    <Layers className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h2 className="text-xl sm:text-2xl font-bold text-brand-950">
+                      Core Features &amp; Capabilities
+                    </h2>
+                    <p className="text-xs sm:text-sm text-brand-600">Engineered for search professionals, developers, and founders</p>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                  {tool.features.map((feature, idx) => (
+                    <div key={idx} className="flex items-start gap-3 p-3.5 rounded-xl bg-brand-50/50 border border-brand-100">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                      <span className="text-xs sm:text-sm text-brand-800 font-medium leading-relaxed">
+                        {feature}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {/* In-depth Technical Explanation / Search Architecture */}
+            {tool.technicalExplanation && (
+              <section className="bg-white rounded-3xl border border-brand-200/90 shadow-sm p-6 sm:p-10 space-y-6">
+                <div className="flex items-center gap-3 border-b border-brand-100 pb-4">
+                  <div className="w-9 h-9 rounded-xl bg-indigo-50 text-indigo-700 flex items-center justify-center font-bold">
+                    <Sliders className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h2 className="text-xl sm:text-2xl font-bold text-brand-950">
+                      {tool.technicalExplanation.heading}
+                    </h2>
+                    <p className="text-xs sm:text-sm text-brand-600">Technical insights, Google guidelines, and architectural considerations</p>
+                  </div>
+                </div>
+
+                <div className="prose prose-sm text-brand-800 max-w-none space-y-4 text-xs sm:text-sm leading-relaxed">
+                  <p>{tool.technicalExplanation.body}</p>
+                  
+                  {tool.technicalExplanation.points && (
+                    <ul className="space-y-2 list-none p-0 mt-4">
+                      {tool.technicalExplanation.points.map((pt, idx) => (
+                        <li key={idx} className="flex items-start gap-2.5 p-2 bg-brand-50/70 rounded-lg border border-brand-100">
+                          <span className="w-1.5 h-1.5 rounded-full bg-accent-600 mt-2 shrink-0" />
+                          <span className="text-brand-900 font-medium">{pt}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </section>
+            )}
+
+            {/* Real-World Examples / Benchmarks */}
+            {tool.examples && (
+              <section className="bg-white rounded-3xl border border-brand-200/90 shadow-sm p-6 sm:p-10 space-y-6">
+                <h2 className="text-xl sm:text-2xl font-bold text-brand-950 border-b border-brand-100 pb-4">
+                  {tool.examples.title}
+                </h2>
+
+                <div className="space-y-4">
+                  <div>
+                    <span className="block text-xs font-bold text-brand-600 uppercase mb-1.5">Input Sample:</span>
+                    <pre className="p-4 bg-brand-50 border border-brand-200 rounded-xl text-xs font-mono text-brand-900 overflow-x-auto">
+                      {tool.examples.input}
+                    </pre>
+                  </div>
+
+                  <div>
+                    <span className="block text-xs font-bold text-emerald-700 uppercase mb-1.5">Expected Output:</span>
+                    <pre className="p-4 bg-brand-950 border border-brand-800 rounded-xl text-xs font-mono text-emerald-400 overflow-x-auto">
+                      {tool.examples.output}
+                    </pre>
+                  </div>
+
+                  {tool.examples.notes && (
+                    <p className="text-xs text-brand-600 italic bg-brand-50/60 p-3 rounded-xl border border-brand-100">
+                      Note: {tool.examples.notes}
+                    </p>
+                  )}
+                </div>
+              </section>
+            )}
+
+            {/* Frequently Asked Questions (FAQ) Accordion */}
+            {tool.faqs && tool.faqs.length > 0 && (
+              <section className="bg-white rounded-3xl border border-brand-200/90 shadow-sm p-6 sm:p-10 space-y-6">
+                <div className="flex items-center gap-3 border-b border-brand-100 pb-4">
+                  <div className="w-9 h-9 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center font-bold">
+                    <HelpCircle className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h2 className="text-xl sm:text-2xl font-bold text-brand-950">
+                      Frequently Asked Questions
+                    </h2>
+                    <p className="text-xs sm:text-sm text-brand-600">Everything you need to know about this tool</p>
+                  </div>
+                </div>
+
+                <div className="space-y-3 pt-2">
+                  {tool.faqs.map((faq, idx) => {
+                    const isOpen = openFaqIndices.includes(idx);
+                    return (
+                      <div 
+                        key={idx} 
+                        className="border border-brand-200/80 rounded-2xl overflow-hidden transition-all duration-200"
+                      >
+                        <button
+                          onClick={() => toggleFaq(idx)}
+                          className="w-full px-5 py-4 text-left flex items-center justify-between gap-4 bg-brand-50/40 hover:bg-brand-50 transition-colors cursor-pointer"
+                        >
+                          <span className="text-xs sm:text-sm font-bold text-brand-950">{faq.question}</span>
+                          <ChevronDown className={`w-4 h-4 text-brand-500 transition-transform duration-200 shrink-0 ${isOpen ? 'rotate-180' : ''}`} />
+                        </button>
+                        {isOpen && (
+                          <div className="px-5 py-4 bg-white border-t border-brand-100 text-xs sm:text-sm text-brand-700 leading-relaxed font-normal">
+                            {faq.answer}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </section>
+            )}
+
+            {/* Related Tools Navigation Cards */}
+            {relatedTools.length > 0 && (
+              <section className="space-y-6 pt-4">
+                <div className="flex items-center justify-between">
+                  <h2 className="text-xl sm:text-2xl font-bold text-brand-950">
+                    Related SEO Tools
+                  </h2>
+                  <a
+                    href="/seo-tools/"
+                    onClick={(e) => handleLinkClick(e, '/seo-tools/', onNavigate)}
+                    className="text-xs font-bold text-accent-700 hover:text-accent-800 flex items-center gap-1 transition-colors no-underline cursor-pointer"
+                  >
+                    <span>View All Tools</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                  {relatedTools.map(rel => (
+                    <a
+                      key={rel.id}
+                      href={rel.path}
+                      onClick={(e) => handleLinkClick(e, rel.path, onNavigate)}
+                      className="group bg-white hover:bg-brand-50/50 border border-brand-200/80 hover:border-accent-400 rounded-2xl p-5 flex flex-col justify-between transition-all duration-200 cursor-pointer shadow-2xs hover:shadow-md no-underline block"
+                    >
+                      <div>
+                        {rel.badge && (
+                          <span className="inline-block px-2 py-0.5 rounded-md bg-accent-50 text-accent-700 border border-accent-200 text-[10px] font-bold uppercase mb-2">
+                            {rel.badge}
+                          </span>
+                        )}
+                        <h3 className="text-sm font-bold text-brand-950 group-hover:text-accent-700 transition-colors line-clamp-2">
+                          {rel.name}
+                        </h3>
+                        <p className="text-xs text-brand-600 line-clamp-2 mt-1.5 mb-4">
+                          {rel.shortDescription}
+                        </p>
+                      </div>
+                      <div className="pt-2 border-t border-brand-100 flex items-center text-xs font-bold text-accent-700 group-hover:text-accent-600">
+                        <span>Open Tool</span>
+                        <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-0.5 transition-transform" />
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </section>
+            )}
+          </>
         )}
 
         {/* Advisory / Consulting Banner */}

@@ -774,8 +774,20 @@ export const imageTools: ToolRegistryItem[] = [
     },
     faqs: [
       {
-        question: 'Can I use an SVG file as a favicon?',
-        answer: 'Yes! Modern browsers support SVG favicons (<link rel="icon" type="image/svg+xml" href="/icon.svg">), allowing infinite vector scaling and automatic dark mode adaptation.'
+        question: 'Which HTML link tags are commonly used for favicons?',
+        answer: 'Sites commonly declare a standard <link rel="icon"> for browsers, <link rel="apple-touch-icon"> for iOS home screens, and <link rel="manifest"> pointing to a web app manifest.'
+      },
+      {
+        question: 'Does the Favicon Checker fetch live icon files from my website URL?',
+        answer: 'No. The interactive tool on this page works locally in your browser by letting you paste, review, edit, and copy your HTML head link tags without fetching external URLs.'
+      },
+      {
+        question: 'What favicon size guidelines are commonly used for browsers and search snippets?',
+        answer: 'Common guidelines include 16x16 or 32x32 PNG files for browser tabs, 180x180 for Apple Touch Icons, and a square multiple of 48px (such as 48x48, 96x96, or 192x192) for search snippet compatibility.'
+      },
+      {
+        question: 'Can I use an SVG file for a website favicon?',
+        answer: 'Yes. Modern browsers support SVG icons declared with <link rel="icon" type="image/svg+xml" href="/icon.svg">, though keeping a fallback PNG or ICO file helps older tools.'
       }
     ],
     relatedToolSlugs: [
@@ -783,7 +795,55 @@ export const imageTools: ToolRegistryItem[] = [
       'serp-snippet-preview',
       'svg-optimizer',
       'image-dimension-checker'
-    ]
+    ],
+    belowSectionGuide: {
+      howToUseHeading: 'How to use the Favicon Checker',
+      howToUseSteps: [
+        'Paste your webpage <head> favicon <link> tags or manifest references into the Input Text / Code / URLs box.',
+        'Check the Output Results panel below to review rel values, href paths, sizes attributes, and file extensions clearly.',
+        'Edit missing sizes, typos in href URLs, or duplicate icon declarations directly inside the input box.',
+        'Click Copy Output (visible once text is entered) to copy the finalized head markup.'
+      ],
+      checksOrShowsHeading: 'What the Favicon Checker does',
+      checksOrShowsIntro: 'The Favicon Checker provides a client-side review and staging workspace for inspecting favicon HTML declarations without sending data to a server:',
+      checksOrShowsPoints: [
+        'Input Text / Code / URLs editor: Accepts HTML <link> tags and manifest references of any length inside your browser.',
+        'Output Results display: Mirrors your entered markup in a dark monospace block so you can spot missing rel, type, or sizes attributes easily.',
+        'One-click Copy Output: Appears above the Output Results box whenever text is present for fast copying back into your site template.',
+        'Local-only processing: Runs strictly in your browser with zero remote network requests or URL crawling.'
+      ],
+      exampleHeading: 'Example',
+      exampleInputLabel: 'Sample input',
+      exampleInput: '<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />\n<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />',
+      exampleOutputLabel: 'Output Results panel',
+      exampleOutput: '<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />\n<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />',
+      exampleNote: 'Reviewing your icon tags in one clean block makes it easy to confirm consistent root-relative paths and explicit sizes attributes before deployment.',
+      faqHeading: 'Frequently asked questions',
+      faqs: [
+        {
+          question: 'Which HTML link tags are commonly used for favicons?',
+          answer: 'Sites commonly declare a standard <link rel="icon"> for browsers, <link rel="apple-touch-icon"> for iOS home screens, and <link rel="manifest"> pointing to a web app manifest.'
+        },
+        {
+          question: 'Does the Favicon Checker fetch live icon files from my website URL?',
+          answer: 'No. The interactive tool on this page works locally in your browser by letting you paste, review, edit, and copy your HTML head link tags without fetching external URLs.'
+        },
+        {
+          question: 'What favicon size guidelines are commonly used for browsers and search snippets?',
+          answer: 'Common guidelines include 16x16 or 32x32 PNG files for browser tabs, 180x180 for Apple Touch Icons, and a square multiple of 48px (such as 48x48, 96x96, or 192x192) for search snippet compatibility.'
+        },
+        {
+          question: 'Can I use an SVG file for a website favicon?',
+          answer: 'Yes. Modern browsers support SVG icons declared with <link rel="icon" type="image/svg+xml" href="/icon.svg">, though keeping a fallback PNG or ICO file helps older tools.'
+        }
+      ],
+      relatedHeading: 'Related tools',
+      relatedSlugs: [
+        'favicon-generator',
+        'serp-snippet-preview',
+        'image-dimension-checker'
+      ]
+    }
   },
   {
     id: 'svg-optimizer',

@@ -43,8 +43,20 @@ export const calculatorTools: ToolRegistryItem[] = [
     },
     faqs: [
       {
-        question: 'How long does it typically take to see a positive ROI from SEO?',
-        answer: 'Most businesses achieve positive cash-flow ROI from SEO within 6 to 9 months, with compounding accelerating significantly in year two.'
+        question: 'What formula does the SEO ROI Calculator use?',
+        answer: 'The calculator computes New Monthly Visits as Math.round(Current Visitors × Growth % / 100), Incremental Monthly Revenue as New Monthly Visits × (Conversion Rate % / 100) × Average Order Value, multiplies monthly revenue and monthly retainer by 12 for annual totals, calculates Net Profit as Annual Return minus Annual SEO Cost, and computes ROI % as Math.round((Net Profit / Annual SEO Cost) × 100).'
+      },
+      {
+        question: 'Why does the forecast panel calculate a 12-month period?',
+        answer: 'The calculator uses a fixed 12-month campaign horizon in its code so monthly traffic gains and monthly SEO retainers convert into an annual comparison.'
+      },
+      {
+        question: 'Can the SEO ROI Calculator show a negative ROI?',
+        answer: 'Yes. When your projected 12-month incremental revenue is lower than 12 months of your SEO retainer, Net Annual Profit turns red and ROI shows a negative percentage.'
+      },
+      {
+        question: 'Do the calculator numbers guarantee SEO results?',
+        answer: 'No. Every figure is an arithmetic projection calculated directly from the slider assumptions you choose and does not guarantee rankings, traffic, or revenue.'
       }
     ],
     relatedToolSlugs: [
@@ -53,7 +65,55 @@ export const calculatorTools: ToolRegistryItem[] = [
       'conversion-rate-calculator',
       'roas-calculator'
     ],
-    legacyPaths: ['/seo-roi-calculator/']
+    legacyPaths: ['/seo-roi-calculator/'],
+    belowSectionGuide: {
+      howToUseHeading: 'How to use the SEO ROI Calculator',
+      howToUseSteps: [
+        'Set Current Monthly Organic Visitors using the first slider (1,000 to 200,000 visits/mo).',
+        'Adjust Expected Organic Growth (% over current) from +10% to +300% to model additional monthly visits.',
+        'Set Website Conversion Rate (%) from 0.5% to 10% and Average Order Value / Customer LTV ($) from $20 to $5,000.',
+        'Set Monthly SEO Budget / Retainer ($) from $500 to $15,000 and read the live 12-Month Financial Forecast panel on the right.'
+      ],
+      checksOrShowsHeading: 'What the SEO ROI Calculator shows',
+      checksOrShowsIntro: 'Using a fixed 12-month multiplier, the calculator takes your five slider inputs and computes six forecast metrics live in the browser:',
+      checksOrShowsPoints: [
+        'New Monthly Organic Traffic: Calculated as Current Monthly Visitors × (Expected Growth % ÷ 100), rounded to the nearest whole visitor.',
+        'Incremental Monthly Revenue: Calculated as New Monthly Traffic × (Conversion Rate % ÷ 100) × Average Order Value ($).',
+        'Total 12-Month Gross Return and Total Annual SEO Investment: Multiplies Incremental Monthly Revenue by 12 and Monthly SEO Budget by 12.',
+        'Net Annual Profit and Projected ROI (%): Subtracts Total Annual SEO Investment from Total 12-Month Gross Return, then divides Net Profit by Total Annual SEO Investment × 100.'
+      ],
+      exampleHeading: 'Example',
+      exampleInputLabel: 'Sample slider inputs',
+      exampleInput: 'Current Monthly Organic Visitors: 10,000 / mo\nExpected Organic Growth: +50%\nWebsite Conversion Rate: 2%\nAverage Order Value / Customer LTV: $200\nMonthly SEO Budget / Retainer: $2,000 / mo',
+      exampleOutputLabel: '12-Month Financial Forecast output',
+      exampleOutput: 'Projected ROI: +900%\nNew Monthly Organic Traffic: +5,000 visits/mo\nIncremental Monthly Revenue: +$20,000 / mo\nTotal 12-Month Gross Return: $240,000\nTotal Annual SEO Investment: $24,000\nNet Annual Profit: $216,000',
+      exampleNote: 'Outputs depend entirely on your chosen growth, conversion rate, and order value inputs; actual organic performance varies by market and execution.',
+      faqHeading: 'Frequently asked questions',
+      faqs: [
+        {
+          question: 'What formula does the SEO ROI Calculator use?',
+          answer: 'The calculator computes New Monthly Visits as Math.round(Current Visitors × Growth % / 100), Incremental Monthly Revenue as New Monthly Visits × (Conversion Rate % / 100) × Average Order Value, multiplies monthly revenue and monthly retainer by 12 for annual totals, calculates Net Profit as Annual Return minus Annual SEO Cost, and computes ROI % as Math.round((Net Profit / Annual SEO Cost) × 100).'
+        },
+        {
+          question: 'Why does the forecast panel calculate a 12-month period?',
+          answer: 'The calculator uses a fixed 12-month campaign horizon in its code so monthly traffic gains and monthly SEO retainers convert into an annual comparison.'
+        },
+        {
+          question: 'Can the SEO ROI Calculator show a negative ROI?',
+          answer: 'Yes. When your projected 12-month incremental revenue is lower than 12 months of your SEO retainer, Net Annual Profit turns red and ROI shows a negative percentage.'
+        },
+        {
+          question: 'Do the calculator numbers guarantee SEO results?',
+          answer: 'No. Every figure is an arithmetic projection calculated directly from the slider assumptions you choose and does not guarantee rankings, traffic, or revenue.'
+        }
+      ],
+      relatedHeading: 'Related tools',
+      relatedSlugs: [
+        'seo-traffic-calculator',
+        'conversion-rate-calculator',
+        'roas-calculator'
+      ]
+    }
   },
   {
     id: 'local-seo-calc',
@@ -139,8 +199,20 @@ export const calculatorTools: ToolRegistryItem[] = [
     },
     faqs: [
       {
-        question: 'What percentage of searchers click on the #1 organic result?',
-        answer: 'On clean search result pages without heavy ads, position 1 captures roughly 28% to 32% of total clicks. On mobile, this can be slightly lower due to screen real estate occupied by ads.'
+        question: 'How do SEO teams estimate potential monthly organic traffic from search volume?',
+        answer: 'A common estimation formula multiplies a keyword’s monthly search volume by an assumed click-through rate (CTR) for a target ranking position, such as 10,000 searches × 20% CTR = 2,000 estimated visits.'
+      },
+      {
+        question: 'What does the interactive SEO Traffic Calculator workspace on this page do?',
+        answer: 'The current widget on this page provides a client-side Input Text / Code / URLs box, an Output Results display, and a Copy Output button so you can record, review, and copy keyword traffic notes without running an automated calculation or sending data to a server.'
+      },
+      {
+        question: 'Why does actual organic traffic differ from keyword search volume?',
+        answer: 'Not every search results in a click, clicks are split across multiple results and SERP features, and one page can also attract traffic from many related long-tail variations.'
+      },
+      {
+        question: 'Does this tool guarantee a specific amount of search traffic?',
+        answer: 'No. Any traffic forecast is only an estimate based on assumed search demand and click-through rates, not a guaranteed outcome.'
       }
     ],
     relatedToolSlugs: [
@@ -148,7 +220,55 @@ export const calculatorTools: ToolRegistryItem[] = [
       'seo-roi-calculator',
       'seo-growth-calculator',
       'roas-calculator'
-    ]
+    ],
+    belowSectionGuide: {
+      howToUseHeading: 'How to use the SEO Traffic Calculator',
+      howToUseSteps: [
+        'Enter your target keyword list, monthly search volume notes, and estimated click-through rates into the Input Text / Code / URLs editor.',
+        'Inspect your organized forecast notes inside the Output Results panel below the input box.',
+        'Edit or adjust your keyword rows directly in the editor as you compare scenarios.',
+        'Click Copy Output (visible once text is entered) to copy your traffic forecast notes to your clipboard.'
+      ],
+      checksOrShowsHeading: 'What the SEO Traffic Calculator does',
+      checksOrShowsIntro: 'In its current code, this page provides a local client-side note and staging editor with zero server data transmission:',
+      checksOrShowsPoints: [
+        'Client-side input box: Accepts pasted keyword lists, search volume figures, and manual traffic estimates inside Input Text / Code / URLs.',
+        'Output Results preview: Mirrors your entered text in a clean monospace display panel rather than running built-in CTR sliders or arithmetic formulas.',
+        'Copy Output button: Appears above Output Results once text is entered so you can copy your structured forecast notes into a spreadsheet or ROI model.',
+        'Private browser execution: Keeps all keyword and planning data inside your current browser session.'
+      ],
+      exampleHeading: 'Example',
+      exampleInputLabel: 'Sample input',
+      exampleInput: 'Keyword: technical seo checklist\nMonthly Volume: 2,400 | Assumed CTR: 15%\nManual Estimate (Volume x CTR): 360 visits/mo',
+      exampleOutputLabel: 'Output Results panel',
+      exampleOutput: 'Keyword: technical seo checklist\nMonthly Volume: 2,400 | Assumed CTR: 15%\nManual Estimate (Volume x CTR): 360 visits/mo',
+      exampleNote: 'Because this widget echoes text rather than calculating numbers automatically, compute your Search Volume × CTR rows before copying them out, and treat estimates as planning assumptions only.',
+      faqHeading: 'Frequently asked questions',
+      faqs: [
+        {
+          question: 'How do SEO teams estimate potential monthly organic traffic from search volume?',
+          answer: 'A common estimation formula multiplies a keyword’s monthly search volume by an assumed click-through rate (CTR) for a target ranking position, such as 10,000 searches × 20% CTR = 2,000 estimated visits.'
+        },
+        {
+          question: 'What does the interactive SEO Traffic Calculator workspace on this page do?',
+          answer: 'The current widget on this page provides a client-side Input Text / Code / URLs box, an Output Results display, and a Copy Output button so you can record, review, and copy keyword traffic notes without running an automated calculation or sending data to a server.'
+        },
+        {
+          question: 'Why does actual organic traffic differ from keyword search volume?',
+          answer: 'Not every search results in a click, clicks are split across multiple results and SERP features, and one page can also attract traffic from many related long-tail variations.'
+        },
+        {
+          question: 'Does this tool guarantee a specific amount of search traffic?',
+          answer: 'No. Any traffic forecast is only an estimate based on assumed search demand and click-through rates, not a guaranteed outcome.'
+        }
+      ],
+      relatedHeading: 'Related tools',
+      relatedSlugs: [
+        'seo-roi-calculator',
+        'organic-ctr-calculator',
+        'conversion-rate-calculator'
+      ]
+    }
   },
   {
     id: 'organic-ctr-calculator',
